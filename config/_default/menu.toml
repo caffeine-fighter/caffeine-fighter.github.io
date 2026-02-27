@@ -14,10 +14,3 @@
 
     [social.params]
         icon = "brand-github"
-
-[[social]]
-    identifier = "X"
-    name       = "X"
-    url        = "https://x.com/pstr31"
-    [social.params]
-        icon = "brand-x"
