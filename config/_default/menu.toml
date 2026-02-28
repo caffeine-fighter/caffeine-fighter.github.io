@@ -14,3 +14,11 @@
 
     [social.params]
         icon = "brand-github"
+
+[[social]]
+    identifier = "instagram"
+    name       = "Instagram"
+    url        = "https://www.instagram.com/caffeine.fighter"
+
+    [social.params]
+        icon = "instagram"

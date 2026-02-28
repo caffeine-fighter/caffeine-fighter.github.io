@@ -17,7 +17,7 @@ title = "카페인파이터의 일기장"
     subtitle = "Data Science, Mathematics & Algorithms"
     [params.sidebar.avatar]
       local = true
-      src = "img/hoshini_test_resized.jpg"
+      src = "img/hoshino_test.jpg"
 
 [[menu.main]]
   identifier = "home"
