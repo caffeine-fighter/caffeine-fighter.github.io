@@ -24,7 +24,7 @@ SortBy              = "default"
 
 [article]
     headingAnchor = false
-    math          = false
+    math          = true
     readingTime   = true
 
     [article.license]
@@ -48,10 +48,22 @@ SortBy              = "default"
     toggle  = true
     default = "auto"
 
-## Comments
 [comments]
     enabled  = true
-    provider = "disqus"
+    provider = "giscus" 
 
-    # See all the available configurations at https://github.com/CaiJimmy/hugo-theme-stack/blob/master/config/_default/params.toml
-    # Copy the configurations you need from there and paste it here.
+    [comments.giscus]
+        repo = "caffeine-fighter/caffeine-fighter.github.io"
+        repoId = "R_kgDORaF3hg"
+        category = "Announcements"
+        categoryId = "DIC_kwDORaF3hs4C3cX0"
+        mapping = "pathname"
+        strict = "0"
+        reactionsEnabled = "1"
+        emitMetadata = "0"
+        inputPosition = "bottom"
+        lightTheme = "noborder_light"
+        darkTheme = "noborder_gray"
+        lang = "ko"
+        loading = "lazy"
+        crossorigin = "anonymous"

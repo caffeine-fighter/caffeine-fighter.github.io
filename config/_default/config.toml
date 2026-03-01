@@ -19,6 +19,7 @@ title = "카페인파이터의 일기장"
       local = true
       src = "img/hoshino_test.jpg"
 
+
 [[menu.main]]
   identifier = "home"
   name = "Home"
@@ -42,3 +43,4 @@ title = "카페인파이터의 일기장"
   name = "Search"
   url = "/search/"
   weight = 4
+
