@@ -7,6 +7,16 @@ title = "카페인파이터의 일기장"
   [[module.imports]]
     path = "github.com/CaiJimmy/hugo-theme-stack/v4"
 
+# robots.txt
+enableRobotsTXT = true
+
+# sitemap 생성
+[sitemap]
+# always, hourly daily, weekly, monthly, yearly, never
+  changefreq = "monthly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
 [params]
   math = true
 
