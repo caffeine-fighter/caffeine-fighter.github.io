@@ -3,11 +3,6 @@ languageCode = "ko-kr"
 defaultContentLanguage = "ko"
 title = "카페인파이터의 일기장"
 
-[module]
-  [[module.imports]]
-    path = "github.com/CaiJimmy/hugo-theme-stack/v4"
-
-
 enableRobotsTXT = true
 
 [sitemap]
@@ -15,6 +10,11 @@ enableRobotsTXT = true
   changefreq = "monthly"
   filename = "sitemap.xml"
   priority = 0.5
+
+  
+[module]
+  [[module.imports]]
+    path = "github.com/CaiJimmy/hugo-theme-stack/v4"
 
 [params]
   math = true
