@@ -10,7 +10,7 @@ comments: true
 build:
     list: always    # Change to "never" to hide the page from the list
 categories:
-    - " 갓생"
+    - "interview-reviews"
 tags:
     - "장학금"
 ---

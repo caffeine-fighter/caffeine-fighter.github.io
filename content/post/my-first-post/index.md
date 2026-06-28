@@ -2,8 +2,6 @@
 title: "test123"
 description: "just a simple post"
 date: 2026-02-27
-categories:
-    - "Development"
 tags:
     - "demo"
 math: true
