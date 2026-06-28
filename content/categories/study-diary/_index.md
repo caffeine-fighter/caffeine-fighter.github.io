@@ -1,5 +1,5 @@
 ---
-title: "공부 일기"
+title: "공부 기록"
 description: "공부한 내용과 학습 과정을 기록합니다."
 image:
 
