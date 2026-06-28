@@ -2,6 +2,7 @@
 title: "2026 SKYSH 해커톤 후기: FOMO Break"
 description: "발표하지 못했지만, 끝까지 제품을 만든 팀 근고르기의 하루"
 date: 2026-06-29T00:28:47+09:00
+event_date: 2026-06-28
 slug: "20260629-fomo-break-hackathon-review"
 image:
 math:

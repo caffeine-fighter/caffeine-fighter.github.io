@@ -2,6 +2,7 @@
 title: "2026 KT디지털인재장학금 합격수기"
 description: "등록금쌀먹효도"
 date: 2026-02-27T15:59:05+09:00
+event_date: 2026-02-27
 slug: "20260227-ktgf-review"
 image: 
 math: 
@@ -11,6 +12,7 @@ build:
     list: always    # Change to "never" to hide the page from the list
 categories:
     - "interview-reviews"
+    - "scholarship-application-reviews"
 tags:
     - "장학금"
 ---
