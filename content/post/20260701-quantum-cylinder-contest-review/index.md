@@ -1,6 +1,6 @@
 ---
 title: "2026 양자정보경진대회 후기: QuantumCylinder"
-description: "SKYSH 해커톤 다음 날, QuantumCylinder로 3일 동안 연구·구현·발표를 밀어붙인 기록"
+description: "SKYSH 해커톤 다음 날, QuantumCylinder로 3일 동안 연구·구현·발표를 밀어붙이고 논문화 가능성까지 붙잡은 기록"
 date: 2026-07-01T23:40:00+09:00
 slug: "20260701-quantum-cylinder-contest-review"
 image:
@@ -17,27 +17,31 @@ tags:
   - "해커톤"
   - "Qiskit"
   - "IBM QPU"
+  - "Hermes agent"
+  - "논문화"
   - "후기"
 ---
 
 2026 양자정보경진대회가 끝났다.
 
-최종 저장소는 팀원 공개 표기를 handle 기준으로 정리한 뒤 다시 연결할 예정이다.
+최종 저장소는 아래에 남겨 둔다.
+
+> GitHub: <https://github.com/chaejinlim235/QuantumCylinder/>
 
 이 글은 수상 여부만 말하는 글이 아니다. 오히려 그 결과까지 가는 과정, 우리가 어떤 상태로 시작했고, 어떤 문제를 골랐고, 3일 동안 어떤 식으로 버텼고, 어디까지 만들었는지를 시간순으로 남기는 회고다.
 
 블로그에서는 팀원 모두를 실명 대신 GitHub handle로만 표기한다.
 
-- `chaejinlim235`
-- `caffeine-fighter`
-- `koi312500`
-- `dreamerghost77`
+- 팀장 `chaejinlim235` (POSTECH 26')
+- 팀원 `caffeine-fighter` (SNU TI 24')
+- 팀원 `koi312500` (DGIST 26')
+- 팀원 `dreamerghost77` (SNU TI 26')
 
 ## 0. 전날: SKYSH 해커톤 직후
 
 양자정보경진대회는 내게 독립된 3일짜리 이벤트가 아니었다. 바로 전날까지 나는 SKYSH 해커톤에 있었다.
 
-그 해커톤에서 우리 팀은 **FOMO Break**라는 제품을 만들었다. 업비트 공개 데이터를 기반으로 FOMO Score, Historical Mirror, KNN Mirror, Decision Pause UX를 붙여 초보 사용자가 감정적인 투자 판단을 하기 전에 한 번 멈추게 하는 MVP였다.
+그 해커톤에서 내 팀은 **FOMO Break**라는 제품을 만들었다. 업비트 공개 데이터를 기반으로 FOMO Score, Historical Mirror, KNN Mirror, Decision Pause UX를 붙여 초보 사용자가 감정적인 투자 판단을 하기 전에 한 번 멈추게 하는 MVP였다.
 
 나는 그 팀에서 사실상 제품 방향과 MVP 구현의 중심을 맡았다. 백엔드 API를 연결하고, Historical Mirror를 붙이고, Decision Pause 흐름을 만들고, 프론트엔드 시연 UX까지 끝까지 다듬었다. 결과물은 꽤 괜찮았다고 생각한다. 적어도 우리가 잡은 문제, 구현한 기능, 심사 기준이었던 창의성·완성도·기술성·발전성에 정면으로 답하고 있었다고 믿었다.
 
@@ -100,13 +104,13 @@ SKYSH 후기는 따로 아래에 남겨 두었다.
 
 이 제약들은 발표를 약하게 만드는 장치처럼 보일 수도 있다. 하지만 우리에게는 오히려 안전장치였다. 작은 toy experiment를 너무 큰 말로 포장하는 순간, 프로젝트 전체의 신뢰도가 무너질 수 있다고 생각했다.
 
-## 4. Day 1: 대회 시작, 그리고 Problem 1/2부터 잠그기
+## 4. Day 1: 대회 시작, 그리고 Problem 1/2 Solution 확정하기
 
 6월 29일, 본선이 시작됐다.
 
-우리는 최종적으로 지정문제 3번을 풀었다. 프로젝트는 random-unitary diffusion, Hamiltonian projected diffusion, measurement-induced denoising을 한 흐름으로 묶는 방향으로 잡혔다.
+우리는 QuDDPM 관련 지정문제 3번을 풀었다. 프로젝트는 random-unitary diffusion, Hamiltonian projected diffusion, measurement-induced denoising을 한 흐름으로 묶는 방향으로 잡혔다.
 
-처음부터 Problem 3에 뛰어들면 위험하다고 봤다. Problem 1과 Problem 2가 흔들리면 뒤의 이야기도 설 수 없었다. 그래서 첫날에는 먼저 baseline을 잠그는 데 집중했다.
+문제는 기초 역할을 제공하는 Problem 1, 2, 그리고 사실상 자유 주제인 Problem 3으로 구성되어 있었다. 처음부터 Problem 3에 뛰어들면 위험하다고 봤다. Problem 1과 Problem 2가 흔들리면 뒤의 이야기도 설 수 없었다. 그래서 첫날에는 먼저 baseline을 잠그는 데 집중했다.
 
 ### Problem 1: random-unitary scrambling
 
@@ -153,7 +157,7 @@ Day 1의 목표는 화려한 결론이 아니라, 이 두 파트를 더 이상 �
 
 검토가 어느 정도 끝난 뒤에야 자동화를 다시 붙였다. 그날 밤에는 내 컴퓨터와 `dreamerghost77`의 컴퓨터에서 각각 메인/보조 실험을 돌려 두고 잤다. 사실 그 순간부터 이 대회는 단순 구현 대회가 아니라, 실험 자동화와 문서 업데이트를 동시에 굴리는 endurance game에 가까워졌다.
 
-## 5. Day 1 밤: Problem 3가 진짜 시작됐다
+## 5. Day 1 밤: Problem 3의 시작
 
 진짜 고생은 Problem 3부터였다.
 
@@ -216,7 +220,7 @@ median success probability: 0.468122
 measurement basis controls the recoverability-success-diversity trade-off
 ```
 
-## 8. Day 2 오후: 숫자 나열에서 이야기로
+## 8. Day 2 오후: 최종 후보 좁히기
 
 중간에 중요한 피드백이 있었다. 3-b에서 숫자만 제시하면 어떤 특징이 있는지 명확히 분석하기 어렵다는 지적이었다. 3-b에서 얻은 분석을 바탕으로 3-c가 자연스럽게 나와야 한다는 말도 있었다.
 
@@ -259,7 +263,33 @@ median success probability: 0.227065
 
 반대로 actor-critic은 더 강한 숫자를 만들 수 있었지만, raw target ensemble을 reward로 쓰는 target-aware toy에 가까웠다. 그래서 본문 main이 아니라 appendix/optional로 내렸다. 성능 좋은 후보를 무조건 앞에 세우는 것이 아니라, 문제 요구와 claim의 정직성을 기준으로 배치했다.
 
-## 10. IBM QPU validation
+## 10. Day 2 저녁: 대회 제출물을 넘어 논문을 생각하기 시작했다
+
+둘째 날 저녁부터는 이 프로젝트를 단순한 대회 제출물로만 보지 않기 시작했다. 처음에는 “문제를 풀어야 한다”, “좋은 숫자를 찾아야 한다”, “발표자료를 만들어야 한다”는 생각이 앞섰다. 그런데 Problem 3의 이야기가 조금씩 정리되면서, 이 결과를 더 발전시키면 짧은 technical note나 workshop paper, 적어도 학부 연구 보고서 수준의 글로 밀어볼 수 있지 않을까 하는 생각이 들었다.
+
+카카오톡 로그를 다시 보면 그 전환이 꽤 선명하게 남아 있다. 둘째 날 오후에는 팀원들에게 `README.md`, `docs/00_problem_brief.md`, `docs/03_experiment_protocol.md`, `docs/05_hackathon_execution_plan.md`를 읽고 issue와 branch 기준으로 작업하라고 공유했고, 바로 이어서 `06_paper_triage.md`를 올리며 “논문 읽고 있는 사람들”은 이것을 보라고 했다. 그때부터 내 머릿속의 기준은 “대회 답안”과 “논문화 가능한 연구 노트” 사이를 오가기 시작했다.
+
+물론 그 시점의 결과물이 바로 논문이 될 정도로 완성되어 있었다는 뜻은 아니다. 오히려 반대에 가깝다. 우리가 가진 것은 작은 toy setting, 제한된 seed sweep, state-vector simulation 중심의 benchmark, 그리고 작은 IBM QPU validation이었다. 하지만 그래도 연구로 발전시킬 수 있는 핵심 질문은 있었다.
+
+- measurement basis를 effective non-unitary projected map의 control knob으로 볼 수 있는가?
+- denoising을 distance 하나가 아니라 recoverability, success probability, diversity retention의 trade-off로 평가할 수 있는가?
+- post-selection을 한 번 더 적용하는 two-way scheme이 단순한 숫자 장난이 아니라 3-b의 분석에서 자연스럽게 나온 extension이라고 말할 수 있는가?
+- IBM QPU validation을 performance claim이 아니라 hardware-execution feasibility check로 제한하면 어디까지 정직하게 쓸 수 있는가?
+
+이 질문들이 보이기 시작하자, 프로젝트는 단순히 “수상할 수 있을까?”의 문제가 아니라 “이 결과를 대회 이후에도 살릴 수 있을까?”의 문제가 됐다. 그래서 둘째 날 저녁부터는 제출물과 별개로 논문화 가능성을 계속 생각했다. figure를 어떤 식으로 다시 뽑아야 할지, limitation을 어떻게 정리해야 할지, collapse baseline과 axis-only baseline을 어디까지 보강해야 할지, 후속 실험을 한다면 어떤 seed와 metric을 더 늘려야 할지 머릿속에서 계속 분해하고 있었다.
+
+같은 날 저녁에는 역할도 다시 나눴다. 나는 IBM QPU validation을 잡고, source/package QA와 발표자료/전달력을 별도 축으로 나누자고 했다. main story도 다시 고정했다.
+
+```text
+Problem 1/2 baseline comparison
+→ Problem 3(b) recoverability-success-diversity trade-off
+→ Problem 3(c) two-way post-selection improvement
+→ IBM QPU validation as appendix-level hardware execution
+```
+
+이 구조는 대회 발표용이기도 했지만, 동시에 논문을 생각할 때도 필요한 spine이었다. 논문이 되려면 실험이 많기만 해서는 안 된다. 하나의 질문이 있어야 하고, baseline이 있어야 하고, 제안이 있어야 하고, limitation이 있어야 한다. 둘째 날 저녁부터 나는 이 프로젝트를 그런 식으로 다시 보기 시작했다.
+
+## 11. IBM QPU validation
 
 IBM Cloud/QPU validation도 중요한 부분이었다.
 
@@ -288,7 +318,7 @@ beta 0.7500pi: p(F=0)=0.351270, entropy=1.736465
 
 대회 제출물에서는 과학적 주장만큼이나 운영 안전성이 중요했다.
 
-## 11. Day 3: 제출 패키지와 발표자료
+## 12. Day 3: 제출 패키지와 발표자료
 
 마지막 날은 연구라기보다 배포 엔지니어링에 가까웠다.
 
@@ -313,7 +343,7 @@ submission/usb_package/solution/
 
 이런 작업은 화려하지 않다. 하지만 실제 심사에서는 매우 중요하다. 좋은 결과도 어디에 있는지 모르거나, figure가 안 보이거나, README가 내부 개발 기록처럼 보이면 신뢰를 잃는다.
 
-## 12. 발표 흐름
+## 13. 발표 흐름
 
 최종 발표 흐름은 대략 다음 순서였다.
 
@@ -334,13 +364,15 @@ submission/usb_package/solution/
 
 > QuantumCylinder의 핵심은 작은 quantum diffusion 설정에서 measurement basis를 effective non-unitary projected map의 control knob으로 보고, distance만이 아니라 recoverability, success probability, diversity retention의 trade-off로 denoising을 평가하려 했다는 점이다.
 
-## 13. 결과 발표
+## 14. 결과 발표
 
 둘째 날에 수상 구조를 더 자세히 알게 됐다. 내가 이해한 바로는 결선 4팀 외에도 멘토 특별상 2팀, IBM/Pasqal QPU 사용 관련 상 2팀이 있었고, 전체 20팀 중 주제별로 2팀, 총 8팀이 어떤 형태로든 수상하는 구조였다. 결선에 진출하지 못한다면 우리 팀에게 남은 마지막 희망은 멘토 특별상이라고 생각했다. 그래서 더 간절했다.
 
 그때부터는 작년 우승팀의 repository와 우리의 repository를 계속 비교했다. 무엇이 부족한지, README가 충분히 judge-facing인지, figure와 table이 바로 읽히는지, 코드 재현성이 충분한지, special award라도 노릴 수 있을 만큼 성실한 결과물로 보이는지 계속 고쳤다. 결과물 자체가 갑자기 완전히 달라질 수는 없었지만, 적어도 “3일 동안 여기까지 밀어붙였다”는 흔적만큼은 분명하게 남기고 싶었다.
 
 수상하지 못했다.
+
+그 순간이 더 이상했던 것은, 나는 수상자 발표가 시작되는 순간까지도 이 결과물을 어떻게 논문 형태로 발전시킬지 생각하고 있었다는 점이다. 둘째 날 저녁부터 이미 논문화 가능성을 염두에 두고 있었고, 결과 발표 직전까지도 머릿속에서는 후속 실험, figure 재정리, baseline 보강, limitation 정리, repository 분기 계획이 돌아가고 있었다. 그래서 아무 이름도 불리지 않았을 때의 충격은 단순히 “대회에서 졌다”가 아니었다. 내가 연구 주제로 보기 시작한 작업이, 적어도 그 자리에서는 아무 공식적인 이름도 얻지 못했다는 감각에 가까웠다.
 
 솔직히 많이 아팠다. 전날 SKYSH에서도 괜찮은 제품을 만들고도 수상하지 못했고, 바로 이어진 양자정보경진대회에서도 3일 동안 실험과 구현과 보고서를 붙잡았지만 결과는 수상으로 이어지지 않았다. 특별상이라도 탈 수 있지 않을까 마지막까지 생각했기 때문에, 아무 이름도 불리지 않았을 때 박탈감이 컸다. 전체 사진 촬영 자리까지 버티기 어렵다고 느낄 만큼 마음이 무너졌다. 내 3일간의 노력이 물거품처럼 느껴졌다.
 
@@ -356,7 +388,7 @@ submission/usb_package/solution/
 
 이번 대회가 내게 남긴 가장 큰 감정은 그 둘의 공존이었다.
 
-## 14. 좋았던 점
+## 15. 좋았던 점
 
 가장 좋았던 점은 claim discipline이었다.
 
@@ -368,7 +400,7 @@ submission/usb_package/solution/
 
 네 번째는 마지막에 스토리를 다시 쓴 것이다. 처음부터 3-b와 3-c가 깔끔했던 것은 아니다. 중간에는 후보가 너무 많았고, 어느 것이 main인지 흐려졌다. 그런데 “3-b 분석에서 3-c가 나와야 한다”는 구조로 다시 정리하면서 제출물의 설득력이 좋아졌다.
 
-## 15. 힘들었던 점
+## 16. 힘들었던 점
 
 첫 번째는 학습 곡선이었다.
 
@@ -386,7 +418,7 @@ USB package, source code, solution notebooks, presentation PDF, README, reproduc
 
 상금도 필요했고, 나를 증명하고 싶었다. 그래서 수상하지 못했다는 결과는 더 크게 다가왔다. 특별상이라도 기대했기 때문에, 아무 상도 받지 못했을 때는 정말 3일이 물거품이 된 것처럼 느껴졌다. 그래도 기록으로 남겨 두지 않으면 이 3일은 그냥 “수상 실패”로만 남는다. 나는 그게 싫었다.
 
-## 16. 내가 배운 것
+## 17. 내가 배운 것
 
 이번 대회에서 가장 크게 배운 것은 “좋은 실험”과 “좋은 제출물”은 다르다는 점이다.
 
@@ -414,7 +446,7 @@ USB package, source code, solution notebooks, presentation PDF, README, reproduc
 
 이번에는 그 기준이 충분히 세워지지 않았고, 결과적으로 핵심 기술 실행이 나에게 많이 몰렸다. 그걸 나중에 감정으로만 받아들이지 않으려면, 다음에는 구조를 먼저 만들어야 한다.
 
-## 17. 그래도 남은 결론
+## 18. 그래도 남은 결론
 
 QuantumCylinder는 완벽한 프로젝트는 아니었다.
 
@@ -440,7 +472,11 @@ QuantumCylinder는 완벽한 프로젝트는 아니었다.
 
 내년에 다시 기회가 된다면, 각자가 자기 파트를 끝까지 소유할 수 있는 superteam을 꾸려서 올해 얻은 팁으로 우승을 노리고 싶다. 문제를 고르는 법, 초반 baseline을 잠그는 법, 자동화 실험을 돌리는 법, 발표 thesis를 세우는 법, 제출 package를 freeze하는 법을 올해 몸으로 배웠다.
 
-그리고 아직 끝난 것도 아니다. 사실 2일차 저녁부터는 이 결과물을 더 발전시켜 논문화할 수 있지 않을까 생각하고 있었다. 심사가 끝난 직후부터 개인 fork를 만들고 repository를 다시 파고, 무엇을 고치면 더 연구다운 형태가 될 수 있을지 보고 있다. 여기서 좋은 결과가 나오면 좋겠다. 수상은 못 했지만, 연구 주제의 씨앗까지 사라진 것은 아니라고 믿고 싶다.
+그리고 아직 끝난 것도 아니다. 사실 이 생각은 대회가 끝난 뒤 갑자기 생긴 것이 아니었다. 2일차 저녁부터 이미 이 결과물을 더 발전시켜 논문화할 수 있지 않을까 생각하고 있었다. `06_paper_triage.md`를 만들고, Problem 3의 claim을 어디까지 가져갈 수 있는지, 어떤 실험은 본문에 두고 어떤 것은 appendix로 내려야 하는지, 어떤 표현은 금지해야 하는지 계속 가르고 있었다.
+
+수상자 발표 순간까지도 나는 완전히 “끝났다”는 마음이 아니었다. 한쪽에서는 혹시 특별상이라도 받을 수 있지 않을까 기다리고 있었고, 다른 한쪽에서는 이 repository를 어떻게 다시 파서 논문화 가능한 형태로 만들지 생각하고 있었다. 발표가 끝나고 수상하지 못했다는 사실을 확인한 뒤에도, 바로 이 작업을 놓지는 않았다. 오히려 심사가 끝난 직후부터 개인 fork를 만들고 repository를 다시 파고, 무엇을 고치면 더 연구다운 형태가 될 수 있을지 보기 시작했다.
+
+당장 논문이 된다고 말할 수는 없다. 지금 결과는 아직 작은 toy benchmark이고, 더 많은 seed, 더 엄밀한 Born-weighted projected ensemble 재현, noise model 비교, hardware run 확장, baseline 보강이 필요하다. 하지만 연구 주제의 씨앗은 분명히 남았다. 수상은 못 했지만, QuantumCylinder가 단순한 3일짜리 실패로 끝나지 않았으면 한다. 여기서 좋은 결과가 나오면 좋겠다.
 
 마지막으로 3일 동안 같이 고생해 준 `chaejinlim235`, `dreamerghost77`, `koi312500`에게 고맙다. 결과가 아쉬운 것과 별개로, 끝까지 같이 있었고, 각자의 방식으로 기여했고, 이 이상한 프로젝트를 같이 QuantumCylinder라는 이름으로 남겼다.
 
