@@ -3,6 +3,15 @@ mainSections = ["post"]
 # Output page's full content in RSS.
 rssFullContent = true
 favicon        = "img/favicon.png"
+description    = "개발·연구·음악·학생 조직 운영 과정에서 문제를 분석하고 결과물을 만드는 과정을 기록하는 개인 블로그입니다."
+
+[author]
+    name   = "카페인파이터"
+    url    = "https://caffeine-fighter.github.io/p/20260601-profile/"
+    sameAs = [
+        "https://github.com/caffeine-fighter",
+        "https://www.instagram.com/caffeine.fighter",
+    ]
 
 # Accepted values: "default", "lastmod"
 # default = see https://gohugo.io/quick-reference/glossary/#default-sort-order
