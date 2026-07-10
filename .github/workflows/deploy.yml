@@ -81,8 +81,11 @@ jobs:
           hugo \
             --gc \
             --minify \
+            --panicOnWarning \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
+      - name: Validate search crawler files
+        run: python3 scripts/validate_search_files.py public
       - name: Cache save
         id: cache-save
         uses: actions/cache/save@v4

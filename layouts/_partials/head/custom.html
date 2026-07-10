@@ -7,6 +7,9 @@
 
 <meta name="author" content="{{ $authorName }}">
 <link rel="author" href="{{ $authorURL }}">
+{{- if .Params.noindex }}
+    <meta name="robots" content="noindex, follow">
+{{- end }}
 
 {{- if .IsHome -}}
     {{- $schema := dict
