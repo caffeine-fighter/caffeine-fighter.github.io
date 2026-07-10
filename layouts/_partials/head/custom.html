@@ -1,0 +1,46 @@
+{{- $authorName := .Site.Params.author.name | default .Site.Title -}}
+{{- $authorURL := .Site.Params.author.url | default .Site.BaseURL -}}
+{{- $author := dict "@type" "Person" "name" $authorName "url" $authorURL -}}
+{{- with .Site.Params.author.sameAs -}}
+    {{- $author = merge $author (dict "sameAs" .) -}}
+{{- end -}}
+
+<meta name="author" content="{{ $authorName }}">
+<link rel="author" href="{{ $authorURL }}">
+
+{{- if .IsHome -}}
+    {{- $schema := dict
+        "@context" "https://schema.org"
+        "@type" "WebSite"
+        "name" .Site.Title
+        "alternateName" "카페인파이터 블로그"
+        "url" .Site.BaseURL
+        "description" .Site.Params.description
+        "inLanguage" .Site.LanguageCode
+        "author" $author
+    -}}
+    <script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+{{- else if and .IsPage (eq .Section "post") -}}
+    {{- $description := .Description | default (.Summary | plainify) -}}
+    {{- $schema := dict
+        "@context" "https://schema.org"
+        "@type" "BlogPosting"
+        "headline" .Title
+        "description" $description
+        "url" .Permalink
+        "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+        "datePublished" (.PublishDate.Format "2006-01-02T15:04:05Z07:00")
+        "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+        "inLanguage" .Site.LanguageCode
+        "author" $author
+        "isPartOf" (dict "@type" "Blog" "name" .Site.Title "url" .Site.BaseURL)
+    -}}
+    {{- with .Params.tags -}}
+        {{- $schema = merge $schema (dict "keywords" (delimit . ", ")) -}}
+    {{- end -}}
+    {{- $image := partial "helper/image" (dict "Image" .Params.image "Resources" .Resources "Context" .) -}}
+    {{- with $image -}}
+        {{- $schema = merge $schema (dict "image" (absURL .Permalink)) -}}
+    {{- end -}}
+    <script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+{{- end -}}

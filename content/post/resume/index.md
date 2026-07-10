@@ -175,6 +175,8 @@ Seoul, South Korea · [lumina@snu.ac.kr](mailto:lumina@snu.ac.kr) · [github.com
 
 ## 리더십 및 단체 운영 경력
 
+> 관련 글: [동아리·학생 조직 운영 회고: 실패를 다음 구조로 바꾸는 법](/p/20260711-organization-operations-review/)
+
 
 ### 동아리 임원 경력
 

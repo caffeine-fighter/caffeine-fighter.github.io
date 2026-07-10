@@ -22,26 +22,8 @@ title = "카페인파이터의 일기장"
 
 
 [[menu.main]]
-  identifier = "home"
-  name = "Home"
-  url = "/"
-  weight = 1
-
-[[menu.main]]
-  identifier = "archives"
-  name = "Archives"
-  url = "/archives/"
-  weight = 2
-
-[[menu.main]]
   identifier = "categories"
   name = "Categories"
   url = "/categories/"
   weight = 3
-
-[[menu.main]]
-  identifier = "search"
-  name = "Search"
-  url = "/search/"
-  weight = 4
 
