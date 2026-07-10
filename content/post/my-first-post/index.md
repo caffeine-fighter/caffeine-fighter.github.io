@@ -2,6 +2,7 @@
 title: "test123"
 description: "just a simple post"
 date: 2026-02-27
+draft: true
 tags:
     - "demo"
 math: true

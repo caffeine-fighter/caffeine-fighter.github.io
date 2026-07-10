@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://caffeine-fighter.github.io/sitemap.xml

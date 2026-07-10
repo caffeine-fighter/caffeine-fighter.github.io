@@ -1,6 +1,7 @@
 ---
 title: "Search"
 slug: "search"
+noindex: true
 layout: "search"
 outputs:
     - html

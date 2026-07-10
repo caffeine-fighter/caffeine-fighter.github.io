@@ -2,12 +2,10 @@ baseURL = "https://caffeine-fighter.github.io/"
 languageCode = "ko-kr"
 defaultContentLanguage = "ko"
 title = "카페인파이터의 일기장"
+enableRobotsTXT = true
 
 [sitemap]
-# always, hourly daily, weekly, monthly, yearly, never
-  changefreq = "monthly"
   filename = "sitemap.xml"
-  priority = 0.5
 
   
 [module]
