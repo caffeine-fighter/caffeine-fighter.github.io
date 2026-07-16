@@ -1,5 +1,8 @@
 {{- $pages := slice site.Home -}}
 {{- $pages = $pages | append (where site.RegularPages "Section" "post") -}}
+{{- with site.GetPage "/resume" -}}
+  {{- $pages = $pages | append . -}}
+{{- end -}}
 {{- $pages = where $pages "Sitemap.Disable" "ne" true -}}
 {{- printf "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" | safeHTML }}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
