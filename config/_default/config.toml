@@ -25,3 +25,12 @@ enableRobotsTXT = true
   url = "/categories/"
   weight = 3
 
+[[menu.main]]
+  identifier = "profile"
+  name = "Profile"
+  url = "/p/20260601-profile/"
+  weight = 2
+
+  [menu.main.params]
+    icon = "user"
+
