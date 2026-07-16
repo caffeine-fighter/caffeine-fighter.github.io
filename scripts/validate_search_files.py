@@ -16,8 +16,10 @@ SITEMAP_URL = f"{BASE_URL}sitemap.xml"
 SITEMAP_NAMESPACE = "http://www.sitemaps.org/schemas/sitemap/0.9"
 REQUIRED_URLS = {
     BASE_URL,
+    f"{BASE_URL}resume/",
     f"{BASE_URL}p/20260711-organization-operations-review/",
 }
+STANDALONE_PAGES = ("resume/",)
 NOINDEX_PAGES = ("search/", "archives/")
 ABSENT_PAGES = (
     "p/test123/",
@@ -77,6 +79,18 @@ def output_path_for_url(public_dir: Path, url: str) -> Path:
 
 def expected_public_pages(public_dir: Path) -> set[str]:
     expected = {BASE_URL}
+    for relative_url in STANDALONE_PAGES:
+        html_path = public_dir / relative_url / "index.html"
+        page_url = f"{BASE_URL}{relative_url}"
+        if not html_path.is_file():
+            fail(f"expected standalone page is missing: /{relative_url}")
+        metadata = parse_head(html_path)
+        if metadata.canonicals != [page_url]:
+            fail(f"standalone page canonical mismatch for {page_url}")
+        if any("noindex" in value for value in metadata.robots):
+            fail(f"standalone page is marked noindex: {page_url}")
+        expected.add(page_url)
+
     posts_dir = public_dir / "p"
     if posts_dir.exists():
         for html_path in posts_dir.glob("**/index.html"):

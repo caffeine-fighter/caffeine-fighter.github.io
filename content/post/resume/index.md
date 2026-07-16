@@ -1,7 +1,7 @@
 ---
 title: "프로필"
 date: 2026-05-28
-lastmod: 2026-07-16T21:50:30+09:00
+lastmod: 2026-07-16T22:05:14+09:00
 draft: false
 description: "수학·소프트웨어·생성형 AI 연구·음악 창작·학생 조직 운영을 넘나들며 문제를 결과물과 구조로 바꿔 온 이력"
 slug: "20260601-profile"
@@ -9,6 +9,8 @@ toc: true
 ---
 
 Seoul, South Korea · [lumina@snu.ac.kr](mailto:lumina@snu.ac.kr) · [GitHub](https://github.com/caffeine-fighter)
+
+> 이 페이지는 개인 활동과 전체 연표까지 빠짐없이 담은 **상세 프로필**이다. 외부 제출·공유에 적합하도록 핵심 역량과 경력을 선별한 문서는 [Resume](/resume/)에서 볼 수 있다.
 
 서울대학교 첨단융합학부 융합데이터과학전공을 주전공으로 공부하며, 수리과학·음악학·컴퓨터공학·차세대지능형반도체를 복수전공하고 있다. 2024년 입학 후 5학기를 이수했으며, 현재 전체 GPA는 3.83/4.30, 전공 GPA는 4.10/4.30이다.
 

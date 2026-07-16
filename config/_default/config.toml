@@ -23,13 +23,22 @@ enableRobotsTXT = true
   identifier = "categories"
   name = "Categories"
   url = "/categories/"
+  weight = 5
+
+[[menu.main]]
+  identifier = "resume"
+  name = "Resume"
+  url = "/resume/"
   weight = 3
+
+  [menu.main.params]
+    icon = "link"
 
 [[menu.main]]
   identifier = "profile"
   name = "Profile"
   url = "/p/20260601-profile/"
-  weight = 2
+  weight = 4
 
   [menu.main.params]
     icon = "user"
