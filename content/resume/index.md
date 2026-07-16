@@ -2,14 +2,15 @@
 title: "Resume"
 description: "외부 공개·제출용으로 정리한 학업, 연구, 개발, 수상과 리더십 이력"
 date: 2026-07-16
-lastmod: 2026-07-16T22:05:14+09:00
+lastmod: 2026-07-16T22:10:47+09:00
+slug: "resume"
 toc: true
 draft: false
 ---
 
 Seoul, South Korea · [lumina@snu.ac.kr](mailto:lumina@snu.ac.kr) · [GitHub](https://github.com/caffeine-fighter)
 
-> 이 페이지는 **외부 공개·제출용 이력서**로, 검증 가능한 핵심 경력과 역할을 선별해 정리했다. 개인 활동과 세부 이력을 포함한 전체 기록은 [상세 프로필](/p/20260601-profile/)에서 볼 수 있다.
+> 이 페이지는 **외부 공개·제출용 이력서**로, 검증 가능한 핵심 경력과 역할을 선별해 정리했다. 개인 활동과 세부 이력을 포함한 전체 기록은 [상세 프로필](/profile/)에서 볼 수 있다.
 
 ## Summary
 
@@ -109,4 +110,4 @@ Seoul, South Korea · [lumina@snu.ac.kr](mailto:lumina@snu.ac.kr) · [GitHub](ht
 
 ---
 
-더 자세한 역할, 수상 내역, 개인 활동과 전체 연표는 [상세 프로필](/p/20260601-profile/)에 정리되어 있다.
+더 자세한 역할, 수상 내역, 개인 활동과 전체 연표는 [상세 프로필](/profile/)에 정리되어 있다.

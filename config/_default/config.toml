@@ -37,7 +37,7 @@ enableRobotsTXT = true
 [[menu.main]]
   identifier = "profile"
   name = "Profile"
-  url = "/p/20260601-profile/"
+  url = "/profile/"
   weight = 4
 
   [menu.main.params]
