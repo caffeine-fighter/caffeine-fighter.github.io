@@ -24,6 +24,7 @@ STANDALONE_PAGES = ("profile/", "resume/")
 NOINDEX_PAGES = ("search/", "archives/")
 ABSENT_PAGES = (
     "p/test123/",
+    "p/20260601-profile/",
     "links/",
     "categories/music-work-reviews/",
     "categories/study-diary/",
