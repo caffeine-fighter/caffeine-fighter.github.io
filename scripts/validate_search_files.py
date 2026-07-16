@@ -16,10 +16,11 @@ SITEMAP_URL = f"{BASE_URL}sitemap.xml"
 SITEMAP_NAMESPACE = "http://www.sitemaps.org/schemas/sitemap/0.9"
 REQUIRED_URLS = {
     BASE_URL,
+    f"{BASE_URL}profile/",
     f"{BASE_URL}resume/",
     f"{BASE_URL}p/20260711-organization-operations-review/",
 }
-STANDALONE_PAGES = ("resume/",)
+STANDALONE_PAGES = ("profile/", "resume/")
 NOINDEX_PAGES = ("search/", "archives/")
 ABSENT_PAGES = (
     "p/test123/",
