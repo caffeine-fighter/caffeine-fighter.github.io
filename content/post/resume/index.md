@@ -1,232 +1,189 @@
 ---
 title: "프로필"
 date: 2026-05-28
-lastmod: 2026-07-11T16:39:32+09:00
+lastmod: 2026-07-16T21:08:52+09:00
 draft: false
-description: "Full profile of me"
+description: "수학·소프트웨어·생성형 AI 연구·음악 창작·학생 조직 운영을 넘나들며 문제를 결과물과 구조로 바꿔 온 이력"
 slug: "20260601-profile"
 toc: true
 ---
 
-# 개요
+Seoul, South Korea · [lumina@snu.ac.kr](mailto:lumina@snu.ac.kr) · [GitHub](https://github.com/caffeine-fighter)
 
-Seoul, South Korea · [lumina@snu.ac.kr](mailto:lumina@snu.ac.kr) · [github.com/caffeine-fighter](https://github.com/caffeine-fighter)
+서울대학교 첨단융합학부 융합데이터과학전공을 주전공으로 공부하며, 수리과학·음악학·컴퓨터공학·차세대지능형반도체를 복수전공하고 있다. 2024년 입학 후 5학기를 이수했으며, 현재 전체 GPA는 3.83/4.30, 전공 GPA는 4.10/4.30이다.
 
-서울대학교에서 융합데이터과학, 수리과학, 음악학, 컴퓨터공학을 전공하고 있습니다.
+관심 분야는 수학과 알고리즘, 소프트웨어 제품 개발, 생성형 AI와 병렬 컴퓨팅, 음악 창작, 조직 운영이다. 서로 달라 보이는 분야에서도 복잡한 문제를 구조화하고, 필요한 사람과 기술을 연결해 실제 결과물로 완성하는 일을 해 왔다.
 
-동인 음악 작곡 및 밴드 활동을 하고 있습니다.
+## 핵심 활동과 성과
 
-보드게임, 특히 마작을 좋아하며 마작 프로로도 활동하고 있습니다.
-
-## 관심분야
-
-- **Algorithms and software engineering:** competitive programming, trading systems, web platforms, backend systems, and campus-scale services.
-- **Generative AI and systems:** diffusion models, LoRA-based adaptation, GPU memory behavior, and efficient model training.
-- **Education and mentoring:** programming tutoring, physics teaching assistance, residential mentoring, and student community building.
-- **Music and creative work:** band leadership, original songwriting, performance, and student music communities.
-
----
+| 분야 | 대표 경험과 결과 |
+|---|---|
+| 학업 | 세종과학예술영재학교 수석 입학·GPA 4.10 졸업, 서울대학교 5학기 이수·전공 GPA 4.10 |
+| 수학·알고리즘 | 교내 수학사고력챌린지 전 문항 최고점 1위, Jane Street ETC @ Seoul 우승, Codeforces Candidate Master·BOJ Diamond III |
+| 소프트웨어·제품 개발 | K-HTML 해커톤 대상, Blaybus MVP 개발 해커톤 대상, TTUNS 풀스택 개발, SKYSH·양자정보경진대회 본선 진출 팀장 |
+| AI·시스템 연구 | MLSYS Lab에서 Diffusion Model·LoRA Training·Attention·Parallel Computing 연구, Stable Diffusion 관련 개인 연구 |
+| 음악·창작 | 개인 앨범 soundream.zip 발매, 게임 메인 사운드 디렉션, 오리지널 밴드 창설·작곡·믹싱·마스터링 |
+| 리더십·운영 | 1,000명 이상 새내기 커뮤니티 운영, 연합 공연 총괄, 11개교 대학생 학회 회장, 여러 학생 조직의 행정 체계 설계 |
 
 ## 학업
 
 ### 서울대학교
 
-**B.S. in Integrative Data Science, School of Transdisciplinary Innovations**  
-**Mar. 2024 -- Present · Seoul, South Korea**
+**2024.03–현재 · 첨단융합학부 · 5학기 이수**
 
-- GPA: **3.85 / 4.30**; Major GPA: **4.15 / 4.30**.
-- Additional majors: **Mathematical Sciences**, **Musicology**, **Computer Science Engineering**.
+- 전체 GPA: **3.83/4.30**
+- 전공 GPA: **4.10/4.30**
+- 주전공: 첨단융합학부 **융합데이터과학전공**
+- 복수전공: 자연과학대학 **수리과학전공**, 음악대학 **음악학과**, 공과대학 **컴퓨터공학전공**, 첨단융합학부 **차세대지능형반도체전공**
+- 2026년 2월 첨단융합학부 **비교과 활동우수상** 수상
 
 ### 세종과학예술영재학교
 
-**Mar. 2021 -- Feb. 2024 · Sejong, South Korea**
+**2021.03–2024.02 · GPA 4.10 졸업**
 
-- 수석 입학하였으며 우수한 성적으로 졸업하였습니다.
-- 현재 제 수학적 / 컴퓨터공학적 지식의 기반을 쌓을 수 있었습니다.
-
----
-
-## 기술 스택
-
-- **Languages:** C++, Python, TypeScript, JavaScript.
-- **Software engineering:** React, Next.js, Node.js, REST APIs, PostgreSQL, Git, Docker, Linux.
-- **Systems / AI:** PyTorch, NumPy, CUDA basics, GPU profiling, Diffusion Models, LoRA / LyCORIS.
-- **Algorithms / competitive programming:** C++ STL, graph algorithms, shortest paths, flows, segment trees, binary search, dynamic programming, combinatorics, and constructive algorithms.
-- **Competitive programming profiles:** Codeforces Candidate Master; Baekjoon Online Judge Diamond III.
-
----
+- 2021년 신입생 **수석 입학**
+- 재학 중 매 학기 **독서우수상 금상** 수상
+- 2022년 2학기 **이산수학 교과우수상** 수상
+- 2023년 2학기 **음악과 테크놀로지 교과우수상** 수상
+- 수학·정보·과학 글쓰기·인문예술 연구와 교내 프로그램 기획을 함께 경험
 
 ## 연구
 
-### MLSYS Lab 학부생 인턴
+### MLSYS Lab 학부 연구
 
-**June. 2025 -- Present · Seoul, South Korea**
+**2025.06–2025.08, 2026.02–2026.07**
 
-- Experimented with diffusion model fine-tuning and LoRA-based adaptation to study trade-offs among model quality, memory use, and training efficiency.
-- Analyzed GPU memory behavior across training configurations and documented bottlenecks affecting throughput and reproducibility.
-- Reviewed recent papers on generative models, multimodal learning, and efficient model adaptation; translated research ideas into small-scale experiments.
+- Diffusion Model과 LoRA 기반 학습에서 품질, 메모리 사용량과 학습 효율 사이의 관계를 실험했다.
+- Attention과 Parallel Computing을 중심으로 학습 설정에 따른 GPU 메모리 동작과 병목을 분석했다.
+- 생성형 모델과 효율적인 모델 적응에 관한 논문을 검토하고, 연구 아이디어를 재현 가능한 소규모 실험으로 옮겼다.
 
----
+### AI 그림 관련 개인 연구
 
-## 튜터링 및 교육 활동
+**2022.10–2023.07**
 
-- 2026-1 프로그래밍 개발 방법론 튜터
-- 2026-1 기초물리학 1 튜터
-- 2026-1 컴퓨팅 기초 튜터
-- 2025-2 컴퓨팅 핵심 튜터
-- 2025-1 컴퓨팅 핵심 튜터
-- 2025년도 LnL 멘토
+- Stable Diffusion 1.5 기반 모델의 데이터 구성과 파인튜닝 방식을 실험했다.
+- Alpha/Beta/Gamma Centauri와 EternalRequiem 등 개인 모델을 제작했다.
+- 관련 커뮤니티에 사용 경험과 기술 정보를 정리한 글을 공유했다.
 
----
+## 개발과 기술
 
-## Programming Contests and Competitive Programming
+### 기술 스택
 
-### Online Judge
+- **Languages:** C++, Python, TypeScript, JavaScript
+- **Web:** React, Next.js, Node.js, REST APIs, PostgreSQL
+- **AI·Systems:** PyTorch, NumPy, CUDA 기초, GPU Profiling, Diffusion Models, LoRA·LyCORIS
+- **Engineering:** Git, Docker, Linux, 테스트와 문서화
+- **Product:** Full-Stack Development, UI·UX Design, Project Management
 
-- **Codeforces:** Candidate Master (PastelRain)
-- **Baekjoon Online Judge:** Diamond III (pleiades1)
-- **Atcoder:** Unrated (mochapunch)
+### 알고리즘
 
-### SCSC Programming Contest 2026 운영
+- [Codeforces](https://codeforces.com/profile/PastelRain): **Candidate Master**
+- [Baekjoon Online Judge](https://www.acmicpc.net/user/pleiades1): **Diamond III**
+- 그래프, 최단 경로, 플로우, 세그먼트 트리, 동적 계획법, 조합론과 구성적 알고리즘을 주로 다룬다.
 
-**May 2026 · Seoul National University**
+### 주요 프로젝트
 
-- Supported contest operations, including logistics, participant support, and environment checks to ensure smooth execution.
+| 기간 | 프로젝트 | 역할과 결과 |
+|---|---|---|
+| 2026.07 | 양자정보경진대회 해커톤 | 팀장, 본선 진출 |
+| 2026.06 | SKYSH MVP 개발 해커톤 | 팀장, Full-Stack·PM, 본선 진출 |
+| 2026.05 | Jane Street ETC Trading Bot | Market Making·ADR Pair Trading·ETF Basket Arbitrage 전략과 주문·포지션 관리 로직 개발, 대회 우승 |
+| 2026.02 | Blaybus MVP 개발 해커톤 | Frontend·Design, 대상 수상 |
+| 2025.10–현재 | TTUNS 서울대학교 시간표 서비스 | Full-Stack·Design, 기능 개발과 유지보수 |
+| 2025.08 | 두근두근 애니뮤 | Unity 서브 개발자·메인 사운드 디렉터 |
+| 2023.01–2024.10 | Dan:Celestial | Docs Translation·Design·Web Developer Team 참여 |
+| 2022 | 아이리스 Discord Bot | Python·Discord API·Web Scraping 기반 급식·시간표·음악 기능 개발 |
 
-### 2023 고급알고리즘 대회 세팅 및 운영
+## 대회와 수상
 
-**Mar. 2023 · Sejong Academy of Science and Arts**
+### 대학
 
-- Created competitive programming problems, model solutions, and test datasets for a student-run programming contest.
-- Managed contest logistics and judging, including problem verification, dataset validation, and participant support.
+- **2026.07** 양자정보경진대회 해커톤 본선 진출, 팀장
+- **2026.06** SKYSH MVP 개발 해커톤 본선 진출, 팀장
+- **2026.05** Jane Street ETC @ Seoul **Winner**
+- **2026.02** Blaybus MVP 개발 해커톤 **대상**
+- **2026.02** 서울대학교 첨단융합학부 **비교과 활동우수상**
+- **2025.08** K-HTML 해커톤 **대상**
 
----
+### 고등학교
 
-## 프로젝트
+- **2023.12** 음악과 테크놀로지 교과우수상
+- **2023.11** 수학동아리 주최 The Primes 교내 더 지니어스 서바이벌 프로그램 우승
+- **2023.07** 교내 수학사고력챌린지 금상 — 전 문항 최고점으로 1위
+- **2023.05** 교내 CTF 은상, 팀장
+- **2022.12** 이산수학 교과우수상
+- **2022.12** 교내 정보올림피아드 은상
+- **2022.10** 인문예술탐사주간 연구 동상
+- **2022.05** 교내 CTF 은상, 팀장
+- **2022.05** 수학탐구토론대회 3위 — 3인 팀 대회에 1인 팀으로 출전
+- **2021.12** 교내 정보올림피아드 동상
+- **2021.05** 교내 CTF 동상, 팀장
+- **2021.05** 영어과학글쓰기 금상
+- **2021–2023** 매 학기 독서우수상 금상
 
+## 교육과 멘토링
 
-### Market-Making and Basket-Arbitrage Trading Bot
+- **2026-1** 프로그래밍 개발 방법론 튜터
+- **2026-1** 기초물리학 1 튜터
+- **2026-1** 컴퓨팅 기초 튜터
+- **2025-2** 컴퓨팅 핵심 튜터
+- **2025-1** 컴퓨팅 핵심 튜터
+- **2025** LnL 멘토
 
-**2026 · Python, Backtesting, Order-Book Simulation, TCP / JSON API**
+## 리더십과 조직 운영
 
-- Built an automated trading bot for Jane Street ETC, combining market making, ADR pair trading, and ETF basket-arbitrage strategies.
-- Implemented order placement, cancellation, position-limit checks, message-rate control, and conversion logic against a simulated exchange API.
-- Developed logging and backtesting workflows to analyze spread capture, inventory risk, and strategy behavior under changing market conditions.e expansion under real user traffic.
+교내 인맥이 전혀 없는 상태에서 학생 조직에 직접 지원하고 필요한 일을 제안하며 역할을 넓혔다. 회계와 예약 같은 반복 실무부터 행정 체계 개편, 소모임 창설, 공연 총괄, 대규모 온라인 커뮤니티 운영까지 경험했다.
 
-### 천식의 계단
+실패와 갈등을 어떻게 운영 기준으로 바꿨는지는 [조직 운영 회고: 실패를 구조로 바꾸다](/p/20260711-organization-operations-review/)에 자세히 정리했다.
 
-**2026 · Next.js, TypeScript, Node.js, PostgreSQL**
+| 기간 | 조직·프로젝트 | 역할과 운영 범위 |
+|---|---|---|
+| 2024.03–2025.02 | 첨단융합학부 밴드 피치 | 부회장, 초기 운영 체계와 역할 분담·운영 실무 |
+| 2024.06–2025.02 | 첨단융합학부 1대 학생회 Sketch | 교육국 |
+| 2024.09–2025.02 | 첨단융합학부 TIMEOUT | 임원·문화부장, 방탈출 장소 선정·예약·정산·행사 운영 |
+| 2024.10–2025.04 | 서울대학교 락 페스티벌 관악 앰프 업 | 최초 기획 참여와 운영 구조 구상 |
+| 2024.12–2025.03 | SNUTI TRAIL | 우수 학생단체 활동 |
+| 2024.12–현재 | 상하이앨리스관악단 | 임원·홍보부장, 공식 대외 채널·홍보·제4회 봉래제 부스 운영 |
+| 2025.01–2026.02 | 사운드림 | 임원·미화부장, 기획·행사·설비·예약·행정, 동인 음악 소모임 창설·운영 |
+| 2025.02–2026.02 | 코미코토(Comicoto) | 회장·부회장·회계로 구성된 3인 핵심 운영 구조의 회계, 행정 체계 개편 |
+| 2026.03–현재 | 코미코토(Comicoto) | 자문위원, 기존 행정 구조와 운영 방향 자문 |
+| 2025.02–2026.02 | 설다연 | 임원·회계, 회비·운영비 흐름과 정산 관리 |
+| 2025.03–2025.08, 2025.12–2026.03 | SCSC | 임원·소모임 관리자, 음악 만들기 PIG 소모임장, Discord·행사 운영 |
+| 2025–2026 | 서울대학교 새내기방·준비위원회 | 2025 부방장, 2026 준비위원회 방장·부방장, 1,000명 이상 커뮤니티 준비·운영 |
+| 2025.06–2025.10 | 풍산마당 공연 조성 사업 PILOT | 기획과 공연 운영 |
+| 2025.08 | VOCA-ROCK 연합 서브컬처 밴드 공연 | 총괄, 기획·행정·조직·공연 운영 |
+| 2025.09–현재 | 초정밀모델학회 | 2대 부회장·3대 회장, 11개교 대학생 조직의 내부 수칙 정비 |
 
-- todo
+## 음악과 창작
 
-### TTUNS: 새로운 서울대학교 시간표 시스템
+작곡과 기타 연주, 믹싱·마스터링, 사운드 디렉션을 실제 공연과 앨범, 게임 프로젝트로 연결해 왔다.
 
-**2025 -- Present · React, Next.js, TypeScript, Node.js, PostgreSQL**
+| 기간 | 활동 | 역할과 결과 |
+|---|---|---|
+| 2025.08 | soundream.zip | 개인 앨범 기획·제작·발매 |
+| 2025.08 | 두근두근 애니뮤 | 게임 메인 사운드 디렉터·서브 개발자 |
+| 2025.08 | VOCA-ROCK | 세 팀이 참여한 연합 공연 총괄 |
+| 2025.09–2026.02 | 오리지널 밴드 음주가무 | 창설자·리더, 기타·작곡·믹싱·마스터링·공연 일정 관리 |
+| 2025.11–2026.01 | Aperture | 서울대학교 작곡 공모전 하라는 공부는 안하고 11집 출품, 라이브 공연 |
 
-- SCSC 내에서 공개적으로 인원을 모집하여 진행한 프로젝트입니다.
-- 기능 구현과 유지보수를 담당하였습니다.
-
-### Dan:Celestial — osu!mania Dan Course
-
-**2023 · React, Vue, Node.js**
-
-- Transcendence님 주도의 새로운 단 체계 개발에 참여하여 번역을 맡았습니다.
-- 프로젝트와는 무관한 내용이지만, 2021년 osu!standard 갤러리 및 osu!mania 갤러리 주딱을 맡아 갤러리를 운영하였습니다.
-
-### StableDiffusion 1.5 Models
-
-**2022 -- 2023 · React, Vue, Node.js**
-
-- 2022년 9월 AI 그림 붐에 유입되어, 취향의 일러스트를 모은 오리지널 모델 Alpha/Beta/Gamma Centauri, EternalRequiem을 만들었습니다.
-- AI 그림 채널 커뮤니티에 여러 정보글을 작성하였습니다.
-
-### 아이리스 — 디스코드 봇
-
-**2022 · Python, Discord API, Web Scraping**
-
-- 전 세계 오빠들의 멘탈을 치유할 세상에서 단 하나뿐인 여동생 아이리스입니다.
-- 급식 메뉴 관리, 시간표 관리, 음악 플레이어 기능을 구현했습니다.
-- 귀엽죠? 감사합니다
-
----
-
-## 대회 수상 경력
-
-- **1st Prize, Jane Street ETC @ Seoul** — 2026.
-- **우수상, 2026 Blaybus MVP 개발 해커톤** — 2026.
-- **대상, 2025 K-HTML 해커톤** — 2025.
-
----
-
-- **교과우수상, 2023-2 음악과 테크놀로지** - 2023.
-- **최종 우승, SASA: The Primes** - 2023
-- **금상(1위), 2023-1 수학사고력챌린지** - 2023.
-- **은상/팀장/개인 1위, 2023 s0sC0d3 CTF** - 2023.
-- **교과우수상, 2022-2 이산수학** - 2022
-- **은상, 2022 SASA 정보올림피아드** - 2022
-- **3위/1인 팀, 2022 MAC 수학탐구토론대회** - 2022.
-- **은상/팀장개인 1위, 2022 s0sC0d3 CTf** - 2022.
-- **동상, 2021 SASA 정보올림피아드** - 2021
-- **동상/팀장/개인 1위, 2021 s0sC0d3 CTf** - 2021.
-- **금상, 2021 영어과학글쓰기** - 2021.
-
-- **금상, 독서우수상** - 2021-2 ~ 2023-2.
-
----
-
-## 리더십 및 단체 운영 경력
-
-> 관련 글: [동아리·학생 조직 운영 회고: 실패를 다음 구조로 바꾸는 법](/p/20260711-organization-operations-review/)
-
-
-### 동아리 임원 경력
-
-**2024 -- Present · Seoul National University**
-
-- 첨단융합학부 밴드 동아리 **피치** 초대 부회장 (2024.03 ~ 10) : 동아리 설립 과정에서 초기 운영 체계와 역할 분담을 만들고 운영 실무를 맡았습니다.
-- 첨단융합학부 방탈출&보드게임 동아리 **TIMEOUT** 문화부장 (2024.09 ~ 2025.02) : 방탈출 장소 선정과 예약, 정산, 행사 운영을 맡았습니다.
-- 중앙 동방프로젝트 동아리 **상하이앨리스관악단** 초대 홍보부장 (2025.01 ~ 2026.07) : 공식 메일·트위터 계정을 개설하고 대외 연락과 홍보, 행사 부스 운영을 맡았습니다.
-- 중앙 차 동아리 **설다연** 회계 (2025.03 ~ 2026.02)
-- 중앙 서브컬처 밴드 동아리 **Comicoto** 회계 (2025.03 ~ 2026.02), 자문위원 (2026.03 ~) : 회계·합주실·회원 등급·공연곡·운영 규칙과 행정 서류를 정비했고, 임기 이후에는 운영 방향을 자문하고 있습니다.
-- 중앙 프로그래밍 동아리 **SCSC** 소모임 관리자·임원 (2025.03 ~ 09, 2026.01 ~ 03) : SIG·PIG, Discord 서버와 관련 행사 운영을 맡았습니다.
-- 중앙 작곡 동아리 **사운드림** 미화부장·동인 음악 소모임장 (2025.03 ~ 2026.02) : 행사·설비·예약·행정을 맡고 동인 음악 소모임을 창설해 약 1년간 운영했으며, 앨범 믹싱과 마스터링에 참여했습니다.
-
-## 기타 운영 경력
-
-- 오리지널 밴드 **음주가무** 리더 (2025.09 ~ 2026.02) : 마음이 맞는 7인을 모아 2025년 11월 오리지널 곡 'Aperture'로 서울대학교 작곡 공모전 '하라는 공부는 안하고' 11집에 출품했고, 2026년 1월 라이브에서 직접 공연했습니다.
-- 풍산마당 공연 프로젝트 **PILOT** (2025.06 ~ 2025.10) : 문화자치위원회 산하 프로젝트 기획팀으로 참여했습니다.
-- 초정밀모델제어학회 2대 부회장 및 3대 회장 (2025.09 ~) : 11개 학교의 학생들이 모인 학회의 내부 수칙을 정비하였습니다.
-- 연합 서브컬처 밴드 공연 **VOCA-ROCK** 총괄 (2025.08.15.) : 기획과 행정, 조직과 공연 운영을 총괄했습니다.
-
-
----
-
-## 음악 및 기타 창작 경력
-
-### 작곡 경력
-
-### 밴드 활동 경력
-
--
-
----
-
-## 취미생활
-
-### 서브컬처
-
-- 2026.?? 스누쿠라 : todo
-- 2025.07 두근두근 애니뮤 메이드카페 공연 메이드 : 미소녀 아이돌로서의 꿈은 이루지 못했지만, 대신 여장메이드 아이돌로서의 꿈을 이루었습니다. 춤에 재능이 있는 건 처음 알았고, 공연할 때는 인생에서 가장 행복했습니다. 서빙 과정에서 귀여운 실수를 했지만, 모 유튜버의 샤라웃까지 받는 영광을 누리게 되었습니다. 
-- 서브컬처 행사 부스 운영
-    - 2025.05. 일러스타페스 '애니뮤' 부스 운영
-    - 2025.02. 제4회 봉래제 '상하이앨리스관악단' 부스 운영
+## 취미와 커뮤니티
 
 ### 마작
 
-- 2026 애니뮤, 2025 Comicoto 마작 소모임장
-- 2025 점프스지 마작 연구회 운영진 
-- 관악단 첫 회지 '동방야행' 버리지 못할 패 따윈 없다! 칼럼 수록
-- 2024 일급천재 주최 대학마작교류전 개인 3위
-- horiwo128의 마작칼럼 번역
+- 2024년 일급천재 주최 대학마작교류전 개인 3위
 - 제2기 현인전 본선 진출
-- 4인마작 작호2, 3인마작 작성1/7단. 4인마작은 작성2 실력을 보유하고 있으나 운이 없음
+- 애니뮤·코미코토 마작 소모임장, 점프스지 마작 연구회 운영진
+- 상하이앨리스관악단 회지 동방야행에 마작 칼럼 수록
+- horiwo128의 마작 칼럼 번역
+
+### 서브컬처 활동
+
+- 2025년 제4회 봉래제 상하이앨리스관악단 부스 운영
+- 2025년 일러스타페스 애니뮤 부스 운영
+- 동방프로젝트·동인 음악·서브컬처 밴드 커뮤니티 활동
+
+## 나를 설명하는 공통점
+
+수학 문제를 풀 때도, 소프트웨어를 만들 때도, 연구 실험을 설계하거나 공연과 조직을 운영할 때도 같은 방식을 사용한다. 문제를 작은 단위로 나누고, 필요한 기준과 역할을 정한 뒤, 다른 사람이 확인할 수 있는 결과물과 기록을 남긴다.
+
+처음부터 주어진 인맥이나 한 분야의 경력에 기대기보다 직접 기회를 만들고 여러 분야의 능력을 연결해 왔다. 앞으로도 더 큰 문제와 책임을 맡으며, 결과와 개선의 기록으로 역량을 증명하고자 한다.
