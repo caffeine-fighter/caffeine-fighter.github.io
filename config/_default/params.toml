@@ -28,7 +28,7 @@ SortBy              = "default"
 
 [sidebar]
     emoji    = ""
-    subtitle = "SNU TI & Math & Music 24"
+    subtitle = "SNU TI & Math & Music & CSE 24"
     avatar   = "img/hoshino_test_resized.jpg"
 
 [article]
