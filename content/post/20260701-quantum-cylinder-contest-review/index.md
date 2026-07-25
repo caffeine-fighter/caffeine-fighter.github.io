@@ -2,6 +2,7 @@
 title: "2026 양자정보경진대회 후기: QuantumCylinder"
 description: "SKYSH 해커톤 바로 다음 날, 낯선 양자정보 문제를 3일 동안 실험·구현·문서화하고 후속 연구 가능성까지 검토한 기록"
 date: 2026-07-01T23:40:00+09:00
+lastmod: 2026-07-25T14:30:00+09:00
 slug: "20260701-quantum-cylinder-contest-review"
 image:
 math: true
@@ -22,7 +23,7 @@ tags:
   - "후기"
 ---
 
-## 0. 글을 쓰며
+## 글을 쓰며
 
 2026 양자정보경진대회가 끝났다.
 
@@ -41,7 +42,7 @@ tags:
 
 저장소에는 최종 코드와 문서가 남아 있지만, 그것만 보면 왜 어떤 실험을 버렸고 어떤 결과를 본문에 남겼는지는 알기 어렵다. 이 글은 숫자와 파일 사이에 있었던 판단을 복원하는 기록이다.
 
-## 1. 참가 배경
+## 참가 배경
 
 양자정보경진대회 전날까지 나는 SKYSH 해커톤에 있었다.
 
@@ -53,7 +54,7 @@ tags:
 
 도구를 쓰는 방식도 두 대회가 이어져 있었다. SKYSH에서는 Codex를 처음으로 본격적인 개발 보조 도구로 썼다. 이번에는 자동화된 **Hermes agent**를 반복 실험에 붙였다. 하루 안에 제품을 만드는 대회 다음 날, 여러 시드와 후보를 밤새 돌리고 근거를 쌓는 대회로 그대로 넘어간 셈이었다.
 
-## 2. 팀 결성과 예선
+## 팀 결성과 예선
 
 팀은 5월 초에 만들어졌다. 처음부터 양자정보 전문가가 모인 팀은 아니었다. 첫 반응부터 “이걸 학부생이 제대로 할 수 있나?”에 가까웠다.
 
@@ -79,7 +80,7 @@ tags:
 
 끝까지 가 보기로 했다.
 
-## 3. 준비 과정
+## 준비 과정
 
 본선 전 며칠 동안 Qiskit, IBM Quantum Learning, QML 자료와 작년 문제를 공부했다. 실행 가능한 노트북 후보와 관련 논문도 모았다. 준비가 충분했다고 말할 수는 없다.
 
@@ -97,9 +98,9 @@ tags:
 
 이 제약은 발표를 약하게 만들기 위한 것이 아니었다. 작은 toy experiment를 큰 말로 포장하는 순간 결과물 전체를 믿기 어려워진다. 강하게 말하는 것보다 정확하게 말하는 쪽을 택했다.
 
-## 4. 대회 중 경과
+## 대회 중 경과
 
-### 4.1 Day 1 — Problem 1: random-unitary scrambling
+### Day 1 — Problem 1: random-unitary scrambling
 
 본선은 6월 29일에 시작됐다.
 
@@ -123,7 +124,7 @@ W_{1-F} = 0.724439 +/- 0.021491
 
 이 값은 학습 목표가 아니었다. random-unitary diffusion이 strong-scrambling regime에 들어갔는지를 판단하기 위한 기준선이었다.
 
-### 4.2 Day 1 — Problem 2: Hamiltonian projected diffusion
+### Day 1 — Problem 2: Hamiltonian projected diffusion
 
 Problem 2에서는 2-qubit data system `M`에 complement qubit `F`를 붙여 3-qubit system을 만들었다. 고정 Hamiltonian으로 시간 진화를 수행한 뒤 complement qubit을 projection해 data ensemble을 얻었다.
 
@@ -140,7 +141,7 @@ random-unitary diffusion은 fluctuation과 saturation이 빠르게 나타나는 
 
 다만 초안이 빨리 나왔다고 최종 제출물이 완성된 것은 아니었다. 둘째 날까지도 metric 설명, resource comparison과 figure readability를 계속 보강했다. Problem 3를 파면서도 기본 문제에서 감점받지 않도록 두 답안을 함께 관리해야 했다.
 
-### 4.3 Day 1 저녁 — 실험과 보고서의 속도가 갈리다
+### Day 1 저녁 — 실험과 보고서의 속도가 갈리다
 
 첫날 오후 7시쯤에는 코드와 실험이 보고서보다 훨씬 앞서가고 있었다. 나는 이미 Problem 3으로 넘어가야 한다고 봤지만, 다른 팀원들은 Problem 1과 2의 보고서를 먼저 마무리해야 한다고 생각했다.
 
@@ -152,7 +153,7 @@ random-unitary diffusion은 fluctuation과 saturation이 빠르게 나타나는 
 
 팀원들도 각자의 작업을 진행하고 있었지만, 누가 어느 결과물을 끝까지 소유하는지는 아직 선명하지 않았다. 첫날부터 이 구조를 더 구체적으로 나눴어야 했다.
 
-### 4.4 Day 1 밤–Day 2 새벽 — distance만 좋으면 된다는 생각을 버리다
+### Day 1 밤–Day 2 새벽 — distance만 좋으면 된다는 생각을 버리다
 
 Problem 3에서는 complement qubit을 측정하고 특정 결과만 선택하는 post-selection을 denoising의 대리 과정으로 보았다. 전체 `M+F` system은 unitary하게 진화하지만, complement qubit을 측정해 일부 결과만 남기면 data system `M`에는 effective non-unitary map이 작용한다.
 
@@ -189,7 +190,7 @@ Problem 3는 손으로 몇 번 돌리고 끝낼 수 있는 문제가 아니었�
 
 여러 번 돌렸다는 사실 자체보다, 같은 판단이 독립적인 실행에서도 살아남았다는 점이 중요했다. 우연히 좋은 숫자 하나를 주운 것이 아니라는 근거가 필요했다.
 
-### 4.5 Day 2 오전 — axis-only와 continuous basis
+### Day 2 오전 — axis-only와 continuous basis
 
 자동화 결과가 쌓이자 continuous measurement-basis post-selection 후보가 보였다.
 
@@ -236,7 +237,7 @@ median success probability: 0.477322
 
 매 시드에서 최적값을 다시 찾는 oracle grid-best보다 숫자는 약했다. 대신 고정된 파라미터가 처음 보지 않은 시드에서도 작동했다는 점에서 주장하기에는 더 정직한 근거였다.
 
-### 4.6 Day 2 오후 — 3-b의 분석에서 3-c를 만들다
+### Day 2 오후 — 3-b의 분석에서 3-c를 만들다
 
 중간 피드백에서 중요한 지적을 받았다. 3-b가 숫자 나열에 그치면 어떤 특징을 분석한 것인지 보이지 않고, 3-c도 앞의 결과와 관계없는 새 아이디어처럼 보인다는 내용이었다.
 
@@ -284,7 +285,7 @@ actor-critic은 더 강한 숫자를 만들 수 있었다. 하지만 raw target 
 
 숫자가 가장 큰 후보보다 문제에서 자연스럽게 나온 후보를 앞에 뒀다.
 
-### 4.7 Day 1 저녁–Day 2 — 대회 답안과 후속 연구를 나누기 시작하다
+### Day 1 저녁–Day 2 — 대회 답안과 후속 연구를 나누기 시작하다
 
 둘째 날 저녁부터는 이 결과를 대회가 끝난 뒤에도 살릴 수 있을지 생각했다.
 
@@ -310,7 +311,7 @@ Problem 1/2 baseline comparison
 - two-way scheme을 숫자 장난이 아니라 3-b 분석에서 나온 확장으로 설명할 수 있는가?
 - IBM QPU 결과를 성능 주장이 아닌 hardware-execution feasibility check로 어디까지 쓸 수 있는가?
 
-### 4.8 IBM QPU — 작은 것만 정확히 확인하다
+### IBM QPU — 작은 것만 정확히 확인하다
 
 IBM QPU에서 전체 benchmark를 다시 수행한 것은 아니다. Problem 3(b)의 measurement-basis mechanism이 작은 실제 회로에서도 관찰되는지만 확인했다.
 
@@ -333,7 +334,7 @@ beta 0.7500pi: p(F=0)=0.351270, entropy=1.736465
 
 이 작은 검증에도 README와 관련 문서, token/API key/CRN 노출 방지, dry-run mode, 제출한 job metadata 저장 여부를 확인해야 했다. 대회 제출물에서는 과학적 주장만큼 운영 안전성도 중요했다.
 
-### 4.9 Day 3 — 연구보다 제출이 더 어려웠다
+### Day 3 — 연구보다 제출이 더 어려웠다
 
 마지막 날은 연구보다 배포 엔지니어링에 가까웠다.
 
@@ -371,7 +372,7 @@ USB에는 노트북 세 개만이 아니라 발표 PDF, `src/`, `scripts/`, `tes
 
 > QuantumCylinder의 핵심은 작은 quantum diffusion 설정에서 measurement basis를 effective non-unitary projected map의 조절 장치로 보고, distance 하나가 아니라 recoverability, success probability와 diversity retention의 trade-off로 denoising을 평가하려 했다는 점이다.
 
-### 4.10 최종적으로 나뉜 역할
+### 최종적으로 나뉜 역할
 
 저장소의 최종 기록을 기준으로 나는 전체 실험 설계, 핵심 구현, Problem 1·2·3 코드 통합, 지표와 결과 검수, IBM QPU 검증, 재현 명령과 최종 패키지 정리를 맡았다.
 
@@ -381,7 +382,7 @@ USB에는 노트북 세 개만이 아니라 발표 PDF, `src/`, `scripts/`, `tes
 
 이제 제출과 발표가 끝났고 결과만 남아 있었다.
 
-## 5. 결과
+## 결과
 
 결과를 기다리는 동안 판단의 전제가 된 수상 구조는 둘째 날에 들었다. 결선 4팀, 멘토 특별상 2팀, IBM/Pasqal QPU 사용 관련 상 2팀이었다. 내가 이해한 바로는 전체 20팀 중 주제별 2팀, 총 8팀이 어떤 형태로든 상을 받는 구조였다.
 
@@ -405,9 +406,9 @@ USB에는 노트북 세 개만이 아니라 발표 PDF, `src/`, `scripts/`, `tes
 
 대회가 끝난 뒤 심사위원과 출제자의 설명을 들으며 내가 놓친 것도 보였다. Problem 1과 2는 문제의 감을 잡기 위한 부분이고, 진짜 핵심은 자유롭게 연구하는 Problem 3에 가까웠다. 결과가 아주 압도적으로 갈렸다기보다 발표에서 잘 전달한 팀이 좋은 평가를 받은 측면도 있다고 들었다.
 
-## 6. 오답노트
+## 오답노트
 
-### 6.1 좋은 실험과 좋은 제출물을 구분하지 못했다
+### 좋은 실험과 좋은 제출물을 구분하지 못했다
 
 가장 크게 놓친 것은 좋은 실험과 좋은 제출물이 서로 다른 결과물이라는 점이었다.
 
@@ -421,7 +422,7 @@ USB에는 노트북 세 개만이 아니라 발표 PDF, `src/`, `scripts/`, `tes
 
 다음에는 첫날 안에 발표의 핵심 문장을 임시로라도 정하고, 실험은 그 문장을 검증하거나 반박하는 것만 남길 것이다.
 
-### 6.2 역할을 도움의 단위로 나눴다
+### 역할을 도움의 단위로 나눴다
 
 팀원이 네 명이라고 일이 자동으로 네 갈래로 나뉘지는 않는다. 초반부터 각자가 끝까지 소유할 산출물과 마감 시각을 정했어야 했다.
 
@@ -441,39 +442,39 @@ USB에는 노트북 세 개만이 아니라 발표 PDF, `src/`, `scripts/`, `tes
 
 이렇게 쓰면 팀원을 탓하는 것처럼 보일 수 있다는 것도 안다. 실제로 세 사람은 발표자료, 보고서 정리, 물리적 해석, 구현 검토와 보조 실험을 맡아 줬다. 다만 고마움을 말하기 위해 내가 받은 압박까지 없었던 일로 만들고 싶지는 않다. 문제가 생길 때마다 마지막 책임이 내게 돌아오는 구조는 다음 대회 전에 반드시 바꿔야 한다.
 
-### 6.3 제출 패키지를 너무 늦게 확정했다
+### 제출 패키지를 너무 늦게 확정했다
 
 USB 사고는 마지막 순간의 실수였지만 원인은 더 앞에 있었다. 최종 제출 폴더를 일찍 확정하지 않았고, 다른 사람이 같은 경로를 보고 그대로 복사할 수 있는 체크리스트도 만들지 않았다.
 
 다음에는 마감 최소 두 시간 전에 제출 패키지를 확정한다. 한 명이 복사하고 다른 한 명이 README, 실행 명령, 비밀정보 검사와 실제 USB 내용을 교차검증하게 할 것이다.
 
-## 7. 잘한 점
+## 잘한 점
 
-### 7.1 큰 주장을 만들기 위해 한계를 숨기지 않았다
+### 큰 주장을 만들기 위해 한계를 숨기지 않았다
 
 continuous basis가 axis-only보다 조금 좋게 나왔지만 margin이 작다는 점을 숨기지 않았다. actor-critic이 강한 숫자를 냈지만 target-aware라는 한계를 명시했다. IBM QPU job이 실제로 완료됐어도 hardware advantage라고 말하지 않았다.
 
 해커톤에서는 강한 말이 유리해 보일 때가 많다. 이번에는 강한 말보다 정확한 말을 택했다.
 
-### 7.2 같은 지표를 끝까지 유지했다
+### 같은 지표를 끝까지 유지했다
 
 Problem 1부터 3까지 fidelity 기반 MMD와 Wasserstein-type distance를 유지했다. 덕분에 random-unitary, Hamiltonian projected diffusion과 measurement-induced denoising을 서로 다른 말로 포장하지 않고 같은 눈금에서 비교할 수 있었다.
 
 distance만 좋아지는 collapse가 왜 실패인지도 같은 지표와 diversity를 함께 놓으면서 드러났다.
 
-### 7.3 자동화 결과를 근거로 바꿨다
+### 자동화 결과를 근거로 바꿨다
 
 Hermes agent를 단순히 코드를 대신 써 주는 도구로 쓰지 않았다. 여러 시드와 독립 실행에서 같은 경향이 살아남는지 확인하고, 본문에 올릴 후보가 기준을 통과하는지 반복해서 검사하는 데 사용했다.
 
 시드 sweep, 고정 파라미터 holdout, collapse 방어 표와 별도 머신의 반복 실행이 있었기 때문에 Problem 3의 주장을 조금 더 책임질 수 있었다.
 
-### 7.4 마지막에 이야기 구조를 다시 세웠다
+### 마지막에 이야기 구조를 다시 세웠다
 
 처음부터 3-b와 3-c가 깔끔했던 것은 아니다. 중간에는 후보가 너무 많았고 무엇이 본문인지 흐려졌다. 피드백을 받은 뒤 3-b가 분석이고, 3-c가 그 분석에서 나온 제안이 되도록 다시 정리했다.
 
 숫자가 가장 큰 actor-critic을 내리고 two-way post-selection을 본문에 둔 것도 이 기준 덕분이었다.
 
-## 8. 앞으로
+## 앞으로
 
 QuantumCylinder는 full trainable QuDDPM도 아니고 quantum advantage나 hardware advantage를 보인 프로젝트도 아니다. continuous basis가 언제나 axis-only보다 강하다는 결과도 아니다.
 
