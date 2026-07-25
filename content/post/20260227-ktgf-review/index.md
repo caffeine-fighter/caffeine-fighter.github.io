@@ -2,7 +2,7 @@
 title: "2026 KT디지털인재장학금 지원 후기"
 description: "지원 배경부터 서류 작성과 3:3 면접, 결과 이후의 판단까지 시간순으로 정리한 기록"
 date: 2026-02-27T15:59:05+09:00
-lastmod: 2026-07-25T14:10:00+09:00
+lastmod: 2026-07-25T16:20:00+09:00
 event_date: 2026-02-27
 slug: "20260227-ktgf-review"
 image:
@@ -13,7 +13,6 @@ build:
     list: always
 categories:
     - "interview-reviews"
-    - "scholarship-application-reviews"
 tags:
     - "장학금"
 ---
