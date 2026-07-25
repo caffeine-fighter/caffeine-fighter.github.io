@@ -2,7 +2,7 @@
 title: "2026 CODEGATE AI 스타트업 해커톤 후기: IndexGuard"
 description: "caffeine-fighter, jwj7140, AutoclickerI가 RAG 문서 공급망 보안 게이트를 만든 7월 21일부터 23일까지의 기록"
 date: 2026-07-25T13:30:00+09:00
-lastmod: 2026-07-25T15:55:00+09:00
+lastmod: 2026-07-25T16:20:00+09:00
 event_date: 2026-07-21
 slug: "20260725-codegate-indexguard-hackathon-review"
 image:
@@ -258,7 +258,7 @@ HWPX는 장식이 아니었다. 실제 HWPX 본문과 표, 스타일, 숨김 흔
 
 코드부터 각자 만들었다면 `decision`, `index_action`, 문서 버전과 SHA의 의미를 합치는 데 시간을 다 썼을 것이다. 먼저 공통 JSON과 권한 경계를 고정한 덕분에 merge가 빨랐다.
 
-## 아쉬운 점
+## 오답 노트
 
 여기에 적은 항목은 탈락 원인을 사후에 확정한 목록이 아니다. 수상권 퍼포먼스를 냈다는 판단과 별개로, 다음 대회에서 내가 통제할 수 있는 부분을 더 강하게 만들기 위한 기록이다.
 
