@@ -21,7 +21,7 @@ REQUIRED_URLS = {
     f"{BASE_URL}p/20260711-organization-operations-review/",
 }
 STANDALONE_PAGES = ("profile/", "resume/")
-NOINDEX_PAGES = ("search/", "archives/")
+NOINDEX_PAGES = ("search/", "posts/")
 ABSENT_PAGES = (
     "p/test123/",
     "p/20260601-profile/",

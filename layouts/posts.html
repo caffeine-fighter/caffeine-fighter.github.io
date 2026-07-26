@@ -1,0 +1,104 @@
+{{ define "body-class" }}template-posts{{ end }}
+
+{{ define "main" }}
+    {{- $pages := partial "helper/pages.html" .Site.Home -}}
+    {{- $categories := .Site.Taxonomies.categories.ByCount -}}
+
+    <header class="posts-header aether-reveal">
+        <p class="posts-header__eyebrow">POSTS / INDEX</p>
+        <div class="posts-header__title">
+            <div>
+                <h1>Posts</h1>
+                <p>카테고리를 선택해 지금까지의 기록을 모아볼 수 있습니다.</p>
+            </div>
+            <span><strong>{{ len $pages }}</strong> TOTAL LOGS</span>
+        </div>
+
+        <div class="posts-filters" role="group" aria-label="카테고리별 글 필터">
+            <button class="posts-filter is-active" type="button" data-post-filter="all" aria-pressed="true">
+                <strong>{{ len $pages }}</strong>
+                <span>전체</span>
+                <small>ALL POSTS</small>
+            </button>
+            {{ range $categories }}
+                {{- $slug := .Page.Data.Term | urlize -}}
+                <button class="posts-filter" type="button" data-post-filter="{{ $slug }}" aria-pressed="false">
+                    <strong>{{ .Count }}</strong>
+                    <span>{{ .Page.Title }}</span>
+                    <small>{{ $slug | upper }}</small>
+                </button>
+            {{ end }}
+        </div>
+    </header>
+
+    <div class="posts-groups" aria-live="polite">
+        {{ range $pages.GroupByDate "2006" }}
+            {{- $id := lower (replace .Key " " "-") -}}
+            <section class="archives-group posts-year aether-reveal" id="{{ $id }}" data-post-group>
+                <header class="posts-year__header">
+                    <h2><a href="{{ $.RelPermalink }}#{{ $id }}">{{ .Key }}</a></h2>
+                    <span><strong data-visible-count>{{ len .Pages }}</strong> POSTS</span>
+                </header>
+                <div class="article-list--compact posts-list">
+                    {{ range .Pages }}
+                        {{- $categorySlugs := slice -}}
+                        {{- range .Params.categories -}}
+                            {{- $categorySlugs = $categorySlugs | append (. | urlize) -}}
+                        {{- end -}}
+                        <div class="posts-entry" data-post-entry data-post-categories="{{ delimit $categorySlugs " " }}">
+                            {{ partial "article-list/compact" . }}
+                        </div>
+                    {{ end }}
+                </div>
+            </section>
+        {{ end }}
+    </div>
+
+    <p class="posts-empty" data-post-empty hidden>이 카테고리에는 아직 공개된 글이 없습니다.</p>
+
+    <script>
+        (() => {
+            const filters = [...document.querySelectorAll("[data-post-filter]")];
+            const entries = [...document.querySelectorAll("[data-post-entry]")];
+            const groups = [...document.querySelectorAll("[data-post-group]")];
+            const empty = document.querySelector("[data-post-empty]");
+            if (!filters.length || !entries.length) return;
+
+            const applyFilter = (filter) => {
+                let totalVisible = 0;
+
+                entries.forEach((entry) => {
+                    const categories = entry.dataset.postCategories.split(/\s+/).filter(Boolean);
+                    const visible = filter === "all" || categories.includes(filter);
+                    entry.hidden = !visible;
+                    if (visible) totalVisible += 1;
+                });
+
+                groups.forEach((group) => {
+                    const visibleEntries = group.querySelectorAll("[data-post-entry]:not([hidden])");
+                    group.hidden = visibleEntries.length === 0;
+                    const count = group.querySelector("[data-visible-count]");
+                    if (count) count.textContent = visibleEntries.length;
+                });
+
+                filters.forEach((button) => {
+                    const active = button.dataset.postFilter === filter;
+                    button.classList.toggle("is-active", active);
+                    button.setAttribute("aria-pressed", String(active));
+                });
+
+                if (empty) empty.hidden = totalVisible !== 0;
+            };
+
+            filters.forEach((button) => {
+                button.addEventListener("click", () => applyFilter(button.dataset.postFilter));
+            });
+        })();
+    </script>
+
+    {{ partialCached "footer/footer" . }}
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
+{{ end }}

@@ -1,9 +1,9 @@
 ---
-title: "Archives"
+title: "Posts"
 date: 2022-03-06
 noindex: true
-layout: "archives"
-slug: "archives"
+layout: "posts"
+slug: "posts"
 menu:
     main:
         weight: 2
