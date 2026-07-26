@@ -1,0 +1,87 @@
+{{ define "body-class" }}home-template aether-home{{ end }}
+
+{{ define "main" }}
+    {{- $paginator := partial "helper/paginator.html" . -}}
+
+    <section class="aether-hero aether-reveal" aria-labelledby="aether-hero-title">
+        <div class="aether-hero__copy">
+            <p class="aether-kicker">
+                <span class="aether-kicker__pulse" aria-hidden="true"></span>
+                CF / PERSONAL ARCHIVE / 2026
+            </p>
+
+            <h1 id="aether-hero-title">
+                경계를 넘나들며
+                <span>결과를 만드는 기록.</span>
+            </h1>
+
+            <p class="aether-hero__description">
+                수학과 소프트웨어, 생성형 AI 연구, 음악 창작과 조직 운영.
+                서로 다른 세계에서 마주친 문제를 분석하고 직접 만든 결과로 증명해 온 과정을 남깁니다.
+            </p>
+
+            <div class="aether-hero__actions" aria-label="주요 페이지">
+                <a class="aether-button aether-button--primary" href="{{ "/profile/" | relURL }}">
+                    <span>프로필 보기</span>
+                    <span aria-hidden="true">↗</span>
+                </a>
+                <a class="aether-button aether-button--ghost" href="{{ "/resume/" | relURL }}">
+                    이력서
+                </a>
+                <a class="aether-text-link" href="{{ "/categories/" | relURL }}">
+                    기록 탐색 <span aria-hidden="true">→</span>
+                </a>
+            </div>
+
+            <dl class="aether-hero__metrics">
+                <div>
+                    <dt>BUILD</dt>
+                    <dd>2× Hackathon Grand Prize</dd>
+                </div>
+                <div>
+                    <dt>OPERATE</dt>
+                    <dd>1,000+ Community</dd>
+                </div>
+                <div>
+                    <dt>STUDY</dt>
+                    <dd>4.10 Major GPA</dd>
+                </div>
+            </dl>
+        </div>
+
+        <div class="aether-orbit" aria-hidden="true">
+            <span class="aether-orbit__track aether-orbit__track--one"></span>
+            <span class="aether-orbit__track aether-orbit__track--two"></span>
+            <span class="aether-orbit__shard aether-orbit__shard--cyan"></span>
+            <span class="aether-orbit__shard aether-orbit__shard--pink"></span>
+            <span class="aether-orbit__shard aether-orbit__shard--violet"></span>
+
+            <div class="aether-orbit__core">
+                <span>CAFFEINE FIGHTER</span>
+                <strong>LOG</strong>
+                <small>INTERDISCIPLINARY / SNU 24</small>
+            </div>
+
+            <span class="aether-orbit__label aether-orbit__label--one">01 / ANALYZE</span>
+            <span class="aether-orbit__label aether-orbit__label--two">02 / CREATE</span>
+            <span class="aether-orbit__label aether-orbit__label--three">03 / OPERATE</span>
+        </div>
+    </section>
+
+    <header class="aether-section-heading aether-reveal">
+        <div>
+            <p>JOURNAL / LATEST</p>
+            <h2>최근 기록</h2>
+        </div>
+        <a href="{{ "/archives/" | relURL }}">전체 기록 <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <section class="article-list aether-journal" aria-label="최근 글">
+        {{ range $paginator.Pages }}
+            {{ partial "article-list/default" . }}
+        {{ end }}
+    </section>
+
+    {{- partial "pagination.html" . -}}
+    {{- partial "footer/footer" . -}}
+{{ end }}

@@ -7,6 +7,20 @@
     <body class="{{ block `body-class` . }}{{ end }}">
         {{- partial "head/colorScheme" . -}}
 
+        <div class="aether-progress" aria-hidden="true"><span></span></div>
+        <div class="aether-sky" aria-hidden="true">
+            <span class="aether-sky__halo aether-sky__halo--one"></span>
+            <span class="aether-sky__halo aether-sky__halo--two"></span>
+            <span class="aether-sky__line aether-sky__line--one"></span>
+            <span class="aether-sky__line aether-sky__line--two"></span>
+            <span class="aether-sky__shard aether-sky__shard--one"></span>
+            <span class="aether-sky__shard aether-sky__shard--two"></span>
+            <span class="aether-sky__shard aether-sky__shard--three"></span>
+            <span class="aether-sky__star aether-sky__star--one"></span>
+            <span class="aether-sky__star aether-sky__star--two"></span>
+            <span class="aether-sky__star aether-sky__star--three"></span>
+        </div>
+
         {{/* The container is wider when there's any activated widget */}}
         {{- $hasWidget := false -}}
         {{- range .Site.Params.widgets -}}
