@@ -599,6 +599,8 @@ main.main {
 }
 
 .menu-social {
+    position: relative;
+    z-index: 5;
     gap: 8px;
 }
 
@@ -2577,6 +2579,7 @@ html.aether-ready .aether-entry:nth-child(3) {
 
     .left-sidebar .menu-social {
         position: absolute;
+        z-index: 30;
         top: 68px;
         right: 18px;
         bottom: auto;

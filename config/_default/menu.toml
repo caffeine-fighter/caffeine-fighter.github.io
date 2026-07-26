@@ -14,6 +14,7 @@
 
     [social.params]
         icon = "brand-github"
+        newTab = true
 
 [[social]]
     identifier = "instagram"
@@ -22,3 +23,4 @@
 
     [social.params]
         icon = "instagram"
+        newTab = true
