@@ -106,3 +106,65 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify public crawler endpoints
+        env:
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          base_url="${SITE_URL%/}"
+          googlebot='Googlebot/2.1 (+http://www.google.com/bot.html)'
+
+          curl \
+            --fail \
+            --location \
+            --retry 6 \
+            --retry-all-errors \
+            --retry-delay 5 \
+            --show-error \
+            --silent \
+            --user-agent "${googlebot}" \
+            "${base_url}/sitemap.xml?deploy=${GITHUB_SHA}" \
+            --output /tmp/sitemap.xml
+
+          curl \
+            --fail \
+            --location \
+            --retry 6 \
+            --retry-all-errors \
+            --retry-delay 5 \
+            --show-error \
+            --silent \
+            --user-agent "${googlebot}" \
+            "${base_url}/robots.txt?deploy=${GITHUB_SHA}" \
+            --output /tmp/robots.txt
+
+          python3 - <<'PY'
+          from pathlib import Path
+          import os
+          import xml.etree.ElementTree as ET
+
+          base_url = os.environ["SITE_URL"].rstrip("/")
+          namespace = "http://www.sitemaps.org/schemas/sitemap/0.9"
+          root = ET.fromstring(Path("/tmp/sitemap.xml").read_text(encoding="utf-8"))
+          if root.tag != f"{{{namespace}}}urlset":
+              raise SystemExit("Public sitemap.xml does not contain a valid urlset")
+
+          locations = {
+              (node.text or "").strip()
+              for node in root.findall(f".//{{{namespace}}}loc")
+          }
+          required = {
+              f"{base_url}/",
+              f"{base_url}/posts/",
+              f"{base_url}/profile/",
+              f"{base_url}/resume/",
+          }
+          if not required.issubset(locations):
+              raise SystemExit(
+                  f"Public sitemap.xml is missing required URLs: {sorted(required - locations)}"
+              )
+
+          robots = Path("/tmp/robots.txt").read_text(encoding="utf-8")
+          expected_sitemap = f"Sitemap: {base_url}/sitemap.xml"
+          if "User-agent: *" not in robots or expected_sitemap not in robots:
+              raise SystemExit("Public robots.txt does not advertise the canonical sitemap")
+          PY
