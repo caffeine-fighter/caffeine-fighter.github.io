@@ -5,7 +5,7 @@
 :root {
     --sys-font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --base-font-family: "Noto Sans KR", var(--sys-font-family);
-    --editorial-font-family: "IBM Plex Sans KR", "Noto Sans KR", var(--sys-font-family);
+    --editorial-font-family: "Pretendard Variable", Pretendard, "Noto Sans KR", var(--sys-font-family);
     --article-font-family: var(--editorial-font-family);
     --code-font-family: "Space Grotesk", "SFMono-Regular", Consolas, monospace;
 
@@ -1377,17 +1377,25 @@ main.main {
 }
 
 .article-content h3 {
-    padding-inline-start: calc(var(--card-padding) - 12px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-inline-start: var(--card-padding);
 }
 
 .article-content h3::before {
-    position: absolute;
-    top: 0.45em;
-    left: calc(var(--card-padding) - 4px);
-    width: 2px;
-    height: 1.1em;
-    background: linear-gradient(var(--aether-pink), var(--aether-violet));
+    position: static;
+    width: 9px;
+    height: 9px;
+    flex: 0 0 auto;
+    border: 1px solid rgba(var(--aether-ruby-rgb), 0.72);
+    background: linear-gradient(135deg, var(--aether-ruby), var(--aether-blue));
+    box-shadow:
+        0 0 0 3px rgba(var(--aether-ruby-rgb), 0.055),
+        0 0 9px rgba(var(--aether-ruby-rgb), 0.34),
+        0 0 13px rgba(var(--aether-blue-rgb), 0.16);
     content: "";
+    transform: rotate(45deg);
 }
 
 .article-content a:not(.link-card) {
@@ -2161,16 +2169,43 @@ main.main {
 
 .article-list--compact .article-meta {
     display: flex;
-    flex-wrap: wrap;
-    gap: 7px 12px;
+    width: fit-content;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0;
     align-items: center;
+    overflow: hidden;
+    border: 1px solid var(--aether-border-soft);
+    border-radius: 999px;
+    background: rgba(var(--aether-violet-rgb), 0.045);
+    color: var(--aether-muted);
+    line-height: 1;
+}
+
+.article-list--compact .article-time--date,
+.article-list--compact .article-time--reading {
+    min-height: 30px;
+    padding: 7px 11px;
+}
+
+.article-list--compact .article-time--date {
+    display: inline-flex;
+    align-items: center;
+    color: var(--aether-muted);
+    font-family: "Space Grotesk", var(--editorial-font-family);
+    font-size: 0.88rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
 }
 
 .article-list--compact .article-time--reading {
     display: inline-flex;
     gap: 5px;
     align-items: center;
+    border-inline-start: 1px solid var(--aether-border-soft);
     color: var(--aether-muted);
+    font-size: 0.88rem;
     white-space: nowrap;
 }
 
