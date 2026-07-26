@@ -1,0 +1,56 @@
+<article>
+    <a href="{{ .RelPermalink }}">
+        <div class="article-details">
+            <h2 class="article-title">
+                {{- .Title -}}
+            </h2>
+
+            {{- $description := .Params.description -}}
+            {{- $isTerm := in .Kind "term" -}}
+            {{- if $isTerm -}}
+                {{- $description = $description | default (T "list.page" (len .Pages)) -}}
+            {{- end -}}
+            {{- $showReadingTime := and (not $isTerm) (.Params.readingTime | default .Site.Params.article.readingTime) -}}
+
+            {{- if or $description (not .Date.IsZero) $showReadingTime -}}
+                <footer class="article-meta">
+                    {{- if or $isTerm .Date.IsZero -}}
+                        {{ with $description }}
+                            <span class="article-description">{{- . -}}</span>
+                        {{ end }}
+                    {{- else -}}
+                        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                            {{- .Date | time.Format .Site.Params.dateFormat.published -}}
+                        </time>
+                    {{- end -}}
+
+                    {{- if $showReadingTime -}}
+                        <span class="article-time--reading">
+                            {{ partial "helper/icon" "clock" }}
+                            {{ T "article.readingTime" .ReadingTime }}
+                        </span>
+                    {{- end -}}
+                </footer>
+            {{- end -}}
+        </div>
+
+        {{- $image := partial "helper/image" (dict "Image" .Params.image "Resources" .Resources "Context" .) -}}
+        {{ if $image }}
+            <div class="article-image">
+                {{ partial "helper/thumbnail-image" (dict
+                    "Resource" $image.Resource
+                    "Width" 60
+                    "Height" 60
+                    "Resize" .Site.Params.ImageProcessing.Thumbnail.Enabled
+                    "Attributes" (dict
+                        "src" $image.Permalink
+                        "alt" .Title
+                        "loading" "lazy"
+                        "width" $image.Width
+                        "height" $image.Height
+                    )
+                ) }}
+            </div>
+        {{ end }}
+    </a>
+</article>
