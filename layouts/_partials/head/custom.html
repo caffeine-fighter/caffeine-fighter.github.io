@@ -1,6 +1,7 @@
 {{- $authorName := .Site.Params.author.name | default .Site.Title -}}
 {{- $authorURL := .Site.Params.author.url | default .Site.BaseURL -}}
 {{- $author := dict "@type" "Person" "name" $authorName "url" $authorURL -}}
+{{- $faviconVersion := "20260727-soft-orbit" -}}
 {{- with .Site.Params.author.sameAs -}}
     {{- $author = merge $author (dict "sameAs" .) -}}
 {{- end -}}
@@ -8,9 +9,9 @@
 <meta name="author" content="{{ $authorName }}">
 <link rel="author" href="{{ $authorURL }}">
 <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ "sitemap.xml" | absURL }}">
-<link rel="icon" href="{{ "favicon.ico" | relURL }}">
-<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}">
+<link rel="icon" href="{{ printf "%s?v=%s" ("favicon.ico" | relURL) $faviconVersion }}">
+<link rel="icon" type="image/svg+xml" href="{{ printf "%s?v=%s" ("favicon.svg" | relURL) $faviconVersion }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ printf "%s?v=%s" ("apple-touch-icon.png" | relURL) $faviconVersion }}">
 {{- if .Params.noindex }}
     <meta name="robots" content="noindex, follow">
 {{- else }}
