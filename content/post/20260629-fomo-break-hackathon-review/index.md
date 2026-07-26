@@ -1,8 +1,8 @@
 ---
 title: "2026 SKYSH 해커톤 후기: FOMO Break"
-description: "참가 마감 당일 모인 네 명이 공개 시장 데이터와 Decision Pause로 FOMO Break를 완성하기까지의 하루"
+description: "마감 당일 모인 네 명이 하루 만에 만든 투자 과열 방지 서비스"
 date: 2026-06-29T00:28:47+09:00
-lastmod: 2026-07-25T14:30:00+09:00
+lastmod: 2026-07-27T01:00:00+09:00
 event_date: 2026-06-28
 slug: "20260629-fomo-break-hackathon-review"
 image:

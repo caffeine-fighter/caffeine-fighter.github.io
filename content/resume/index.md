@@ -1,8 +1,8 @@
 ---
 title: "Resume"
-description: "외부 공개·제출용으로 정리한 학업, 연구, 개발, 수상과 리더십 이력"
+description: "한 장에 압축한 학업, 개발, 연구와 운영 경험"
 date: 2026-07-16
-lastmod: 2026-07-16T22:10:47+09:00
+lastmod: 2026-07-27T01:00:00+09:00
 slug: "resume"
 toc: true
 draft: false

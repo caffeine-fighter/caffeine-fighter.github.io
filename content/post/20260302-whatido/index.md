@@ -1,6 +1,6 @@
 ---
 title: "취미생활 아카이브"
-description: 
+description: "하고 있는 것과 오래 하고 싶은 것들"
 date: 2026-03-09T12:29:36+09:00
 slug: "20260309-what-i-do"
 image: 

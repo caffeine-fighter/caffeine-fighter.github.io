@@ -1,8 +1,8 @@
 ---
 title: "2026 대통령과학장학금 지원 후기"
-description: "장학금이 절실했던 배경부터 서류·인적성·면접과 결과 이후의 판단까지 남긴 기록"
+description: "합격할 줄 알았고, 떨어진 뒤에도 한동안 납득하지 못했다"
 date: 2026-06-28T23:50:00+09:00
-lastmod: 2026-07-25T16:20:00+09:00
+lastmod: 2026-07-27T01:00:00+09:00
 event_date: 2026-06-05
 slug: "20260605-presidential-science-scholarship-review"
 image:

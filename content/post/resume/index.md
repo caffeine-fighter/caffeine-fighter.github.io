@@ -1,9 +1,9 @@
 ---
 title: "프로필"
 date: 2026-05-28
-lastmod: 2026-07-16T22:17:18+09:00
+lastmod: 2026-07-27T01:00:00+09:00
 draft: false
-description: "수학·소프트웨어·생성형 AI 연구·음악 창작·학생 조직 운영을 넘나들며 문제를 결과물과 구조로 바꿔 온 이력"
+description: "지금까지 공부하고 만들고 운영해 온 것들"
 slug: "profile"
 url: "/profile/"
 toc: true
