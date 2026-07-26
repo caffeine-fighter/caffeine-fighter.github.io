@@ -1,8 +1,8 @@
 ---
 title: "조직 운영 회고: 실패를 구조로 바꾸다"
-description: "교내 인맥 없이 시작해 학생 조직의 행정·공연과 1,000명 이상 커뮤니티 운영까지 맡으며, 실패를 구조 개선으로 바꿔 온 기록"
+description: "동아리 다섯 곳과 1,000명짜리 새내기방을 굴리며 배운 것"
 date: 2026-07-11T01:30:00+09:00
-lastmod: 2026-07-25T14:10:00+09:00
+lastmod: 2026-07-27T01:00:00+09:00
 slug: "20260711-organization-operations-review"
 image:
 math: false

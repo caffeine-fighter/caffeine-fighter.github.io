@@ -1,8 +1,8 @@
 ---
 title: "2026 양자정보경진대회 후기: QuantumCylinder"
-description: "SKYSH 해커톤 바로 다음 날, 낯선 양자정보 문제를 3일 동안 실험·구현·문서화하고 후속 연구 가능성까지 검토한 기록"
+description: "양자정보를 처음 배운 팀이 3일 동안 어디까지 갔는가"
 date: 2026-07-01T23:40:00+09:00
-lastmod: 2026-07-25T14:30:00+09:00
+lastmod: 2026-07-27T01:00:00+09:00
 slug: "20260701-quantum-cylinder-contest-review"
 image:
 math: true
