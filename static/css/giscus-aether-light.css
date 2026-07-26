@@ -1,0 +1,60 @@
+@import url("https://giscus.app/themes/noborder_light.css");
+
+main {
+  --color-btn-text: #23344f;
+  --color-btn-bg: rgb(246 249 255 / 82%);
+  --color-btn-border: rgb(39 103 255 / 14%);
+  --color-btn-shadow: 0 10px 24px rgb(16 64 139 / 8%);
+  --color-btn-hover-bg: rgb(234 241 255 / 92%);
+  --color-btn-hover-border: rgb(39 103 255 / 34%);
+  --color-btn-active-bg: rgb(39 103 255 / 12%);
+  --color-btn-active-border: #2767ff;
+  --color-btn-selected-bg: rgb(39 103 255 / 10%);
+  --color-btn-primary-text: #fff;
+  --color-btn-primary-bg: #2767ff;
+  --color-btn-primary-border: rgb(39 103 255 / 78%);
+  --color-btn-primary-shadow: 0 0 22px rgb(39 103 255 / 20%), 0 0 30px rgb(215 0 80 / 8%);
+  --color-btn-primary-hover-bg: #175fe8;
+  --color-btn-primary-hover-border: #d70050;
+  --color-btn-primary-selected-bg: #174cc9;
+  --color-fg-default: #17243c;
+  --color-fg-muted: #627087;
+  --color-fg-subtle: #8793a6;
+  --color-canvas-default: transparent;
+  --color-canvas-overlay: rgb(255 255 255 / 88%);
+  --color-canvas-inset: rgb(236 243 255 / 55%);
+  --color-canvas-subtle: rgb(244 248 255 / 58%);
+  --color-border-default: rgb(39 103 255 / 18%);
+  --color-border-muted: rgb(39 103 255 / 10%);
+  --color-neutral-muted: rgb(39 103 255 / 8%);
+  --color-accent-fg: #1f56ca;
+  --color-accent-emphasis: #2767ff;
+  --color-accent-muted: rgb(39 103 255 / 30%);
+  --color-accent-subtle: rgb(39 103 255 / 8%);
+  --color-danger-fg: #b90044;
+  --color-danger-muted: rgb(215 0 80 / 30%);
+  --color-danger-subtle: rgb(215 0 80 / 8%);
+  --color-social-reaction-bg-hover: rgb(27 187 228 / 10%);
+  --color-social-reaction-bg-reacted-hover: rgb(39 103 255 / 18%);
+}
+
+.gsc-main {
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.gsc-comment-box,
+.gsc-comment {
+  border: 1px solid rgb(39 103 255 / 12%);
+  border-radius: 18px;
+  background: rgb(255 255 255 / 42%);
+  box-shadow: 0 16px 42px rgb(15 47 100 / 7%);
+}
+
+.gsc-comment-box-textarea {
+  border-radius: 12px;
+}
+
+.gsc-reactions-button,
+.gsc-social-reaction-summary-item {
+  border-color: rgb(215 0 80 / 14%);
+}
