@@ -1809,7 +1809,8 @@ main.main {
     box-shadow: 0 0 24px rgba(var(--aether-blue-rgb), 0.16), 0 0 38px rgba(var(--aether-ruby-rgb), 0.09);
 }
 
-.posts-filter:is(:hover, .is-active)::after {
+.posts-filter:hover::after,
+.posts-filter.is-active::after {
     opacity: 1;
     transform: scaleX(1);
 }
