@@ -2,23 +2,24 @@
 
 {{ define "main" }}
     {{- $paginator := partial "helper/paginator.html" . -}}
+    {{- $banner := .Site.Params.home.banner -}}
+    {{- $orbit := $banner.orbit -}}
 
     <section class="aether-hero aether-reveal" aria-labelledby="aether-hero-title">
         <div class="aether-hero__copy">
             <p class="aether-kicker">
                 <span class="aether-kicker__pulse" aria-hidden="true"></span>
-                CF / PERSONAL POSTS / 2026
+                {{ $banner.kicker | default "CF / PERSONAL POSTS" }}
             </p>
 
             <h1 id="aether-hero-title">
-                경계를 넘나들며
-                <span>결과를 만드는 기록.</span>
+                {{ $banner.title | default .Site.Title }}
+                {{ with $banner.accent }}<span>{{ . }}</span>{{ end }}
             </h1>
 
-            <p class="aether-hero__description">
-                수학과 소프트웨어, 생성형 AI 연구, 음악 창작과 조직 운영.
-                서로 다른 세계에서 마주친 문제를 분석하고 직접 만든 결과로 증명해 온 과정을 남깁니다.
-            </p>
+            {{ with $banner.description }}
+                <p class="aether-hero__description">{{ . }}</p>
+            {{ end }}
 
             <div class="aether-hero__actions" aria-label="주요 페이지">
                 <a class="aether-button aether-button--primary" href="{{ "/profile/" | relURL }}">
@@ -33,20 +34,16 @@
                 </a>
             </div>
 
-            <dl class="aether-hero__metrics">
-                <div>
-                    <dt>BUILD</dt>
-                    <dd>2× Hackathon Grand Prize</dd>
-                </div>
-                <div>
-                    <dt>OPERATE</dt>
-                    <dd>1,000+ Community</dd>
-                </div>
-                <div>
-                    <dt>STUDY</dt>
-                    <dd>4.10 Major GPA</dd>
-                </div>
-            </dl>
+            {{ with $banner.metrics }}
+                <dl class="aether-hero__metrics">
+                    {{ range . }}
+                        <div>
+                            <dt>{{ .label }}</dt>
+                            <dd>{{ .value }}</dd>
+                        </div>
+                    {{ end }}
+                </dl>
+            {{ end }}
         </div>
 
         <div class="aether-orbit" aria-hidden="true">
@@ -57,14 +54,16 @@
             <span class="aether-orbit__shard aether-orbit__shard--violet"></span>
 
             <div class="aether-orbit__core">
-                <span>CAFFEINE FIGHTER</span>
-                <strong>LOG</strong>
-                <small>INTERDISCIPLINARY / SNU 24</small>
+                <span>{{ $orbit.eyebrow | default "CAFFEINE FIGHTER" }}</span>
+                <strong>{{ $orbit.title | default "LOG" }}</strong>
+                <small>{{ $orbit.caption | default "INTERDISCIPLINARY" }}</small>
             </div>
 
-            <span class="aether-orbit__label aether-orbit__label--one">01 / ANALYZE</span>
-            <span class="aether-orbit__label aether-orbit__label--two">02 / CREATE</span>
-            <span class="aether-orbit__label aether-orbit__label--three">03 / OPERATE</span>
+            {{- $orbitLabels := $orbit.labels | default (slice "01 / ANALYZE" "02 / CREATE" "03 / OPERATE") -}}
+            {{- $orbitLabelClasses := slice "one" "two" "three" -}}
+            {{- range $index, $label := first 3 $orbitLabels -}}
+                <span class="aether-orbit__label aether-orbit__label--{{ index $orbitLabelClasses $index }}">{{ $label }}</span>
+            {{- end -}}
         </div>
     </section>
 

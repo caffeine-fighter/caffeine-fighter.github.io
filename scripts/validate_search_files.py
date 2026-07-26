@@ -6,6 +6,7 @@ from __future__ import annotations
 from html.parser import HTMLParser
 from pathlib import Path
 import sys
+from datetime import datetime
 from urllib.parse import unquote, urlsplit
 import xml.etree.ElementTree as ET
 
@@ -16,12 +17,13 @@ SITEMAP_URL = f"{BASE_URL}sitemap.xml"
 SITEMAP_NAMESPACE = "http://www.sitemaps.org/schemas/sitemap/0.9"
 REQUIRED_URLS = {
     BASE_URL,
+    f"{BASE_URL}posts/",
     f"{BASE_URL}profile/",
     f"{BASE_URL}resume/",
     f"{BASE_URL}p/20260711-organization-operations-review/",
 }
-STANDALONE_PAGES = ("profile/", "resume/")
-NOINDEX_PAGES = ("search/", "posts/")
+STANDALONE_PAGES = ("posts/", "profile/", "resume/")
+NOINDEX_PAGES = ("search/",)
 ABSENT_PAGES = (
     "p/test123/",
     "p/20260601-profile/",
@@ -142,8 +144,12 @@ def validate_sitemap(public_dir: Path) -> int:
         if element.tag != f"{{{SITEMAP_NAMESPACE}}}url":
             fail(f"unexpected sitemap element: {element.tag}")
         children = list(element)
-        if len(children) != 1 or children[0].tag != f"{{{SITEMAP_NAMESPACE}}}loc":
-            fail("each sitemap URL must contain exactly one loc element")
+        expected_tags = [
+            f"{{{SITEMAP_NAMESPACE}}}loc",
+            f"{{{SITEMAP_NAMESPACE}}}lastmod",
+        ]
+        if [child.tag for child in children] != expected_tags:
+            fail("each sitemap URL must contain loc and lastmod in that order")
         location = (children[0].text or "").strip()
         parsed = urlsplit(location)
         if (
@@ -158,6 +164,12 @@ def validate_sitemap(public_dir: Path) -> int:
             fail(f"sitemap URL must be an absolute, clean URL on {HOST}: {location}")
         if not parsed.path.endswith("/"):
             fail(f"sitemap page URL must use its canonical trailing slash: {location}")
+
+        lastmod = (children[1].text or "").strip()
+        try:
+            datetime.fromisoformat(lastmod.replace("Z", "+00:00"))
+        except ValueError:
+            fail(f"sitemap lastmod is not a valid W3C datetime: {lastmod}")
         locations.append(location)
 
     if len(locations) != len(set(locations)):

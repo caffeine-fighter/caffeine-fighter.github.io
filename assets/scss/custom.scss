@@ -5,7 +5,7 @@
 :root {
     --sys-font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --base-font-family: "Noto Sans KR", var(--sys-font-family);
-    --editorial-font-family: "Pretendard Variable", Pretendard, "Noto Sans KR", var(--sys-font-family);
+    --editorial-font-family: "Noto Sans KR", var(--sys-font-family);
     --article-font-family: var(--editorial-font-family);
     --code-font-family: "Space Grotesk", "SFMono-Regular", Consolas, monospace;
 
@@ -18,14 +18,14 @@
     --article-line-height: 1.9;
     --article-font-size: 1.62rem;
 
-    --body-background: #f7f4ff;
-    --card-background: rgba(255, 255, 255, 0.68);
-    --card-background-selected: rgba(107, 76, 198, 0.1);
-    --card-text-color-main: #251d3b;
-    --card-text-color-secondary: #5e5670;
-    --card-text-color-tertiary: #81788f;
-    --card-separator-color: rgba(107, 76, 198, 0.12);
-    --body-text-color: #6b6279;
+    --body-background: #eee8fb;
+    --card-background: rgba(249, 246, 255, 0.74);
+    --card-background-selected: rgba(107, 76, 198, 0.14);
+    --card-text-color-main: #211431;
+    --card-text-color-secondary: #594b69;
+    --card-text-color-tertiary: #786b88;
+    --card-separator-color: rgba(107, 76, 198, 0.18);
+    --body-text-color: #62556f;
     --accent-color: #6b4cc6;
     --accent-color-darker: #4d329e;
     --accent-color-text: #ffffff;
@@ -35,16 +35,16 @@
     --code-background-color: rgba(107, 76, 198, 0.09);
     --code-text-color: #5a3db3;
 
-    --aether-bg: #f7f4ff;
-    --aether-bg-deep: #efe6cf;
-    --aether-panel: rgba(255, 255, 255, 0.5);
-    --aether-panel-strong: rgba(255, 255, 255, 0.7);
-    --aether-panel-soft: rgba(251, 248, 255, 0.36);
-    --aether-reading-panel: rgba(255, 255, 255, 0.84);
-    --aether-border: rgba(255, 255, 255, 0.82);
-    --aether-border-soft: rgba(107, 76, 198, 0.14);
-    --aether-ink: #251d3b;
-    --aether-muted: #6d647b;
+    --aether-bg: #e9e1f8;
+    --aether-bg-deep: #f4e5c4;
+    --aether-panel: rgba(245, 239, 255, 0.62);
+    --aether-panel-strong: rgba(251, 247, 255, 0.78);
+    --aether-panel-soft: rgba(222, 211, 246, 0.5);
+    --aether-reading-panel: rgba(252, 249, 255, 0.9);
+    --aether-border: rgba(107, 76, 198, 0.25);
+    --aether-border-soft: rgba(107, 76, 198, 0.2);
+    --aether-ink: #211431;
+    --aether-muted: #62556f;
     --aether-violet: #6b4cc6;
     --aether-violet-soft: #c9bbf1;
     --aether-violet-text: #5539a8;
@@ -71,12 +71,12 @@
     --aether-cyan: var(--aether-ice);
     --aether-cyan-soft: var(--aether-ice-soft);
     --aether-cyan-text: var(--aether-ice-text);
-    --aether-glow-violet: rgba(var(--aether-violet-rgb), 0.2);
-    --aether-glow-pink: rgba(var(--aether-gold-rgb), 0.18);
-    --aether-glow-cyan: rgba(var(--aether-ice-rgb), 0.2);
-    --aether-shadow: 0 24px 70px rgba(15, 47, 100, 0.12);
-    --aether-shadow-hover: 0 32px 90px rgba(10, 41, 94, 0.2);
-    --aether-edge-glow: 0 0 26px rgba(var(--aether-blue-rgb), 0.14), 0 0 42px rgba(var(--aether-ruby-rgb), 0.07);
+    --aether-glow-violet: rgba(var(--aether-violet-rgb), 0.28);
+    --aether-glow-pink: rgba(var(--aether-gold-rgb), 0.24);
+    --aether-glow-cyan: rgba(var(--aether-ice-rgb), 0.25);
+    --aether-shadow: 0 24px 70px rgba(73, 48, 128, 0.18), 0 10px 34px rgba(25, 99, 190, 0.08);
+    --aether-shadow-hover: 0 34px 96px rgba(73, 48, 128, 0.27), 0 16px 46px rgba(25, 99, 190, 0.13);
+    --aether-edge-glow: 0 0 30px rgba(var(--aether-blue-rgb), 0.2), 0 0 48px rgba(var(--aether-ruby-rgb), 0.12);
     --aether-cut: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
     --aether-cut-small: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
     --aether-shift-x: 0px;
@@ -87,8 +87,8 @@
     --aether-scroll-y: 0px;
     --aether-scroll-y-reverse: 0px;
 
-    --shadow-l1: 0 18px 48px rgba(15, 47, 100, 0.09), 0 1px 0 rgba(255, 255, 255, 0.84) inset;
-    --shadow-l2: 0 28px 74px rgba(15, 47, 100, 0.16), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+    --shadow-l1: 0 18px 50px rgba(73, 48, 128, 0.15), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+    --shadow-l2: 0 30px 80px rgba(73, 48, 128, 0.23), 0 1px 0 rgba(255, 255, 255, 0.94) inset;
 }
 
 :root[data-scheme="dark"] {
@@ -458,10 +458,89 @@ main.main {
 }
 
 .sidebar .site-name {
-    font-family: "Space Grotesk", "Noto Sans KR", sans-serif;
+    font-family: var(--editorial-font-family);
     font-size: 1.7rem;
+    font-weight: 500;
     letter-spacing: -0.045em;
     line-height: 1.35;
+}
+
+:root:not([data-scheme="dark"]) body {
+    background:
+        radial-gradient(circle at 7% 6%, rgba(var(--aether-ruby-rgb), 0.13), transparent 24rem),
+        radial-gradient(circle at 88% 12%, rgba(var(--aether-blue-rgb), 0.16), transparent 34rem),
+        radial-gradient(circle at 67% 82%, rgba(var(--aether-gold-rgb), 0.22), transparent 37rem),
+        radial-gradient(circle at 24% 72%, rgba(var(--aether-violet-rgb), 0.15), transparent 32rem),
+        linear-gradient(138deg, #e8dff7 0%, #faf1dd 48%, #dcecff 100%);
+}
+
+:root:not([data-scheme="dark"]) body::before {
+    background:
+        repeating-linear-gradient(112deg, transparent 0 92px, rgba(var(--aether-blue-rgb), 0.045) 92px 93px),
+        repeating-linear-gradient(22deg, transparent 0 140px, rgba(var(--aether-ruby-rgb), 0.026) 140px 141px);
+}
+
+:root:not([data-scheme="dark"]) .aether-sky__halo {
+    border-color: rgba(var(--aether-violet-rgb), 0.24);
+    opacity: 0.66;
+}
+
+:root:not([data-scheme="dark"]) .aether-sky__line {
+    opacity: 0.3;
+}
+
+:root:not([data-scheme="dark"]) .aether-sky__shard {
+    border-color: rgba(var(--aether-violet-rgb), 0.24);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.42), rgba(var(--aether-blue-rgb), 0.06) 58%, transparent);
+    box-shadow: 0 18px 54px rgba(var(--aether-violet-rgb), 0.18), 0 0 34px rgba(var(--aether-blue-rgb), 0.12);
+    opacity: 0.42;
+}
+
+:root:not([data-scheme="dark"]) .left-sidebar::before {
+    background:
+        radial-gradient(circle at 18% 12%, rgba(var(--aether-ruby-rgb), 0.08), transparent 34%),
+        linear-gradient(155deg, rgba(251, 247, 255, 0.88), rgba(226, 214, 249, 0.64));
+    box-shadow:
+        0 26px 76px rgba(var(--aether-violet-rgb), 0.2),
+        -10px 14px 42px rgba(var(--aether-ruby-rgb), 0.07),
+        12px 8px 42px rgba(var(--aether-blue-rgb), 0.08);
+}
+
+:root:not([data-scheme="dark"]) .aether-hero {
+    background:
+        radial-gradient(circle at 88% 13%, rgba(var(--aether-blue-rgb), 0.11), transparent 34%),
+        radial-gradient(circle at 8% 96%, rgba(var(--aether-ruby-rgb), 0.065), transparent 30%),
+        linear-gradient(132deg, rgba(255, 255, 255, 0.72), rgba(var(--aether-violet-rgb), 0.055) 56%, rgba(var(--aether-gold-rgb), 0.055));
+    box-shadow:
+        var(--aether-shadow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92),
+        inset 0 0 70px rgba(var(--aether-blue-rgb), 0.035);
+}
+
+:root:not([data-scheme="dark"]) .article-list article.aether-entry {
+    background:
+        radial-gradient(circle at 100% 0, rgba(var(--aether-blue-rgb), 0.075), transparent 34%),
+        linear-gradient(145deg, rgba(252, 249, 255, 0.84), rgba(230, 219, 250, 0.58));
+}
+
+:root:not([data-scheme="dark"]) .main-article {
+    background:
+        radial-gradient(circle at 94% 4%, rgba(var(--aether-blue-rgb), 0.06), transparent 30%),
+        radial-gradient(circle at 4% 96%, rgba(var(--aether-ruby-rgb), 0.035), transparent 28%),
+        linear-gradient(155deg, rgba(254, 252, 255, 0.94), rgba(240, 233, 252, 0.82)) !important;
+    box-shadow:
+        var(--aether-shadow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.96) !important;
+}
+
+:root:not([data-scheme="dark"]) .right-sidebar .widget:not(.search-form),
+:root:not([data-scheme="dark"]) .right-sidebar .search-form > p,
+:root:not([data-scheme="dark"]) .widget--toc {
+    background:
+        linear-gradient(145deg, rgba(252, 248, 255, 0.86), rgba(224, 214, 248, 0.64)) !important;
+    box-shadow:
+        0 22px 64px rgba(var(--aether-violet-rgb), 0.17),
+        0 0 30px rgba(var(--aether-blue-rgb), 0.055) !important;
 }
 
 .sidebar .site-name a {
@@ -700,6 +779,7 @@ main.main {
 .aether-hero__copy {
     position: relative;
     z-index: 2;
+    text-align: left;
 }
 
 .aether-kicker {
@@ -724,9 +804,9 @@ main.main {
     max-width: 780px;
     margin: 0;
     color: var(--aether-ink);
-    font-family: "Space Grotesk", "Noto Sans KR", sans-serif;
+    font-family: var(--editorial-font-family);
     font-size: clamp(4.1rem, 5.4vw, 7.4rem);
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: -0.048em;
     line-height: 1.07;
     word-break: keep-all;
@@ -749,6 +829,7 @@ main.main {
     font-weight: 400;
     letter-spacing: -0.022em;
     line-height: 1.82;
+    text-align: left;
     word-break: keep-all;
 }
 
@@ -1001,8 +1082,9 @@ main.main {
 .aether-section-heading h2 {
     margin: 0;
     color: var(--aether-ink);
-    font-family: "Space Grotesk", "Noto Sans KR", sans-serif;
+    font-family: var(--editorial-font-family);
     font-size: clamp(2.4rem, 3vw, 3.5rem);
+    font-weight: 500;
     letter-spacing: -0.06em;
 }
 
@@ -1180,7 +1262,7 @@ main.main {
     color: var(--aether-violet-text) !important;
     font-family: "Space Grotesk", "Noto Sans KR", sans-serif;
     font-size: 1.04rem;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.02em;
     box-shadow: 0 0 18px rgba(var(--aether-blue-rgb), 0.1);
 }
@@ -1202,9 +1284,9 @@ main.main {
 
 .article-list .article-title {
     max-width: 94%;
-    font-family: "Space Grotesk", "Noto Sans KR", sans-serif;
+    font-family: var(--editorial-font-family);
     font-size: clamp(2.05rem, 2.1vw, 2.75rem);
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: -0.048em;
     line-height: 1.3;
     word-break: keep-all;
@@ -1303,9 +1385,9 @@ main.main {
 }
 
 .main-article .article-title {
-    font-family: "Space Grotesk", "Noto Sans KR", sans-serif;
+    font-family: var(--editorial-font-family);
     font-size: clamp(3rem, 4.5vw, 5.5rem);
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: -0.045em;
     line-height: 1.17;
     word-break: keep-all;
@@ -1323,7 +1405,7 @@ main.main {
 .main-article .article-content {
     color: var(--card-text-color-main);
     font-family: var(--editorial-font-family);
-    font-weight: 400;
+    font-weight: 300;
     letter-spacing: -0.018em;
 }
 
@@ -1339,7 +1421,8 @@ main.main {
 .article-content h6 {
     border-inline-start: 0;
     color: var(--aether-ink);
-    font-family: "Space Grotesk", "Noto Sans KR", sans-serif;
+    font-family: var(--editorial-font-family);
+    font-weight: 500;
     letter-spacing: -0.04em;
 }
 
@@ -1351,22 +1434,19 @@ main.main {
 }
 
 .article-content h2::before {
-    width: 24px;
-    height: 24px;
+    width: 13px;
+    height: 13px;
     flex: 0 0 auto;
-    background:
-        linear-gradient(var(--aether-ruby), var(--aether-ruby)) 50% 50% / 9px 9px no-repeat,
-        linear-gradient(var(--aether-ruby-soft), var(--aether-ruby-soft)) 3px 17px / 5px 5px no-repeat,
-        linear-gradient(var(--aether-blue), var(--aether-blue)) 17px 3px / 5px 5px no-repeat,
-        linear-gradient(var(--aether-gold), var(--aether-gold)) 4px 4px / 3px 3px no-repeat;
+    border: 1px solid rgba(var(--aether-ruby-rgb), 0.84);
+    background: linear-gradient(135deg, var(--aether-ruby-soft), var(--aether-ruby) 52%, var(--aether-ruby-text));
+    box-shadow:
+        0 0 0 4px rgba(var(--aether-ruby-rgb), 0.07),
+        0 0 11px rgba(var(--aether-ruby-rgb), 0.72),
+        0 0 24px rgba(var(--aether-ruby-rgb), 0.46),
+        inset 0 0 4px rgba(255, 255, 255, 0.58);
     content: "";
-    filter:
-        drop-shadow(0 0 4px rgba(var(--aether-ruby-rgb), 0.92))
-        drop-shadow(0 0 10px rgba(var(--aether-ruby-rgb), 0.64))
-        drop-shadow(-4px 4px 8px rgba(var(--aether-blue-rgb), 0.42))
-        drop-shadow(4px -4px 9px rgba(var(--aether-gold-rgb), 0.34));
     transform: rotate(45deg);
-    animation: aether-prism-shimmer 3.6s ease-in-out infinite;
+    animation: aether-ruby-diamond-glow 3s ease-in-out infinite;
 }
 
 .article-content h2::after {
@@ -1377,25 +1457,13 @@ main.main {
 }
 
 .article-content h3 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding-inline-start: var(--card-padding);
+    display: block;
+    padding-inline-start: 16px;
+    border-inline-start: 2px solid rgba(var(--aether-ruby-rgb), 0.42);
 }
 
 .article-content h3::before {
-    position: static;
-    width: 9px;
-    height: 9px;
-    flex: 0 0 auto;
-    border: 1px solid rgba(var(--aether-ruby-rgb), 0.72);
-    background: linear-gradient(135deg, var(--aether-ruby), var(--aether-blue));
-    box-shadow:
-        0 0 0 3px rgba(var(--aether-ruby-rgb), 0.055),
-        0 0 9px rgba(var(--aether-ruby-rgb), 0.34),
-        0 0 13px rgba(var(--aether-blue-rgb), 0.16);
-    content: "";
-    transform: rotate(45deg);
+    content: none;
 }
 
 .article-content a:not(.link-card) {
@@ -2068,7 +2136,8 @@ main.main {
 .taxonomy-title,
 .archives-date,
 .article-list--compact .article-title {
-    font-family: "Space Grotesk", "Noto Sans KR", sans-serif;
+    font-family: var(--editorial-font-family);
+    font-weight: 500;
 }
 
 .article-list--compact {
@@ -2734,22 +2803,22 @@ html.aether-ready .aether-entry:nth-child(3) {
     }
 }
 
-@keyframes aether-prism-shimmer {
+@keyframes aether-ruby-diamond-glow {
     0%,
     100% {
-        filter:
-            drop-shadow(0 0 4px rgba(var(--aether-ruby-rgb), 0.84))
-            drop-shadow(0 0 9px rgba(var(--aether-ruby-rgb), 0.52))
-            drop-shadow(-4px 4px 7px rgba(var(--aether-blue-rgb), 0.34))
-            drop-shadow(4px -4px 8px rgba(var(--aether-gold-rgb), 0.26));
+        box-shadow:
+            0 0 0 4px rgba(var(--aether-ruby-rgb), 0.055),
+            0 0 9px rgba(var(--aether-ruby-rgb), 0.62),
+            0 0 19px rgba(var(--aether-ruby-rgb), 0.34),
+            inset 0 0 4px rgba(255, 255, 255, 0.48);
         opacity: 0.9;
     }
     50% {
-        filter:
-            drop-shadow(0 0 6px rgba(var(--aether-ruby-rgb), 1))
-            drop-shadow(0 0 16px rgba(var(--aether-ruby-rgb), 0.82))
-            drop-shadow(-5px 5px 12px rgba(var(--aether-blue-rgb), 0.56))
-            drop-shadow(5px -5px 13px rgba(var(--aether-gold-rgb), 0.44));
+        box-shadow:
+            0 0 0 5px rgba(var(--aether-ruby-rgb), 0.09),
+            0 0 14px rgba(var(--aether-ruby-rgb), 0.92),
+            0 0 31px rgba(var(--aether-ruby-rgb), 0.58),
+            inset 0 0 5px rgba(255, 255, 255, 0.72);
         opacity: 1;
     }
 }
