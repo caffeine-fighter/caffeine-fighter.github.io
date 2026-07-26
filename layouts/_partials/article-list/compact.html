@@ -1,12 +1,22 @@
 <article>
     <a href="{{ .RelPermalink }}">
         <div class="article-details">
+            {{- $isTerm := in .Kind "term" -}}
+            {{- if not $isTerm -}}
+                {{- with .GetTerms "categories" -}}
+                    <div class="article-categories" aria-label="카테고리">
+                        {{- range . -}}
+                            <span class="article-category-chip">{{- .LinkTitle -}}</span>
+                        {{- end -}}
+                    </div>
+                {{- end -}}
+            {{- end -}}
+
             <h2 class="article-title">
                 {{- .Title -}}
             </h2>
 
             {{- $description := .Params.description -}}
-            {{- $isTerm := in .Kind "term" -}}
             {{- if $isTerm -}}
                 {{- $description = $description | default (T "list.page" (len .Pages)) -}}
             {{- end -}}
