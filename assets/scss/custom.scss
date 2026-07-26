@@ -1332,9 +1332,12 @@ main.main {
     width: 8px;
     height: 8px;
     flex: 0 0 auto;
-    border: 2px solid var(--aether-cyan);
-    background: var(--aether-violet);
-    box-shadow: 0 0 16px var(--aether-glow-violet);
+    border: 2px solid rgba(var(--aether-ruby-rgb), 0.7);
+    background: var(--aether-ruby);
+    box-shadow:
+        0 0 0 5px rgba(var(--aether-ruby-rgb), 0.07),
+        0 0 15px rgba(var(--aether-ruby-rgb), 0.42),
+        0 0 24px rgba(var(--aether-ruby-rgb), 0.2);
     content: "";
     transform: rotate(45deg);
 }
@@ -1599,12 +1602,15 @@ main.main {
     line-height: 1.25;
 }
 
-.right-sidebar :is(.widget.archives, .widget.tagCloud) > :is(.widget-archive--list, .tagCloud-tags) {
+.right-sidebar :is(.widget.archives, .widget.tagCloud) > :is(.widget-archive--list, .tagCloud-tags, .widget--toc) {
     grid-column: 1 / -1;
     margin-top: 17px;
 }
 
 .right-sidebar .widget--toc {
+    width: 100%;
+    min-width: 0;
+    align-self: stretch;
     padding: 0;
 }
 
@@ -1666,10 +1672,20 @@ main.main {
     margin-bottom: 9px;
 }
 
+.widget--toc .toc-nav {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
 .toc-nav a {
+    display: block;
     color: var(--aether-muted);
     font-size: 1.05rem;
     line-height: 1.55;
+    overflow-wrap: break-word;
+    word-break: keep-all;
 }
 
 .toc-nav li.active-class > a {
@@ -1932,6 +1948,28 @@ main.main {
 .article-list--compact article:hover {
     background: rgba(var(--aether-blue-rgb), 0.06);
     transform: translateX(5px);
+}
+
+.article-list--compact .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px 12px;
+    align-items: center;
+}
+
+.article-list--compact .article-time--reading {
+    display: inline-flex;
+    gap: 5px;
+    align-items: center;
+    color: var(--aether-muted);
+    white-space: nowrap;
+}
+
+.article-list--compact .article-time--reading svg {
+    width: 14px;
+    height: 14px;
+    color: var(--aether-blue);
+    filter: drop-shadow(0 0 5px rgba(var(--aether-blue-rgb), 0.24));
 }
 
 .pagination .pagination-link {
