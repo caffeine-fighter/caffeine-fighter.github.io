@@ -1,0 +1,98 @@
+{{- with .Site.Params.comments.giscus -}}
+<section class="aether-comments" data-giscus-shell aria-labelledby="aether-comments-title" aria-busy="true">
+    <span class="aether-comments__rail" aria-hidden="true"></span>
+    <header class="aether-comments__header">
+        <div>
+            <p class="aether-comments__eyebrow">RESONANCE / DISCUSSION</p>
+            <h2 id="aether-comments-title">댓글과 반응</h2>
+        </div>
+        <span class="aether-comments__badge">GITHUB DISCUSSIONS</span>
+    </header>
+    <p class="aether-comments__description">
+        GitHub 계정으로 로그인해 의견을 남길 수 있습니다. 반응과 답글은 GitHub Discussions에 이어집니다.
+    </p>
+    <div class="aether-comments__frame">
+        <div class="aether-comments__loading" role="status">
+            <span aria-hidden="true"></span>
+            <span>DISCUSSION CHANNEL CONNECTING</span>
+        </div>
+        <script
+            src="https://giscus.app/client.js"
+            data-repo="{{- .repo -}}"
+            data-repo-id="{{- .repoID -}}"
+            data-category="{{- .category -}}"
+            data-category-id="{{- .categoryID -}}"
+            data-mapping="{{- .mapping -}}"
+            data-strict="{{- .strict -}}"
+            data-reactions-enabled="{{- .reactionsEnabled -}}"
+            data-emit-metadata="{{- .emitMetadata -}}"
+            data-input-position="{{- .inputPosition -}}"
+            data-theme="{{- .lightTheme -}}"
+            data-lang="{{- .lang -}}"
+            data-loading="{{- .loading -}}"
+            crossorigin="anonymous"
+            async
+        ></script>
+    </div>
+</section>
+<script>
+    (() => {
+        const currentScript = document.currentScript;
+        const shell = currentScript.previousElementSibling;
+        const frame = shell?.querySelector(".aether-comments__frame");
+        if (!shell || !frame) return;
+
+        const theme = () =>
+            document.documentElement.dataset.scheme === "light"
+                ? "{{- .lightTheme -}}"
+                : "{{- .darkTheme -}}";
+
+        const setTheme = () => {
+            const giscus = shell.querySelector("iframe.giscus-frame");
+            if (!giscus?.contentWindow) return;
+
+            giscus.contentWindow.postMessage(
+                { giscus: { setConfig: { theme: theme() } } },
+                "https://giscus.app"
+            );
+        };
+
+        const markReady = () => {
+            shell.classList.add("is-ready");
+            shell.setAttribute("aria-busy", "false");
+        };
+
+        const connectFrame = () => {
+            const giscus = shell.querySelector("iframe.giscus-frame");
+            if (!giscus || giscus.dataset.aetherConnected) return;
+
+            giscus.dataset.aetherConnected = "true";
+            giscus.addEventListener(
+                "load",
+                () => {
+                    setTheme();
+                    markReady();
+                },
+                { once: true }
+            );
+            setTheme();
+        };
+
+        const observer = new MutationObserver(connectFrame);
+        observer.observe(frame, { childList: true, subtree: true });
+        connectFrame();
+
+        window.addEventListener("message", (event) => {
+            if (event.origin !== "https://giscus.app") return;
+            setTheme();
+            markReady();
+        });
+        window.addEventListener("onColorSchemeChange", setTheme);
+
+        window.setTimeout(() => {
+            connectFrame();
+            if (shell.querySelector("iframe.giscus-frame")) markReady();
+        }, 5000);
+    })();
+</script>
+{{- end -}}

@@ -1,0 +1,61 @@
+@import url("https://giscus.app/themes/transparent_dark.css");
+
+main {
+  --color-btn-text: #d5e2f8;
+  --color-btn-bg: rgb(24 37 68 / 72%);
+  --color-btn-border: rgb(141 184 255 / 14%);
+  --color-btn-shadow: 0 12px 28px rgb(0 4 14 / 24%);
+  --color-btn-hover-bg: rgb(34 52 91 / 84%);
+  --color-btn-hover-border: rgb(78 141 255 / 48%);
+  --color-btn-active-bg: rgb(78 141 255 / 18%);
+  --color-btn-active-border: #4e8dff;
+  --color-btn-selected-bg: rgb(78 141 255 / 16%);
+  --color-btn-primary-text: #fff;
+  --color-btn-primary-bg: #2767ff;
+  --color-btn-primary-border: rgb(78 141 255 / 74%);
+  --color-btn-primary-shadow: 0 0 24px rgb(78 141 255 / 24%), 0 0 36px rgb(255 36 95 / 10%);
+  --color-btn-primary-hover-bg: #347aff;
+  --color-btn-primary-hover-border: #ff245f;
+  --color-btn-primary-selected-bg: #175fe8;
+  --color-fg-default: #e9f1ff;
+  --color-fg-muted: #a4b1c8;
+  --color-fg-subtle: #687894;
+  --color-canvas-default: transparent;
+  --color-canvas-overlay: rgb(9 18 38 / 92%);
+  --color-canvas-inset: rgb(8 16 36 / 68%);
+  --color-canvas-subtle: rgb(18 31 61 / 42%);
+  --color-border-default: rgb(141 184 255 / 18%);
+  --color-border-muted: rgb(123 171 255 / 10%);
+  --color-neutral-muted: rgb(78 141 255 / 9%);
+  --color-neutral-subtle: rgb(78 141 255 / 13%);
+  --color-accent-fg: #8db8ff;
+  --color-accent-emphasis: #4e8dff;
+  --color-accent-muted: rgb(78 141 255 / 34%);
+  --color-accent-subtle: rgb(78 141 255 / 10%);
+  --color-danger-fg: #ff7a9c;
+  --color-danger-muted: rgb(255 36 95 / 34%);
+  --color-danger-subtle: rgb(255 36 95 / 10%);
+  --color-social-reaction-bg-hover: rgb(68 214 255 / 10%);
+  --color-social-reaction-bg-reacted-hover: rgb(78 141 255 / 20%);
+}
+
+.gsc-main {
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.gsc-comment-box,
+.gsc-comment {
+  border: 1px solid rgb(141 184 255 / 12%);
+  border-radius: 18px;
+  background: rgb(16 29 58 / 36%);
+  box-shadow: 0 18px 48px rgb(0 4 14 / 20%);
+}
+
+.gsc-comment-box-textarea {
+  border-radius: 12px;
+}
+
+.gsc-reactions-button,
+.gsc-social-reaction-summary-item {
+  border-color: rgb(255 36 95 / 16%);
+}
