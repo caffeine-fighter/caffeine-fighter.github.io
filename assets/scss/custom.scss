@@ -2268,6 +2268,13 @@ main.main {
     line-height: 1;
 }
 
+.article-list--compact .article-category-chip--uncategorized {
+    border-color: var(--aether-border-soft);
+    background: rgba(var(--aether-violet-rgb), 0.055);
+    box-shadow: none;
+    color: var(--aether-muted);
+}
+
 .article-list--compact .article-meta {
     display: flex;
     width: 100%;

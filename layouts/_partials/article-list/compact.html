@@ -9,6 +9,10 @@
                             <span class="article-category-chip">{{- .LinkTitle -}}</span>
                         {{- end -}}
                     </div>
+                {{- else -}}
+                    <div class="article-categories" aria-label="카테고리">
+                        <span class="article-category-chip article-category-chip--uncategorized">미분류</span>
+                    </div>
                 {{- end -}}
             {{- end -}}
 
