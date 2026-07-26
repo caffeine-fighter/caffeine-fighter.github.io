@@ -7,6 +7,8 @@
 
 <meta name="author" content="{{ $authorName }}">
 <link rel="author" href="{{ $authorURL }}">
+<link rel="icon" href="{{ "favicon.ico" | relURL }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}">
 {{- if .Params.noindex }}
     <meta name="robots" content="noindex, follow">
 {{- end }}

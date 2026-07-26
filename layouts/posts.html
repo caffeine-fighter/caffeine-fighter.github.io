@@ -32,23 +32,47 @@
     </header>
 
     <div class="posts-groups" aria-live="polite">
-        {{ range $pages.GroupByDate "2006" }}
+        {{ range $yearIndex, $group := $pages.GroupByDate "2006" }}
             {{- $id := lower (replace .Key " " "-") -}}
-            <section class="archives-group posts-year aether-reveal" id="{{ $id }}" data-post-group>
+            {{- $panelID := printf "%s-posts" $id -}}
+            <section
+                class="archives-group posts-year aether-reveal{{ if gt $yearIndex 0 }} is-collapsed{{ end }}"
+                id="{{ $id }}"
+                data-post-group>
                 <header class="posts-year__header">
-                    <h2><a href="{{ $.RelPermalink }}#{{ $id }}">{{ .Key }}</a></h2>
-                    <span><strong data-visible-count>{{ len .Pages }}</strong> POSTS</span>
+                    <h2>
+                        <button
+                            class="posts-year__toggle"
+                            type="button"
+                            aria-expanded="{{ if eq $yearIndex 0 }}true{{ else }}false{{ end }}"
+                            aria-controls="{{ $panelID }}"
+                            data-year-toggle>
+                            <span class="posts-year__label">{{ .Key }}</span>
+                            <span class="posts-year__meta">
+                                <span><strong data-visible-count>{{ len .Pages }}</strong> POSTS</span>
+                                <span class="posts-year__chevron" aria-hidden="true"><span></span></span>
+                            </span>
+                        </button>
+                    </h2>
                 </header>
-                <div class="article-list--compact posts-list">
-                    {{ range .Pages }}
-                        {{- $categorySlugs := slice -}}
-                        {{- range .Params.categories -}}
-                            {{- $categorySlugs = $categorySlugs | append (. | urlize) -}}
-                        {{- end -}}
-                        <div class="posts-entry" data-post-entry data-post-categories="{{ delimit $categorySlugs " " }}">
-                            {{ partial "article-list/compact" . }}
+                <div
+                    class="posts-year__panel"
+                    id="{{ $panelID }}"
+                    aria-hidden="{{ if eq $yearIndex 0 }}false{{ else }}true{{ end }}"
+                    data-year-panel>
+                    <div class="posts-year__panel-inner">
+                        <div class="article-list--compact posts-list">
+                            {{ range .Pages }}
+                                {{- $categorySlugs := slice -}}
+                                {{- range .Params.categories -}}
+                                    {{- $categorySlugs = $categorySlugs | append (. | urlize) -}}
+                                {{- end -}}
+                                <div class="posts-entry" data-post-entry data-post-categories="{{ delimit $categorySlugs " " }}">
+                                    {{ partial "article-list/compact" . }}
+                                </div>
+                            {{ end }}
                         </div>
-                    {{ end }}
+                    </div>
                 </div>
             </section>
         {{ end }}
@@ -62,7 +86,38 @@
             const entries = [...document.querySelectorAll("[data-post-entry]")];
             const groups = [...document.querySelectorAll("[data-post-group]")];
             const empty = document.querySelector("[data-post-empty]");
+            const yearToggles = [...document.querySelectorAll("[data-year-toggle]")];
             if (!filters.length || !entries.length) return;
+
+            const setYearExpanded = (toggle, expanded) => {
+                const group = toggle.closest("[data-post-group]");
+                const panel = document.getElementById(toggle.getAttribute("aria-controls"));
+                if (!group || !panel) return;
+
+                group.classList.toggle("is-collapsed", !expanded);
+                toggle.setAttribute("aria-expanded", String(expanded));
+                panel.setAttribute("aria-hidden", String(!expanded));
+                if (expanded) {
+                    panel.removeAttribute("inert");
+                } else {
+                    panel.setAttribute("inert", "");
+                }
+            };
+
+            yearToggles.forEach((toggle) => {
+                setYearExpanded(toggle, toggle.getAttribute("aria-expanded") === "true");
+                toggle.addEventListener("click", () => {
+                    setYearExpanded(toggle, toggle.getAttribute("aria-expanded") !== "true");
+                });
+            });
+
+            const hashTarget = window.location.hash
+                ? document.getElementById(window.location.hash.slice(1))
+                : null;
+            if (hashTarget?.matches("[data-post-group]")) {
+                const toggle = hashTarget.querySelector("[data-year-toggle]");
+                if (toggle) setYearExpanded(toggle, true);
+            }
 
             const applyFilter = (filter) => {
                 let totalVisible = 0;
