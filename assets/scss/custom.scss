@@ -2682,6 +2682,11 @@ html.aether-ready .aether-entry:nth-child(3) {
 
     .article-content h2 {
         align-items: flex-start;
+        line-height: 1.35;
+    }
+
+    .article-content h2::before {
+        margin-top: calc((1.35em - 13px) / 2);
     }
 
     .article-content h2::after {
