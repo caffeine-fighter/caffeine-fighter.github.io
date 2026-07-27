@@ -10,8 +10,6 @@
     const orbit = document.querySelector<HTMLElement>('.aether-orbit');
     const finePointer = window.matchMedia('(pointer: fine)').matches;
 
-    root.classList.add('aether-ready');
-
     if (menuToggle && mainMenu) {
         const syncMenuState = () => {
             menuToggle.setAttribute('aria-expanded', String(mainMenu.classList.contains('show')));
@@ -56,10 +54,19 @@
             }
         );
 
-        revealTargets.forEach((target) => observer.observe(target));
+        const revealBoundary = window.innerHeight + 96;
+        revealTargets.forEach((target) => {
+            if (target.getBoundingClientRect().top <= revealBoundary) {
+                target.classList.add('is-visible');
+                return;
+            }
+            observer.observe(target);
+        });
     } else {
         revealTargets.forEach((target) => target.classList.add('is-visible'));
     }
+
+    root.classList.add('aether-ready');
 
     let ticking = false;
     const updateScrollState = () => {
