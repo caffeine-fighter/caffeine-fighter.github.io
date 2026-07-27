@@ -2112,7 +2112,7 @@ main.main {
     transform: translateY(-12px);
 }
 
-.posts-entry[hidden],
+[data-post-entry][hidden],
 .posts-year[hidden],
 .posts-empty[hidden] {
     display: none !important;
@@ -2159,83 +2159,9 @@ main.main {
 
 .posts-list {
     display: grid;
-    gap: 12px;
-    padding: 14px;
-}
-
-.posts-list .posts-entry {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid var(--aether-border-soft);
-    border-radius: 18px;
-    background:
-        linear-gradient(115deg, rgba(var(--aether-blue-rgb), 0.055), transparent 34%),
-        rgba(var(--aether-violet-rgb), 0.025);
-    box-shadow:
-        0 10px 30px rgba(7, 18, 50, 0.06),
-        inset 0 1px 0 rgba(255, 255, 255, 0.035);
-    isolation: isolate;
-    transition:
-        border-color 220ms ease,
-        background 220ms ease,
-        box-shadow 260ms ease,
-        transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.posts-list .posts-entry::before {
-    position: absolute;
-    z-index: 2;
-    top: 18%;
-    bottom: 18%;
-    left: 0;
-    width: 2px;
-    background: linear-gradient(180deg, transparent, var(--aether-blue), var(--aether-ruby), transparent);
-    box-shadow:
-        0 0 12px rgba(var(--aether-blue-rgb), 0.34),
-        0 0 18px rgba(var(--aether-ruby-rgb), 0.18);
-    content: "";
-    opacity: 0.72;
-    transition:
-        bottom 260ms ease,
-        opacity 220ms ease,
-        top 260ms ease;
-}
-
-.posts-list .posts-entry:nth-child(even)::before {
-    background: linear-gradient(180deg, transparent, var(--aether-ruby), var(--aether-gold), transparent);
-    box-shadow:
-        0 0 12px rgba(var(--aether-ruby-rgb), 0.32),
-        0 0 18px rgba(var(--aether-gold-rgb), 0.16);
-}
-
-.posts-list .posts-entry:hover,
-.posts-list .posts-entry:focus-within {
-    border-color: rgba(var(--aether-blue-rgb), 0.34);
-    background:
-        linear-gradient(115deg, rgba(var(--aether-blue-rgb), 0.1), transparent 42%),
-        rgba(var(--aether-ruby-rgb), 0.035);
-    box-shadow:
-        0 14px 38px rgba(7, 18, 50, 0.1),
-        0 0 24px rgba(var(--aether-blue-rgb), 0.1),
-        0 0 30px rgba(var(--aether-ruby-rgb), 0.055);
-    transform: translateX(5px);
-}
-
-.posts-list .posts-entry:hover::before,
-.posts-list .posts-entry:focus-within::before {
-    top: 8%;
-    bottom: 8%;
-    opacity: 1;
-}
-
-.posts-list .posts-entry article,
-.posts-list .posts-entry article:hover {
-    background: transparent;
-    transform: none;
-}
-
-.posts-list .posts-entry article > a {
-    min-height: 98px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding: 24px;
 }
 
 .article-list--compact .article-details {
@@ -2413,33 +2339,40 @@ html.aether-ready .aether-entry:nth-child(3) {
 }
 
 @media (min-width: 1200px) {
-    .aether-home .aether-journal {
+    .aether-home .aether-journal,
+    .template-posts .posts-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .aether-home .aether-journal > article:first-child {
+    .aether-home .aether-journal > article:first-child,
+    .template-posts .posts-list > article.is-featured {
         grid-column: 1 / -1;
         min-height: 320px;
     }
 
-    .aether-home .aether-journal > article:first-child .article-details {
+    .aether-home .aether-journal > article:first-child .article-details,
+    .template-posts .posts-list > article.is-featured .article-details {
         min-height: 320px;
         padding-right: 26%;
     }
 
-    .aether-home .aether-journal > article:first-child .article-title {
+    .aether-home .aether-journal > article:first-child .article-title,
+    .template-posts .posts-list > article.is-featured .article-title {
         font-size: clamp(2.8rem, 3.1vw, 4.2rem);
     }
 
-    .aether-home .aether-journal > article:nth-child(even) {
+    .aether-home .aether-journal > article:nth-child(even),
+    .template-posts .posts-list > article:nth-child(even) {
         transform: translateY(10px);
     }
 
-    html.aether-ready .aether-home .aether-journal > article:nth-child(even) {
+    html.aether-ready .aether-home .aether-journal > article:nth-child(even),
+    html.aether-ready .template-posts .posts-list > article:nth-child(even) {
         transform: translateY(32px);
     }
 
-    html.aether-ready .aether-home .aether-journal > article:nth-child(even).is-visible {
+    html.aether-ready .aether-home .aether-journal > article:nth-child(even).is-visible,
+    html.aether-ready .template-posts .posts-list > article:nth-child(even).is-visible {
         transform: translateY(10px);
     }
 }

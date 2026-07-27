@@ -61,15 +61,13 @@
                     aria-hidden="{{ if eq $yearIndex 0 }}false{{ else }}true{{ end }}"
                     data-year-panel>
                     <div class="posts-year__panel-inner">
-                        <div class="article-list--compact posts-list">
+                        <div class="article-list posts-list">
                             {{ range .Pages }}
                                 {{- $categorySlugs := slice -}}
                                 {{- range .Params.categories -}}
                                     {{- $categorySlugs = $categorySlugs | append (. | urlize) -}}
                                 {{- end -}}
-                                <div class="posts-entry" data-post-entry data-post-categories="{{ delimit $categorySlugs " " }}">
-                                    {{ partial "article-list/compact" . }}
-                                </div>
+                                {{ partial "article-list/posts" (dict "Page" . "CategorySlugs" $categorySlugs) }}
                             {{ end }}
                         </div>
                     </div>
@@ -130,8 +128,11 @@
                 });
 
                 groups.forEach((group) => {
-                    const visibleEntries = group.querySelectorAll("[data-post-entry]:not([hidden])");
+                    const allGroupEntries = [...group.querySelectorAll("[data-post-entry]")];
+                    const visibleEntries = allGroupEntries.filter((entry) => !entry.hidden);
                     group.hidden = visibleEntries.length === 0;
+                    allGroupEntries.forEach((entry) => entry.classList.remove("is-featured"));
+                    visibleEntries[0]?.classList.add("is-featured");
                     const count = group.querySelector("[data-visible-count]");
                     if (count) count.textContent = visibleEntries.length;
                 });
@@ -148,6 +149,8 @@
             filters.forEach((button) => {
                 button.addEventListener("click", () => applyFilter(button.dataset.postFilter));
             });
+
+            applyFilter("all");
         })();
     </script>
 
