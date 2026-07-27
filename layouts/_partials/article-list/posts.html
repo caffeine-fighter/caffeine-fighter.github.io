@@ -1,0 +1,21 @@
+{{- $page := .Page -}}
+{{- $categorySlugs := .CategorySlugs | default (slice) -}}
+{{- $image := partial "helper/image" (dict "Image" $page.Params.image "Resources" $page.Resources "Context" $page) -}}
+<article
+    class="aether-entry aether-reveal {{ if $image }}has-image{{ else }}without-image{{ end }}"
+    data-post-entry
+    data-post-categories="{{ delimit $categorySlugs " " }}">
+    <span class="aether-entry__signal" aria-hidden="true">
+        <span>LOG / {{ $page.Date.Format "06.01.02" }}</span>
+        <i></i>
+    </span>
+
+    {{ partial "article/components/header" (dict "Page" $page "IsList" true) }}
+
+    <a
+        class="aether-entry__arrow"
+        href="{{ $page.RelPermalink }}"
+        aria-label="{{ printf "%s 글 읽기" $page.Title }}">
+        <span aria-hidden="true">↗</span>
+    </a>
+</article>
