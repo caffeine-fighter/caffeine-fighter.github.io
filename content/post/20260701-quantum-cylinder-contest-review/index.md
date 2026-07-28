@@ -2,7 +2,7 @@
 title: "2026 양자정보경진대회 후기: QuantumCylinder"
 description: "양자정보를 처음 배운 팀이 3일 동안 어디까지 갔는가"
 date: 2026-07-01T23:40:00+09:00
-lastmod: 2026-07-27T01:00:00+09:00
+lastmod: 2026-07-29T00:00:00+09:00
 slug: "20260701-quantum-cylinder-contest-review"
 image:
 math: true
@@ -108,30 +108,36 @@ tags:
 
 나는 첫날 빠르게 기준선을 잠그고 Problem 3으로 넘어가야 한다고 판단했다.
 
-Problem 1에서는 `|00>` 근처의 2-qubit target ensemble `S0`를 만들고 pure-state fidelity를 바탕으로 ensemble distance를 계산했다.
+Problem 1에서는 \(\lvert 00\rangle\) 근처의 2-qubit target ensemble \(S_0\)를 만들고 pure-state fidelity를 바탕으로 ensemble distance를 계산했다.
 
 - fidelity-kernel MMD
-- cost `1 - F` 기반 Wasserstein-type distance
+- cost \(1-F\) 기반 Wasserstein-type distance
 
 그 뒤 random single-qubit rotations와 entangling operation을 적용해 diffusion trajectory를 만들었다. 초기 cluster structure가 천천히 퍼진다기보다 빠르게 무너져 Haar-like reference level 근처로 가는 strong-scrambling 과정으로 해석했다.
 
 최종 Haar reference baseline은 다음과 같았다.
 
-```text
-D_MMD = 0.869583 +/- 0.024043
-W_{1-F} = 0.724439 +/- 0.021491
-```
+\[
+\begin{aligned}
+D_{\mathrm{MMD}} &= 0.869583 \pm 0.024043,\\
+W_{1-F} &= 0.724439 \pm 0.021491.
+\end{aligned}
+\]
 
 이 값은 학습 목표가 아니었다. random-unitary diffusion이 strong-scrambling regime에 들어갔는지를 판단하기 위한 기준선이었다.
 
 ### Day 1 — Problem 2: Hamiltonian projected diffusion
 
-Problem 2에서는 2-qubit data system `M`에 complement qubit `F`를 붙여 3-qubit system을 만들었다. 고정 Hamiltonian으로 시간 진화를 수행한 뒤 complement qubit을 projection해 data ensemble을 얻었다.
+Problem 2에서는 2-qubit data system \(M\)에 complement qubit \(F\)를 붙여 3-qubit system을 만들었다. 고정 Hamiltonian으로 시간 진화를 수행한 뒤 complement qubit을 projection해 data ensemble을 얻었다.
 
-```text
-H = sum_j (hx X_j + hy Y_j) + J sum_j X_j X_{j+1}
-hx = 0.8090, hy = 0.9045, J = 1.0
-```
+\[
+H=\sum_j \left(h_xX_j+h_yY_j\right)
+  +J\sum_j X_jX_{j+1},
+\]
+
+\[
+h_x=0.8090,\qquad h_y=0.9045,\qquad J=1.0.
+\]
 
 목적은 random gate-level control과 Hamiltonian/time/projection control을 Problem 1과 같은 지표 위에서 비교하는 것이었다.
 
@@ -155,7 +161,7 @@ random-unitary diffusion은 fluctuation과 saturation이 빠르게 나타나는 
 
 ### Day 1 밤–Day 2 새벽 — distance만 좋으면 된다는 생각을 버리다
 
-Problem 3에서는 complement qubit을 측정하고 특정 결과만 선택하는 post-selection을 denoising의 대리 과정으로 보았다. 전체 `M+F` system은 unitary하게 진화하지만, complement qubit을 측정해 일부 결과만 남기면 data system `M`에는 effective non-unitary map이 작용한다.
+Problem 3에서는 complement qubit을 측정하고 특정 결과만 선택하는 post-selection을 denoising의 대리 과정으로 보았다. 전체 \(M+F\) system은 unitary하게 진화하지만, complement qubit을 측정해 일부 결과만 남기면 data system \(M\)에는 effective non-unitary map이 작용한다.
 
 처음 질문은 단순했다.
 
@@ -206,7 +212,7 @@ continuous basis가 좋아 보였지만 axis-only 대비 margin은 작았다. �
 
 20개 시드 모두 최종 채택 기준은 통과했지만, 더 잘게 나눈 120개 row 중 18개에서는 axis-only 대비 margin이 양수가 아니었다. `20/20 use_as_main`은 모든 입력 조건에서 continuous basis가 이겼다는 뜻이 아니었다. 여러 시드를 합친 전체 경향이 본문 후보로 사용할 만큼 재현됐다는 뜻이었다.
 
-`Z/X/Y` Pauli measurement basis만 허용하는 axis-only projection을 해석 가능한 discrete baseline으로 뒀다. continuous basis는 이를 Bloch sphere 위의 일반 측정 방향으로 넓힌 controlled modification으로 정리했다.
+\(Z/X/Y\) Pauli measurement basis만 허용하는 axis-only projection을 해석 가능한 discrete baseline으로 뒀다. continuous basis는 이를 Bloch sphere 위의 일반 측정 방향으로 넓힌 controlled modification으로 정리했다.
 
 비교를 더 분명하게 보기 위해 collapse 방어 표도 만들었다.
 
@@ -224,7 +230,13 @@ continuous basis       0.097056    0.147983    0.823217
 measurement basis controls the recoverability-success-diversity trade-off
 ```
 
-시드마다 가장 좋은 파라미터를 다시 고르면 cherry-picking이라는 의심을 피하기 어렵다. 그래서 train seed 1–10에서 고른 `(tau, theta, phi)=(1.794737, 1.832596, 3.141593)`을 holdout seed 11–20에 그대로 적용했다.
+시드마다 가장 좋은 파라미터를 다시 고르면 cherry-picking이라는 의심을 피하기 어렵다. 그래서 train seed 1–10에서 고른
+
+\[
+(\tau,\theta,\phi)=(1.794737,\ 1.832596,\ 3.141593)
+\]
+
+을 holdout seed 11–20에 그대로 적용했다.
 
 60/60 row에서 개선이 유지됐다.
 
@@ -257,7 +269,7 @@ median success probability: 0.477322
 
 아이디어는 단순했다. measurement-induced non-unitary contraction을 한 번 더 적용하면 distance를 더 줄일 수 있지 않을까? 대신 두 번의 post-selection을 통과해야 하니 성공확률은 낮아질 것이다.
 
-앞의 3-b 수치는 `20 seeds × 6 input steps`, 총 120개 row를 요약한 값이었다. 아래 3-c 비교는 후보끼리 같은 조건에서 직접 비교하기 위해 `5 seeds × 3 input steps`, 총 15개 row만 사용했다. 따라서 3-b의 continuous 수치와 아래 one-way reference 수치를 그대로 같은 모집단처럼 비교하면 안 된다.
+앞의 3-b 수치는 \(20\text{ seeds}\times6\text{ input steps}\), 총 120개 row를 요약한 값이었다. 아래 3-c 비교는 후보끼리 같은 조건에서 직접 비교하기 위해 \(5\text{ seeds}\times3\text{ input steps}\), 총 15개 row만 사용했다. 따라서 3-b의 continuous 수치와 아래 one-way reference 수치를 그대로 같은 모집단처럼 비교하면 안 된다.
 
 이 15-row 비교표에서 one-way continuous reference는 다음과 같았다.
 
@@ -323,12 +335,16 @@ backend: ibm_fez
 
 대표 값은 다음과 같았다.
 
-```text
-beta 0.0000pi: p(F=0)=0.881738, entropy=1.375447
-beta 0.2500pi: p(F=0)=0.893164, entropy=1.492915
-beta 0.5000pi: p(F=0)=0.661377, entropy=1.581403
-beta 0.7500pi: p(F=0)=0.351270, entropy=1.736465
-```
+\[
+\begin{array}{c|cc}
+\beta & \Pr(F=0) & \mathrm{entropy}\\
+\hline
+0       & 0.881738 & 1.375447\\
+0.25\pi & 0.893164 & 1.492915\\
+0.50\pi & 0.661377 & 1.581403\\
+0.75\pi & 0.351270 & 1.736465
+\end{array}
+\]
 
 측정 basis가 달라질 때 post-selection 관련 관측값도 달라졌다. 여기까지가 결과였다. 본 benchmark는 여전히 state-vector simulation 기반이며, 실제 QPU에서 성능 우위를 증명한 것이 아니다.
 
