@@ -6,7 +6,11 @@
                 {{- with .GetTerms "categories" -}}
                     <div class="article-categories" aria-label="카테고리">
                         {{- range . -}}
-                            <span class="article-category-chip">{{- .LinkTitle -}}</span>
+                            <span
+                                class="article-category-chip"
+                                data-category="{{ .Data.Term | urlize }}">
+                                {{- .LinkTitle -}}
+                            </span>
                         {{- end -}}
                     </div>
                 {{- else -}}

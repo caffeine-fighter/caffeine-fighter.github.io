@@ -37,10 +37,27 @@
         <h2 class="section-title">일정 일자별 글 모음</h2>
 
         {{- if gt (len $pages) 0 -}}
-            {{ range $pages.GroupByParamDate "event_date" "2006.01.02" }}
+            {{- $eventPages := where $pages "Params.event_date" "ne" nil -}}
+            {{- $publicationPages := where $pages "Params.event_date" "eq" nil -}}
+
+            {{ range $eventPages.GroupByParamDate "event_date" "2006.01.02" }}
                 {{ $id := printf "date-%s" (urlize .Key) }}
                 <div class="archives-group" id="{{ $id }}">
                     <h2 class="archives-date section-title"><a href="{{ $.RelPermalink }}#{{ $id }}">{{ .Key }}</a></h2>
+                    <div class="article-list--compact">
+                        {{ range .Pages }}
+                            {{ partial "article-list/compact" . }}
+                        {{ end }}
+                    </div>
+                </div>
+            {{ end }}
+
+            {{ range $publicationPages.GroupByDate "2006.01.02" }}
+                {{ $id := printf "published-%s" (urlize .Key) }}
+                <div class="archives-group" id="{{ $id }}">
+                    <h2 class="archives-date section-title">
+                        <a href="{{ $.RelPermalink }}#{{ $id }}">작성일 {{ .Key }}</a>
+                    </h2>
                     <div class="article-list--compact">
                         {{ range .Pages }}
                             {{ partial "article-list/compact" . }}
