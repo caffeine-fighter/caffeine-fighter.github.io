@@ -1,0 +1,24 @@
+{{- $opts := dict -}}
+{{- if not (transform.CanHighlight .Type) -}}
+    {{- $opts = dict "type" "text" -}}
+{{- end -}}
+{{- $result := transform.HighlightCodeBlock . $opts -}}
+{{- $language := lower .Type -}}
+{{- $solutionLanguages := slice "c" "cc" "cpp" "c++" "csharp" "cs" "go" "java" "javascript" "js" "kotlin" "python" "py" "rust" "swift" "typescript" "ts" -}}
+
+{{- if in $solutionLanguages $language }}
+<details class="solution-code">
+    <summary class="solution-code__summary">
+        <span class="solution-code__label">
+            <span class="solution-code__mark" aria-hidden="true">&lt;/&gt;</span>
+            솔루션 코드
+        </span>
+        <span class="solution-code__state" aria-hidden="true"></span>
+    </summary>
+    <div class="solution-code__body">
+        {{- $result.Wrapped -}}
+    </div>
+</details>
+{{- else }}
+{{- $result.Wrapped -}}
+{{- end }}

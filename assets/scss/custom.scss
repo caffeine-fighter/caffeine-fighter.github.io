@@ -1638,6 +1638,175 @@ main.main {
     border-bottom: 1px solid var(--aether-border-soft);
 }
 
+/* Native disclosure for solution code */
+.article-content .solution-code {
+    width: calc(100% + var(--card-padding) * 2);
+    margin: 1.5em calc((var(--card-padding)) * -1);
+    overflow: hidden;
+    border: 1px solid #3c3c3c;
+    border-radius: 14px;
+    background: #1e1e1e;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+}
+
+.article-content .solution-code__summary {
+    display: flex;
+    min-height: 52px;
+    padding: 0 18px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid transparent;
+    background: linear-gradient(90deg, #252526, #1e1e1e);
+    color: #d4d4d4;
+    cursor: pointer;
+    font-family: Consolas, "Noto Sans KR", monospace;
+    font-size: 0.94rem;
+    font-weight: 600;
+    list-style: none;
+    user-select: none;
+}
+
+.article-content .solution-code__summary::-webkit-details-marker {
+    display: none;
+}
+
+.article-content .solution-code__summary:focus-visible {
+    outline: 2px solid #007acc;
+    outline-offset: -3px;
+}
+
+.article-content .solution-code[open] .solution-code__summary {
+    border-bottom-color: #3c3c3c;
+}
+
+.solution-code__label {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.solution-code__mark {
+    color: #4ec9b0;
+    text-shadow: 0 0 12px rgba(78, 201, 176, 0.34);
+}
+
+.solution-code__state::before {
+    color: #9cdcfe;
+    content: "펼치기";
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 0.84rem;
+    font-weight: 500;
+}
+
+.solution-code[open] .solution-code__state::before {
+    content: "접기";
+}
+
+.article-content .solution-code .highlight {
+    width: 100%;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+}
+
+/* VS Code Dark+ palette */
+.article-content .highlight,
+.article-content .highlight .chroma,
+.article-content .highlight pre,
+.article-content .highlight code {
+    background: #1e1e1e !important;
+    color: #d4d4d4 !important;
+    font-family: Consolas, "Noto Sans KR", monospace;
+}
+
+.article-content .highlight {
+    border-color: #3c3c3c;
+}
+
+.article-content .chroma .lnt,
+.article-content .chroma .ln {
+    color: #858585 !important;
+}
+
+.article-content .chroma .hl {
+    background: #264f78 !important;
+}
+
+.article-content .chroma .err {
+    color: #f44747 !important;
+}
+
+.article-content .chroma .k,
+.article-content .chroma .kc,
+.article-content .chroma .kd,
+.article-content .chroma .kn,
+.article-content .chroma .kp,
+.article-content .chroma .kr {
+    color: #569cd6 !important;
+}
+
+.article-content .chroma .kt,
+.article-content .chroma .nc,
+.article-content .chroma .nn {
+    color: #4ec9b0 !important;
+}
+
+.article-content .chroma .nf,
+.article-content .chroma .fm {
+    color: #dcdcaa !important;
+}
+
+.article-content .chroma .na,
+.article-content .chroma .nv,
+.article-content .chroma .vc,
+.article-content .chroma .vg,
+.article-content .chroma .vi,
+.article-content .chroma .vm {
+    color: #9cdcfe !important;
+}
+
+.article-content .chroma .s,
+.article-content .chroma .sa,
+.article-content .chroma .sb,
+.article-content .chroma .sc,
+.article-content .chroma .dl,
+.article-content .chroma .sd,
+.article-content .chroma .s1,
+.article-content .chroma .s2,
+.article-content .chroma .se,
+.article-content .chroma .sh,
+.article-content .chroma .si,
+.article-content .chroma .sx {
+    color: #ce9178 !important;
+}
+
+.article-content .chroma .m,
+.article-content .chroma .mb,
+.article-content .chroma .mf,
+.article-content .chroma .mh,
+.article-content .chroma .mi,
+.article-content .chroma .il,
+.article-content .chroma .mo {
+    color: #b5cea8 !important;
+}
+
+.article-content .chroma .c,
+.article-content .chroma .ch,
+.article-content .chroma .cm,
+.article-content .chroma .c1,
+.article-content .chroma .cs,
+.article-content .chroma .cp,
+.article-content .chroma .cpf {
+    color: #6a9955 !important;
+    font-style: italic;
+}
+
+.article-content .chroma .o,
+.article-content .chroma .ow,
+.article-content .chroma .p {
+    color: #d4d4d4 !important;
+}
+
 .article-footer {
     border-top: 1px solid var(--aether-border-soft);
     padding-top: 24px;
