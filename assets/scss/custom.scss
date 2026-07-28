@@ -87,6 +87,21 @@
     --aether-scroll-y: 0px;
     --aether-scroll-y-reverse: 0px;
 
+    --category-contest-rgb: 37, 99, 235;
+    --category-contest-text: #1d4ed8;
+    --category-interview-rgb: 8, 145, 178;
+    --category-interview-text: #0e7490;
+    --category-music-rgb: 192, 38, 211;
+    --category-music-text: #a21caf;
+    --category-memoir-rgb: 124, 58, 237;
+    --category-memoir-text: #6d28d9;
+    --category-review-rgb: 190, 18, 60;
+    --category-review-text: #be123c;
+    --category-study-rgb: 22, 163, 74;
+    --category-study-text: #15803d;
+    --category-subculture-rgb: 234, 88, 12;
+    --category-subculture-text: #c2410c;
+
     --shadow-l1: 0 18px 50px rgba(73, 48, 128, 0.15), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
     --shadow-l2: 0 30px 80px rgba(73, 48, 128, 0.23), 0 1px 0 rgba(255, 255, 255, 0.94) inset;
 }
@@ -139,6 +154,21 @@
     --aether-ice-soft: #17647f;
     --aether-ice-text: #78e4ff;
     --aether-ice-rgb: 68, 214, 255;
+
+    --category-contest-rgb: 96, 165, 250;
+    --category-contest-text: #93c5fd;
+    --category-interview-rgb: 34, 211, 238;
+    --category-interview-text: #67e8f9;
+    --category-music-rgb: 232, 121, 249;
+    --category-music-text: #f0abfc;
+    --category-memoir-rgb: 167, 139, 250;
+    --category-memoir-text: #c4b5fd;
+    --category-review-rgb: 251, 113, 133;
+    --category-review-text: #fda4af;
+    --category-study-rgb: 74, 222, 128;
+    --category-study-text: #86efac;
+    --category-subculture-rgb: 251, 146, 60;
+    --category-subculture-text: #fdba74;
     --aether-pink: var(--aether-gold);
     --aether-pink-soft: var(--aether-gold-soft);
     --aether-pink-text: var(--aether-gold-text);
@@ -1300,29 +1330,52 @@ main.main {
 
 .article-category a,
 .article-tags a {
-    border: 1px solid rgba(var(--aether-blue-rgb), 0.18);
-    background: rgba(var(--aether-blue-rgb), 0.1) !important;
-    color: var(--aether-violet-text) !important;
+    --category-accent-rgb: var(--aether-blue-rgb);
+    --category-accent-text: var(--aether-blue-text);
+
+    border: 1px solid rgba(var(--category-accent-rgb), 0.22);
+    background: rgba(var(--category-accent-rgb), 0.1) !important;
+    color: var(--category-accent-text) !important;
     font-family: "Space Grotesk", "Noto Sans KR", sans-serif;
     font-size: 1.04rem;
     font-weight: 600;
     letter-spacing: 0.02em;
-    box-shadow: 0 0 18px rgba(var(--aether-blue-rgb), 0.1);
+    box-shadow: 0 0 18px rgba(var(--category-accent-rgb), 0.11);
 }
 
-.article-category a[href*="hackathon"],
-.article-category a[href*="reviews"] {
-    border-color: rgba(var(--aether-ruby-rgb), 0.2);
-    background: rgba(var(--aether-ruby-rgb), 0.09) !important;
-    color: var(--aether-ruby-text) !important;
-    box-shadow: 0 0 18px rgba(var(--aether-ruby-rgb), 0.1);
+.article-category a[href$="/categories/hackathon-ai-coding-contest-reviews/"] {
+    --category-accent-rgb: var(--category-contest-rgb);
+    --category-accent-text: var(--category-contest-text);
 }
 
-.article-category a[href*="interview"] {
-    border-color: rgba(var(--aether-ice-rgb), 0.24);
-    background: rgba(var(--aether-ice-rgb), 0.09) !important;
-    color: var(--aether-cyan-text) !important;
-    box-shadow: 0 0 18px rgba(var(--aether-ice-rgb), 0.11);
+.article-category a[href$="/categories/interview-reviews/"] {
+    --category-accent-rgb: var(--category-interview-rgb);
+    --category-accent-text: var(--category-interview-text);
+}
+
+.article-category a[href$="/categories/music-work-reviews/"] {
+    --category-accent-rgb: var(--category-music-rgb);
+    --category-accent-text: var(--category-music-text);
+}
+
+.article-category a[href$="/categories/organization-operations/"] {
+    --category-accent-rgb: var(--category-memoir-rgb);
+    --category-accent-text: var(--category-memoir-text);
+}
+
+.article-category a[href$="/categories/reviews/"] {
+    --category-accent-rgb: var(--category-review-rgb);
+    --category-accent-text: var(--category-review-text);
+}
+
+.article-category a[href$="/categories/study-diary/"] {
+    --category-accent-rgb: var(--category-study-rgb);
+    --category-accent-text: var(--category-study-text);
+}
+
+.article-category a[href$="/categories/subculture-event-reviews/"] {
+    --category-accent-rgb: var(--category-subculture-rgb);
+    --category-accent-text: var(--category-subculture-text);
 }
 
 .article-list .article-title {
@@ -1801,16 +1854,54 @@ main.main {
 }
 
 .tagCloud .tagCloud-tags a {
-    border: 1px solid var(--aether-border-soft);
-    background: rgba(var(--aether-blue-rgb), 0.06);
-    box-shadow: none;
-    color: var(--aether-muted);
+    --category-accent-rgb: var(--aether-blue-rgb);
+    --category-accent-text: var(--aether-blue-text);
+
+    border: 1px solid rgba(var(--category-accent-rgb), 0.2);
+    background: rgba(var(--category-accent-rgb), 0.075);
+    box-shadow: 0 0 14px rgba(var(--category-accent-rgb), 0.07);
+    color: var(--category-accent-text);
 }
 
 .tagCloud .tagCloud-tags a:hover {
-    border-color: var(--aether-ruby);
-    box-shadow: 0 0 20px rgba(var(--aether-ruby-rgb), 0.18), 0 12px 28px var(--aether-shadow);
+    border-color: rgba(var(--category-accent-rgb), 0.48);
+    box-shadow: 0 0 20px rgba(var(--category-accent-rgb), 0.2), 0 12px 28px var(--aether-shadow);
     color: var(--aether-ink);
+}
+
+.tagCloud .tagCloud-tags a[href$="/categories/hackathon-ai-coding-contest-reviews/"] {
+    --category-accent-rgb: var(--category-contest-rgb);
+    --category-accent-text: var(--category-contest-text);
+}
+
+.tagCloud .tagCloud-tags a[href$="/categories/interview-reviews/"] {
+    --category-accent-rgb: var(--category-interview-rgb);
+    --category-accent-text: var(--category-interview-text);
+}
+
+.tagCloud .tagCloud-tags a[href$="/categories/music-work-reviews/"] {
+    --category-accent-rgb: var(--category-music-rgb);
+    --category-accent-text: var(--category-music-text);
+}
+
+.tagCloud .tagCloud-tags a[href$="/categories/organization-operations/"] {
+    --category-accent-rgb: var(--category-memoir-rgb);
+    --category-accent-text: var(--category-memoir-text);
+}
+
+.tagCloud .tagCloud-tags a[href$="/categories/reviews/"] {
+    --category-accent-rgb: var(--category-review-rgb);
+    --category-accent-text: var(--category-review-text);
+}
+
+.tagCloud .tagCloud-tags a[href$="/categories/study-diary/"] {
+    --category-accent-rgb: var(--category-study-rgb);
+    --category-accent-text: var(--category-study-text);
+}
+
+.tagCloud .tagCloud-tags a[href$="/categories/subculture-event-reviews/"] {
+    --category-accent-rgb: var(--category-subculture-rgb);
+    --category-accent-text: var(--category-subculture-text);
 }
 
 .toc-nav li {
@@ -1926,6 +2017,9 @@ main.main {
 }
 
 .posts-filter {
+    --category-accent-rgb: var(--aether-violet-rgb);
+    --category-accent-text: var(--aether-violet-text);
+
     position: relative;
     min-width: 0;
     min-height: 142px;
@@ -1949,8 +2043,8 @@ main.main {
     bottom: 0;
     left: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--aether-blue), var(--aether-ruby));
-    box-shadow: 0 0 16px rgba(var(--aether-blue-rgb), 0.24), 0 0 24px rgba(var(--aether-ruby-rgb), 0.14);
+    background: linear-gradient(90deg, transparent, rgba(var(--category-accent-rgb), 0.95), transparent);
+    box-shadow: 0 0 22px rgba(var(--category-accent-rgb), 0.28);
     content: "";
     opacity: 0;
     transform: scaleX(0.45);
@@ -1958,17 +2052,17 @@ main.main {
 }
 
 .posts-filter:hover {
-    border-color: rgba(var(--aether-blue-rgb), 0.28);
-    box-shadow: 0 0 22px rgba(var(--aether-blue-rgb), 0.12), 0 0 32px rgba(var(--aether-ruby-rgb), 0.07);
+    border-color: rgba(var(--category-accent-rgb), 0.34);
+    box-shadow: 0 0 24px rgba(var(--category-accent-rgb), 0.15);
     transform: translateY(-4px);
 }
 
 .posts-filter.is-active {
-    border-color: rgba(var(--aether-blue-rgb), 0.4);
+    border-color: rgba(var(--category-accent-rgb), 0.44);
     background:
-        linear-gradient(145deg, rgba(var(--aether-blue-rgb), 0.12), rgba(var(--aether-ruby-rgb), 0.055)),
+        linear-gradient(145deg, rgba(var(--category-accent-rgb), 0.14), rgba(var(--category-accent-rgb), 0.045)),
         var(--aether-panel);
-    box-shadow: 0 0 24px rgba(var(--aether-blue-rgb), 0.16), 0 0 38px rgba(var(--aether-ruby-rgb), 0.09);
+    box-shadow: 0 0 28px rgba(var(--category-accent-rgb), 0.18);
 }
 
 .posts-filter:hover::after,
@@ -2004,13 +2098,48 @@ main.main {
 .posts-filter small {
     margin-top: 4px;
     overflow: hidden;
-    color: var(--aether-violet-text);
+    color: var(--category-accent-text);
     font-family: "Space Grotesk", sans-serif;
     font-size: 0.58rem;
     letter-spacing: 0.08em;
     opacity: 0.74;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.posts-filter[data-post-filter="hackathon-ai-coding-contest-reviews"] {
+    --category-accent-rgb: var(--category-contest-rgb);
+    --category-accent-text: var(--category-contest-text);
+}
+
+.posts-filter[data-post-filter="interview-reviews"] {
+    --category-accent-rgb: var(--category-interview-rgb);
+    --category-accent-text: var(--category-interview-text);
+}
+
+.posts-filter[data-post-filter="music-work-reviews"] {
+    --category-accent-rgb: var(--category-music-rgb);
+    --category-accent-text: var(--category-music-text);
+}
+
+.posts-filter[data-post-filter="organization-operations"] {
+    --category-accent-rgb: var(--category-memoir-rgb);
+    --category-accent-text: var(--category-memoir-text);
+}
+
+.posts-filter[data-post-filter="reviews"] {
+    --category-accent-rgb: var(--category-review-rgb);
+    --category-accent-text: var(--category-review-text);
+}
+
+.posts-filter[data-post-filter="study-diary"] {
+    --category-accent-rgb: var(--category-study-rgb);
+    --category-accent-text: var(--category-study-text);
+}
+
+.posts-filter[data-post-filter="subculture-event-reviews"] {
+    --category-accent-rgb: var(--category-subculture-rgb);
+    --category-accent-text: var(--category-subculture-text);
 }
 
 .posts-groups {
@@ -2218,23 +2347,60 @@ main.main {
 }
 
 .article-list--compact .article-category-chip {
+    --category-accent-rgb: var(--aether-violet-rgb);
+    --category-accent-text: var(--aether-violet-text);
+
     display: inline-flex;
     min-height: 26px;
     align-items: center;
     padding: 4px 9px;
-    border: 1px solid rgba(var(--aether-ruby-rgb), 0.22);
+    border: 1px solid rgba(var(--category-accent-rgb), 0.24);
     border-radius: 999px;
     background:
-        linear-gradient(110deg, rgba(var(--aether-ruby-rgb), 0.095), rgba(var(--aether-blue-rgb), 0.065)),
+        linear-gradient(110deg, rgba(var(--category-accent-rgb), 0.12), rgba(var(--category-accent-rgb), 0.045)),
         var(--aether-panel);
     box-shadow:
-        0 0 14px rgba(var(--aether-ruby-rgb), 0.08),
-        0 0 18px rgba(var(--aether-blue-rgb), 0.055);
-    color: var(--aether-ruby-text);
+        0 0 16px rgba(var(--category-accent-rgb), 0.11);
+    color: var(--category-accent-text);
     font-size: 0.88rem;
     font-weight: 600;
     letter-spacing: 0.015em;
     line-height: 1;
+}
+
+.article-category-chip[data-category="hackathon-ai-coding-contest-reviews"] {
+    --category-accent-rgb: var(--category-contest-rgb);
+    --category-accent-text: var(--category-contest-text);
+}
+
+.article-category-chip[data-category="interview-reviews"] {
+    --category-accent-rgb: var(--category-interview-rgb);
+    --category-accent-text: var(--category-interview-text);
+}
+
+.article-category-chip[data-category="music-work-reviews"] {
+    --category-accent-rgb: var(--category-music-rgb);
+    --category-accent-text: var(--category-music-text);
+}
+
+.article-category-chip[data-category="organization-operations"] {
+    --category-accent-rgb: var(--category-memoir-rgb);
+    --category-accent-text: var(--category-memoir-text);
+}
+
+.article-category-chip[data-category="reviews"] {
+    --category-accent-rgb: var(--category-review-rgb);
+    --category-accent-text: var(--category-review-text);
+}
+
+.article-category-chip[data-category="study-diary"] {
+    --category-accent-rgb: var(--category-study-rgb);
+    --category-accent-text: var(--category-study-text);
+}
+
+.article-category-chip[data-category="subculture-event-reviews"] {
+    --category-accent-rgb: var(--category-subculture-rgb);
+    --category-accent-text: var(--category-subculture-text);
 }
 
 .article-list--compact .article-category-chip--uncategorized {
