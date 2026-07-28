@@ -7,7 +7,7 @@
     --base-font-family: var(--sys-font-family);
     --editorial-font-family: var(--sys-font-family);
     --article-font-family: var(--editorial-font-family);
-    --code-font-family: "Space Grotesk", "SFMono-Regular", Consolas, monospace;
+    --code-font-family: Consolas, "Noto Sans KR", monospace;
 
     --main-top-padding: 28px;
     --section-separation: 28px;
@@ -1336,11 +1336,18 @@ main.main {
     border: 1px solid rgba(var(--category-accent-rgb), 0.22);
     background: rgba(var(--category-accent-rgb), 0.1) !important;
     color: var(--category-accent-text) !important;
-    font-family: "Space Grotesk", "Noto Sans KR", sans-serif;
     font-size: 1.04rem;
     font-weight: 600;
     letter-spacing: 0.02em;
     box-shadow: 0 0 18px rgba(var(--category-accent-rgb), 0.11);
+}
+
+.article-category a {
+    font-family: "Space Grotesk", "Noto Sans KR", sans-serif;
+}
+
+.article-tags a {
+    font-family: var(--code-font-family);
 }
 
 .article-category a[href$="/categories/hackathon-ai-coding-contest-reviews/"] {
@@ -1507,6 +1514,38 @@ main.main {
 
 .main-article .article-content > p {
     word-break: keep-all;
+}
+
+.article-content :not(pre) > code {
+    font-family: var(--code-font-family);
+}
+
+/* Resume is a document, not a dated field note. */
+.resume-page .main-article .article-header .article-details {
+    padding-top: clamp(28px, 4vw, 46px);
+}
+
+.resume-page .main-article .article-header .article-details::before {
+    content: "CF / RESUME";
+}
+
+.resume-page .main-article .article-meta,
+.resume-page .main-article .article-footer {
+    display: none;
+}
+
+.resume-page .main-article .article-content {
+    padding-top: 8px;
+}
+
+.resume-page .article-content .table-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+}
+
+.resume-page .article-content table {
+    min-width: 620px;
 }
 
 .article-content h1,

@@ -2,7 +2,7 @@
 title: "Resume"
 description: "한 장에 압축한 학업, 개발, 연구와 운영 경험"
 date: 2026-07-16
-lastmod: 2026-07-27T01:00:00+09:00
+lastmod: 2026-07-29T00:00:00+09:00
 slug: "resume"
 toc: true
 draft: false
