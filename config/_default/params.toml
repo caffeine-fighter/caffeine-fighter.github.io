@@ -50,10 +50,32 @@ SortBy              = "default"
         value = "4.10 Major GPA"
 
     [home.banner.orbit]
-        eyebrow = "CAFFEINE FIGHTER"
-        title   = "LOG"
-        caption = "INTERDISCIPLINARY / SNU 24"
-        labels  = ["01 / ANALYZE", "02 / CREATE", "03 / OPERATE"]
+        eyebrow = "CF / ABILITY MATRIX"
+        caption = "SELF-ASSESSMENT / 2026"
+
+        [[home.banner.orbit.stats]]
+            label = "MATH"
+            value = 95
+
+        [[home.banner.orbit.stats]]
+            label = "DEV"
+            value = 88
+
+        [[home.banner.orbit.stats]]
+            label = "AI"
+            value = 82
+
+        [[home.banner.orbit.stats]]
+            label = "MUSIC"
+            value = 86
+
+        [[home.banner.orbit.stats]]
+            label = "OPS"
+            value = 94
+
+        [[home.banner.orbit.stats]]
+            label = "CHALLENGE"
+            value = 98
 
 [article]
     headingAnchor = false
