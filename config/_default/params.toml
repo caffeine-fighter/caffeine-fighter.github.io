@@ -69,43 +69,61 @@ SortBy              = "default"
 
     [home.banner.orbit]
         eyebrow = "CF / TRACK RECORD"
-        caption = "RATINGS · ENTRIES / AWARDS · GPA"
+        caption = "NORMALIZED SCALE / 100 · RAW VALUE + %"
 
         [[home.banner.orbit.stats]]
-            label  = "PS"
-            value  = "2,415"
-            detail = "solved.ac AC Rating · pleiades1"
-            url    = "https://solved.ac/profile/pleiades1"
+            label     = "PS"
+            value     = "2,415"
+            relative  = "81%"
+            score     = 80.5
+            detail    = "solved.ac AC Rating 2,415 · Master 3,000 기준 81% · pleiades1"
+            benchmark = "Master 3,000"
+            url       = "https://solved.ac/profile/pleiades1"
 
         [[home.banner.orbit.stats]]
-            label  = "CP"
-            value  = "1,937"
-            detail = "Codeforces Rating · PastelRain"
-            url    = "https://codeforces.com/profile/PastelRain"
+            label     = "CP"
+            value     = "1,937"
+            relative  = "65%"
+            score     = 64.6
+            detail    = "Codeforces Rating 1,937 · Legendary Grandmaster 3,000 기준 65% · PastelRain"
+            benchmark = "Legendary Grandmaster 3,000"
+            url       = "https://codeforces.com/profile/PastelRain"
 
         [[home.banner.orbit.stats]]
-            label  = "HACK"
-            value  = "5 / 2"
-            detail = "해커톤 출전 5회 · 수상 2회"
-            url    = "/profile/#대회와-수상"
+            label     = "HACKATHON"
+            value     = "5 / 2"
+            relative  = "40%"
+            score     = 40
+            detail    = "해커톤 출전 5회 · 수상 2회 · 수상률 40%"
+            benchmark = "수상 횟수 / 출전 횟수"
+            url       = "/profile/#대회와-수상"
 
         [[home.banner.orbit.stats]]
-            label  = "ML"
-            value  = "4 / 1"
-            detail = "ML·AI 대회 출전 4회 · 수상 1회"
-            url    = "/profile/#대회와-수상"
+            label     = "ML"
+            value     = "4 / 1"
+            relative  = "25%"
+            score     = 25
+            detail    = "ML·AI 대회 출전 4회 · 수상 1회 · 수상률 25%"
+            benchmark = "수상 횟수 / 출전 횟수"
+            url       = "/profile/#대회와-수상"
 
         [[home.banner.orbit.stats]]
-            label  = "MUSIC"
-            value  = "8"
-            detail = "완성한 음악 작업물 8곡"
-            url    = "/profile/"
+            label     = "MUSIC"
+            value     = "8"
+            relative  = "80%"
+            score     = 80
+            detail    = "완성한 음악 작업물 8곡 · 10곡 기준 80%"
+            benchmark = "완성작 10곡"
+            url       = "/profile/"
 
         [[home.banner.orbit.stats]]
-            label  = "GPA"
-            value  = "3.83 / 4.10"
-            detail = "전체 GPA 3.83 · 전공 GPA 4.10 / 4.30"
-            url    = "/resume/"
+            label     = "GPA"
+            value     = "3.83 / 4.10"
+            relative  = "89%"
+            score     = 89.1
+            detail    = "전체 GPA 3.83 · 전공 GPA 4.10 / 4.30 · 그래프는 전체 GPA 기준 89%"
+            benchmark = "전체 GPA / 4.30"
+            url       = "/resume/"
 
 [article]
     headingAnchor = false
