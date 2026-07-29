@@ -24,16 +24,19 @@
     {{- $statScratch := newScratch -}}
     {{- $statScratch.Set "points" (slice) -}}
     {{- $statScratch.Set "nodes" (slice) -}}
+    {{- $statTotal := 0.0 -}}
     {{- range $index, $stat := $stats -}}
         {{- $vector := index $statVectors $index -}}
         {{- $ratio := div $stat.score 100.0 -}}
         {{- $x := add 120 (mul (index $vector 0) $ratio) -}}
         {{- $y := add 120 (mul (index $vector 1) $ratio) -}}
+        {{- $statTotal = add $statTotal $stat.score -}}
         {{- $statScratch.Add "points" (slice (printf "%.2f,%.2f" $x $y)) -}}
         {{- $statScratch.Add "nodes" (slice (dict "x" $x "y" $y)) -}}
     {{- end -}}
     {{- $statPoints := delimit ($statScratch.Get "points") " " -}}
     {{- $statNodes := $statScratch.Get "nodes" -}}
+    {{- $statAverage := cond (gt (len $stats) 0) (div $statTotal (len $stats)) 0.0 -}}
 
     <section class="aether-hero aether-reveal" aria-labelledby="aether-hero-title">
         <div class="aether-hero__copy">
@@ -127,9 +130,13 @@
                         {{- end -}}
                     </g>
 
-                    <text class="aether-stat-chart__center" x="120" y="116" text-anchor="middle">
-                        <tspan x="120">SCALE</tspan>
-                        <tspan x="120" dy="11">100</tspan>
+                    <text
+                        class="aether-stat-chart__center"
+                        x="120"
+                        y="120"
+                        text-anchor="middle"
+                        aria-label="여섯 스탯의 평균 점수 {{ printf "%.1f" $statAverage }}">
+                        {{- printf "%.1f" $statAverage -}}
                     </text>
 
                     <g class="aether-stat-chart__labels">
