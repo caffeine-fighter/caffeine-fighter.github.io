@@ -31,6 +31,24 @@ SortBy              = "default"
     subtitle = "SNU TI & Math & Music & CSE 24"
     avatar   = "img/profile-110007411.jpg"
 
+    [sidebar.status]
+        updated       = "2026.07.29"
+        ongoingCount  = 2
+        upcomingCount = 10
+        ongoing       = ["SNU FastMRI", "SNU AI Challenge"]
+        upcoming      = [
+            "OGC 2026",
+            "AGENT:24",
+            "KB AI Challenge",
+            "BARAM 2026",
+            "NHN NAN 2026",
+            "MABC 2026",
+            "반도체 STOB 리그",
+            "AI 반도체 회로설계",
+            "2026 금융 AI Challenge",
+            "극지 빅데이터·AI",
+        ]
+
 [home.banner]
     kicker     = "CF / PERSONAL POSTS / 2026"
     title      = "경계를 넘나들며"
@@ -50,32 +68,44 @@ SortBy              = "default"
         value = "4.10 Major GPA"
 
     [home.banner.orbit]
-        eyebrow = "CF / ABILITY MATRIX"
-        caption = "SELF-ASSESSMENT / 2026"
+        eyebrow = "CF / TRACK RECORD"
+        caption = "RATINGS · ENTRIES / AWARDS · GPA"
 
         [[home.banner.orbit.stats]]
-            label = "MATH"
-            value = 95
+            label  = "PS"
+            value  = "2,415"
+            detail = "solved.ac AC Rating · pleiades1"
+            url    = "https://solved.ac/profile/pleiades1"
 
         [[home.banner.orbit.stats]]
-            label = "DEV"
-            value = 88
+            label  = "CP"
+            value  = "1,937"
+            detail = "Codeforces Rating · PastelRain"
+            url    = "https://codeforces.com/profile/PastelRain"
 
         [[home.banner.orbit.stats]]
-            label = "AI"
-            value = 82
+            label  = "HACK"
+            value  = "5 / 2"
+            detail = "해커톤 출전 5회 · 수상 2회"
+            url    = "/profile/#대회와-수상"
 
         [[home.banner.orbit.stats]]
-            label = "MUSIC"
-            value = 86
+            label  = "ML"
+            value  = "4 / 1"
+            detail = "ML·AI 대회 출전 4회 · 수상 1회"
+            url    = "/profile/#대회와-수상"
 
         [[home.banner.orbit.stats]]
-            label = "OPS"
-            value = 94
+            label  = "MUSIC"
+            value  = "8"
+            detail = "완성한 음악 작업물 8곡"
+            url    = "/profile/"
 
         [[home.banner.orbit.stats]]
-            label = "CHALLENGE"
-            value = 98
+            label  = "GPA"
+            value  = "3.83 / 4.10"
+            detail = "전체 GPA 3.83 · 전공 GPA 4.10 / 4.30"
+            url    = "/resume/"
 
 [article]
     headingAnchor = false

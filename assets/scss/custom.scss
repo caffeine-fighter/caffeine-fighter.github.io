@@ -658,9 +658,18 @@ main.main {
 }
 
 .site-status strong {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
     color: var(--aether-ink);
     font-size: 0.88rem;
     letter-spacing: 0.08em;
+}
+
+.site-status strong i {
+    color: var(--aether-ruby);
+    font-style: normal;
+    text-shadow: 0 0 10px rgba(var(--aether-ruby-rgb), 0.52);
 }
 
 .site-status small {
@@ -1153,6 +1162,25 @@ main.main {
     fill: var(--aether-violet);
     font-size: 6.5px;
     letter-spacing: 0;
+}
+
+.aether-stat-chart__link {
+    outline: none;
+}
+
+.aether-stat-chart__link text {
+    transition: fill 180ms ease, filter 180ms ease;
+}
+
+.aether-stat-chart__link:hover text,
+.aether-stat-chart__link:focus-visible text {
+    fill: var(--aether-ink);
+    filter: drop-shadow(0 0 5px rgba(var(--aether-blue-rgb), 0.68));
+}
+
+.aether-stat-chart__link:hover tspan,
+.aether-stat-chart__link:focus-visible tspan {
+    fill: var(--aether-ruby);
 }
 
 .aether-stat-chart figcaption {
@@ -2956,7 +2984,7 @@ html.aether-ready .aether-entry:nth-child(3) {
     }
 
     .left-sidebar {
-        min-height: 112px;
+        min-height: 148px;
         padding: 15px 18px;
         border: 1px solid var(--aether-border);
         border-radius: 24px;
@@ -2977,8 +3005,33 @@ html.aether-ready .aether-entry:nth-child(3) {
         padding-right: 42px;
     }
 
-    .site-kicker,
+    .site-kicker {
+        display: none;
+    }
+
     .site-status {
+        grid-column: 2;
+        display: flex;
+        justify-self: start;
+        gap: 7px;
+        margin-top: 3px;
+        padding: 6px 8px;
+    }
+
+    .site-status > span {
+        width: 5px;
+        height: 5px;
+    }
+
+    .site-status strong {
+        flex-wrap: nowrap;
+        gap: 3px;
+        font-size: 0.64rem;
+        letter-spacing: 0.035em;
+        white-space: nowrap;
+    }
+
+    .site-status small {
         display: none;
     }
 
@@ -3007,7 +3060,7 @@ html.aether-ready .aether-entry:nth-child(3) {
     .left-sidebar .menu-social {
         position: absolute;
         z-index: 30;
-        top: 68px;
+        top: 106px;
         right: 18px;
         bottom: auto;
     }

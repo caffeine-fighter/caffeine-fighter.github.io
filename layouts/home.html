@@ -5,14 +5,6 @@
     {{- $banner := .Site.Params.home.banner -}}
     {{- $orbit := $banner.orbit -}}
     {{- $stats := first 6 $orbit.stats -}}
-    {{- $statVectors := slice
-        (slice 0 -92)
-        (slice 79.67 -46)
-        (slice 79.67 46)
-        (slice 0 92)
-        (slice -79.67 46)
-        (slice -79.67 -46)
-    -}}
     {{- $statLabelPositions := slice
         (dict "x" 120 "y" 14 "anchor" "middle")
         (dict "x" 207 "y" 68 "anchor" "start")
@@ -21,19 +13,6 @@
         (dict "x" 33 "y" 176 "anchor" "end")
         (dict "x" 33 "y" 68 "anchor" "end")
     -}}
-    {{- $statScratch := newScratch -}}
-    {{- $statScratch.Set "points" (slice) -}}
-    {{- $statScratch.Set "nodes" (slice) -}}
-    {{- range $index, $stat := $stats -}}
-        {{- $vector := index $statVectors $index -}}
-        {{- $ratio := div $stat.value 100.0 -}}
-        {{- $x := add 120 (mul (index $vector 0) $ratio) -}}
-        {{- $y := add 120 (mul (index $vector 1) $ratio) -}}
-        {{- $statScratch.Add "points" (slice (printf "%.2f,%.2f" $x $y)) -}}
-        {{- $statScratch.Add "nodes" (slice (dict "x" $x "y" $y)) -}}
-    {{- end -}}
-    {{- $statPoints := delimit ($statScratch.Get "points") " " -}}
-    {{- $statNodes := $statScratch.Get "nodes" -}}
 
     <section class="aether-hero aether-reveal" aria-labelledby="aether-hero-title">
         <div class="aether-hero__copy">
@@ -85,10 +64,10 @@
 
             <figure class="aether-stat-chart">
                 <svg viewBox="0 0 240 240" role="img" aria-labelledby="aether-stat-title aether-stat-description">
-                    <title id="aether-stat-title">{{ $orbit.eyebrow | default "CF / ABILITY MATRIX" }}</title>
+                    <title id="aether-stat-title">{{ $orbit.eyebrow | default "CF / TRACK RECORD" }}</title>
                     <desc id="aether-stat-description">
                         {{- range $index, $stat := $stats -}}
-                            {{- if $index }}, {{ end -}}{{ $stat.label }} {{ $stat.value }}
+                            {{- if $index }}, {{ end -}}{{ $stat.detail | default (printf "%s %s" $stat.label $stat.value) }}
                         {{- end -}}
                     </desc>
 
@@ -118,13 +97,22 @@
                         <line x1="120" y1="120" x2="40.33" y2="74"></line>
                     </g>
 
-                    <polygon class="aether-stat-chart__glow" points="{{ $statPoints }}" aria-hidden="true"></polygon>
-                    <polygon class="aether-stat-chart__area" points="{{ $statPoints }}" aria-hidden="true"></polygon>
+                    <polygon
+                        class="aether-stat-chart__glow"
+                        points="120,38 191.01,79 191.01,161 120,202 48.99,161 48.99,79"
+                        aria-hidden="true"></polygon>
+                    <polygon
+                        class="aether-stat-chart__area"
+                        points="120,38 191.01,79 191.01,161 120,202 48.99,161 48.99,79"
+                        aria-hidden="true"></polygon>
 
                     <g class="aether-stat-chart__nodes" aria-hidden="true">
-                        {{- range $statNodes -}}
-                            <circle cx="{{ printf "%.2f" .x }}" cy="{{ printf "%.2f" .y }}" r="3.2"></circle>
-                        {{- end -}}
+                        <circle cx="120" cy="38" r="3.2"></circle>
+                        <circle cx="191.01" cy="79" r="3.2"></circle>
+                        <circle cx="191.01" cy="161" r="3.2"></circle>
+                        <circle cx="120" cy="202" r="3.2"></circle>
+                        <circle cx="48.99" cy="161" r="3.2"></circle>
+                        <circle cx="48.99" cy="79" r="3.2"></circle>
                     </g>
 
                     <text class="aether-stat-chart__center" x="120" y="121" text-anchor="middle">CF</text>
@@ -132,9 +120,14 @@
                     <g class="aether-stat-chart__labels">
                         {{- range $index, $stat := $stats -}}
                             {{- $position := index $statLabelPositions $index -}}
-                            <text x="{{ $position.x }}" y="{{ $position.y }}" text-anchor="{{ $position.anchor }}">
-                                {{ $stat.label }}<tspan dx="3">{{ $stat.value }}</tspan>
-                            </text>
+                            <a
+                                class="aether-stat-chart__link"
+                                href="{{ $stat.url | relURL }}"
+                                aria-label="{{ $stat.detail | default (printf "%s %s" $stat.label $stat.value) }}">
+                                <text x="{{ $position.x }}" y="{{ $position.y }}" text-anchor="{{ $position.anchor }}">
+                                    {{ $stat.label }}<tspan dx="3">{{ $stat.value }}</tspan>
+                                </text>
+                            </a>
                         {{- end -}}
                     </g>
                 </svg>

@@ -38,10 +38,23 @@
             <h2 class="site-description">{{ .Site.Params.sidebar.subtitle }}</h2>
         </div>
 
-        <div class="site-status">
-            <span aria-hidden="true"></span>
-            <p><strong>INTERDISCIPLINARY</strong><small>build · reflect · retry</small></p>
-        </div>
+        {{- with .Site.Params.sidebar.status -}}
+            {{- $ongoingNames := delimit .ongoing " · " -}}
+            {{- $upcomingNames := delimit .upcoming " · " -}}
+            <div
+                class="site-status"
+                title="진행 중: {{ $ongoingNames }} | 참가 예정: {{ $upcomingNames }} | {{ .updated }} 기준">
+                <span aria-hidden="true"></span>
+                <p>
+                    <strong>
+                        <span>ONGOING {{ .ongoingCount }}</span>
+                        <i aria-hidden="true">·</i>
+                        <span>UPCOMING {{ .upcomingCount }}</span>
+                    </strong>
+                    <small>{{ $ongoingNames }}</small>
+                </p>
+            </div>
+        {{- end -}}
     </header>
 
     {{- with .Site.Menus.social -}}
