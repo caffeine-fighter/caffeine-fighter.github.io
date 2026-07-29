@@ -94,26 +94,26 @@ SortBy              = "default"
             value     = "5 / 2"
             relative  = "40%"
             score     = 40
-            detail    = "해커톤 출전 5회 · 수상 2회 · 수상률 40%"
-            benchmark = "수상 횟수 / 출전 횟수"
+            detail    = "해커톤 출전 5회 · 수상 2회 · 수상 5회 기준 40%"
+            benchmark = "수상 5회"
             url       = "/profile/#대회와-수상"
 
         [[home.banner.orbit.stats]]
             label     = "ML"
             value     = "4 / 1"
-            relative  = "25%"
-            score     = 25
-            detail    = "ML·AI 대회 출전 4회 · 수상 1회 · 수상률 25%"
-            benchmark = "수상 횟수 / 출전 횟수"
+            relative  = "20%"
+            score     = 20
+            detail    = "ML·AI 대회 출전 4회 · 수상 1회 · 수상 5회 기준 20%"
+            benchmark = "수상 5회"
             url       = "/profile/#대회와-수상"
 
         [[home.banner.orbit.stats]]
             label     = "MUSIC"
             value     = "8"
-            relative  = "80%"
-            score     = 80
-            detail    = "완성한 음악 작업물 8곡 · 10곡 기준 80%"
-            benchmark = "완성작 10곡"
+            relative  = "27%"
+            score     = 26.7
+            detail    = "완성한 음악 작업물 8곡 · 30곡 기준 27%"
+            benchmark = "완성작 30곡"
             url       = "/profile/"
 
         [[home.banner.orbit.stats]]
