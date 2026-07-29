@@ -1139,20 +1139,14 @@ main.main {
 }
 
 .aether-stat-chart__center {
-    fill: var(--aether-ink);
+    fill: var(--aether-violet);
     font-family: "Space Grotesk", sans-serif;
-    font-size: 7px;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.13em;
+    letter-spacing: 0.04em;
     paint-order: stroke;
     stroke: var(--aether-panel-strong);
     stroke-width: 3px;
-}
-
-.aether-stat-chart__center tspan:last-child {
-    fill: var(--aether-violet);
-    font-size: 11px;
-    letter-spacing: 0.06em;
 }
 
 .aether-stat-chart__labels text {
