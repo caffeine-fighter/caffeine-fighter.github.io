@@ -1028,50 +1028,143 @@ main.main {
     animation: aether-orbit-spin-reverse 18s linear infinite;
 }
 
-.aether-orbit__core {
+.aether-stat-chart {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    display: grid;
-    place-items: center;
-    width: 48%;
-    aspect-ratio: 1;
+    z-index: 2;
+    inset: 11%;
+    display: block;
+    margin: 0;
     border: 1px solid var(--aether-border);
+    border-radius: 50%;
     background:
-        radial-gradient(circle at 68% 25%, var(--aether-glow-pink), transparent 38%),
+        radial-gradient(circle at 34% 22%, rgba(var(--aether-ice-rgb), 0.14), transparent 36%),
+        radial-gradient(circle at 72% 76%, rgba(var(--aether-ruby-rgb), 0.12), transparent 38%),
         linear-gradient(145deg, var(--aether-panel-strong), var(--aether-panel-soft));
-    box-shadow: 0 30px 80px var(--aether-glow-violet), 8px 8px 0 rgba(var(--aether-ice-rgb), 0.1);
-    color: var(--aether-ink);
-    clip-path: polygon(12% 0, 100% 0, 100% 72%, 72% 100%, 0 100%, 0 12%);
-    transform: translate(-50%, -50%) rotate(-3deg);
+    box-shadow:
+        0 28px 72px var(--aether-glow-violet),
+        0 0 36px rgba(var(--aether-blue-rgb), 0.12),
+        inset 0 0 38px rgba(var(--aether-violet-rgb), 0.08);
     backdrop-filter: blur(28px) saturate(160%);
 }
 
-.aether-orbit__core span,
-.aether-orbit__core small {
+.aether-stat-chart::before {
     position: absolute;
+    z-index: -1;
+    inset: 7%;
+    border: 1px solid rgba(var(--aether-violet-rgb), 0.12);
+    border-radius: 50%;
+    content: "";
+}
+
+.aether-stat-chart svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.aether-stat-chart__grid polygon,
+.aether-stat-chart__grid line {
+    fill: none;
+    stroke: var(--aether-border-soft);
+    stroke-width: 0.75;
+    vector-effect: non-scaling-stroke;
+}
+
+.aether-stat-chart__grid polygon {
+    fill: rgba(var(--aether-violet-rgb), 0.018);
+}
+
+.aether-stat-chart__grid .aether-stat-chart__grid-outer {
+    fill: rgba(var(--aether-violet-rgb), 0.035);
+    stroke: rgba(var(--aether-violet-rgb), 0.36);
+    stroke-width: 1.15;
+}
+
+.aether-stat-chart__stop--blue {
+    stop-color: var(--aether-blue);
+    stop-opacity: 0.42;
+}
+
+.aether-stat-chart__stop--cyan {
+    stop-color: var(--aether-cyan);
+    stop-opacity: 0.96;
+}
+
+.aether-stat-chart__stop--violet {
+    stop-color: var(--aether-violet);
+    stop-opacity: 0.58;
+}
+
+.aether-stat-chart__stop--ruby {
+    stop-color: var(--aether-ruby);
+    stop-opacity: 0.48;
+}
+
+.aether-stat-chart__glow,
+.aether-stat-chart__area {
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+}
+
+.aether-stat-chart__glow {
+    fill: none;
+    stroke: url("#aether-stat-stroke");
+    stroke-width: 7;
+    opacity: 0.35;
+    filter: blur(5px);
+}
+
+.aether-stat-chart__area {
+    fill: url("#aether-stat-fill");
+    stroke: url("#aether-stat-stroke");
+    stroke-width: 1.7;
+}
+
+.aether-stat-chart__nodes circle {
+    fill: var(--aether-panel-strong);
+    stroke: var(--aether-cyan);
+    stroke-width: 1.4;
+    filter: drop-shadow(0 0 5px rgba(var(--aether-blue-rgb), 0.7));
+    vector-effect: non-scaling-stroke;
+}
+
+.aether-stat-chart__center {
+    fill: var(--aether-ink);
     font-family: "Space Grotesk", sans-serif;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.18em;
+    paint-order: stroke;
+    stroke: var(--aether-panel-strong);
+    stroke-width: 3px;
 }
 
-.aether-orbit__core span {
-    top: 16%;
-    font-size: 0.56rem;
+.aether-stat-chart__labels text {
+    fill: var(--aether-muted);
+    font-family: "Space Grotesk", "Noto Sans KR", sans-serif;
+    font-size: 7.2px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    dominant-baseline: middle;
 }
 
-.aether-orbit__core strong {
-    font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(4.4rem, 6vw, 7rem);
-    letter-spacing: -0.08em;
+.aether-stat-chart__labels tspan {
+    fill: var(--aether-violet);
+    font-size: 6.5px;
+    letter-spacing: 0;
 }
 
-.aether-orbit__core small {
-    right: 10%;
-    bottom: 12%;
-    left: 10%;
+.aether-stat-chart figcaption {
+    position: absolute;
+    right: 0;
+    bottom: -19px;
+    left: 0;
     color: var(--aether-muted);
-    font-size: 0.48rem;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
     text-align: center;
 }
 
@@ -1111,31 +1204,6 @@ main.main {
     border-color: rgba(var(--aether-blue-rgb), 0.44);
     transform: rotate(67deg);
     animation: aether-float-one 8.2s ease-in-out -2s infinite;
-}
-
-.aether-orbit__label {
-    position: absolute;
-    padding: 6px 9px;
-    border: 1px solid var(--aether-border-soft);
-    background: var(--aether-panel);
-    color: var(--aether-muted);
-    font-size: 0.56rem;
-    backdrop-filter: blur(20px) saturate(150%);
-}
-
-.aether-orbit__label--one {
-    top: 20%;
-    left: -2%;
-}
-
-.aether-orbit__label--two {
-    top: 58%;
-    right: -4%;
-}
-
-.aether-orbit__label--three {
-    bottom: 10%;
-    left: 8%;
 }
 
 .aether-section-heading {
@@ -2512,6 +2580,17 @@ main.main {
     border-radius: 26px !important;
 }
 
+.archives-group > .archives-date {
+    margin: 0;
+    padding: 18px 22px 12px;
+}
+
+.archives-group > .archives-date a {
+    display: inline-flex;
+    color: var(--aether-ink);
+    font-variant-numeric: tabular-nums;
+}
+
 .section-title,
 .taxonomy-title,
 .archives-date,
@@ -3018,6 +3097,19 @@ html.aether-ready .aether-entry:nth-child(3) {
         margin-top: 8px;
     }
 
+    .aether-stat-chart {
+        inset: 10%;
+    }
+
+    .aether-stat-chart figcaption {
+        bottom: -16px;
+        font-size: 0.44rem;
+    }
+
+    .archives-group > .archives-date {
+        padding: 16px 18px 10px;
+    }
+
     .aether-section-heading {
         align-items: flex-start;
     }
@@ -3162,6 +3254,21 @@ html.aether-ready .aether-entry:nth-child(3) {
     html.aether-ready .widget {
         opacity: 1;
         transform: none;
+    }
+}
+
+/*
+ * Windows can expose prefers-reduced-motion when desktop animations are
+ * disabled. Keep the hero's purely decorative orbit moving as requested,
+ * while the rest of the interface continues to respect reduced motion.
+ */
+@media (min-width: 768px) and (prefers-reduced-motion: reduce) {
+    .aether-home .aether-orbit__track--one {
+        animation: aether-orbit-spin 24s linear infinite !important;
+    }
+
+    .aether-home .aether-orbit__track--two {
+        animation: aether-orbit-spin-reverse 18s linear infinite !important;
     }
 }
 
