@@ -51,9 +51,9 @@ SortBy              = "default"
 
 [home.banner]
     kicker     = "CAFFEINE FIGHTER / LOGBOOK / 2026"
-    title      = "하고 싶은 건 많고"
-    accent     = "아직 포기한 건 없다."
-    description = "수학 문제를 풀고, 코드를 짜고, 곡을 만들고, 사람을 모아 일을 벌인다. 결과가 좋았던 날도 망했던 날도, 왜 그렇게 됐고 다음에는 무엇을 바꿀지까지 적는다."
+    title      = "재밌어 보이기만 한다면"
+    accent     = "무엇이든 다 합니다."
+    description = "수학 문제를 풀고, 코드를 짜고, 곡을 만들고, 사람을 모아 일을 벌입니다. 잘된 일만 골라 두기보다 망한 이유와 다음에는 무엇을 바꿀지까지 적습니다."
 
     [[home.banner.metrics]]
         label = "BUILD"
