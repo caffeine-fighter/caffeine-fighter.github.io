@@ -50,10 +50,10 @@ SortBy              = "default"
         ]
 
 [home.banner]
-    kicker     = "CF / PERSONAL POSTS / 2026"
-    title      = "경계를 넘나들며"
-    accent     = "결과를 만드는 기록."
-    description = "수학과 소프트웨어, 생성형 AI 연구, 음악 창작과 조직 운영. 서로 다른 세계에서 마주친 문제를 분석하고 직접 만든 결과로 증명해 온 과정을 남깁니다."
+    kicker     = "CAFFEINE FIGHTER / LOGBOOK / 2026"
+    title      = "재밌어 보이기만 한다면"
+    accent     = "무엇이든 다 합니다."
+    description = "수학 문제를 풀고, 코드를 짜고, 곡을 만들고, 사람을 모아 일을 벌입니다. 잘된 일만 골라 두기보다 망한 이유와 다음에는 무엇을 바꿀지까지 적습니다."
 
     [[home.banner.metrics]]
         label = "BUILD"
