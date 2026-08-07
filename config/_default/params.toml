@@ -57,7 +57,7 @@ SortBy              = "default"
 
     [[home.banner.metrics]]
         label = "BUILD"
-        value = "2× Hackathon Grand Prize"
+        value = "Grand Prize + Excellence"
 
     [[home.banner.metrics]]
         label = "OPERATE"
@@ -65,7 +65,7 @@ SortBy              = "default"
 
     [[home.banner.metrics]]
         label = "STUDY"
-        value = "4.10 Major GPA"
+        value = "3.86 Total / 4.18 Major"
 
     [home.banner.orbit]
         eyebrow = "CF / TRACK RECORD"
