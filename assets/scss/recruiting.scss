@@ -1,0 +1,168 @@
+@import "portfolio-pages";
+
+:root {
+    --sys-font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color-scheme: light;
+    font-family: var(--sys-font-family);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    scroll-behavior: smooth;
+    background: #f3f3f0;
+}
+
+body.portfolio-template.recruiting-standalone {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0 0 34px;
+    background: var(--portfolio-bg) !important;
+}
+
+.recruiting-skip {
+    position: fixed;
+    z-index: 10;
+    top: 10px;
+    left: 10px;
+    padding: 9px 12px;
+    border-radius: 7px;
+    background: var(--portfolio-ink);
+    color: var(--portfolio-paper);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transform: translateY(-160%);
+}
+
+.recruiting-skip:focus {
+    transform: translateY(0);
+}
+
+.recruiting-topbar,
+.recruiting-main,
+.recruiting-footer {
+    width: calc(100% - 40px);
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.recruiting-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    margin-top: 20px;
+    padding: 15px 18px;
+    border: 1px solid var(--portfolio-line);
+    border-radius: 12px;
+    background: var(--portfolio-paper);
+}
+
+.recruiting-brand {
+    flex: 0 0 auto;
+    color: var(--portfolio-ink);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.075em;
+    text-decoration: none;
+}
+
+.recruiting-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 7px 18px;
+}
+
+.recruiting-nav a {
+    color: var(--portfolio-muted);
+    font-size: 0.84rem;
+    font-weight: 650;
+    text-decoration: none;
+    transition: color 150ms ease;
+}
+
+.recruiting-nav a:hover,
+.recruiting-nav a:focus-visible {
+    color: var(--portfolio-ink);
+}
+
+.recruiting-main {
+    margin-top: 14px;
+}
+
+.recruiting-standalone .portfolio-shell {
+    width: 100%;
+}
+
+.recruiting-standalone .portfolio-content {
+    font-family: var(--sys-font-family);
+}
+
+.recruiting-standalone a:focus-visible {
+    outline: 2px solid var(--portfolio-ink);
+    outline-offset: 3px;
+}
+
+.recruiting-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 4px 0;
+    color: var(--portfolio-muted);
+    font-size: 0.78rem;
+}
+
+.recruiting-footer a {
+    color: inherit;
+    text-decoration-color: var(--portfolio-line);
+    text-underline-offset: 0.2em;
+}
+
+@media (max-width: 767px) {
+    body.portfolio-template.recruiting-standalone {
+        padding-bottom: 22px;
+    }
+
+    .recruiting-topbar,
+    .recruiting-main,
+    .recruiting-footer {
+        width: calc(100% - 20px);
+    }
+
+    .recruiting-topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 11px;
+        margin-top: 10px;
+        padding: 14px 15px;
+    }
+
+    .recruiting-nav {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .recruiting-main {
+        margin-top: 10px;
+    }
+
+    .recruiting-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+        padding: 16px 4px 0;
+    }
+}

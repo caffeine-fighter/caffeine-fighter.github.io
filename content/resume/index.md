@@ -16,8 +16,8 @@ actions:
     url: "/portfolio/"
   - label: "GitHub"
     url: "https://github.com/caffeine-fighter"
-  - label: "프로필"
-    url: "/profile/"
+  - label: "이메일"
+    url: "mailto:lumina@snu.ac.kr"
 ---
 
 <div class="portfolio-facts" aria-label="핵심 정보">
