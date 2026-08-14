@@ -26,6 +26,15 @@ enableRobotsTXT = true
   weight = 5
 
 [[menu.main]]
+  identifier = "portfolio"
+  name = "Portfolio"
+  url = "/portfolio/"
+  weight = 2
+
+  [menu.main.params]
+    icon = "link"
+
+[[menu.main]]
   identifier = "resume"
   name = "Resume"
   url = "/resume/"
