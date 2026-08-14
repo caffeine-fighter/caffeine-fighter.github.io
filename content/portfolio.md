@@ -12,12 +12,12 @@ toc: false
 eyebrow: "CAFFEINE FIGHTER / PORTFOLIO"
 lead: "C++과 Python을 주로 쓰고, 제품 개발과 ML 시스템 실험을 오간다. 맡은 일은 실제로 돌아가는 상태까지 가져가려고 한다."
 actions:
-  - label: "GitHub"
-    url: "https://github.com/caffeine-fighter"
   - label: "이력서"
     url: "/resume/"
-  - label: "프로필"
-    url: "/profile/"
+  - label: "GitHub"
+    url: "https://github.com/caffeine-fighter"
+  - label: "이메일"
+    url: "mailto:lumina@snu.ac.kr"
 ---
 
 <div class="portfolio-facts" aria-label="핵심 정보">
