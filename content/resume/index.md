@@ -1,123 +1,145 @@
 ---
 title: "Resume"
-description: "서울대학교 24학번. C++/Python, ML 시스템 연구와 소프트웨어 개발 이력."
-date: 2026-07-16
-lastmod: 2026-08-08
+description: "서울대학교에서 융합데이터과학을 공부하며 소프트웨어와 ML 시스템을 만드는 카페인파이터의 이력서"
+date: 2026-07-16T00:00:00+09:00
+lastmod: 2026-08-15T00:00:00+09:00
 slug: "resume"
-toc: true
+url: "/resume/"
+layout: "portfolio"
+comments: false
+toc: false
 draft: false
+eyebrow: "CAFFEINE FIGHTER / RESUME"
+lead: "서울대학교에서 융합데이터과학을 주전공으로 공부한다. C++과 Python을 가장 자주 쓰며, 소프트웨어 개발과 ML 시스템 연구를 오간다."
+actions:
+  - label: "포트폴리오"
+    url: "/portfolio/"
+  - label: "GitHub"
+    url: "https://github.com/caffeine-fighter"
+  - label: "프로필"
+    url: "/profile/"
 ---
 
-Seoul, South Korea / [lumina@snu.ac.kr](mailto:lumina@snu.ac.kr) / [GitHub](https://github.com/caffeine-fighter)
+<div class="portfolio-facts" aria-label="핵심 정보">
+  <div><strong>3.86 / 4.30</strong><span>전체 GPA</span></div>
+  <div><strong>4.18 / 4.30</strong><span>첨단융합학부 전공 GPA</span></div>
+  <div><strong>5개 전공</strong><span>주전공 1 / 복수전공 4</span></div>
+  <div><strong>CM / Diamond III</strong><span>Codeforces / Baekjoon</span></div>
+</div>
 
-2005년생, 서울대학교 24학번이다. 첨단융합학부에서 융합데이터과학을 주전공으로, 수리과학, 음악학, 컴퓨터공학, 차세대지능형반도체 복수전공을 이수 중이댜.
+## 학력
 
-메인 언어로 C++과 Python을 사용한다. 두 학기 인턴으로 있었던 ML Systems Lab에서는 Diffusion/LoRA/Attention과 GPU 최적화를 연구했고, ML 대회 및 해커톤을 나가며 시간표 서비스와 멘토링 MVP, 실시간 웹 게임을 만들었다. 더 긴 활동 기록과 취미는 [Profile](/profile/)에 적어 두었다.
+<div class="portfolio-columns portfolio-columns--education">
+  <section>
+    <h3>서울대학교</h3>
+    <p><strong>첨단융합학부 / 2024.03 - 현재</strong></p>
+    <p>5학기 85학점 이수. 융합데이터과학을 주전공으로, 수리과학/음악학/컴퓨터공학/차세대지능형반도체를 복수전공으로 이수 중이다.</p>
+    <ul>
+      <li>전체 GPA 3.86/4.30</li>
+      <li>첨단융합학부 전공 GPA 4.18/4.30</li>
+      <li>첨단융합학부 비교과 활동우수상</li>
+    </ul>
+  </section>
+  <section>
+    <h3>세종과학예술영재학교</h3>
+    <p><strong>7기 / 2021.03 - 2024.02</strong></p>
+    <p>신입생 수석 입학 / GPA 4.10/4.30 졸업. 수학, 정보와 과학 글쓰기 대회에 꾸준히 참가했다.</p>
+    <ul>
+      <li>수학사고력챌린지 금상 / 전 문항 최고점 1위</li>
+      <li>정보올림피아드 및 CTF 전부 수상</li>
+      <li>재학 중 매 학기 독서우수상 금상</li>
+    </ul>
+  </section>
+</div>
 
-## Education
+## 기술
 
-### 서울대학교
+<dl class="portfolio-skill-list">
+  <div><dt>언어</dt><dd><strong>C++ / Python</strong>을 주로 사용한다. C++은 알고리즘과 성능이 중요한 구현에, Python은 모델 학습/실험 자동화/데이터 처리와 빠른 프로토타이핑에 쓴다.</dd></div>
+  <div><dt>소프트웨어</dt><dd>TypeScript / React / Next.js / Node.js / REST API / PostgreSQL / Supabase / Drizzle ORM</dd></div>
+  <div><dt>AI/ML</dt><dd>PyTorch / CUDA / Diffusion / LoRA / Attention / QLoRA / PEFT / VarNet / HDF5 / SSIM / VESSL</dd></div>
+  <div><dt>도구</dt><dd>Git / Linux / Docker / GPU profiling</dd></div>
+</dl>
 
-**2024.03–현재 / 첨단융합학부 / 5학기 85학점 이수**
+## 연구 경험
 
-- 전체 GPA: **3.86/4.30**
-- 첨단융합학부 전공 GPA: **4.18/4.30**
-- 주전공: 융합데이터과학전공
-- 복수전공: 수리과학전공, 음악학과, 컴퓨터공학전공, 차세대지능형반도체전공
-- 2026.02 첨단융합학부 비교과 활동우수상
+<div class="portfolio-list">
+  <article>
+    <header><h3>ML Systems Lab</h3><time>2025.06 - 2025.08 / 2026.02 - 2026.07</time></header>
+    <p>Diffusion Model과 LoRA의 품질, 메모리 사용량과 처리 속도를 비교하고 Attention/병렬 처리의 GPU 병목을 분석했다. 실행 조건과 실패한 설정까지 남겨 실험을 다시 재현할 수 있게 했다.</p>
+    <span>PyTorch / CUDA / Diffusion / LoRA / Attention / GPU profiling</span>
+  </article>
+  <article>
+    <header><h3>Stable Diffusion 1.5 개인 연구</h3><time>2022.10 - 2023.07</time></header>
+    <p>2022년 말 공개 코드와 문서를 직접 맞춰 가며 데이터 구성부터 checkpoint/LoRA fine-tuning까지 완성했다. 자료가 적던 시기에 필요한 기술을 독학해 실제 학습 결과까지 만든 첫 ML 프로젝트다.</p>
+    <span>Python / PyTorch / Stable Diffusion 1.5 / LoRA</span>
+  </article>
+</div>
 
-### 세종과학예술영재학교
+## 주요 개발 경험
 
-**2021.03–2024.02 / GPA 4.07/4.30 졸업**
+<div class="portfolio-list">
+  <article>
+    <header><h3>TTUNS</h3><time>2025.10 - 현재</time></header>
+    <p>서울대학교 시간표 서비스의 화면/API/데이터 구조와 배포 뒤 유지보수를 맡았다. 사용자 제보를 실제 입력으로 재현하며 검색과 시간표 기능을 고쳤다.</p>
+    <span>TypeScript / React / Next.js / Node.js / PostgreSQL</span>
+  </article>
+  <article>
+    <header><h3>SNU AI Challenge</h3><time>2026.08</time></header>
+    <p>팀장으로 언어 모델 fine-tuning 실험을 설계하고 학습/평가 흐름을 정리해 본선에 진출했다.</p>
+    <span>Python / PyTorch / Qwen3.6-27B / QLoRA / PEFT / NF4 / BF16 / TTA</span>
+  </article>
+  <article>
+    <header><h3>fastMRI Challenge</h3><time>2026</time></header>
+    <p>팀장으로 MRI 복원 모델의 학습과 평가를 구성했다. 데이터 로딩, 실험 설정과 제출 결과를 한 흐름으로 관리했다.</p>
+    <span>Python / PyTorch / VarNet / HDF5 / SSIM / VESSL</span>
+  </article>
+  <article>
+    <header><h3>설스터디 (SnuStudy)</h3><time>2026.02</time></header>
+    <p>멘티 플래너와 멘토 대시보드, Supabase 연동 구조를 구현했다. Blaybus MVP 개발 해커톤 우수상을 받았다.</p>
+    <span>TypeScript / React / Next.js / Supabase / Tailwind CSS</span>
+    <a href="https://github.com/Bus-tayo/SnuStudy" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </article>
+  <article>
+    <header><h3>지하철 게임</h3><time>현재</time></header>
+    <p>메인 개발자로 5개국 데이터, 3개 언어와 실시간 대전/랭킹 기능을 구현했다. 공개 콘텐츠는 현재까지 107만 회 조회됐다.</p>
+    <span>TypeScript / Next.js / Supabase Realtime / PostgreSQL</span>
+    <a href="https://github.com/Team-DreamState/SubwayGuessr" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </article>
+  <article>
+    <header><h3>QuantumCylinder / QDiffRecover</h3><time>2026.06 - 현재</time></header>
+    <p>양자상태 ensemble 복원 실험을 설계하고 구현/자동화했다. 대회가 끝난 뒤에도 후속 단독 연구를 이어 가고 있다.</p>
+    <span>Python / NumPy / PyTorch / experiment automation</span>
+    <a href="https://github.com/chaejinlim235/QuantumCylinder" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </article>
+</div>
 
-- 2021년 신입생 수석 입학
-- 정보올림피아드 및 CTF 전부 수상
-- 2022 수학탐구토론대회 동상 (3위, 1인팀 참가)
-- 2023-1 수학사고력챌린지 금상 (1위)
-- 재학 중 매 학기 독서우수상 금상, 영어과학글쓰기 금상
-- 이산수학, 음악과 테크놀로지 교과우수상
+## 수상과 성과
 
-## Skills
+<ul class="portfolio-plain-list">
+  <li><time>2026.08</time><span>SNU AI Challenge 본선 / 팀장</span></li>
+  <li><time>2026.07</time><span>CODEGATE 해커톤 본선</span></li>
+  <li><time>2026.07</time><span>양자정보경진대회 본선 / 팀장</span></li>
+  <li><time>2026.05</time><span>Jane Street ETC @ Seoul Winner</span></li>
+  <li><time>2026.02</time><span>Blaybus MVP 개발 해커톤 우수상</span></li>
+  <li><time>2025.08</time><span>K-HTML 해커톤 대상</span></li>
+  <li><time>2023.07</time><span>수학사고력챌린지 금상 / 전 문항 최고점 1위</span></li>
+</ul>
 
-- **주력 언어:** C++, Python
-- **웹:** TypeScript, JavaScript, React, Next.js, Tailwind CSS, Node.js, REST API, PostgreSQL, Supabase, Drizzle ORM
-- **AI/ML:** PyTorch, CUDA, Diffusion, LoRA, Attention, QLoRA/PEFT, VarNet
-- **실험:** NumPy, HDF5, SSIM, VESSL, GPU profiling
-- **개발 환경:** Git, Linux, Docker
-- **알고리즘:** [Codeforces Candidate Master](https://codeforces.com/profile/PastelRain) / [Baekjoon Diamond III](https://www.acmicpc.net/user/pleiades1)
+## 리더십과 교육
 
-## Research
+<div class="portfolio-columns">
+  <section>
+    <h3>팀과 조직 운영</h3>
+    <p>SNU AI Challenge, fastMRI Challenge, SKYSH MVP, 양자정보경진대회와 AGENT:24에서 팀장을 맡았다. 11개교 대학생이 참여한 초정밀모델학회의 2대 부회장과 3대 회장을 지냈고, 총 8개 동아리에서 임원으로 활동했다.</p>
+  </section>
+  <section>
+    <h3>튜터링</h3>
+    <p>서울대학교에서 프로그래밍 개발 방법론, 컴퓨팅 핵심/기초와 기초물리학 1 튜터를 맡았다. 코드 리뷰와 디버깅을 돕고, 중학생 프로그래밍 지도를 NYPC 12-15세 부문 수상까지 이어 간 경험이 있다.</p>
+  </section>
+</div>
 
-### ML Systems Lab
+## 연락
 
-**2025.06–2025.08 / 2026.02–2026.07**
-
-- Diffusion Model과 LoRA를 직접 학습하고 품질, 메모리 사용량과 처리 속도를 비교했다.
-- Attention과 병렬 처리에서 GPU bottleneck이 생기는 구간을 확인했다.
-- 실행 조건과 실패한 설정까지 기록해 같은 실험을 다시 재현할 수 있게 했다.
-
-### Stable Diffusion 1.5 개인 연구
-
-**2022.10–2023.07**
-
-2022년 말 Stable Diffusion 1.5의 데이터 구성부터 checkpoint/LoRA fine-tuning까지 독학했다. LLM이 발달하지 않았고 지금보다 자료가 훨씬 적던 시기라 공개 코드와 문서를 직접 맞춰 가며 개인 모델을 완성했다.
-
-## Projects
-
-| 기간 | 프로젝트 | 맡은 일 / 결과 |
-|---|---|---|
-| 2025.10–현재 | TTUNS 서울대학교 시간표 서비스 | React/Next.js 화면, REST API, 데이터 처리, 배포와 유지보수 / Google Play 100+ 다운로드 |
-| 2026.02 | [설스터디(SnuStudy)](https://github.com/Bus-tayo/SnuStudy) | 멘티 플래너, 멘토 대시보드와 Supabase 연동 구조 구현 / Blaybus MVP 개발 해커톤 우수상 |
-| 2026.06–현재 | [QuantumCylinder](https://github.com/chaejinlim235/QuantumCylinder) / QDiffRecover | 양자상태 ensemble 복원 실험 설계, 구현, 자동화와 후속 단독 연구 |
-| 2026 | SNU AI Challenge | 팀장 / Qwen3.6-27B QLoRA/PEFT, NF4/BF16, TTA / 본선 |
-| 2026 | fastMRI Challenge | 팀장 / VarNet, HDF5, SSIM, VESSL 기반 학습/평가 |
-| 현재 | [지하철 게임](https://github.com/Team-DreamState/SubwayGuessr) | 메인 개발자 / 5개국 데이터, 3개 언어, Realtime 대전/랭킹 / 현재 107만 회 조회 |
-| 2026.05 | Jane Street ETC Trading Bot | Market making, ADR pair trading, ETF basket arbitrage와 주문/포지션 처리 / Winner |
-| 2026.07–현재 | [ContestEarnings](https://github.com/caffeine-fighter/ContestEarnings) | 대회 상금과 공식 출처를 연결하는 데이터 서비스 단독 개발 |
-| 2026.06 | FOMO Break | 팀장/Full-Stack/PM / 공개 시세와 과거 유사 구간을 이용한 매수 전 판단 보조 MVP |
-| 2025.08 | K-HTML 해커톤 | AI 모델과 웹 구현/통합 / 대상 / 기업 MOU 후속 협업 |
-| 2025.08 | 두근두근 애니뮤 | Unity 서브 개발 / 메인 사운드 디렉터 |
-| 2023.01–2024.10 | Dan:Celestial | 문서 번역, 디자인, 웹 개발 |
-| 2022 | 아이리스 Discord Bot | Python/Discord API/Web scraping으로 급식, 시간표와 음악 기능 개발 |
-
-## Awards
-
-- **2026.05** Jane Street ETC @ Seoul Winner
-- **2026.02** Blaybus MVP 개발 해커톤 우수상
-- **2025.08** K-HTML 해커톤 대상
-- **2026** SNU AI Challenge 본선 / 팀장
-- **2026** CODEGATE 해커톤 본선
-- **2026.07** 양자정보경진대회 본선 / 팀장
-- **2026.06** SKYSH MVP 개발 해커톤 본선 / 팀장
-- **2026.02** 첨단융합학부 비교과 활동우수상
-- **2023.07** 수학사고력챌린지 금상 / 전 문항 최고점 1위
-- **2023.11** The Primes 교내 더 지니어스 서바이벌 프로그램 우승
-- **2021–2023** 정보올림피아드, CTF, 수학탐구토론, 과학 글쓰기와 인문예술 연구 수상
-
-## Teaching
-
-- **2026-1** 프로그래밍 개발 방법론, 기초물리학 1, 컴퓨팅 기초 튜터
-- **2025-1 / 2025-2** 컴퓨팅 핵심 튜터
-- **2025** LnL 멘토
-- 개인 과외: PS/CP, 영재학교 대비 수/과학, 영재학교 내신 수/과학, 일반고 내신 수/과학, IB/SAT 수/과학, 수리논술/구술면접, 기하학, 조합론, 이산수학.
-
-## Leadership
-
-- SNU AI Challenge, fastMRI Challenge, SKYSH MVP, 양자정보경진대회, AGENT:24에서 팀장을 맡았다.
-- 11개교 대학생이 참여한 초정밀모델학회에서 2대 부회장과 3대 회장을 맡았다.
-- SCSC 임원과 PIG 소모임장으로 프로젝트/음악 제작 소모임을 운영했다.
-- 학생회와 동아리에서 운영 전반, 기획, 회계, 홍보와 커뮤니티 관리를 맡았다.
-- 3개 팀 연합 공연을 직접 주최해 모든 과정을 총괄하고 서울대학교 락 페스티벌의 일정, 행정과 현장을 운영했다.
-
-## Music
-
-- **soundream.zip**(2025.08): 동아리 앨범 기획/제작/발매
-- 홍백(2026.03): 동아리 앨범 기획/제작/발매
-- AfterImage(2026.02): 11인 멀티장르 콜라보레이션 참가
-- **두근두근 애니뮤**(2025.08): 게임 전체 사운드 디렉션
-- **3개 팀 연합 공연**(2025.08): 기획/행정/현장 운영 총괄, 밴드 공연
-- **음주가무**(2025.09–2026.02): 7인 오리지널 밴드 창설/리더, 기타, 작곡, 믹싱/마스터링
-
----
-
-개인 활동과 전체 연표는 [Profile](/profile/)에 따로 정리했다.
+Seoul, South Korea<br>
+[lumina@snu.ac.kr](mailto:lumina@snu.ac.kr) / [GitHub](https://github.com/caffeine-fighter)

@@ -1,0 +1,27 @@
+{{ define "body-class" }}article-page portfolio-template{{ end }}
+
+{{ define "main" }}
+    <article class="portfolio-shell">
+        <header class="portfolio-hero">
+            {{ with .Params.eyebrow }}<p class="portfolio-eyebrow">{{ . }}</p>{{ end }}
+            <h1>{{ .Title }}</h1>
+            {{ with .Params.lead }}<p class="portfolio-lead">{{ . | markdownify }}</p>{{ end }}
+
+            {{ with .Params.actions }}
+                <nav class="portfolio-actions" aria-label="관련 링크">
+                    {{ range . }}
+                        <a href="{{ .url }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>
+                            {{ .label }} <span aria-hidden="true">↗</span>
+                        </a>
+                    {{ end }}
+                </nav>
+            {{ end }}
+        </header>
+
+        <div class="portfolio-content article-content">
+            {{ .Content }}
+        </div>
+    </article>
+
+    {{ partialCached "footer/footer" . }}
+{{ end }}
