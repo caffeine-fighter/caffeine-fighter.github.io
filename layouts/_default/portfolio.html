@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light">
-    <meta name="theme-color" content="#f3f3f0">
-    <title>{{ .Title }} | Caffeine Fighter</title>
+    <meta name="theme-color" content="#ffffff">
+    <title>{{ .Title }} | caffeine-fighter</title>
     <meta name="description" content="{{ .Description }}">
     <link rel="canonical" href="{{ .Permalink }}">
     <link rel="icon" href="{{ "/favicon.ico" | relURL }}">
@@ -21,40 +21,55 @@
     {{- $style := resources.Get "scss/recruiting.scss" | toCSS $options | minify | fingerprint -}}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous">
 </head>
-<body class="portfolio-template recruiting-standalone">
-    <a class="recruiting-skip" href="#recruiting-content">본문으로 이동</a>
+<body>
+    <a class="skip-link" href="#main">본문으로 이동</a>
 
-    <header class="recruiting-topbar">
-        <a class="recruiting-brand" href="{{ "/portfolio/" | relURL }}">CAFFEINE FIGHTER</a>
-        {{ with .Params.actions }}
-            <nav class="recruiting-nav" aria-label="채용 자료">
-                {{ range . }}
-                    {{- $external := hasPrefix .url "http" -}}
-                    {{- $direct := or $external (hasPrefix .url "mailto:") -}}
-                    <a href="{{ if $direct }}{{ .url }}{{ else }}{{ .url | relURL }}{{ end }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>
-                        {{ .label }}{{ if $external }} <span aria-hidden="true">↗</span>{{ end }}
-                    </a>
-                {{ end }}
-            </nav>
-        {{ end }}
+    <header class="masthead">
+        <nav class="site-nav" aria-label="주요 페이지">
+            <a class="site-title" href="{{ "/portfolio/" | relURL }}">caffeine-fighter</a>
+            <div class="site-links">
+                <a href="{{ "/resume/" | relURL }}"{{ if eq .RelPermalink "/resume/" }} aria-current="page"{{ end }}>Resume</a>
+                <a href="{{ "/portfolio/" | relURL }}"{{ if eq .RelPermalink "/portfolio/" }} aria-current="page"{{ end }}>Portfolio</a>
+                <a href="https://github.com/caffeine-fighter" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </nav>
     </header>
 
-    <main id="recruiting-content" class="recruiting-main">
-        <article class="portfolio-shell">
-            <header class="portfolio-hero">
-                {{ with .Params.eyebrow }}<p class="portfolio-eyebrow">{{ . }}</p>{{ end }}
+    <main id="main" class="page-layout">
+        <aside class="author">
+            <h2 class="author-name">카페인파이터</h2>
+            <p class="author-intro">서울대학교 첨단융합학부 24학번. C++과 Python을 주로 쓰고, 웹 서비스와 ML 실험을 함께 해 왔다.</p>
+
+            <ul class="author-links" aria-label="연락처와 개발 프로필">
+                <li>Seoul, South Korea</li>
+                <li><a href="mailto:lumina@snu.ac.kr">Email</a></li>
+                <li><a href="https://github.com/caffeine-fighter" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="https://codeforces.com/profile/PastelRain" target="_blank" rel="noopener noreferrer">Codeforces</a></li>
+                <li><a href="https://www.acmicpc.net/user/pleiades1" target="_blank" rel="noopener noreferrer">Baekjoon</a></li>
+            </ul>
+
+            <ul class="author-facts">
+                <li>전체 GPA 3.86 / 4.30</li>
+                <li>전공 GPA 4.18 / 4.30</li>
+                <li>주전공 1 / 복수전공 4</li>
+                <li>Codeforces CM / BOJ Diamond III</li>
+            </ul>
+        </aside>
+
+        <article class="document">
+            <header class="document-header">
                 <h1>{{ .Title }}</h1>
-                {{ with .Params.lead }}<p class="portfolio-lead">{{ . | markdownify }}</p>{{ end }}
+                {{ with .Params.intro }}<p>{{ . }}</p>{{ end }}
             </header>
 
-            <div class="portfolio-content">
+            <div class="document-content">
                 {{ .Content }}
             </div>
         </article>
     </main>
 
-    <footer class="recruiting-footer">
-        <span>Seoul, South Korea</span>
+    <footer class="site-footer">
+        <span>© 2026 caffeine-fighter</span>
         <a href="mailto:lumina@snu.ac.kr">lumina@snu.ac.kr</a>
     </footer>
 </body>
