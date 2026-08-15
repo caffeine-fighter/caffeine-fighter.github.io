@@ -116,6 +116,17 @@ intro: "수업, 연구와 대회에서 만든 것 가운데 지금도 설명할 
     <li><time>2025.08</time><span>K-HTML 해커톤 대상</span></li>
   </ul>
   <div class="entry">
-    <p>SNU AI Challenge, fastMRI Challenge, AGENT:24, SKYSH MVP와 양자정보경진대회에서 팀장을 맡았다. 대학에서는 총 8개 동아리의 임원으로 활동했고, 초정밀모델학회 2대 부회장과 3대 회장을 지냈다.</p>
+    <p>SNU AI Challenge, fastMRI Challenge, AGENT:24, SKYSH MVP와 양자정보경진대회에서 팀장을 맡았다. 대학에서는 성격이 다른 8개 동아리의 임원으로 일했다. 공연팀, 학술 동아리와 취미 동아리에서 사람을 모으고 일정과 예산을 맞추는 일을 계속 맡아 왔다.</p>
+    <ul class="compact-list">
+      <li><strong>피치</strong> — 초대 부회장으로 초기 운영 체계와 역할 분담을 잡았다.</li>
+      <li><strong>TIMEOUT</strong> — 문화부장으로 장소 선정, 예약, 정산과 행사 운영을 맡았다.</li>
+      <li><strong>상하이앨리스관악단</strong> — 홍보부장으로 공식 메일과 대외 연락, 행사 부스 운영을 맡고 있다.</li>
+      <li><strong>Comicoto</strong> — 회계로 합주실, 공연곡, 회원 등급과 행정 서류를 관리했고 지금은 자문위원으로 참여한다.</li>
+      <li><strong>설다연</strong> — 회계로 운영비의 흐름과 정산을 관리했다.</li>
+      <li><strong>SCSC</strong> — 임원과 소모임 관리자를 맡았고, 음악 제작 프로젝트 PIG를 이끌었다.</li>
+      <li><strong>사운드림</strong> — 미화부장과 소모임장으로 행사 기획, 설비, 예약과 행정 실무를 맡았다.</li>
+      <li><strong>휴림</strong> — 운영진으로 활동하고 있다.</li>
+    </ul>
+    <p>초정밀모델학회에서는 2대 부회장과 3대 회장을 지냈다. 개발 대회에서는 제출 가능한 결과물을 끝까지 맞췄고, 동아리에서는 다음 사람이 이어서 운영할 수 있도록 규칙과 기록을 남겼다.</p>
   </div>
 </section>
