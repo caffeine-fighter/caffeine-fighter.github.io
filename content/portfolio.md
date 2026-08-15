@@ -86,7 +86,7 @@ intro: "웹 서비스, ML 대회와 개인 연구에서 맡았던 일을 정리�
   <ul class="compact-list">
     <li><strong>Jane Street ETC Trading Bot</strong> (2026.05) — market making, ADR pair trading, ETF basket arbitrage 전략과 주문/포지션 처리를 구현했다. ETC @ Seoul Winner.</li>
     <li><strong>Dan:Celestial</strong> (2023.01 - 2024.10) — 문서 번역, 현지화, 디자인과 웹 개발에 참여했다.</li>
-    <li><strong><a href="https://github.com/caffeine-fighter/ContestEarnings" target="_blank" rel="noopener noreferrer">ContestEarnings</a></strong> (2026.07 - 현재) — 대회 상금과 공식 출처를 연결하는 데이터 서비스를 단독 개발했다.</li>
+    <li><strong>ContestEarnings</strong> (2026.07 - 현재) — 대회 상금과 공식 출처를 연결하는 데이터 서비스를 단독 개발했다.</li>
     <li><strong>FOMO Break</strong> (2026.06) — 공개 시세와 과거 유사 구간을 보여 주는 MVP에서 팀장, 기획과 풀스택 개발을 맡았다.</li>
     <li><strong>K-HTML 해커톤</strong> (2025.08) — AI 모델과 웹 통합을 맡아 대상을 받았다.</li>
     <li><strong>두근두근 애니뮤</strong> (2025.08) — Unity 서브 개발과 전체 사운드 디렉션을 맡았다.</li>
