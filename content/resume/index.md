@@ -2,14 +2,14 @@
 title: "Resume"
 description: "서울대학교에서 융합데이터과학을 공부하며 소프트웨어와 ML 시스템을 다룬 이력"
 date: 2026-07-16T00:00:00+09:00
-lastmod: 2026-08-15T00:00:00+09:00
+lastmod: 2026-08-31T00:00:00+09:00
 slug: "resume"
 url: "/resume/"
 layout: "portfolio"
 comments: false
 toc: false
 draft: false
-intro: "서울대학교 첨단융합학부에서 융합데이터과학을 공부하고 있다. C++과 Python을 가장 많이 쓰며, 웹 서비스 개발과 ML 실험을 모두 해 왔다."
+intro: "서울대학교 첨단융합학부에서 융합데이터과학을 공부하고 있다. C++과 Python으로 웹 서비스와 ML 시스템을 만들며, Jane Street ETC @ Seoul에서 거래 전략을 구현해 우승했다."
 ---
 
 <section class="document-section" id="education">
@@ -61,6 +61,11 @@ intro: "서울대학교 첨단융합학부에서 융합데이터과학을 공부
 <section class="document-section" id="development">
   <h2>개발</h2>
   <div class="entry">
+    <div class="entry-heading"><h3>Jane Street ETC @ Seoul — Winner</h3><time>2026.05</time></div>
+    <p>처음 접한 TCP/JSON 거래 API로 주문·취소·포지션과 메시지 제한을 처리했다. Market making, ADR pair trading과 ETF basket arbitrage를 결합해 대회에서 우승했다.</p>
+    <p class="entry-meta">Event-driven Trading / TCP/JSON API / Logging / Backtesting</p>
+  </div>
+  <div class="entry">
     <div class="entry-heading"><h3>TTUNS</h3><time>2025.10 - 현재</time></div>
     <p>서울대학교 시간표 서비스. React/Next.js 화면, REST API, PostgreSQL 스키마와 외부 강의 데이터 정규화를 맡았다. 배포 뒤 들어온 검색과 시간표 제보도 직접 재현해 고쳤다.</p>
     <p class="entry-meta">TypeScript / React / Next.js / Node.js / PostgreSQL</p>
@@ -69,11 +74,6 @@ intro: "서울대학교 첨단융합학부에서 융합데이터과학을 공부
     <div class="entry-heading"><h3>SNU AI Challenge</h3><time>2026.08</time></div>
     <p>팀장을 맡아 Qwen3.6-27B의 4-bit QLoRA 학습과 네 개 view의 투표 추론을 구현했다. 24GB GPU 한 장에서 실행되도록 맞췄고 공개 점수는 0.93193에서 0.93542로 올랐다. 본선에 진출했다.</p>
     <p class="entry-meta">Python / PyTorch / Transformers / PEFT / NF4 / BF16</p>
-  </div>
-  <div class="entry">
-    <div class="entry-heading"><h3>fastMRI Challenge</h3><time>2026</time></div>
-    <p>팀장으로 HDF5 데이터 로더, 가속도별 VarNet 학습과 추론, SSIM 평가 코드를 관리했다. VESSL에 checkpoint와 실행 설정을 남기고 제출 파일을 만들었다.</p>
-    <p class="entry-meta">Python / PyTorch / VarNet / HDF5 / SSIM / VESSL</p>
   </div>
   <div class="entry">
     <div class="entry-heading"><h3><a href="https://github.com/Bus-tayo/SnuStudy" target="_blank" rel="noopener noreferrer">설스터디 (SnuStudy)</a></h3><time>2026.02</time></div>
@@ -86,6 +86,11 @@ intro: "서울대학교 첨단융합학부에서 융합데이터과학을 공부
     <p class="entry-meta">TypeScript / Next.js / Supabase Realtime / PostgreSQL</p>
   </div>
   <div class="entry">
+    <div class="entry-heading"><h3>fastMRI Challenge</h3><time>2026</time></div>
+    <p>팀장으로 HDF5 데이터 로더, 가속도별 VarNet 학습과 추론, SSIM 평가 코드를 관리했다. VESSL에 checkpoint와 실행 설정을 남기고 제출 파일을 만들었다.</p>
+    <p class="entry-meta">Python / PyTorch / VarNet / HDF5 / SSIM / VESSL</p>
+  </div>
+  <div class="entry">
     <div class="entry-heading"><h3><a href="https://github.com/chaejinlim235/QuantumCylinder" target="_blank" rel="noopener noreferrer">QuantumCylinder / QDiffRecover</a></h3><time>2026.06 - 현재</time></div>
     <p>양자상태 ensemble 복원 실험을 설계하고 반복 실행 코드를 만들었다. 양자정보경진대회 본선 이후에는 QDiffRecover라는 개인 연구로 계속 진행하고 있다.</p>
     <p class="entry-meta">Python / NumPy / PyTorch / experiment automation</p>
@@ -95,10 +100,10 @@ intro: "서울대학교 첨단융합학부에서 융합데이터과학을 공부
 <section class="document-section" id="awards">
   <h2>수상</h2>
   <ul class="achievement-list">
+    <li><time>2026.05</time><span>Jane Street ETC @ Seoul Winner</span></li>
     <li><time>2026.08</time><span>SNU AI Challenge 본선 / 팀장</span></li>
     <li><time>2026.07</time><span>CODEGATE 해커톤 본선</span></li>
     <li><time>2026.07</time><span>양자정보경진대회 본선 / 팀장</span></li>
-    <li><time>2026.05</time><span>Jane Street ETC @ Seoul Winner</span></li>
     <li><time>2026.02</time><span>Blaybus MVP 개발 해커톤 우수상</span></li>
     <li><time>2025.08</time><span>K-HTML 해커톤 대상</span></li>
     <li><time>2023.07</time><span>수학사고력챌린지 금상 / 전 문항 최고점 1위</span></li>
