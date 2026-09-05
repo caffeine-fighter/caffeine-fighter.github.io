@@ -53,6 +53,9 @@
             {{ with $banner.description }}
                 <p class="aether-hero__description">{{ . }}</p>
             {{ end }}
+            {{ with $banner.activities }}
+                <p class="aether-hero__description">{{ . }} <a href="{{ "/portfolio/#performance-operations" | relURL }}">공연 기획·운영 이력 보기</a></p>
+            {{ end }}
 
             <div class="aether-hero__actions" aria-label="주요 페이지">
                 <a class="aether-button aether-button--primary" href="{{ "/portfolio/" | relURL }}">

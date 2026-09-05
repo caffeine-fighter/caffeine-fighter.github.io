@@ -95,6 +95,18 @@ intro: "수업, 연구와 대회에서 만든 것 가운데 지금도 설명할 
 </section>
 
 <section class="document-section" id="skills">
+  <h2 id="performance-operations">공연 기획과 운영</h2>
+  <div class="entry">
+    <div class="entry-heading"><h3>서울대학교 락 페스티벌 관악 앰프 업</h3><time>2024.10 - 2025.04</time></div>
+    <p>락 페스티벌의 초기 기획부터 참여해 운영 구조를 함께 구상하고, 공동 기획·운영을 맡았다.</p>
+  </div>
+  <div class="entry">
+    <div class="entry-heading"><h3>문화자치위원회 PILOT 공연장 조성·공연 사업</h3><time>2025.06 - 2025.10</time></div>
+    <p>서울대학교 문화자치위원회의 풍산마당 공연장 조성과 공연 사업을 공동 기획·운영했다. 공연 공간 확보와 참여 팀 조율, 공연이 열릴 수 있는 환경과 운영 원칙을 만드는 일에 참여했다.</p>
+  </div>
+</section>
+
+<section class="document-section" id="technical-skills">
   <h2>자주 쓰는 기술</h2>
   <ul class="skill-list">
     <li><strong>언어</strong><span>C++ / Python / TypeScript / JavaScript / SQL</span></li>

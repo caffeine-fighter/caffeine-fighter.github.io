@@ -50,6 +50,7 @@ SortBy              = "default"
         ]
 
 [home.banner]
+    activities = "서울대학교 락 페스티벌 관악 앰프 업과 문화자치위원회 PILOT 공연장 조성·공연 사업을 공동 기획·운영했습니다."
     kicker     = "CAFFEINE FIGHTER / LOGBOOK / 2026"
     title      = "재밌어 보이기만 한다면"
     accent     = "무엇이든 다 합니다."
