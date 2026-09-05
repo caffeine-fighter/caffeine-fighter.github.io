@@ -130,9 +130,9 @@ intro: "수업, 연구와 대회에서 만든 것 가운데 지금도 설명할 
   <div class="entry">
     <p>SNU AI Challenge, fastMRI Challenge, AGENT:24, SKYSH MVP와 양자정보경진대회에서 팀장을 맡았다. 대학에서는 성격이 다른 8개 동아리의 임원으로 일했다. 공연팀, 학술 동아리와 취미 동아리에서 사람을 모으고 일정과 예산을 맞추는 일을 계속 맡아 왔다.</p>
     <ul class="compact-list">
-      <li><strong>피치</strong> — 초대 부회장으로 초기 운영 체계와 역할 분담을 잡았다.</li>
+      <li><strong>피치</strong> — 창설에 참여한 초대 부회장으로 초기 운영 체계와 역할 분담을 마련해 동아리의 운영 기반을 세웠다.</li>
       <li><strong>TIMEOUT</strong> — 문화부장으로 장소 선정, 예약, 정산과 행사 운영을 맡았다.</li>
-      <li><strong>상하이앨리스관악단</strong> — 홍보부장으로 공식 메일과 대외 연락, 행사 부스 운영을 맡고 있다.</li>
+      <li><strong>상하이앨리스관악단</strong> — 창설에 참여했으며 초대 홍보부장으로 공식 메일·SNS와 대외 연락, 행사 부스 운영을 맡았다.</li>
       <li><strong>Comicoto</strong> — 회계로 합주실, 공연곡, 회원 등급과 행정 서류를 관리했고 지금은 자문위원으로 참여한다.</li>
       <li><strong>설다연</strong> — 회계로 운영비의 흐름과 정산을 관리했다.</li>
       <li><strong>SCSC</strong> — 임원과 소모임 관리자를 맡았고, 음악 제작 프로젝트 PIG를 이끌었다.</li>
