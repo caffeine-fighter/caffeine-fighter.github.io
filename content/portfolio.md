@@ -94,8 +94,8 @@ intro: "수업, 연구와 대회에서 만든 것 가운데 지금도 설명할 
   </ul>
 </section>
 
-<section class="document-section" id="skills">
-  <h2 id="performance-operations">공연 기획과 운영</h2>
+<section class="document-section" id="performance-operations">
+  <h2>공연 기획과 운영</h2>
   <div class="entry">
     <div class="entry-heading"><h3>서울대학교 락 페스티벌 관악 앰프 업</h3><time>2024.10 - 2025.04</time></div>
     <p>락 페스티벌의 초기 기획부터 참여해 운영 구조를 함께 구상하고, 공동 기획·운영을 맡았다.</p>
@@ -106,7 +106,7 @@ intro: "수업, 연구와 대회에서 만든 것 가운데 지금도 설명할 
   </div>
 </section>
 
-<section class="document-section" id="technical-skills">
+<section class="document-section" id="skills">
   <h2>자주 쓰는 기술</h2>
   <ul class="skill-list">
     <li><strong>언어</strong><span>C++ / Python / TypeScript / JavaScript / SQL</span></li>
