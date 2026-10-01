@@ -1,6 +1,6 @@
-import { createBoss } from "./core.mjs?v=6";
-import { createPreview, exportIntro } from "./preview.mjs?v=6";
-import { analyzeSketch, sampleSketch, MAX_POINTS } from "./sketch.mjs?v=6";
+import { createBoss } from "./core.mjs?v=7";
+import { createPreview, exportIntro } from "./preview.mjs?v=7";
+import { analyzeSketch, sampleSketch, MAX_POINTS } from "./sketch.mjs?v=7";
 const $ = (id) => document.getElementById(id);
 const copy = (s) => s.map((line) => line.map((p) => [...p]));
 function simplify(points) {

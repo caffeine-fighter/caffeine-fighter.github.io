@@ -1,5 +1,5 @@
-import { decodeBuild } from "./core.mjs?v=6";
-import { portrait } from "./art.mjs?v=6";
+import { decodeBuild } from "./core.mjs?v=7";
+import { portrait } from "./art.mjs?v=7";
 export function initFriendChallenge({ getBoss, params, duel, prepare }) {
   if (!params.has("rival")) return;
   const panel = document.getElementById("friend-challenge"),

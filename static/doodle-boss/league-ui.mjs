@@ -1,4 +1,4 @@
-import { sampleSketch } from "./sketch.mjs?v=6";
+import { sampleSketch } from "./sketch.mjs?v=7";
 import {
   createBoss,
   PATTERNS,
@@ -12,9 +12,9 @@ import {
   W,
   H,
   VERSION,
-} from "./core.mjs?v=6";
-import { Duel, STEP, schedule, runLeague } from "./league.mjs?v=6";
-import { portrait, background, fitText } from "./art.mjs?v=6";
+} from "./core.mjs?v=7";
+import { Duel, STEP, schedule, runLeague } from "./league.mjs?v=7";
+import { portrait, background, fitText } from "./art.mjs?v=7";
 const $ = (id) => document.getElementById(id);
 const element = (tag, text, className) => {
   const e = document.createElement(tag);
@@ -332,7 +332,7 @@ export function initLeagueUI({ getBoss, selectBoss, onMode, initialParams }) {
       $("league-progress").textContent = message;
     }
     try {
-      worker = new Worker(new URL("./league-worker.mjs?v=6", import.meta.url), {
+      worker = new Worker(new URL("./league-worker.mjs?v=7", import.meta.url), {
         type: "module",
       });
       worker.onmessage = ({ data }) => {

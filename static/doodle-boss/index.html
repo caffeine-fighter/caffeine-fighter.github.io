@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="icon.svg" type="image/svg+xml" />
     <title>내 낙서가 보스. — 그려서 살려내는 보스전</title>
-    <link rel="stylesheet" href="style.css?v=6" />
+    <link rel="stylesheet" href="style.css?v=7" />
   </head>
   <body>
     <main>
@@ -85,7 +85,23 @@
             <h2>이 낙서, 살려볼까?</h2>
             <p>손가락이나 마우스로 그려봐. 못 그릴수록 재밌어.</p>
           </div>
-          <span class="sketch-badge">그림 실력 필요 없음</span>
+          <form id="summon">
+            <label for="name"><span>01</span> 낙서의 이름은?</label>
+            <div class="input-wrap">
+              <input
+                id="name"
+                maxlength="32"
+                placeholder="예: 삐뚤빼뚤 마왕"
+                autocomplete="off"
+                enterkeyhint="go"
+                required
+                aria-describedby="name-help"
+              /><button aria-label="이름으로 보스 소환" type="submit">
+                ↗
+              </button>
+            </div>
+            <p id="name-help">이름은 16글자까지 · 공격은 그림 모양으로 결정</p>
+          </form>
         </div>
         <div class="sketch-grid">
           <div>
@@ -140,23 +156,6 @@
       </nav>
       <div class="layout">
         <aside class="control-panel">
-          <form id="summon">
-            <label for="name"><span>01</span> 낙서의 이름은?</label>
-            <div class="input-wrap">
-              <input
-                id="name"
-                maxlength="32"
-                placeholder="예: 삐뚤빼뚤 마왕"
-                autocomplete="off"
-                enterkeyhint="go"
-                required
-                aria-describedby="name-help"
-              /><button aria-label="이름으로 보스 소환" type="submit">
-                ↗
-              </button>
-            </div>
-            <p id="name-help">이름은 16글자까지 · 공격은 그림 모양으로 결정</p>
-          </form>
           <section class="workshop" aria-label="낙서 모양으로 결정된 능력">
             <div class="workshop-heading">
               <span class="eyebrow">YOUR DRAWING. YOUR BOSS.</span
@@ -430,6 +429,6 @@
       </dialog>
     </main>
     <noscript>이 게임을 플레이하려면 JavaScript를 켜주세요.</noscript>
-    <script type="module" src="game.js?v=6"></script>
+    <script type="module" src="game.js?v=7"></script>
   </body>
 </html>

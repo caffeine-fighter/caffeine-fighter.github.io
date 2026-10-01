@@ -1613,3 +1613,36 @@ body.playing .sketch-lab {
     margin-top: 22px;
   }
 }
+
+.sketch-heading #summon {
+  width: 300px;
+  flex-shrink: 0;
+}
+.sketch-heading #summon label {
+  font-size: 12px;
+}
+.sketch-heading #summon input {
+  font-size: 18px;
+  padding: 12px;
+}
+.sketch-heading #name-help {
+  font-size: 10px;
+}
+@media (max-width: 760px) {
+  .sketch-heading {
+    display: block;
+  }
+  .sketch-heading #summon {
+    width: 100%;
+    margin-top: 12px;
+  }
+  .sketch-heading #summon label {
+    display: none;
+  }
+  .sketch-heading #summon #name-help {
+    margin-bottom: 0;
+  }
+  #sketch-pad {
+    max-width: 260px;
+  }
+}

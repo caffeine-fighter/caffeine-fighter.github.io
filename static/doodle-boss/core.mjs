@@ -4,8 +4,8 @@ import {
   analyzeSketch,
   sampleSketch,
   positionSketchShots,
-} from "./sketch.mjs?v=6";
-import { volley, moveProjectile, PATTERN_NAMES } from "./patterns.mjs?v=6";
+} from "./sketch.mjs?v=7";
+import { volley, moveProjectile, PATTERN_NAMES } from "./patterns.mjs?v=7";
 export const VERSION = "5";
 export const W = 600,
   H = 700;

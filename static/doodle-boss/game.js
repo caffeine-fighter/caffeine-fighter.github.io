@@ -1,5 +1,5 @@
-import { initFriendChallenge } from "./friend.mjs?v=6";
-import { initSketchUI } from "./sketch-ui.mjs?v=6";
+import { initFriendChallenge } from "./friend.mjs?v=7";
+import { initSketchUI } from "./sketch-ui.mjs?v=7";
 import {
   Battle,
   createBoss,
@@ -12,9 +12,9 @@ import {
   STYLES,
   encodeBuild,
   decodeBuild,
-} from "./core.mjs?v=6";
-import { portrait, background, fitText, drawCard } from "./art.mjs?v=6";
-import { initLeagueUI } from "./league-ui.mjs?v=6";
+} from "./core.mjs?v=7";
+import { portrait, background, fitText, drawCard } from "./art.mjs?v=7";
+import { initLeagueUI } from "./league-ui.mjs?v=7";
 const $ = (id) => document.getElementById(id),
   canvas = $("game"),
   ctx = canvas.getContext("2d");
@@ -483,7 +483,8 @@ function frame(now) {
 }
 $("summon").onsubmit = (e) => {
   e.preventDefault();
-  summon($("name").value, false, boss);
+  if (sketchEditor) sketchEditor.commit();
+  else summon($("name").value, false, boss);
   $("name").blur();
 };
 document
