@@ -574,6 +574,22 @@ async function share() {
 }
 $("share").onclick = share;
 $("result-share").onclick = share;
+$("copy").onclick = async () => {
+  const url = shareUrl();
+  try {
+    await navigator.clipboard.writeText(url);
+    $("notice").textContent =
+      "도전장 링크를 복사했어요! 친구에게 붙여넣어 보세요.";
+  } catch {
+    $("notice").replaceChildren(
+      document.createTextNode("이 링크를 길게 눌러 복사하세요: "),
+    );
+    const link = document.createElement("a");
+    link.href = url;
+    link.textContent = url;
+    $("notice").append(link);
+  }
+};
 $("card").onclick = async () => {
   try {
     await document.fonts.ready;

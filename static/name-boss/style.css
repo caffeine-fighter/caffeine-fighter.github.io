@@ -787,3 +787,28 @@ h1 {
     max-width: 100%;
   }
 }
+#copy {
+  order: 2;
+  padding: 9px;
+}
+#card {
+  order: 3;
+  padding: 9px;
+}
+@media (max-width: 380px) {
+  .intro-stamp {
+    display: none;
+  }
+  .overlay h2 {
+    font-size: 23px;
+  }
+  .overlay {
+    padding-bottom: 14px;
+  }
+  .overlay .eyebrow {
+    margin: 3px;
+  }
+  .overlay .text-button {
+    padding: 7px;
+  }
+}
