@@ -12,7 +12,6 @@
     </button>
 
     <header>
-        <p class="site-kicker">CF / LOGBOOK</p>
 
         {{ with .Site.Params.sidebar.avatar }}
             {{- $avatar := partial "helper/image" (dict "Image" . "Resources" resources "Context" $) -}}
@@ -34,8 +33,8 @@
         {{ end }}
 
         <div class="site-meta">
-            <h1 class="site-name"><a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a></h1>
-            <h2 class="site-description">{{ .Site.Params.sidebar.subtitle }}</h2>
+            <p class="site-name"><a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a></p>
+            <p class="site-description">{{ .Site.Params.sidebar.subtitle }}</p>
         </div>
 
         {{- with .Site.Params.sidebar.status -}}
@@ -83,13 +82,13 @@
             <li {{ if $active }}class="current"{{ end }}>
                 <a
                     href="{{ $item.URL }}"
+                    {{ if $active }}aria-current="page"{{ end }}
                     {{ if $item.Params.newTab }}target="_blank" rel="noopener noreferrer"{{ end }}>
-                    <span class="menu-index" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
                     {{ with $item.Params.Icon }}
                         {{ partial "helper/icon" . }}
                     {{ end }}
-                    <span>{{- $item.Name -}}</span>
-                    <span class="menu-arrow" aria-hidden="true">↗</span>
+                    {{- $labels := dict "/" "처음" "/posts/" "전체 글" "/portfolio/" "만든 것들" "/resume/" "이력서" "/profile/" "소개" "/search/" "검색" "/categories/" "주제별 글" -}}
+                    <span>{{- index $labels $item.URL | default $item.Name -}}</span>
                 </a>
             </li>
         {{ end }}
