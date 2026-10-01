@@ -1,4 +1,4 @@
-import { sampleSketch } from "./sketch.mjs?v=5";
+import { sampleSketch } from "./sketch.mjs?v=6";
 import {
   createBoss,
   PATTERNS,
@@ -12,9 +12,9 @@ import {
   W,
   H,
   VERSION,
-} from "./core.mjs?v=5";
-import { Duel, STEP, schedule, runLeague } from "./league.mjs?v=5";
-import { portrait, background, fitText } from "./art.mjs?v=5";
+} from "./core.mjs?v=6";
+import { Duel, STEP, schedule, runLeague } from "./league.mjs?v=6";
+import { portrait, background, fitText } from "./art.mjs?v=6";
 const $ = (id) => document.getElementById(id);
 const element = (tag, text, className) => {
   const e = document.createElement(tag);
@@ -63,7 +63,7 @@ export function initLeagueUI({ getBoss, selectBoss, onMode, initialParams }) {
     $("build-secondary").textContent = PATTERNS[b.secondary];
     $("build-style").textContent = STYLES[b.style];
     $("build-info").textContent =
-      `${b.geometry.behavior} · 모서리 ${b.geometry.corners}개 / 닫힌 도형 ${b.geometry.closed}개 · 리그 체력 ${b.duelHp} / 이동 ${b.moveSpeed} / 공격 간격 ${b.reload.toFixed(2)}초`;
+      `${b.geometry.behavior} · 모서리 ${b.geometry.corners}개 / 닫힌 도형 ${b.geometry.closed}개. 선을 바꿔 다른 공격을 만들어봐.`;
     syncUrl();
   }
   document.addEventListener("nameboss:change", updateBuild);
@@ -166,7 +166,7 @@ export function initLeagueUI({ getBoss, selectBoss, onMode, initialParams }) {
       const item = element("div", undefined, "match-item");
       const label = (boss) =>
         roster.filter((other) => other.name === boss.name).length > 1
-          ? `${boss.name} (${PATTERNS[boss.pattern]}·${STYLES[boss.style]})`
+          ? `${boss.name} (${PATTERNS[boss.pattern]}·${STYLES[boss.style]} #${boss.code.slice(-4)})`
           : boss.name;
       item.append(
         element("span", `${label(a)}  ${wins[0]} : ${wins[1]}  ${label(b)}`),
@@ -274,6 +274,9 @@ export function initLeagueUI({ getBoss, selectBoss, onMode, initialParams }) {
     matches = data.matches;
     table();
     matchLog();
+    document.dispatchEvent(
+      new CustomEvent("doodle:league-complete", { detail: rows }),
+    );
     rosterView();
     $("ranking-status").textContent = "리그 완료";
     $("league-progress").textContent =
@@ -329,7 +332,7 @@ export function initLeagueUI({ getBoss, selectBoss, onMode, initialParams }) {
       $("league-progress").textContent = message;
     }
     try {
-      worker = new Worker(new URL("./league-worker.mjs?v=5", import.meta.url), {
+      worker = new Worker(new URL("./league-worker.mjs?v=6", import.meta.url), {
         type: "module",
       });
       worker.onmessage = ({ data }) => {
@@ -639,5 +642,20 @@ export function initLeagueUI({ getBoss, selectBoss, onMode, initialParams }) {
     switchMode("league");
   } else if (params.get("mode") === "league") switchMode("league");
   requestAnimationFrame(frame);
-  return { switchMode };
+  return {
+    switchMode,
+    fight: (fighters) => {
+      if (fighters.length !== 2 || fighters[0].id === fighters[1].id)
+        throw Error("서로 다른 낙서 두 개로 붙어주세요.");
+      invalidate();
+      roster = fighters;
+      switchMode("league");
+      persist();
+      startLeague();
+      $("league-panel").scrollIntoView({
+        block: "center",
+        behavior: reduced ? "instant" : "smooth",
+      });
+    },
+  };
 }

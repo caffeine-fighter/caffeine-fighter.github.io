@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="icon.svg" type="image/svg+xml" />
     <title>내 낙서가 보스. — 그려서 살려내는 보스전</title>
-    <link rel="stylesheet" href="style.css?v=5" />
+    <link rel="stylesheet" href="style.css?v=6" />
   </head>
   <body>
     <main>
@@ -58,6 +58,26 @@
           낙서 소생<br /><strong>주의</strong><span>PLAY AT YOUR OWN RISK</span>
         </div>
       </section>
+      <section
+        id="friend-challenge"
+        class="friend-challenge"
+        hidden
+        aria-label="친구의 도전장"
+      >
+        <div>
+          <p class="eyebrow">A DOODLE HAS CHALLENGED YOU</p>
+          <h2 id="friend-title"></h2>
+          <p>너도 그려봐. 네 낙서로 바로 붙을 수 있어.</p>
+        </div>
+        <canvas
+          id="friend-preview"
+          width="240"
+          height="180"
+          aria-label="친구가 보낸 낙서"
+        ></canvas
+        ><button id="friend-fight">내 낙서로 맞대결 ⚔</button>
+        <p id="friend-notice" role="status"></p>
+      </section>
       <section class="sketch-lab" aria-label="낙서 그리기">
         <div class="sketch-heading">
           <div>
@@ -83,7 +103,15 @@
           </div>
           <div class="sketch-actions">
             <p class="eyebrow">QUICK START</p>
-            <h3>친구한테 보스를<br />그려달라고 했다.</h3>
+            <div class="preview-label">
+              <span>LIVE / 살아난 모습</span><span id="preview-trait"></span>
+            </div>
+            <canvas
+              id="sketch-preview"
+              width="480"
+              height="300"
+              aria-label="그림 모양에 따른 보스와 탄막 미리보기"
+            ></canvas>
             <div class="sketch-samples">
               <button data-sketch="0">동그라미</button
               ><button data-sketch="1">가시 별</button
@@ -92,18 +120,22 @@
             </div>
             <p id="sketch-insight" aria-live="polite"></p>
             <button id="sketch-awaken">낙서 살려내기 ↗</button>
+            <div class="creator-actions">
+              <button id="sketch-video">8초 소개 영상 저장 ↓</button
+              ><button id="sketch-invite">친구에게 도전장 ↗</button>
+            </div>
             <p id="sketch-notice" role="status">
-              그림은 바로 아래 보스에 반영돼요.
+              선을 바꾸면 공격도 달라져요. 마음에 들면 살려내기.
             </p>
           </div>
         </div>
       </section>
       <nav class="mode-tabs" aria-label="게임 모드">
         <button id="mode-solo" aria-pressed="true">
-          직접 도전 <span>HARD</span>
+          직접 도전 <span>PLAY</span>
         </button>
         <button id="mode-league" aria-pressed="false">
-          보스 리그 <span>NEW</span>
+          낙서 대결 <span>VS</span>
         </button>
       </nav>
       <div class="layout">
@@ -141,7 +173,7 @@
               이 보스로 리그 참가 +
             </button>
           </section>
-          <section class="dossier">
+          <section class="dossier" hidden>
             <div class="dossier-top">
               <span class="eyebrow">WANTED</span><span id="boss-code"></span>
             </div>
@@ -174,7 +206,7 @@
           <div class="share-actions">
             <button id="copy" class="text-button">도전장 링크 복사 ⧉</button>
             <button id="share" class="secondary">
-              도전장 보내기 <span>↗</span></button
+              친구 낙서와 붙기 <span>↗</span></button
             ><button id="card" class="text-button">
               보스 카드 이미지 저장 ↓
             </button>
@@ -219,7 +251,7 @@
               <div id="result-stats" hidden></div>
               <button id="start" class="primary">도전하기 <span>→</span></button
               ><button id="result-share" class="text-button" hidden>
-                이 결과로 도전장 보내기 ↗</button
+                이 결과로 친구 낙서와 붙기 ↗</button
               ><button id="exit" class="text-button" hidden>
                 새 낙서 그리기
               </button>
@@ -379,8 +411,25 @@
           >MADE BY CAFFEINE FIGHTER ↗</a
         ><span>DOODLE BOSS / VOL. 01</span>
       </footer>
+      <dialog id="awakening" aria-label="낙서 보스 탄생">
+        <button id="reveal-close" aria-label="닫기">×</button>
+        <p class="eyebrow">IT'S ALIVE.</p>
+        <h2>네 낙서가 살아났다.</h2>
+        <canvas
+          id="reveal-canvas"
+          width="480"
+          height="330"
+          aria-label="살아난 낙서 보스"
+        ></canvas>
+        <p id="reveal-trait"></p>
+        <div class="reveal-actions">
+          <button id="reveal-play">내가 잡아볼게 →</button
+          ><button id="reveal-friend">친구 낙서와 붙이기 ↗</button>
+        </div>
+        <p class="reveal-note">그림을 바꾸면 다른 보스가 돼요.</p>
+      </dialog>
     </main>
     <noscript>이 게임을 플레이하려면 JavaScript를 켜주세요.</noscript>
-    <script type="module" src="game.js?v=5"></script>
+    <script type="module" src="game.js?v=6"></script>
   </body>
 </html>

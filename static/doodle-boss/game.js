@@ -1,4 +1,5 @@
-import { initSketchUI } from "./sketch-ui.mjs?v=5";
+import { initFriendChallenge } from "./friend.mjs?v=6";
+import { initSketchUI } from "./sketch-ui.mjs?v=6";
 import {
   Battle,
   createBoss,
@@ -11,9 +12,9 @@ import {
   STYLES,
   encodeBuild,
   decodeBuild,
-} from "./core.mjs?v=5";
-import { portrait, background, fitText, drawCard } from "./art.mjs?v=5";
-import { initLeagueUI } from "./league-ui.mjs?v=5";
+} from "./core.mjs?v=6";
+import { portrait, background, fitText, drawCard } from "./art.mjs?v=6";
+import { initLeagueUI } from "./league-ui.mjs?v=6";
 const $ = (id) => document.getElementById(id),
   canvas = $("game"),
   ctx = canvas.getContext("2d");
@@ -167,6 +168,7 @@ function summon(raw, initial = false, config = {}) {
   url.searchParams.set("name", boss.name);
   url.searchParams.set("v", VERSION);
   url.searchParams.set("boss", encodeBuild(boss));
+  if (params.has("rival")) url.searchParams.set("rival", params.get("rival"));
   if (challengeTime) url.searchParams.set("time", challengeTime.toFixed(2));
   history.replaceState(null, "", url);
   document.dispatchEvent(new CustomEvent("nameboss:change", { detail: boss }));
@@ -559,17 +561,15 @@ canvas.onlostpointercapture = release;
 function shareUrl() {
   const url = new URL(location.href);
   url.search = "";
-  url.searchParams.set("name", boss.name);
+  url.searchParams.set("rival", encodeBuild(boss));
   url.searchParams.set("v", VERSION);
-  url.searchParams.set("boss", encodeBuild(boss));
-  if (result?.won) url.searchParams.set("time", result.time.toFixed(2));
   return url.href;
 }
 async function share() {
   const url = shareUrl(),
     text = result?.won
-      ? `${boss.name} 보스 ${result.time.toFixed(2)}초 격파! 내 기록 깰 수 있어?`
-      : `${boss.title}, ${boss.name} 등장. 너는 이길 수 있어?`;
+      ? `내가 그린 ${boss.name} 보스 ${result.time.toFixed(2)}초 격파! 네 낙서와 붙여볼까?`
+      : `내가 그린 ${boss.name}. 네 낙서로 이길 수 있어?`;
   try {
     if (navigator.share) {
       await navigator.share({ title: "내 낙서가 보스.", text, url });
@@ -653,7 +653,20 @@ workshop = initLeagueUI({
 });
 requestAnimationFrame(frame);
 
-initSketchUI({
+let sketchEditor;
+initFriendChallenge({
+  getBoss: () => boss,
+  params,
+  duel: (fighters) => workshop.fight(fighters),
+  prepare: () => sketchEditor.commit(),
+});
+sketchEditor = initSketchUI({
   getBoss: () => boss,
   summon: (sketch) => summon($("name").value || "내 낙서", false, { sketch }),
+  play: () => {
+    workshop.switchMode("solo");
+    start();
+  },
+  invite: share,
+  initialParams: params,
 });

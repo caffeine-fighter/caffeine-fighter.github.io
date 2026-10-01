@@ -1382,3 +1382,234 @@ body.playing .sketch-lab {
     max-height: none;
   }
 }
+
+/* Draw and response stay together; the league is the second step. */
+.intro {
+  padding-top: 24px;
+  margin-bottom: 20px;
+}
+.sketch-lab {
+  margin-top: 16px;
+}
+.sketch-actions > .eyebrow {
+  display: none;
+}
+.sketch-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+}
+.preview-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 10px;
+  padding: 10px 0;
+}
+.preview-label span:first-child {
+  color: var(--acid);
+}
+#sketch-preview {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.6;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.sketch-samples {
+  margin-top: 16px;
+}
+.creator-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+.creator-actions button {
+  padding: 12px 7px;
+  background: #292932;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 11px;
+}
+.friend-challenge {
+  display: grid;
+  grid-template-columns: 1fr 160px;
+  gap: 12px;
+  padding: 22px;
+  border: 1px solid var(--pink);
+  background: #211920;
+  margin: 20px 0;
+  border-radius: 12px;
+}
+.friend-challenge[hidden] {
+  display: none;
+}
+.friend-challenge h2 {
+  font-size: 21px;
+}
+.friend-challenge p {
+  font-size: 12px;
+  color: var(--muted);
+}
+.friend-challenge canvas {
+  width: 160px;
+}
+.friend-challenge button {
+  background: var(--pink);
+  padding: 15px;
+  font-weight: 900;
+}
+.friend-challenge #friend-notice {
+  margin: 0;
+  grid-column: 1/-1;
+}
+#awakening {
+  width: min(540px, 92vw);
+  max-height: 92dvh;
+  overflow: auto;
+  background: #14141c;
+  color: var(--ink);
+  border: 1px solid var(--acid);
+  border-radius: 18px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 0 100px #d5ff601c;
+}
+#awakening::backdrop {
+  background: #07070cdd;
+  backdrop-filter: blur(8px);
+}
+#awakening h2 {
+  font-size: 27px;
+}
+#reveal-close {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 24px;
+  padding: 8px;
+}
+#reveal-canvas {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+}
+#reveal-trait {
+  color: var(--acid);
+  font-size: 13px;
+}
+.reveal-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.reveal-actions button {
+  background: var(--acid);
+  padding: 16px 10px;
+  font-weight: 900;
+  font-size: 13px;
+}
+.reveal-actions button:last-child {
+  background: #292932;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+.reveal-note {
+  font-size: 11px;
+  color: var(--muted);
+}
+[hidden] {
+  display: none !important;
+}
+@media (max-width: 760px) {
+  .intro {
+    padding-top: 15px;
+  }
+  .intro h1 {
+    font-size: 39px;
+  }
+  .intro-stamp {
+    display: none;
+  }
+  .sketch-heading {
+    margin-bottom: 14px;
+  }
+  .sketch-heading .eyebrow {
+    display: none;
+  }
+  .sketch-lab {
+    padding: 14px;
+  }
+  .sketch-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  #sketch-pad {
+    max-width: 300px;
+  }
+  .preview-label {
+    padding-top: 0;
+  }
+  #sketch-preview {
+    max-height: 210px;
+  }
+  .sketch-samples {
+    margin-top: 10px;
+  }
+  .friend-challenge {
+    grid-template-columns: 1fr 90px;
+    padding: 16px;
+  }
+  .friend-challenge canvas {
+    width: 90px;
+  }
+  .friend-challenge h2 {
+    font-size: 18px;
+  }
+  .friend-challenge button {
+    grid-column: 1/-1;
+  }
+  #awakening {
+    padding: 19px;
+  }
+  #awakening h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 760px) {
+  body.drawing-visible:not(.playing) #sketch-awaken {
+    position: fixed;
+    z-index: 15;
+    left: 18px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    width: calc(100% - 36px);
+    box-shadow: 0 -10px 35px #101014aa;
+    padding: 16px;
+  }
+  .sketch-actions {
+    padding-bottom: 50px;
+  }
+}
+
+#reveal-close {
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  line-height: 1;
+  font-size: 20px;
+  top: 8px;
+  right: 8px;
+}
+@media (max-width: 760px) {
+  #awakening h2 {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  #awakening > .eyebrow {
+    margin-top: 22px;
+  }
+}
