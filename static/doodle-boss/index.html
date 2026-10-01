@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#101014" />
+    <meta
+      name="description"
+      content="내가 그린 낙서가 살아 움직인다. 모양에 따라 공격하는 보스를 만들고, 직접 도전하거나 친구 낙서와 대결하세요."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="내 낙서가 보스. — 그려서 살려내는 보스전"
+    />
+    <meta
+      property="og:description"
+      content="친구가 그린 이 낙서를 최종 보스로 만들었다. 네 낙서는 얼마나 강할까?"
+    />
+    <meta
+      property="og:image"
+      content="https://caffeine-fighter.github.io/doodle-boss/og.png"
+    />
+    <meta
+      property="og:url"
+      content="https://caffeine-fighter.github.io/doodle-boss/"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <title>내 낙서가 보스. — 그려서 살려내는 보스전</title>
+    <link rel="stylesheet" href="style.css?v=5" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <a href="./" aria-label="낙서 보스 홈">DB<span>↗</span></a
+        ><span class="brand-sub">대충 그려도. 진짜 덤빈다.</span>
+        <div class="header-right">
+          <span>DRAW. WAKE. FIGHT.</span
+          ><button id="sound" class="icon-button" aria-pressed="false">
+            소리 OFF
+          </button>
+        </div>
+      </header>
+      <section class="intro">
+        <div>
+          <p class="eyebrow">YOUR WORST DRAWING. YOUR FINAL BOSS.</p>
+          <h1>내 낙서가 <em>보스.</em></h1>
+          <p class="lead">
+            낙서 한 장이 최종 보스가 된다.<br />가시를 그리면 탄막. 긴 선을
+            그리면 휘두르기.
+          </p>
+        </div>
+        <div class="intro-stamp" aria-hidden="true">
+          낙서 소생<br /><strong>주의</strong><span>PLAY AT YOUR OWN RISK</span>
+        </div>
+      </section>
+      <section class="sketch-lab" aria-label="낙서 그리기">
+        <div class="sketch-heading">
+          <div>
+            <p class="eyebrow">01 / DRAW YOUR MONSTER</p>
+            <h2>이 낙서, 살려볼까?</h2>
+            <p>손가락이나 마우스로 그려봐. 못 그릴수록 재밌어.</p>
+          </div>
+          <span class="sketch-badge">그림 실력 필요 없음</span>
+        </div>
+        <div class="sketch-grid">
+          <div>
+            <canvas
+              id="sketch-pad"
+              width="480"
+              height="480"
+              aria-label="마우스나 손가락으로 낙서를 그리는 캔버스"
+            ></canvas>
+            <div class="sketch-tools">
+              <button id="sketch-undo">한 선 지우기 ↶</button
+              ><button id="sketch-clear">새로 그리기</button
+              ><span id="sketch-count">0 / 12 선</span>
+            </div>
+          </div>
+          <div class="sketch-actions">
+            <p class="eyebrow">QUICK START</p>
+            <h3>친구한테 보스를<br />그려달라고 했다.</h3>
+            <div class="sketch-samples">
+              <button data-sketch="0">동그라미</button
+              ><button data-sketch="1">가시 별</button
+              ><button data-sketch="2">긴 지렁이</button
+              ><button data-sketch="3">집게 괴물</button>
+            </div>
+            <p id="sketch-insight" aria-live="polite"></p>
+            <button id="sketch-awaken">낙서 살려내기 ↗</button>
+            <p id="sketch-notice" role="status">
+              그림은 바로 아래 보스에 반영돼요.
+            </p>
+          </div>
+        </div>
+      </section>
+      <nav class="mode-tabs" aria-label="게임 모드">
+        <button id="mode-solo" aria-pressed="true">
+          직접 도전 <span>HARD</span>
+        </button>
+        <button id="mode-league" aria-pressed="false">
+          보스 리그 <span>NEW</span>
+        </button>
+      </nav>
+      <div class="layout">
+        <aside class="control-panel">
+          <form id="summon">
+            <label for="name"><span>01</span> 낙서의 이름은?</label>
+            <div class="input-wrap">
+              <input
+                id="name"
+                maxlength="32"
+                placeholder="예: 삐뚤빼뚤 마왕"
+                autocomplete="off"
+                enterkeyhint="go"
+                required
+                aria-describedby="name-help"
+              /><button aria-label="이름으로 보스 소환" type="submit">
+                ↗
+              </button>
+            </div>
+            <p id="name-help">이름은 16글자까지 · 공격은 그림 모양으로 결정</p>
+          </form>
+          <section class="workshop" aria-label="낙서 모양으로 결정된 능력">
+            <div class="workshop-heading">
+              <span class="eyebrow">YOUR DRAWING. YOUR BOSS.</span
+              ><span>그림에서 찾은 능력</span>
+            </div>
+            <span>주 패턴</span
+            ><strong class="drawn-ability" id="build-primary"></strong>
+            <span>보조 패턴</span
+            ><strong class="drawn-ability" id="build-secondary"></strong>
+            <span>전투 성향</span
+            ><strong class="drawn-ability" id="build-style"></strong>
+            <p id="build-info"></p>
+            <button id="roster-add" class="secondary">
+              이 보스로 리그 참가 +
+            </button>
+          </section>
+          <section class="dossier">
+            <div class="dossier-top">
+              <span class="eyebrow">WANTED</span><span id="boss-code"></span>
+            </div>
+            <p id="title" class="boss-title"></p>
+            <h2 id="boss-name"></h2>
+            <blockquote id="quote"></blockquote>
+            <div class="stat">
+              <span>자존심</span>
+              <div><i id="ego-bar"></i></div>
+              <b id="ego"></b>
+            </div>
+            <div class="stat">
+              <span>인내심</span>
+              <div><i id="patience-bar"></i></div>
+              <b id="patience"></b>
+            </div>
+            <dl>
+              <div>
+                <dt>종족</dt>
+                <dd id="species"></dd>
+              </div>
+              <div>
+                <dt>필살기</dt>
+                <dd id="ability"></dd>
+              </div>
+            </dl>
+            <div class="stamp-small">내가 그린 거 맞음?</div>
+          </section>
+          <div id="challenge" class="challenge" hidden></div>
+          <div class="share-actions">
+            <button id="copy" class="text-button">도전장 링크 복사 ⧉</button>
+            <button id="share" class="secondary">
+              도전장 보내기 <span>↗</span></button
+            ><button id="card" class="text-button">
+              보스 카드 이미지 저장 ↓
+            </button>
+          </div>
+          <p id="notice" role="status" aria-live="polite"></p>
+          <details class="howto">
+            <summary>살아남는 법</summary>
+            <p>
+              이동만 해도 자동으로 공격합니다. 탄막 바로 옆을 스치면
+              <b>아슬아슬 회피</b>가 쌓여 공격력이 올라갑니다.
+            </p>
+            <p>
+              대시는 0.38초 무적, 2.5초마다 충전됩니다. 체력 55%에서 분노,
+              25%에서 광폭화합니다. 주·보조 패턴이 중첩되니 이동할 공간을 미리
+              확보하세요. 흐린 탄환은 발사 예고입니다.
+            </p>
+            <p>
+              등급은 남은 체력 기준: 5칸 S+ / 4칸 S / 2~3칸 A / 1칸 B. 기록은 이
+              기기에만 저장됩니다.
+            </p>
+          </details>
+        </aside>
+        <section id="solo-panel" class="arena-wrap" aria-label="보스전 게임">
+          <div class="arena-top">
+            <span><i></i> <span id="arena-label">BOSS DISCOVERED</span></span>
+            <div>
+              <span id="best">BEST —</span><span id="timer">00.0s</span>
+            </div>
+          </div>
+          <div class="stage">
+            <canvas
+              id="game"
+              width="600"
+              height="700"
+              tabindex="0"
+              aria-label="방향키 또는 WASD로 이동, 스페이스로 대시. 터치 화면은 드래그로 이동합니다."
+            ></canvas>
+            <div class="overlay" id="overlay">
+              <p class="eyebrow" id="result-label">CHALLENGER WANTED</p>
+              <h2 id="result-title">이길 자신 있어?</h2>
+              <p id="result-desc">공격은 자동. 피하는 건 네 몫.</p>
+              <div id="result-stats" hidden></div>
+              <button id="start" class="primary">도전하기 <span>→</span></button
+              ><button id="result-share" class="text-button" hidden>
+                이 결과로 도전장 보내기 ↗</button
+              ><button id="exit" class="text-button" hidden>
+                다른 이름 소환하기
+              </button>
+              <p class="start-hint" id="start-hint">
+                약 30초 · 설치 없이 바로 플레이
+              </p>
+            </div>
+            <div id="battle-toast" aria-live="polite"></div>
+          </div>
+          <div class="arena-bottom">
+            <div class="control-hint">
+              <span class="desktop-only"><kbd>WASD</kbd> / 방향키</span
+              ><span class="touch-only">손가락으로 드래그</span
+              ><small>자동 공격 · 스치면 강화</small>
+            </div>
+            <button id="dash" aria-label="대시: 잠시 무적">
+              대시 <kbd>SPACE</kbd><i></i></button
+            ><button id="pause" class="icon-button" aria-label="일시정지">
+              Ⅱ
+            </button>
+          </div>
+        </section>
+        <section
+          id="league-panel"
+          class="arena-wrap league-panel"
+          aria-label="보스 리그 경기장"
+          hidden
+        >
+          <div class="arena-top">
+            <span><i></i> BOSS VS BOSS</span
+            ><span id="duel-timer">AUTO BATTLE</span>
+          </div>
+          <div class="stage league-stage">
+            <canvas
+              id="league-game"
+              width="600"
+              height="700"
+              aria-label="보스 자동 대결 관전 화면"
+            ></canvas>
+            <div id="league-overlay" class="overlay">
+              <p class="eyebrow">LET YOUR BOSS FIGHT</p>
+              <h2 id="league-title">이름 대 이름.</h2>
+              <p id="league-desc">
+                보스를 둘 이상 등록하면 리그를 시작할 수 있어요.
+              </p>
+              <button id="league-run" class="primary">리그 시작 →</button
+              ><button id="league-demo" class="text-button">
+                예시 보스 4명으로 해보기
+              </button>
+            </div>
+          </div>
+          <div class="arena-bottom league-controls">
+            <span id="duel-caption">전원 맞대결 · 시작 위치를 바꿔 2회</span
+            ><button id="watch-pause" class="icon-button" disabled>
+              관전 일시정지</button
+            ><button id="watch-speed" class="icon-button">2×</button>
+          </div>
+          <p id="league-progress" role="status" aria-live="polite"></p>
+        </section>
+      </div>
+      <section id="league-results" class="league-results" hidden>
+        <div class="league-columns">
+          <section class="roster-section">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">THE CONTENDERS</p>
+                <h2>우리 보스 대진표</h2>
+              </div>
+              <span id="roster-count">0 / 8</span>
+            </div>
+            <p class="section-note">
+              그린 보스를 등록하거나 친구가 보낸 보스 링크를 붙여넣으세요.
+            </p>
+            <form id="import-form">
+              <label class="sr-only" for="import-boss"
+                >친구 낙서 링크 또는 이름</label
+              >
+              <div class="import-wrap">
+                <input
+                  id="import-boss"
+                  placeholder="친구 낙서 링크 또는 이름"
+                  autocomplete="off"
+                  required
+                  maxlength="6000"
+                /><button type="submit">추가 +</button>
+              </div>
+            </form>
+            <div id="roster"></div>
+            <p id="roster-notice" role="status" aria-live="polite"></p>
+            <div class="league-share">
+              <button id="league-copy" class="secondary">
+                대진표 링크 복사 ↗</button
+              ><button id="league-card" class="text-button" disabled>
+                순위 카드 이미지 저장 ↓</button
+              ><button id="league-rerun" class="text-button">
+                리그 다시 시작 ↻
+              </button>
+            </div>
+          </section>
+          <section class="ranking-section">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">LOCAL LEAGUE / REAL MATCHES</p>
+                <h2>이 대진표의 순위</h2>
+              </div>
+              <span id="ranking-status">경기 전</span>
+            </div>
+            <div class="ranking-scroll">
+              <table>
+                <caption class="sr-only">
+                  리그 순위: 순위, 보스, 승무패, 승점, 체력 차이
+                </caption>
+                <thead>
+                  <tr>
+                    <th>순위</th>
+                    <th>보스</th>
+                    <th>승·무·패</th>
+                    <th>승점</th>
+                    <th>체력차</th>
+                  </tr>
+                </thead>
+                <tbody id="rankings"></tbody>
+              </table>
+            </div>
+            <details class="rules">
+              <summary>순위는 어떻게 정하나요?</summary>
+              <p>
+                참가한 모든 보스가 시작 위치를 바꿔 2회씩 대결합니다. 승리 3점,
+                무승부 1점. 승점이 같으면 경기마다 남은 체력 비율의 차이를
+                합산해 비교합니다. 둘 다 같으면 공동 순위입니다.
+              </p>
+              <p>
+                한 경기는 최대 32초이며 22초부터 피해가 증가합니다. 시간 종료 시
+                남은 체력 비율이 높은 보스가 이깁니다. 체력 차이가 0.5%p
+                미만이면 무승부입니다. 두 보스는 같은 회피 판단 규칙을
+                사용합니다.
+              </p>
+              <p>
+                이 순위는 현재 대진표의 결과입니다. 같은 구성과 게임 버전이면
+                결과가 같습니다. 성향과 패턴의 상성에 따라 상대를 바꾸면 순위도
+                달라집니다.
+              </p>
+            </details>
+            <div id="match-log" class="match-log"></div>
+          </section>
+        </div>
+      </section>
+      <section class="bottom-note">
+        <span>소환 → 능력 공개 → 친구 대결.</span>
+        <p>
+          그림의 모서리·닫힌 도형·길쭉한 모양으로 공격을 만듭니다.<br />그림은
+          서버에 따로 저장하지 않아요. 공유 링크에는 그림과 이름이 포함됩니다.
+        </p>
+      </section>
+      <footer>
+        <a href="https://caffeine-fighter.github.io/"
+          >MADE BY CAFFEINE FIGHTER ↗</a
+        ><span>DOODLE BOSS / VOL. 01</span>
+      </footer>
+    </main>
+    <noscript>이 게임을 플레이하려면 JavaScript를 켜주세요.</noscript>
+    <script type="module" src="game.js?v=5"></script>
+  </body>
+</html>
