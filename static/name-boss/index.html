@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#101014" />
+    <meta
+      name="description"
+      content="친구 이름을 넣었더니 최종 보스가 됐다. 이름마다 다른 보스, 30초 탄막 대결. 네 친구는 무슨 보스?"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="네 이름은 보스. — 친구 이름으로 보스전"
+    />
+    <meta
+      property="og:description"
+      content="읽씹의 지배자? 마감의 파괴자? 친구를 소환하고 도전장을 보내세요."
+    />
+    <meta
+      property="og:image"
+      content="https://caffeine-fighter.github.io/name-boss/og.png"
+    />
+    <meta
+      property="og:url"
+      content="https://caffeine-fighter.github.io/name-boss/"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <title>네 이름은 보스. — 친구 이름으로 보스전</title>
+    <link rel="stylesheet" href="style.css?v=2" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <a href="./" aria-label="네 이름은 보스 홈">NB<span>↗</span></a
+        ><span class="brand-sub">이름에서 시작된 원한.</span>
+        <div class="header-right">
+          <span>ONE NAME. ONE BOSS.</span
+          ><button id="sound" class="icon-button" aria-pressed="false">
+            소리 OFF
+          </button>
+        </div>
+      </header>
+      <section class="intro">
+        <div>
+          <p class="eyebrow">A VERY PERSONAL BOSS FIGHT</p>
+          <h1>네 이름은 <em>보스.</em></h1>
+          <p class="lead">
+            친구 이름을 넣었더니 최종 보스가 됐다.<br />그 친구, 네가 이길 수
+            있겠어?
+          </p>
+        </div>
+        <div class="intro-stamp" aria-hidden="true">
+          우정 파괴<br /><strong>주의</strong><span>PLAY AT YOUR OWN RISK</span>
+        </div>
+      </section>
+      <div class="layout">
+        <aside class="control-panel">
+          <form id="summon">
+            <label for="name"><span>01</span> 누구를 소환할까?</label>
+            <div class="input-wrap">
+              <input
+                id="name"
+                maxlength="32"
+                placeholder="친구 이름이나 별명"
+                autocomplete="off"
+                enterkeyhint="go"
+                required
+                aria-describedby="name-help"
+              /><button aria-label="이름으로 보스 소환" type="submit">
+                ↗
+              </button>
+            </div>
+            <p id="name-help">최대 16글자 · 같은 이름은 같은 보스</p>
+          </form>
+          <div class="suggestions">
+            <button data-name="우리 팀장님">우리 팀장님</button
+            ><button data-name="월요일">월요일</button
+            ><button id="random">랜덤 소환 ⤨</button>
+          </div>
+          <section class="dossier">
+            <div class="dossier-top">
+              <span class="eyebrow">WANTED</span><span id="boss-code"></span>
+            </div>
+            <p id="title" class="boss-title"></p>
+            <h2 id="boss-name"></h2>
+            <blockquote id="quote"></blockquote>
+            <div class="stat">
+              <span>자존심</span>
+              <div><i id="ego-bar"></i></div>
+              <b id="ego"></b>
+            </div>
+            <div class="stat">
+              <span>인내심</span>
+              <div><i id="patience-bar"></i></div>
+              <b id="patience"></b>
+            </div>
+            <dl>
+              <div>
+                <dt>종족</dt>
+                <dd id="species"></dd>
+              </div>
+              <div>
+                <dt>필살기</dt>
+                <dd id="ability"></dd>
+              </div>
+            </dl>
+            <div class="stamp-small">친구 맞음?</div>
+          </section>
+          <div id="challenge" class="challenge" hidden></div>
+          <div class="share-actions">
+            <button id="share" class="secondary">
+              도전장 보내기 <span>↗</span></button
+            ><button id="card" class="text-button">
+              보스 카드 이미지 저장 ↓
+            </button>
+          </div>
+          <p id="notice" role="status" aria-live="polite"></p>
+          <details class="howto">
+            <summary>살아남는 법</summary>
+            <p>
+              이동만 해도 자동으로 공격합니다. 탄막 바로 옆을 스치면
+              <b>아슬아슬 회피</b>가 쌓여 공격력이 올라갑니다.
+            </p>
+            <p>
+              대시는 0.38초 무적, 2.5초마다 충전됩니다. 보스가 분노하면 탄막이
+              잠시 지워지고 두 번째 패턴이 시작됩니다.
+            </p>
+            <p>
+              등급은 남은 체력 기준: 5칸 S+ / 4칸 S / 2~3칸 A / 1칸 B. 기록은 이
+              기기에만 저장됩니다.
+            </p>
+          </details>
+        </aside>
+        <section class="arena-wrap" aria-label="보스전 게임">
+          <div class="arena-top">
+            <span><i></i> <span id="arena-label">BOSS DISCOVERED</span></span>
+            <div>
+              <span id="best">BEST —</span><span id="timer">00.0s</span>
+            </div>
+          </div>
+          <div class="stage">
+            <canvas
+              id="game"
+              width="600"
+              height="700"
+              tabindex="0"
+              aria-label="방향키 또는 WASD로 이동, 스페이스로 대시. 터치 화면은 드래그로 이동합니다."
+            ></canvas>
+            <div class="overlay" id="overlay">
+              <p class="eyebrow" id="result-label">CHALLENGER WANTED</p>
+              <h2 id="result-title">이길 자신 있어?</h2>
+              <p id="result-desc">공격은 자동. 피하는 건 네 몫.</p>
+              <div id="result-stats" hidden></div>
+              <button id="start" class="primary">도전하기 <span>→</span></button
+              ><button id="result-share" class="text-button" hidden>
+                이 결과로 도전장 보내기 ↗</button
+              ><button id="exit" class="text-button" hidden>
+                다른 이름 소환하기
+              </button>
+              <p class="start-hint" id="start-hint">
+                약 30초 · 설치 없이 바로 플레이
+              </p>
+            </div>
+            <div id="battle-toast" aria-live="polite"></div>
+          </div>
+          <div class="arena-bottom">
+            <div class="control-hint">
+              <span class="desktop-only"><kbd>WASD</kbd> / 방향키</span
+              ><span class="touch-only">손가락으로 드래그</span
+              ><small>자동 공격 · 스치면 강화</small>
+            </div>
+            <button id="dash" aria-label="대시: 잠시 무적">
+              대시 <kbd>SPACE</kbd><i></i></button
+            ><button id="pause" class="icon-button" aria-label="일시정지">
+              Ⅱ
+            </button>
+          </div>
+        </section>
+      </div>
+      <section class="bottom-note">
+        <span>소환 → 격파 → 도전장.</span>
+        <p>
+          이름으로 만든 가상의 캐릭터입니다. 실제 성격과는 관계없어요.<br />이름을
+          서버에 따로 저장하지 않아요. 공유 링크에는 입력한 이름이 포함됩니다.
+        </p>
+      </section>
+      <footer>
+        <a href="https://caffeine-fighter.github.io/"
+          >MADE BY CAFFEINE FIGHTER ↗</a
+        ><span>NAME BOSS / VOL. 02</span>
+      </footer>
+    </main>
+    <noscript>이 게임을 플레이하려면 JavaScript를 켜주세요.</noscript>
+    <script type="module" src="game.js?v=2"></script>
+  </body>
+</html>
