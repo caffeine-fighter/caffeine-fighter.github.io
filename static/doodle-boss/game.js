@@ -244,7 +244,7 @@ function finish() {
       : "";
   overlay(
     result.won ? (isBest ? "NEW PERSONAL BEST" : "BOSS DEFEATED") : "YOU DIED",
-    result.won ? "친구를 이겨버렸다." : "친구가 너무 강하다.",
+    result.won ? "내 낙서를 이겨버렸다." : "내가 그린 게 너무 강하다.",
     result.won
       ? `${boss.name} 격파. ${challenge || "이제 친구 차례입니다."}`
       : `${boss.name} 체력 ${Math.ceil((battle.hp / boss.hp) * 100)}% 남음.\n${battle.grazes ? "아슬아슬 회피를 활용해 더 빠르게 끝내보세요." : "탄막에 갇혔다면 대시로 빠져나오세요."}`,
@@ -504,9 +504,7 @@ $("pause").onclick = pause;
 $("dash").onclick = dash;
 $("exit").onclick = () => {
   summon(boss.name, false, boss);
-  $("name").focus();
-  $("name").select();
-  $("summon").scrollIntoView({ block: "center", behavior: "instant" });
+  $("sketch-pad").scrollIntoView({ block: "center", behavior: "instant" });
 };
 window.addEventListener("keydown", (e) => {
   if (e.target.matches("input,textarea,select") || e.isComposing) return;
