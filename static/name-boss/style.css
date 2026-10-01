@@ -812,3 +812,445 @@ h1 {
     padding: 7px;
   }
 }
+/* Boss workshop and shared round-robin leagues. */
+.mode-tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 18px;
+  margin-bottom: 26px;
+}
+.mode-tabs button {
+  color: var(--muted);
+  background: #202027;
+  padding: 12px 20px;
+  font-weight: 700;
+  font-size: 13px;
+  border: 1px solid var(--line);
+}
+.mode-tabs button[aria-pressed="true"] {
+  background: var(--acid);
+  color: #19200e;
+  border-color: var(--acid);
+}
+.mode-tabs span {
+  font: 9px monospace;
+  letter-spacing: 1px;
+  margin-left: 8px;
+  opacity: 0.7;
+}
+.workshop {
+  border: 1px solid var(--line);
+  padding: 16px;
+  background: #1a1a21;
+  margin: 0 0 22px;
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+.workshop-heading {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.workshop-heading > span:last-child {
+  font-size: 9px;
+  color: var(--muted);
+}
+.workshop label {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 400;
+}
+.workshop select {
+  min-width: 0;
+  width: 100%;
+  padding: 9px 8px;
+  background: #292932;
+  border: 1px solid #494956;
+  color: var(--ink);
+  font:
+    12px "Noto Sans KR",
+    sans-serif;
+  border-radius: 3px;
+}
+.workshop select:focus-visible {
+  outline: 2px solid var(--acid);
+}
+#build-info {
+  grid-column: 1/-1;
+  margin: 2px 0 4px;
+  font-size: 9px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.workshop > .secondary {
+  grid-column: 1/-1;
+  font-size: 12px;
+  padding: 12px;
+}
+.dossier dd {
+  max-width: 70%;
+  text-align: right;
+  font-size: 10px;
+}
+.league-panel {
+  min-width: 0;
+}
+.league-controls > span {
+  font-size: 10px;
+  color: var(--muted);
+  flex: 1;
+  line-height: 1.6;
+}
+.league-controls {
+  flex-wrap: wrap;
+}
+.league-controls button {
+  white-space: nowrap;
+}
+.league-stage {
+  max-height: 640px;
+}
+#league-progress {
+  font:
+    11px "Noto Sans KR",
+    sans-serif;
+  color: var(--acid);
+  padding: 0 14px;
+  min-height: 16px;
+  line-height: 1.8;
+}
+.league-results {
+  margin-top: 40px;
+  border-top: 1px solid var(--line);
+  padding-top: 30px;
+}
+.league-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: 36px;
+}
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.section-heading h2 {
+  font-size: 21px;
+  margin: 9px 0 16px;
+  letter-spacing: -0.6px;
+}
+.section-heading > span {
+  font: 10px monospace;
+  color: var(--muted);
+}
+.section-note {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.import-wrap {
+  display: flex;
+  border: 1px solid #4a4a56;
+  background: #1d1d25;
+}
+.import-wrap input {
+  padding: 12px;
+  font-size: 11px;
+  font-weight: 400;
+}
+.import-wrap:focus-within {
+  border-color: var(--acid);
+}
+.import-wrap button {
+  background: var(--acid);
+  font-size: 11px;
+  color: #182007;
+  padding: 12px;
+  white-space: nowrap;
+}
+.roster-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--line);
+  padding: 15px 0;
+}
+.roster-item > i {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.roster-item > div {
+  flex: 1;
+  min-width: 0;
+}
+.roster-item b {
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.roster-item small {
+  display: block;
+  font-size: 9px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-top: 3px;
+}
+.roster-item button {
+  font-size: 10px;
+  padding: 6px 8px;
+  background: #2b2b34;
+  color: #bebeca;
+  border: 1px solid var(--line);
+}
+.roster-item button:last-child {
+  font-size: 16px;
+  padding: 4px 8px;
+}
+#roster-notice {
+  font-size: 11px;
+  color: var(--acid);
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+  min-height: 18px;
+}
+.league-share {
+  display: grid;
+  gap: 2px;
+  grid-template-columns: 1fr;
+}
+.league-share .secondary {
+  font-size: 12px;
+}
+.ranking-scroll {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  text-align: left;
+}
+thead th {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 400;
+  border-bottom: 1px solid #555563;
+  padding: 12px 6px;
+  white-space: nowrap;
+}
+tbody td {
+  padding: 14px 6px;
+  border-bottom: 1px solid var(--line);
+  font: 11px monospace;
+  white-space: nowrap;
+}
+tbody td:nth-child(2) {
+  white-space: normal;
+  min-width: 140px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+tbody b {
+  display: block;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+tbody small {
+  font-size: 8px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.rank-first,
+.points {
+  color: var(--acid);
+  font-weight: 700;
+}
+.rank-first {
+  font-size: 21px;
+}
+.empty-ranking {
+  font-family: "Noto Sans KR", sans-serif;
+  white-space: normal;
+  color: var(--muted);
+  line-height: 1.8;
+  padding: 26px 6px;
+}
+.rules {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.9;
+  margin-top: 15px;
+}
+.rules summary {
+  cursor: pointer;
+}
+.match-log h3 {
+  font-size: 12px;
+  margin-top: 26px;
+}
+.match-item {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.match-item > span {
+  font-size: 10px;
+  flex: 1;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.match-item button {
+  padding: 7px;
+  background: #292932;
+  border: 1px solid #494956;
+  color: var(--ink);
+  font-size: 9px;
+  white-space: nowrap;
+}
+button:disabled {
+  opacity: 0.4;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+.league-mode .dossier {
+  display: none;
+}
+.league-mode .howto {
+  display: none;
+}
+.league-mode .intro-stamp {
+  transform: rotate(-10deg);
+}
+@media (max-width: 760px) {
+  .mode-tabs {
+    margin-bottom: 22px;
+    padding-bottom: 14px;
+  }
+  .mode-tabs button {
+    flex: 1;
+    padding: 11px 8px;
+    font-size: 12px;
+  }
+  .mode-tabs span {
+    font-size: 8px;
+    margin-left: 5px;
+  }
+  .workshop {
+    width: 100%;
+    margin: 0;
+    grid-template-columns: 76px minmax(0, 1fr);
+    padding: 14px;
+  }
+  .league-mode .share-actions {
+    order: 2;
+  }
+  .league-mode .workshop {
+    order: 0;
+  }
+  .league-columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+  .league-results {
+    margin-top: 24px;
+    padding-top: 22px;
+  }
+  .section-heading h2 {
+    font-size: 20px;
+  }
+  .league-stage {
+    max-height: 510px;
+  }
+  .league-controls > span {
+    min-width: 110px;
+  }
+  .league-controls button {
+    font-size: 9px;
+    padding: 8px;
+  }
+  .league-mode .bottom-note {
+    margin-top: 25px;
+  }
+  .playing .mode-tabs,
+  .playing .workshop {
+    display: none;
+  }
+  .league-mode .layout {
+    gap: 18px;
+  }
+  .league-mode .share-actions {
+    margin-top: 0;
+  }
+  .league-mode .control-panel {
+    display: contents;
+  }
+}
+@media (max-width: 380px) {
+  .league-controls > span {
+    flex-basis: 100%;
+    text-align: center;
+  }
+  .league-controls {
+    justify-content: center;
+  }
+  .league-columns {
+    gap: 24px;
+  }
+  .section-heading h2 {
+    font-size: 18px;
+  }
+  thead th {
+    font-size: 8px;
+  }
+  tbody td {
+    font-size: 10px;
+    padding: 12px 4px;
+  }
+  tbody td:nth-child(2) {
+    min-width: 105px;
+  }
+  .workshop-heading .eyebrow {
+    font-size: 8px;
+  }
+  .mode-tabs span {
+    display: none;
+  }
+}
+.stage {
+  width: 100%;
+}
+@media (max-width: 760px) {
+  .league-mode .layout {
+    position: relative;
+  }
+  .league-mode #notice {
+    order: 3;
+  }
+  .league-mode .share-actions {
+    margin-bottom: 4px;
+  }
+}
+
+.drawn-ability {
+  font-size: 14px;
+  color: var(--acid);
+  padding: 12px;
+  background: #26262f;
+  border: 1px solid var(--line);
+}

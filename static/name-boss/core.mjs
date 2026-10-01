@@ -1,13 +1,13 @@
-export const VERSION = "2";
+import { volley, moveProjectile, PATTERN_NAMES } from "./patterns.mjs?v=4";
+export const VERSION = "4";
 export const W = 600,
   H = 700;
-export const PATTERNS = [
-  "소용돌이",
-  "집요한 추적",
-  "가시꽃",
-  "엇갈린 파도",
-  "별의 폭풍",
-  "쌍둥이 궤도",
+export const PATTERNS = PATTERN_NAMES;
+export const STYLES = ["균형형", "압박형", "회피형"];
+const PROFILES = [
+  { duelHp: 110, moveSpeed: 125, reload: 0.94, damage: 4.4 },
+  { duelHp: 92, moveSpeed: 113, reload: 0.76, damage: 4.7 },
+  { duelHp: 100, moveSpeed: 155, reload: 1.05, damage: 4.0 },
 ];
 export const TYPES = [
   "외눈 감시자",
@@ -80,34 +80,115 @@ export function createBoss(raw) {
   const pick = (n) => Math.floor(rng() * n),
     type = pick(6),
     title = pick(TITLES.length),
-    pattern = pick(6);
+    defaultPattern = pick(6);
+  const pattern = defaultPattern;
+  const secondary = (pattern + 1 + ((seed >>> 8) % 5)) % 6;
+  const style = seed % 3;
+  const id = JSON.stringify([name, pattern, secondary, style]);
   return Object.freeze({
     name,
     seed,
     type,
     pattern,
+    secondary,
+    style,
+    id,
+    combatSeed: hashName(id),
+    ...PROFILES[style],
     title: TITLES[title],
     quote: QUOTES[title],
     hue: pick(360),
     eyes: 1 + pick(3),
     horns: pick(3),
     hp: 480,
-    speed: 115 + pick(30),
+    speed: 185 + pick(25),
     ego: 65 + pick(36),
     patience: 1 + pick(30),
     menace: 70 + pick(31),
-    code: seed.toString(36).toUpperCase().padStart(7, "0"),
-    skill: [
-      "회전문 지옥",
-      "어딜 도망가",
-      "친절한 가시밭",
-      "답장 폭격",
-      "별 볼 일 있다",
-      "둘이서 괴롭히기",
-    ][pattern],
+    code: hashName(id).toString(36).toUpperCase().padStart(7, "0"),
+    skill: PATTERNS[pattern],
   });
 }
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+export function packBuild(boss) {
+  return [boss.name, boss.pattern, boss.secondary, boss.style];
+}
+export function unpackBuild(value) {
+  if (
+    !Array.isArray(value) ||
+    value.length !== 4 ||
+    typeof value[0] !== "string" ||
+    !normalizeName(value[0]) ||
+    !value.slice(1).every(Number.isInteger) ||
+    value[1] < 0 ||
+    value[1] > 5 ||
+    value[2] < 0 ||
+    value[2] > 5 ||
+    value[1] === value[2] ||
+    value[3] < 0 ||
+    value[3] > 2
+  )
+    throw new Error("유효한 보스 구성이 아니에요.");
+  return createBoss(value[0]);
+}
+function encode(value) {
+  return btoa(
+    String.fromCharCode(...new TextEncoder().encode(JSON.stringify(value))),
+  )
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/, "");
+}
+function decode(token) {
+  if (
+    typeof token !== "string" ||
+    token.length > 6000 ||
+    !/^[\w-]+$/.test(token)
+  )
+    throw new Error("링크 형식이 올바르지 않아요.");
+  try {
+    return JSON.parse(
+      new TextDecoder("utf-8", { fatal: true }).decode(
+        Uint8Array.from(
+          atob(token.replace(/-/g, "+").replace(/_/g, "/")),
+          (c) => c.charCodeAt(0),
+        ),
+      ),
+    );
+  } catch {
+    throw new Error("링크를 다시 확인해 주세요.");
+  }
+}
+export function encodeBuild(boss) {
+  return encode([VERSION, packBuild(boss)]);
+}
+export function decodeBuild(token) {
+  const data = decode(token);
+  if (![VERSION, "3"].includes(data[0]))
+    throw new Error("현재 버전의 보스 링크가 아니에요.");
+  return unpackBuild(data[1]);
+}
+export function encodeRoster(bosses) {
+  return encode([VERSION, bosses.map(packBuild)]);
+}
+export function decodeRoster(token) {
+  const data = decode(token);
+  if (
+    ![VERSION, "3"].includes(data[0]) ||
+    !Array.isArray(data[1]) ||
+    data[1].length < 2 ||
+    data[1].length > 8
+  )
+    throw new Error("리그에는 보스 2~8명이 필요해요.");
+  let bosses = data[1].map(unpackBuild);
+  if (data[0] === "3")
+    bosses = bosses.filter(
+      (b, i) => bosses.findIndex((x) => x.id === b.id) === i,
+    );
+  if (new Set(bosses.map((b) => b.id)).size !== bosses.length)
+    throw new Error("같은 보스가 중복 등록됐어요.");
+  return bosses;
+}
 export class Battle {
   constructor(boss) {
     this.boss = boss;
@@ -145,51 +226,46 @@ export class Battle {
     return true;
   }
   spawn() {
-    const p = this.phase,
-      k = this.boss.pattern,
-      n = p === 2 ? 13 : 10,
-      speed = this.boss.speed + (p === 2 ? 28 : 0),
-      wave = this.waves++;
-    const add = (x, angle, scale = 1) =>
-      this.bullets.push({
-        x,
-        y: 150,
-        vx: Math.cos(angle) * speed * scale,
-        vy: Math.sin(angle) * speed * scale,
-        r: 5.5,
-        grazed: false,
-      });
-    const aim = Math.atan2(this.player.y - 150, this.player.x - W / 2);
-    if (k === 0)
-      for (let i = 0; i < n; i++)
-        add(W / 2, wave * 0.48 + (i * Math.PI * 2) / n);
-    if (k === 1)
-      for (let i = -3; i <= 3; i++)
-        add(W / 2, aim + i * (p === 2 ? 0.15 : 0.2));
-    if (k === 2)
-      for (let i = 0; i < n; i++)
-        add(W / 2, (i * Math.PI * 2) / n + wave * 0.16, i % 2 ? 1 : 0.7);
-    if (k === 3)
-      for (let i = 0; i < n; i++)
-        add(
-          70 + (i * (W - 140)) / (n - 1),
-          Math.PI / 2 + Math.sin(wave + i * 0.5) * 0.4,
-        );
-    if (k === 4)
-      for (let i = 0; i < 5; i++)
-        for (let j = 0; j < 2; j++)
-          add(
-            W / 2,
-            wave * -0.35 + (i * Math.PI * 2) / 5 + j * 0.13,
-            1 + j * 0.2,
-          );
-    if (k === 5)
-      for (const side of [-1, 1])
-        for (let i = 0; i < 6; i++)
-          add(W / 2 + side * 70, (i * Math.PI) / 3 + wave * 0.3 * side);
-    // Periodic aimed volleys prevent idle clears while leaving readable escape lanes.
-    if (k !== 1 && wave % 3 === 2)
-      for (let i = -1; i <= 1; i++) add(W / 2, aim + i * 0.22, 1.15);
+    const wave = this.waves++;
+    const pattern = wave % 3 === 2 ? this.boss.secondary : this.boss.pattern;
+    const options = {
+      pattern,
+      origin: { x: W / 2, y: 150 },
+      target: {
+        ...this.player,
+        vx: this.player.dx * 300,
+        vy: this.player.dy * 300,
+      },
+      wave,
+      phase: this.phase,
+      speed: this.boss.speed + (this.phase - 1) * 26,
+      seed: this.boss.combatSeed,
+    };
+    this.bullets.push(...volley(options));
+    if (this.phase === 3 && wave % 2 === 0)
+      this.bullets.push(
+        ...volley({
+          ...options,
+          pattern: this.boss.secondary,
+          wave: wave + 1,
+          speed: options.speed * 0.78,
+          delay: 0.3,
+        }),
+      );
+    if (wave % 2 === 1 && pattern !== 1) {
+      const aim = Math.atan2(this.player.y - 150, this.player.x - W / 2);
+      for (let i = -1; i <= 1; i++)
+        this.bullets.push({
+          x: W / 2,
+          y: 150,
+          vx: Math.cos(aim + i * 0.16) * 245,
+          vy: Math.sin(aim + i * 0.16) * 245,
+          r: 5,
+          delay: 0.24,
+          age: 0,
+          grazed: false,
+        });
+    }
     this.events.push({ type: "attack" });
   }
   update(dt, input = {}) {
@@ -230,7 +306,7 @@ export class Battle {
     }
     if (this.attack <= 0) {
       this.spawn();
-      this.attack = this.phase === 2 ? 0.73 : 1.08;
+      this.attack = this.phase === 3 ? 0.49 : this.phase === 2 ? 0.66 : 0.88;
     }
     for (const s of this.shots) {
       s.x += s.vx * dt;
@@ -242,16 +318,22 @@ export class Battle {
       }
     }
     this.shots = this.shots.filter((s) => !s.dead && s.y > -20);
-    if (this.phase === 1 && this.hp <= this.boss.hp / 2) {
-      this.phase = 2;
-      this.warning = 1.6;
-      this.attack = 1.6;
+    const nextPhase =
+      this.hp <= this.boss.hp * 0.25
+        ? 3
+        : this.hp <= this.boss.hp * 0.55
+          ? 2
+          : 1;
+    if (this.phase < nextPhase && this.hp > 0) {
+      this.phase = nextPhase;
+      this.warning = 1.2;
+      this.attack = 1.2;
       this.bullets = [];
       this.events.push({ type: "rage" });
     }
     for (const b of this.bullets) {
-      b.x += b.vx * dt;
-      b.y += b.vy * dt;
+      moveProjectile(b, dt, p);
+      if (b.delay > 0) continue;
       const dist = Math.hypot(b.x - p.x, b.y - p.y);
       if (dist < b.r + 7 && p.invincible <= 0) {
         p.hp--;

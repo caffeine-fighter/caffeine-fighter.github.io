@@ -1,4 +1,4 @@
-import { W, H, random } from "./core.mjs";
+import { W, H, random, PATTERNS, STYLES } from "./core.mjs?v=4";
 export function portrait(c, boss, x, y, scale = 1, t = 0, rage = false) {
   const color = `hsl(${boss.hue} 78% 65%)`,
     light = `hsl(${boss.hue} 90% 82%)`;
@@ -248,7 +248,7 @@ export function drawCard(c, boss, result) {
     );
     fitText(
       c,
-      `자존심 ${boss.ego}  ·  인내심 ${boss.patience}  ·  필살기 ${boss.skill}`,
+      `${STYLES[boss.style]} · ${PATTERNS[boss.pattern]} + ${PATTERNS[boss.secondary]}`,
       540,
       1091,
       850,
