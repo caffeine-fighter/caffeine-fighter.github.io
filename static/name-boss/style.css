@@ -1246,3 +1246,11 @@ button:disabled {
     margin-bottom: 4px;
   }
 }
+
+.drawn-ability {
+  font-size: 14px;
+  color: var(--acid);
+  padding: 12px;
+  background: #26262f;
+  border: 1px solid var(--line);
+}

@@ -1,5 +1,5 @@
-import { W, H, createBoss, packBuild, unpackBuild } from "./core.mjs?v=3";
-import { volley, moveProjectile } from "./patterns.mjs?v=3";
+import { W, H, createBoss, packBuild, unpackBuild } from "./core.mjs?v=4";
+import { volley, moveProjectile } from "./patterns.mjs?v=4";
 export const ROUND_SECONDS = 32;
 export const STEP = 1 / 60;
 export const MAX_ROSTER = 8;

@@ -1,4 +1,4 @@
-import { W, H, random, PATTERNS, STYLES } from "./core.mjs?v=3";
+import { W, H, random, PATTERNS, STYLES } from "./core.mjs?v=4";
 export function portrait(c, boss, x, y, scale = 1, t = 0, rage = false) {
   const color = `hsl(${boss.hue} 78% 65%)`,
     light = `hsl(${boss.hue} 90% 82%)`;

@@ -10,9 +10,9 @@ import {
   STYLES,
   encodeBuild,
   decodeBuild,
-} from "./core.mjs?v=3";
-import { portrait, background, fitText, drawCard } from "./art.mjs?v=3";
-import { initLeagueUI } from "./league-ui.mjs?v=3";
+} from "./core.mjs?v=4";
+import { portrait, background, fitText, drawCard } from "./art.mjs?v=4";
+import { initLeagueUI } from "./league-ui.mjs?v=4";
 const $ = (id) => document.getElementById(id),
   canvas = $("game"),
   ctx = canvas.getContext("2d");
@@ -480,7 +480,7 @@ function frame(now) {
 }
 $("summon").onsubmit = (e) => {
   e.preventDefault();
-  summon($("name").value, false, workshop?.config());
+  summon($("name").value, false, {});
   $("name").blur();
 };
 document

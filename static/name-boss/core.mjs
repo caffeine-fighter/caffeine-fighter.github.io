@@ -1,5 +1,5 @@
-import { volley, moveProjectile, PATTERN_NAMES } from "./patterns.mjs?v=3";
-export const VERSION = "3";
+import { volley, moveProjectile, PATTERN_NAMES } from "./patterns.mjs?v=4";
+export const VERSION = "4";
 export const W = 600,
   H = 700;
 export const PATTERNS = PATTERN_NAMES;
@@ -73,7 +73,7 @@ export function random(seed) {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
-export function createBoss(raw, config = {}) {
+export function createBoss(raw) {
   const name = normalizeName(raw) || "월요일",
     seed = hashName(name),
     rng = random(seed);
@@ -81,16 +81,9 @@ export function createBoss(raw, config = {}) {
     type = pick(6),
     title = pick(TITLES.length),
     defaultPattern = pick(6);
-  const choice = (value, fallback, count) =>
-    Number.isInteger(value) && value >= 0 && value < count ? value : fallback;
-  const pattern = choice(config.pattern, defaultPattern, 6);
-  let secondary = choice(
-    config.secondary,
-    (pattern + 1 + ((seed >>> 8) % 5)) % 6,
-    6,
-  );
-  if (secondary === pattern) secondary = (pattern + 3) % 6;
-  const style = choice(config.style, seed % 3, 3);
+  const pattern = defaultPattern;
+  const secondary = (pattern + 1 + ((seed >>> 8) % 5)) % 6;
+  const style = seed % 3;
   const id = JSON.stringify([name, pattern, secondary, style]);
   return Object.freeze({
     name,
@@ -136,11 +129,7 @@ export function unpackBuild(value) {
     value[3] > 2
   )
     throw new Error("유효한 보스 구성이 아니에요.");
-  return createBoss(value[0], {
-    pattern: value[1],
-    secondary: value[2],
-    style: value[3],
-  });
+  return createBoss(value[0]);
 }
 function encode(value) {
   return btoa(
@@ -175,7 +164,8 @@ export function encodeBuild(boss) {
 }
 export function decodeBuild(token) {
   const data = decode(token);
-  if (data[0] !== VERSION) throw new Error("현재 버전의 보스 링크가 아니에요.");
+  if (![VERSION, "3"].includes(data[0]))
+    throw new Error("현재 버전의 보스 링크가 아니에요.");
   return unpackBuild(data[1]);
 }
 export function encodeRoster(bosses) {
@@ -184,13 +174,17 @@ export function encodeRoster(bosses) {
 export function decodeRoster(token) {
   const data = decode(token);
   if (
-    data[0] !== VERSION ||
+    ![VERSION, "3"].includes(data[0]) ||
     !Array.isArray(data[1]) ||
     data[1].length < 2 ||
     data[1].length > 8
   )
     throw new Error("리그에는 보스 2~8명이 필요해요.");
-  const bosses = data[1].map(unpackBuild);
+  let bosses = data[1].map(unpackBuild);
+  if (data[0] === "3")
+    bosses = bosses.filter(
+      (b, i) => bosses.findIndex((x) => x.id === b.id) === i,
+    );
   if (new Set(bosses.map((b) => b.id)).size !== bosses.length)
     throw new Error("같은 보스가 중복 등록됐어요.");
   return bosses;

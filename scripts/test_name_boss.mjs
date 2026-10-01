@@ -83,7 +83,9 @@ test("hit, graze, rage transition, loss and win resolve correctly", () => {
 });
 test("all hard patterns stay bounded and auto fire clears them with a protected player", () => {
   for (let pattern = 0; pattern < 6; pattern++) {
-    const boss = createBoss("test", { pattern }),
+    const boss = Array.from({ length: 200 }, (_, i) =>
+        createBoss("test" + i),
+      ).find((b) => b.pattern === pattern),
       a = new Battle(boss),
       b = new Battle(boss);
     for (let i = 0; i < 2100 && a.state === "playing"; i++) {
@@ -101,7 +103,9 @@ test("all hard patterns stay bounded and auto fire clears them with a protected 
 });
 test("every hard pattern requires movement and reaches a third phase", () => {
   for (let pattern = 0; pattern < 6; pattern++) {
-    const boss = createBoss("test", { pattern }),
+    const boss = Array.from({ length: 200 }, (_, i) =>
+        createBoss("test" + i),
+      ).find((b) => b.pattern === pattern),
       idle = new Battle(boss);
     while (idle.state === "playing" && idle.time < 32) {
       idle.update(1 / 60);
@@ -117,7 +121,7 @@ test("every hard pattern requires movement and reaches a third phase", () => {
     assert.ok(rage.attack >= 1);
   }
 });
-test("custom builds and Unicode league links round trip with strict limits", () => {
+test("name-derived builds and Unicode league links round trip with strict limits", () => {
   const boss = createBoss("가나다 😈", { pattern: 4, secondary: 1, style: 2 });
   assert.deepEqual(decodeBuild(encodeBuild(boss)), boss);
   const roster = [boss, createBoss("a"), createBoss("b")];
@@ -130,12 +134,25 @@ test("custom builds and Unicode league links round trip with strict limits", () 
     ),
   );
   assert.throws(() => decodeRoster(encodeRoster([boss])));
-  assert.notEqual(
+  assert.equal(
     createBoss("a", { pattern: 0 }).id,
     createBoss("a", { pattern: 1 }).id,
   );
   const fixed = createBoss("a", { pattern: 2, secondary: 2 });
   assert.notEqual(fixed.pattern, fixed.secondary);
+  const legacy = (value) =>
+    Buffer.from(JSON.stringify(["3", value])).toString("base64url");
+  assert.deepEqual(decodeBuild(legacy(["가나다 😈", 0, 1, 0])), boss);
+  assert.deepEqual(
+    decodeRoster(
+      legacy([
+        ["a", 0, 1, 0],
+        ["a", 2, 3, 1],
+        ["b", 4, 5, 2],
+      ]),
+    ),
+    [createBoss("a"), createBoss("b")],
+  );
 });
 test("league results do not depend on input order or replay batching", () => {
   const roster = ["김개발", "월요일", "민수"].map((n) => createBoss(n));

@@ -1,5 +1,5 @@
-import { unpackBuild } from "./core.mjs?v=3";
-import { runLeague } from "./league.mjs?v=3";
+import { unpackBuild } from "./core.mjs?v=4";
+import { runLeague } from "./league.mjs?v=4";
 self.onmessage = ({ data }) => {
   try {
     const bosses = data.bosses.map(unpackBuild);

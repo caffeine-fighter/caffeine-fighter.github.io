@@ -11,9 +11,9 @@ import {
   W,
   H,
   VERSION,
-} from "./core.mjs?v=3";
-import { Duel, STEP, schedule, runLeague } from "./league.mjs?v=3";
-import { portrait, background, fitText } from "./art.mjs?v=3";
+} from "./core.mjs?v=4";
+import { Duel, STEP, schedule, runLeague } from "./league.mjs?v=4";
+import { portrait, background, fitText } from "./art.mjs?v=4";
 const $ = (id) => document.getElementById(id);
 const element = (tag, text, className) => {
   const e = document.createElement(tag);
@@ -43,14 +43,6 @@ export function initLeagueUI({ getBoss, selectBoss, onMode, initialParams }) {
     reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const params = initialParams || new URLSearchParams(location.search),
     key = "name-boss:league:" + VERSION;
-  for (const [id, choices] of [
-    ["build-primary", PATTERNS],
-    ["build-secondary", PATTERNS],
-    ["build-style", STYLES],
-  ])
-    choices.forEach((label, value) =>
-      $(id).append(new Option(label, String(value))),
-    );
   function syncUrl() {
     const url = new URL(location.href);
     if (mode === "league") {
@@ -66,25 +58,13 @@ export function initLeagueUI({ getBoss, selectBoss, onMode, initialParams }) {
   }
   function updateBuild() {
     const b = getBoss();
-    $("build-primary").value = b.pattern;
-    $("build-secondary").value = b.secondary;
-    $("build-style").value = b.style;
+    $("build-primary").textContent = PATTERNS[b.pattern];
+    $("build-secondary").textContent = PATTERNS[b.secondary];
+    $("build-style").textContent = STYLES[b.style];
     $("build-info").textContent =
       `${STYLES[b.style]} · 리그 체력 ${b.duelHp} / 이동 ${b.moveSpeed} / 공격 간격 ${b.reload.toFixed(2)}초`;
     syncUrl();
   }
-  function config() {
-    return {
-      pattern: Number($("build-primary").value),
-      secondary: Number($("build-secondary").value),
-      style: Number($("build-style").value),
-    };
-  }
-  for (const id of ["build-primary", "build-secondary", "build-style"])
-    $(id).onchange = () => {
-      selectBoss(getBoss().name, config());
-      updateBuild();
-    };
   document.addEventListener("nameboss:change", updateBuild);
   updateBuild();
   function persist() {
@@ -147,7 +127,7 @@ export function initLeagueUI({ getBoss, selectBoss, onMode, initialParams }) {
       color.style.background = `hsl(${boss.hue} 78% 65%)`;
       const info = element("div");
       info.append(element("b", boss.name), element("small", description(boss)));
-      const edit = element("button", "제작");
+      const edit = element("button", "보기");
       edit.setAttribute("aria-label", `${boss.name} 보스 불러오기`);
       edit.onclick = () => {
         selectBoss(boss.name, boss);
@@ -344,7 +324,7 @@ export function initLeagueUI({ getBoss, selectBoss, onMode, initialParams }) {
       $("league-progress").textContent = message;
     }
     try {
-      worker = new Worker(new URL("./league-worker.mjs?v=3", import.meta.url), {
+      worker = new Worker(new URL("./league-worker.mjs?v=4", import.meta.url), {
         type: "module",
       });
       worker.onmessage = ({ data }) => {
@@ -627,7 +607,11 @@ export function initLeagueUI({ getBoss, selectBoss, onMode, initialParams }) {
   try {
     if (params.has("league")) roster = decodeRoster(params.get("league"));
     else {
-      const stored = JSON.parse(localStorage.getItem(key) || "null");
+      const stored = JSON.parse(
+        localStorage.getItem(key) ||
+          localStorage.getItem("name-boss:league:3") ||
+          "null",
+      );
       if (Array.isArray(stored) && stored.length <= 8) {
         roster = stored.map(unpackBuild);
         roster = roster.filter(
@@ -650,5 +634,5 @@ export function initLeagueUI({ getBoss, selectBoss, onMode, initialParams }) {
     switchMode("league");
   } else if (params.get("mode") === "league") switchMode("league");
   requestAnimationFrame(frame);
-  return { config, switchMode };
+  return { switchMode };
 }

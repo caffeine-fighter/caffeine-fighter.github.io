@@ -9,7 +9,7 @@
     <meta name="theme-color" content="#101014" />
     <meta
       name="description"
-      content="이름으로 보스를 만들고 탄막 패턴을 조합하세요. 직접 도전하거나 친구 보스와 자동 대결해 우리 리그의 최강자를 가려보세요."
+      content="이름으로 보스를 만들고 탄막 패턴을 발견하세요. 직접 도전하거나 친구 보스와 자동 대결해 우리 리그의 최강자를 가려보세요."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -18,7 +18,7 @@
     />
     <meta
       property="og:description"
-      content="내 보스 vs 친구 보스. 6가지 탄막과 3가지 전투 성향으로 만들고, 리그에서 최강자를 가려보세요."
+      content="내 보스 vs 친구 보스. 이름마다 정해지는 탄막과 전투 성향을 발견하고, 리그에서 최강자를 가려보세요."
     />
     <meta
       property="og:image"
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="icon.svg" type="image/svg+xml" />
     <title>네 이름은 보스. — 친구 이름으로 보스전</title>
-    <link rel="stylesheet" href="style.css?v=3" />
+    <link rel="stylesheet" href="style.css?v=4" />
   </head>
   <body>
     <main>
@@ -90,17 +90,17 @@
             ><button data-name="월요일">월요일</button
             ><button id="random">랜덤 소환 ⤨</button>
           </div>
-          <section class="workshop" aria-label="보스 제작">
+          <section class="workshop" aria-label="이름으로 결정된 보스 능력">
             <div class="workshop-heading">
-              <span class="eyebrow">BUILD YOUR BOSS</span
-              ><span>패턴 2개 + 전투 성향</span>
+              <span class="eyebrow">YOUR NAME. YOUR BOSS.</span
+              ><span>이름마다 고정 랜덤</span>
             </div>
-            <label for="build-primary">주 패턴</label
-            ><select id="build-primary"></select>
-            <label for="build-secondary">보조 패턴</label
-            ><select id="build-secondary"></select>
-            <label for="build-style">전투 성향</label
-            ><select id="build-style"></select>
+            <span>주 패턴</span
+            ><strong class="drawn-ability" id="build-primary"></strong>
+            <span>보조 패턴</span
+            ><strong class="drawn-ability" id="build-secondary"></strong>
+            <span>전투 성향</span
+            ><strong class="drawn-ability" id="build-style"></strong>
             <p id="build-info"></p>
             <button id="roster-add" class="secondary">
               이 보스로 리그 참가 +
@@ -256,7 +256,8 @@
               <span id="roster-count">0 / 8</span>
             </div>
             <p class="section-note">
-              제작한 보스를 등록하거나 친구가 보낸 보스 링크를 붙여넣으세요.
+              이름으로 소환한 보스를 등록하거나 친구가 보낸 보스 링크를
+              붙여넣으세요.
             </p>
             <form id="import-form">
               <label class="sr-only" for="import-boss"
@@ -333,7 +334,7 @@
         </div>
       </section>
       <section class="bottom-note">
-        <span>제작 → 맞대결 → 친구 초대.</span>
+        <span>소환 → 능력 공개 → 친구 대결.</span>
         <p>
           이름으로 만든 가상의 캐릭터입니다. 실제 성격과는 관계없어요.<br />이름을
           서버에 따로 저장하지 않아요. 공유 링크에는 입력한 이름이 포함됩니다.
@@ -342,10 +343,10 @@
       <footer>
         <a href="https://caffeine-fighter.github.io/"
           >MADE BY CAFFEINE FIGHTER ↗</a
-        ><span>NAME BOSS / VOL. 03</span>
+        ><span>NAME BOSS / VOL. 04</span>
       </footer>
     </main>
     <noscript>이 게임을 플레이하려면 JavaScript를 켜주세요.</noscript>
-    <script type="module" src="game.js?v=3"></script>
+    <script type="module" src="game.js?v=4"></script>
   </body>
 </html>
