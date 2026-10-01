@@ -49,7 +49,7 @@
     --code-background-color: #30382e;
     --code-text-color: #d3e6cf;
 }
-body, :root:not([data-scheme="dark"]) body { background: var(--body-background); }
+body, :root:not([data-scheme="dark"]) body { background: var(--body-background); color: var(--aether-ink); }
 body::before, .left-sidebar::before, .sidebar header .site-avatar::before,
 .sidebar header .site-avatar::after, .avatar-orbit, .site-status,
 .article-list article::before, .article-list article::after,
