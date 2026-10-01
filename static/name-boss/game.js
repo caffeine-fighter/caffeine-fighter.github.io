@@ -6,8 +6,13 @@ import {
   VERSION,
   W,
   H,
-} from "./core.mjs";
-import { portrait, background, fitText, drawCard } from "./art.mjs";
+  PATTERNS,
+  STYLES,
+  encodeBuild,
+  decodeBuild,
+} from "./core.mjs?v=3";
+import { portrait, background, fitText, drawCard } from "./art.mjs?v=3";
+import { initLeagueUI } from "./league-ui.mjs?v=3";
 const $ = (id) => document.getElementById(id),
   canvas = $("game"),
   ctx = canvas.getContext("2d");
@@ -29,6 +34,16 @@ let lastTime = 0,
   sound = false;
 let challengeTime = 0;
 const params = new URLSearchParams(location.search);
+let initialBoss = null,
+  linkError = "",
+  workshop;
+if (params.has("boss")) {
+  try {
+    initialBoss = decodeBuild(params.get("boss"));
+  } catch (error) {
+    linkError = error.message;
+  }
+}
 const challengeValue = Number(params.get("time"));
 if (params.get("v") === VERSION && challengeValue >= 5 && challengeValue <= 120)
   challengeTime = challengeValue;
@@ -49,7 +64,7 @@ const storage = {
   },
 };
 function recordKey() {
-  return "name-boss:" + VERSION + ":" + boss.name;
+  return "name-boss:" + VERSION + ":" + boss.id;
 }
 function best() {
   const v = Number(storage.get(recordKey()));
@@ -99,14 +114,14 @@ function overlay(label, title, description, button) {
   $("result-share").hidden = true;
   $("exit").hidden = state === "ready";
 }
-function summon(raw, initial = false) {
+function summon(raw, initial = false, config = {}) {
   const name = normalizeName(raw);
   if (!name) {
     $("notice").textContent = "이름이나 별명을 먼저 적어주세요.";
     $("name").focus();
     return;
   }
-  boss = createBoss(name);
+  boss = createBoss(name, config);
   battle = new Battle(boss);
   state = "ready";
   result = null;
@@ -120,7 +135,8 @@ function summon(raw, initial = false) {
   $("quote").textContent = "“" + boss.quote + "”";
   $("boss-code").textContent = "#" + boss.code;
   $("species").textContent = TYPES[boss.type];
-  $("ability").textContent = boss.skill;
+  $("ability").textContent =
+    PATTERNS[boss.pattern] + " + " + PATTERNS[boss.secondary];
   for (const key of ["ego", "patience"]) {
     $(key).textContent = boss[key];
     $(key + "-bar").style.width = boss[key] + "%";
@@ -131,6 +147,8 @@ function summon(raw, initial = false) {
   $("arena-label").textContent = "BOSS DISCOVERED";
   $("card").textContent = "보스 카드 이미지 저장 ↓";
   $("start-hint").hidden = false;
+  $("pause").disabled = true;
+  $("pause").setAttribute("aria-label", "일시정지");
   if (!initial) challengeTime = 0;
   $("challenge").hidden = !challengeTime;
   $("challenge").textContent = challengeTime
@@ -139,7 +157,7 @@ function summon(raw, initial = false) {
   overlay(
     "CHALLENGER WANTED",
     "이길 자신 있어?",
-    "공격은 자동. 피하는 건 네 몫.\n스치듯 피할수록 공격력이 올라갑니다.",
+    "예측탄 · 곡선탄 · 3단계 광폭화.\n공격은 자동. 스치듯 피할수록 강해집니다.",
     "도전하기 →",
   );
   bestLabel();
@@ -147,8 +165,10 @@ function summon(raw, initial = false) {
   url.search = "";
   url.searchParams.set("name", boss.name);
   url.searchParams.set("v", VERSION);
+  url.searchParams.set("boss", encodeBuild(boss));
   if (challengeTime) url.searchParams.set("time", challengeTime.toFixed(2));
   history.replaceState(null, "", url);
+  document.dispatchEvent(new CustomEvent("nameboss:change", { detail: boss }));
   tone(330, 0.1);
 }
 function focusGame() {
@@ -173,6 +193,7 @@ function start() {
   $("arena-label").textContent = "BATTLE IN PROGRESS";
   document.body.classList.add("playing");
   $("pause").setAttribute("aria-label", "일시정지");
+  $("pause").disabled = false;
   focusGame();
   if (!matchMedia("(max-width:760px)").matches)
     canvas.scrollIntoView({ block: "center", behavior: "instant" });
@@ -209,6 +230,7 @@ function finish() {
   pointerId = null;
   lastPointer = null;
   $("battle-toast").textContent = "";
+  $("pause").disabled = true;
   const previous = best(),
     isBest = result.won && (!previous || result.time < previous);
   if (isBest) storage.set(recordKey(), String(result.time));
@@ -288,7 +310,8 @@ function events() {
       tone(950, 0.025, "sine", 0.018);
     }
     if (e.type === "rage") {
-      $("battle-toast").textContent = "분노 발동 / " + boss.skill;
+      $("battle-toast").textContent =
+        battle.phase === 3 ? "광폭화 / 패턴 중첩" : "분노 발동 / " + boss.skill;
       toastTime = 1.6;
       tone(170, 0.25, "sawtooth", 0.02);
     }
@@ -297,24 +320,24 @@ function events() {
 }
 function render(t, dt) {
   const dpr = Math.min(devicePixelRatio || 1, 2);
-  if (canvas.width !== W * dpr) {
-    canvas.width = W * dpr;
-    canvas.height = H * dpr;
+  if (canvas.width !== Math.round(W * dpr)) {
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
   }
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   background(ctx, boss.seed, t, reduced);
   const active = state === "playing" || state === "paused";
   const bob = reduced || state === "paused" ? 0 : Math.sin(t * 2) * 5;
   if (active) {
-    portrait(ctx, boss, W / 2, 150 + bob, 0.86, t, battle.phase === 2);
+    portrait(ctx, boss, W / 2, 150 + bob, 0.86, t, battle.phase >= 2);
     ctx.fillStyle = "#38383f";
     ctx.fillRect(70, 30, W - 140, 5);
-    ctx.fillStyle = battle.phase === 2 ? "#ff719b" : "#d5ff60";
+    ctx.fillStyle = battle.phase >= 2 ? "#ff719b" : "#d5ff60";
     ctx.fillRect(70, 30, ((W - 140) * battle.hp) / boss.hp, 5);
     ctx.textAlign = "center";
     fitText(
       ctx,
-      `${boss.name} / ${battle.phase === 2 ? "분노" : "PHASE 01"}`,
+      `${boss.name} / ${battle.phase === 3 ? "광폭화" : battle.phase === 2 ? "분노" : "PHASE 01"}`,
       W / 2,
       58,
       500,
@@ -348,7 +371,8 @@ function render(t, dt) {
       ctx.stroke();
     }
     for (const b of battle.bullets) {
-      ctx.fillStyle = battle.phase === 2 ? "#ff719b" : "#b9a0ff";
+      ctx.globalAlpha = b.delay > 0 ? 0.24 : 1;
+      ctx.fillStyle = battle.phase >= 2 ? "#ff719b" : "#b9a0ff";
       ctx.beginPath();
       ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
       ctx.fill();
@@ -357,6 +381,7 @@ function render(t, dt) {
       ctx.arc(b.x, b.y, 2, 0, Math.PI * 2);
       ctx.fill();
     }
+    ctx.globalAlpha = 1;
     const p = battle.player;
     ctx.save();
     ctx.translate(p.x, p.y);
@@ -449,12 +474,13 @@ function frame(now) {
       if (toastTime <= 0) $("battle-toast").textContent = "";
     }
   }
-  render(reduced ? 0 : now / 1000, dt);
+  if (!document.body.classList.contains("league-mode"))
+    render(reduced ? 0 : now / 1000, dt);
   requestAnimationFrame(frame);
 }
 $("summon").onsubmit = (e) => {
   e.preventDefault();
-  summon($("name").value);
+  summon($("name").value, false, workshop?.config());
   $("name").blur();
 };
 document
@@ -480,13 +506,13 @@ $("start").onclick = start;
 $("pause").onclick = pause;
 $("dash").onclick = dash;
 $("exit").onclick = () => {
-  summon(boss.name);
+  summon(boss.name, false, boss);
   $("name").focus();
   $("name").select();
   $("summon").scrollIntoView({ block: "center", behavior: "instant" });
 };
 window.addEventListener("keydown", (e) => {
-  if (e.target.matches("input,textarea") || e.isComposing) return;
+  if (e.target.matches("input,textarea,select") || e.isComposing) return;
   const k = e.key.toLowerCase();
   if (
     state === "playing" &&
@@ -540,6 +566,7 @@ function shareUrl() {
   url.search = "";
   url.searchParams.set("name", boss.name);
   url.searchParams.set("v", VERSION);
+  url.searchParams.set("boss", encodeBuild(boss));
   if (result?.won) url.searchParams.set("time", result.time.toFixed(2));
   return url.href;
 }
@@ -614,5 +641,19 @@ $("card").onclick = async () => {
       "이미지를 저장하지 못했어요. 도전장 링크를 공유해 주세요.";
   }
 };
-summon(params.get("name") || "월요일", true);
+summon(
+  initialBoss?.name || params.get("name") || "월요일",
+  true,
+  initialBoss || {},
+);
+if (linkError) $("notice").textContent = linkError;
+workshop = initLeagueUI({
+  getBoss: () => boss,
+  selectBoss: (name, config) => summon(name, false, config),
+  initialParams: params,
+  onMode: () => {
+    if (state === "playing") pause();
+    document.body.classList.remove("playing");
+  },
+});
 requestAnimationFrame(frame);
