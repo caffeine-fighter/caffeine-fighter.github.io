@@ -1,0 +1,23 @@
+{{ define "body-class" }}template-search{{ end }}
+{{ define "head" }}
+    {{ with .OutputFormats.Get "json" }}<link rel="preload" href="{{ .RelPermalink }}" as="fetch" crossorigin="anonymous">{{ end }}
+{{ end }}
+{{ define "main" }}
+<h1>글 검색</h1>
+<form action="{{ .RelPermalink }}" class="search-form"{{ with .OutputFormats.Get "json" }} data-json="{{ .RelPermalink }}"{{ end }}>
+    <p>
+        <label for="post-search">검색어</label>
+        <input id="post-search" type="search" name="keyword" placeholder="제목이나 내용으로 검색" />
+    </p>
+    <button type="submit" aria-label="검색">{{ partial "helper/icon" "search" }}</button>
+</form>
+<div class="search-result hidden">
+    <h2 class="search-result--title section-title"></h2>
+    <div class="search-result--list article-list--compact"></div>
+</div>
+<script>window.searchResultTitleTemplate = "{{ T "search.resultTitle" }}";</script>
+{{ $opts := dict "minify" hugo.IsProduction "JSXFactory" "createElement" }}
+{{ $searchScript := resources.Get "ts/search.tsx" | js.Build $opts }}
+<script src="{{ $searchScript.RelPermalink }}" defer></script>
+{{ partialCached "footer/footer" . }}
+{{ end }}

@@ -3,7 +3,7 @@ mainSections = ["post"]
 # Output page's full content in RSS.
 rssFullContent = true
 favicon        = "img/favicon.png"
-description    = "개발·연구·음악·학생 조직 운영 과정에서 문제를 분석하고 결과물을 만드는 과정을 기록하는 개인 블로그입니다."
+description    = "개발, 대회, 음악과 동아리 활동에 관한 카페인파이터의 일기장."
 
 [author]
     name   = "카페인파이터"
@@ -28,7 +28,7 @@ SortBy              = "default"
 
 [sidebar]
     emoji    = ""
-    subtitle = "SNU TI & Math & Music & CSE 24"
+    subtitle = "개발 · 대회 · 음악 · 동아리"
     avatar   = "img/profile-110007411.jpg"
 
     [sidebar.status]

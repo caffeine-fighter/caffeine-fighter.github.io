@@ -5,27 +5,24 @@
     {{- $categories := .Site.Taxonomies.categories.ByCount -}}
 
     <header class="posts-header aether-reveal">
-        <p class="posts-header__eyebrow">POSTS / INDEX</p>
         <div class="posts-header__title">
             <div>
-                <h1>Posts</h1>
-                <p>카테고리를 선택해 지금까지의 기록을 모아볼 수 있습니다.</p>
+                <h1>전체 글</h1>
+                <p>주제별로 골라 읽을 수 있습니다.</p>
             </div>
-            <span><strong>{{ len $pages }}</strong> TOTAL LOGS</span>
+            <span><strong>{{ len $pages }}</strong> 개의 글</span>
         </div>
 
         <div class="posts-filters" role="group" aria-label="카테고리별 글 필터">
             <button class="posts-filter is-active" type="button" data-post-filter="all" aria-pressed="true">
                 <strong>{{ len $pages }}</strong>
                 <span>전체</span>
-                <small>ALL POSTS</small>
             </button>
             {{ range $categories }}
                 {{- $slug := .Page.Data.Term | urlize -}}
                 <button class="posts-filter" type="button" data-post-filter="{{ $slug }}" aria-pressed="false">
                     <strong>{{ .Count }}</strong>
                     <span>{{ .Page.Title }}</span>
-                    <small>{{ $slug | upper }}</small>
                 </button>
             {{ end }}
         </div>
@@ -49,7 +46,7 @@
                             data-year-toggle>
                             <span class="posts-year__label">{{ .Key }}</span>
                             <span class="posts-year__meta">
-                                <span><strong data-visible-count>{{ len .Pages }}</strong> POSTS</span>
+                                <span><strong data-visible-count>{{ len .Pages }}</strong>개의 글</span>
                                 <span class="posts-year__chevron" aria-hidden="true"><span></span></span>
                             </span>
                         </button>
@@ -61,13 +58,15 @@
                     aria-hidden="{{ if eq $yearIndex 0 }}false{{ else }}true{{ end }}"
                     data-year-panel>
                     <div class="posts-year__panel-inner">
-                        <div class="article-list posts-list">
+                        <div class="article-list--compact posts-list">
                             {{ range .Pages }}
                                 {{- $categorySlugs := slice -}}
                                 {{- range .Params.categories -}}
                                     {{- $categorySlugs = $categorySlugs | append (. | urlize) -}}
                                 {{- end -}}
-                                {{ partial "article-list/posts" (dict "Page" . "CategorySlugs" $categorySlugs) }}
+                                <div data-post-entry data-post-categories="{{ delimit $categorySlugs " " }}">
+                                    {{ partial "article-list/compact" . }}
+                                </div>
                             {{ end }}
                         </div>
                     </div>
@@ -135,6 +134,10 @@
                     visibleEntries[0]?.classList.add("is-featured");
                     const count = group.querySelector("[data-visible-count]");
                     if (count) count.textContent = visibleEntries.length;
+                    if (filter !== "all" && visibleEntries.length) {
+                        const toggle = group.querySelector("[data-year-toggle]");
+                        if (toggle) setYearExpanded(toggle, true);
+                    }
                 });
 
                 filters.forEach((button) => {
