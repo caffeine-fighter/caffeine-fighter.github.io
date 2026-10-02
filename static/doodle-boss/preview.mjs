@@ -1,6 +1,6 @@
-import { volley, moveProjectile } from "./patterns.mjs?v=7";
-import { positionSketchShots } from "./sketch.mjs?v=7";
-import { portrait } from "./art.mjs?v=7";
+import { volley, moveProjectile } from "./patterns.mjs?v=8";
+import { positionSketchShots } from "./sketch.mjs?v=8";
+import { portrait } from "./art.mjs?v=8";
 export function createPreview(canvas, caption = true) {
   const c = canvas.getContext("2d");
   let boss = null,

@@ -1,5 +1,5 @@
-import { initFriendChallenge } from "./friend.mjs?v=7";
-import { initSketchUI } from "./sketch-ui.mjs?v=7";
+import { initFriendChallenge } from "./friend.mjs?v=8";
+import { initSketchUI } from "./sketch-ui.mjs?v=8";
 import {
   Battle,
   createBoss,
@@ -12,9 +12,9 @@ import {
   STYLES,
   encodeBuild,
   decodeBuild,
-} from "./core.mjs?v=7";
-import { portrait, background, fitText, drawCard } from "./art.mjs?v=7";
-import { initLeagueUI } from "./league-ui.mjs?v=7";
+} from "./core.mjs?v=8";
+import { portrait, background, fitText, drawCard } from "./art.mjs?v=8";
+import { initLeagueUI } from "./league-ui.mjs?v=8";
 const $ = (id) => document.getElementById(id),
   canvas = $("game"),
   ctx = canvas.getContext("2d");
@@ -314,7 +314,7 @@ function events() {
     }
     if (e.type === "rage") {
       $("battle-toast").textContent =
-        battle.phase === 3 ? "광폭화 / 패턴 중첩" : "분노 발동 / " + boss.skill;
+        battle.phase === 3 ? "광폭화 / 피해 30% 감소 · 패턴 중첩" : "분노 발동 / " + boss.skill;
       toastTime = 1.6;
       tone(170, 0.25, "sawtooth", 0.02);
     }

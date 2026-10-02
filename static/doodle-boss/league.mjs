@@ -1,6 +1,6 @@
-import { positionSketchShots } from "./sketch.mjs?v=7";
-import { W, H, createBoss, packBuild, unpackBuild } from "./core.mjs?v=7";
-import { volley, moveProjectile } from "./patterns.mjs?v=7";
+import { positionSketchShots } from "./sketch.mjs?v=8";
+import { W, H, createBoss, packBuild, unpackBuild } from "./core.mjs?v=8";
+import { volley, moveProjectile } from "./patterns.mjs?v=8";
 export const ROUND_SECONDS = 32;
 export const STEP = 1 / 60;
 export const MAX_ROSTER = 8;

@@ -1,4 +1,4 @@
-import { W, H, random, PATTERNS, STYLES } from "./core.mjs?v=7";
+import { W, H, random, PATTERNS, STYLES } from "./core.mjs?v=8";
 export function portrait(c, boss, x, y, scale = 1, t = 0, rage = false) {
   if (boss.geometry) {
     c.save();

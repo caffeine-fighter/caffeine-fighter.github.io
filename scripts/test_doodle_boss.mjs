@@ -126,7 +126,7 @@ test("all sample drawings play bounded battles and share reproducible league res
   );
   for (const boss of roster) {
     const b = new Battle(boss);
-    for (let i = 0; i < 2100 && b.state === "playing"; i++) {
+    for (let i = 0; i < 2700 && b.state === "playing"; i++) {
       b.player.invincible = 10;
       b.update(1 / 60);
       assert.ok(b.bullets.length < 600);
@@ -155,4 +155,30 @@ test("maximum roster drawings fit in a shareable URL", () => {
   const token = encodeRoster(roster);
   assert.ok(token.length < 7500);
   assert.deepEqual(decodeRoster(token), roster);
+});
+
+
+test("solo rage lasts through sustained fire even with maximum graze damage", () => {
+  for (const grazes of [0, 100]) {
+    const battle = new Battle(createBoss("광폭화", { sketch: sampleSketch(1) }));
+    let rageAt = null;
+    for (let i = 0; i < 2700 && battle.state === "playing"; i++) {
+      battle.player.invincible = 10;
+      battle.grazes = grazes;
+      const phase = battle.phase;
+      battle.update(1 / 60);
+      if (phase < 3 && battle.phase === 3) rageAt = battle.time;
+    }
+    assert.equal(battle.state, "won");
+    assert.ok(rageAt !== null);
+    assert.ok(battle.time - rageAt >= 10, "rage cannot be skipped by boosted auto fire");
+    assert.ok(battle.time < 40, "a protected player can still finish a short session");
+  }
+});
+
+test("previous version drawing challenges still open after the balance update", () => {
+  const boss = createBoss("기존 도전장", { sketch: sampleSketch(2) });
+  const data = JSON.parse(Buffer.from(encodeBuild(boss), "base64url").toString());
+  data[0] = "5";
+  assert.deepEqual(decodeBuild(Buffer.from(JSON.stringify(data)).toString("base64url")), boss);
 });

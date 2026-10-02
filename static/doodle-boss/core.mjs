@@ -4,9 +4,9 @@ import {
   analyzeSketch,
   sampleSketch,
   positionSketchShots,
-} from "./sketch.mjs?v=7";
-import { volley, moveProjectile, PATTERN_NAMES } from "./patterns.mjs?v=7";
-export const VERSION = "5";
+} from "./sketch.mjs?v=8";
+import { volley, moveProjectile, PATTERN_NAMES } from "./patterns.mjs?v=8";
+export const VERSION = "6";
 export const W = 600,
   H = 700;
 export const PATTERNS = PATTERN_NAMES;
@@ -182,7 +182,7 @@ export function encodeBuild(boss) {
 }
 export function decodeBuild(token) {
   const data = decode(token);
-  if (![VERSION, "4", "3"].includes(data[0]))
+  if (![VERSION, "5", "4", "3"].includes(data[0]))
     throw new Error("현재 버전의 보스 링크가 아니에요.");
   return unpackBuild(data[1]);
 }
@@ -192,7 +192,7 @@ export function encodeRoster(bosses) {
 export function decodeRoster(token) {
   const data = decode(token);
   if (
-    ![VERSION, "4", "3"].includes(data[0]) ||
+    ![VERSION, "5", "4", "3"].includes(data[0]) ||
     !Array.isArray(data[1]) ||
     data[1].length < 2 ||
     data[1].length > 8
@@ -332,16 +332,16 @@ export class Battle {
       s.x += s.vx * dt;
       s.y += s.vy * dt;
       if (Math.hypot(s.x - W / 2, s.y - 150) < 55) {
-        this.hp = Math.max(0, this.hp - s.damage);
+        this.hp = Math.max(0, this.hp - s.damage * (this.phase === 3 ? 0.7 : 1));
         s.dead = true;
         this.events.push({ type: "spark", x: s.x, y: s.y });
       }
     }
     this.shots = this.shots.filter((s) => !s.dead && s.y > -20);
     const nextPhase =
-      this.hp <= this.boss.hp * 0.25
+      this.hp <= this.boss.hp * 0.45
         ? 3
-        : this.hp <= this.boss.hp * 0.55
+        : this.hp <= this.boss.hp * 0.70
           ? 2
           : 1;
     if (this.phase < nextPhase && this.hp > 0) {
