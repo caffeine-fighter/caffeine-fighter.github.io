@@ -1,179 +1,31 @@
-{{ define "body-class" }}home-template aether-home{{ end }}
+{{ define "body-class" }}home-template{{ end }}
 
 {{ define "main" }}
     {{- $paginator := partial "helper/paginator.html" . -}}
     {{- $banner := .Site.Params.home.banner -}}
-    {{- $orbit := $banner.orbit -}}
-    {{- $stats := first 6 $orbit.stats -}}
-    {{- $statVectors := slice
-        (slice 0 -92)
-        (slice 79.67 -46)
-        (slice 79.67 46)
-        (slice 0 92)
-        (slice -79.67 46)
-        (slice -79.67 -46)
-    -}}
-    {{- $statLabelPositions := slice
-        (dict "x" 120 "y" 14 "anchor" "middle")
-        (dict "x" 207 "y" 68 "anchor" "start")
-        (dict "x" 207 "y" 176 "anchor" "start")
-        (dict "x" 120 "y" 229 "anchor" "middle")
-        (dict "x" 33 "y" 176 "anchor" "end")
-        (dict "x" 33 "y" 68 "anchor" "end")
-    -}}
-    {{- $statScratch := newScratch -}}
-    {{- $statScratch.Set "points" (slice) -}}
-    {{- $statScratch.Set "nodes" (slice) -}}
-    {{- $statTotal := 0.0 -}}
-    {{- range $index, $stat := $stats -}}
-        {{- $vector := index $statVectors $index -}}
-        {{- $ratio := div $stat.score 100.0 -}}
-        {{- $x := add 120 (mul (index $vector 0) $ratio) -}}
-        {{- $y := add 120 (mul (index $vector 1) $ratio) -}}
-        {{- $statTotal = add $statTotal $stat.score -}}
-        {{- $statScratch.Add "points" (slice (printf "%.2f,%.2f" $x $y)) -}}
-        {{- $statScratch.Add "nodes" (slice (dict "x" $x "y" $y)) -}}
-    {{- end -}}
-    {{- $statPoints := delimit ($statScratch.Get "points") " " -}}
-    {{- $statNodes := $statScratch.Get "nodes" -}}
-    {{- $statAverage := cond (gt (len $stats) 0) (div $statTotal (len $stats)) 0.0 -}}
 
-    <section class="aether-hero aether-reveal" aria-labelledby="aether-hero-title">
-        <div class="aether-hero__copy">
-            <p class="aether-kicker">
-                <span class="aether-kicker__pulse" aria-hidden="true"></span>
-                {{ $banner.kicker | default "CF / PERSONAL POSTS" }}
-            </p>
-
-            <h1 id="aether-hero-title">
-                {{ $banner.title | default .Site.Title }}
-                {{ with $banner.accent }}<span>{{ . }}</span>{{ end }}
-            </h1>
+    {{ if eq $paginator.PageNumber 1 }}
+        <section class="home-intro">
+            <h1>{{ $banner.title | default .Site.Title }}</h1>
 
             {{ with $banner.description }}
-                <p class="aether-hero__description">{{ . }}</p>
-            {{ end }}
-            {{ with $banner.activities }}
-                <p class="aether-hero__description">{{ . }} <a href="{{ "/portfolio/#performance-operations" | relURL }}">공연 기획·운영 이력 보기</a></p>
+                <p>{{ . }}</p>
             {{ end }}
 
-            <div class="aether-hero__actions" aria-label="주요 페이지">
-                <a class="aether-button aether-button--primary" href="{{ "/portfolio/" | relURL }}">
-                    <span>포트폴리오</span>
-                    <span aria-hidden="true">↗</span>
-                </a>
-                <a class="aether-button aether-button--ghost" href="{{ "/resume/" | relURL }}">
-                    이력서
-                </a>
-                <a class="aether-text-link" href="{{ "/categories/" | relURL }}">
-                    기록 탐색 <span aria-hidden="true">→</span>
-                </a>
-            </div>
+            <p class="home-intro__links">
+                <a href="{{ "/portfolio/" | relURL }}">포트폴리오</a>
+                <a href="{{ "/resume/" | relURL }}">이력서</a>
+                <a href="{{ "/categories/" | relURL }}">카테고리</a>
+            </p>
+        </section>
+    {{ end }}
 
-            {{ with $banner.metrics }}
-                <dl class="aether-hero__metrics">
-                    {{ range . }}
-                        <div>
-                            <dt>{{ .label }}</dt>
-                            <dd>{{ .value }}</dd>
-                        </div>
-                    {{ end }}
-                </dl>
-            {{ end }}
-        </div>
-
-        <div class="aether-orbit">
-            <span class="aether-orbit__track aether-orbit__track--one" aria-hidden="true"></span>
-            <span class="aether-orbit__track aether-orbit__track--two" aria-hidden="true"></span>
-            <span class="aether-orbit__shard aether-orbit__shard--cyan" aria-hidden="true"></span>
-            <span class="aether-orbit__shard aether-orbit__shard--pink" aria-hidden="true"></span>
-            <span class="aether-orbit__shard aether-orbit__shard--violet" aria-hidden="true"></span>
-
-            <figure class="aether-stat-chart">
-                <svg viewBox="0 0 240 240" role="img" aria-labelledby="aether-stat-title aether-stat-description">
-                    <title id="aether-stat-title">{{ $orbit.eyebrow | default "CF / TRACK RECORD" }}</title>
-                    <desc id="aether-stat-description">
-                        {{- range $index, $stat := $stats -}}
-                            {{- if $index }}, {{ end -}}{{ $stat.detail | default (printf "%s %s" $stat.label $stat.value) }}
-                        {{- end -}}
-                    </desc>
-
-                    <defs>
-                        <linearGradient id="aether-stat-fill" x1="32" y1="28" x2="208" y2="212" gradientUnits="userSpaceOnUse">
-                            <stop class="aether-stat-chart__stop aether-stat-chart__stop--blue" offset="0"></stop>
-                            <stop class="aether-stat-chart__stop aether-stat-chart__stop--violet" offset="0.52"></stop>
-                            <stop class="aether-stat-chart__stop aether-stat-chart__stop--ruby" offset="1"></stop>
-                        </linearGradient>
-                        <linearGradient id="aether-stat-stroke" x1="40" y1="62" x2="204" y2="184" gradientUnits="userSpaceOnUse">
-                            <stop class="aether-stat-chart__stop aether-stat-chart__stop--cyan" offset="0"></stop>
-                            <stop class="aether-stat-chart__stop aether-stat-chart__stop--violet" offset="0.48"></stop>
-                            <stop class="aether-stat-chart__stop aether-stat-chart__stop--ruby" offset="1"></stop>
-                        </linearGradient>
-                    </defs>
-
-                    <g class="aether-stat-chart__grid" aria-hidden="true">
-                        <polygon points="120,97 139.92,108.5 139.92,131.5 120,143 100.08,131.5 100.08,108.5"></polygon>
-                        <polygon points="120,74 159.84,97 159.84,143 120,166 80.16,143 80.16,97"></polygon>
-                        <polygon points="120,51 179.75,85.5 179.75,154.5 120,189 60.25,154.5 60.25,85.5"></polygon>
-                        <polygon class="aether-stat-chart__grid-outer" points="120,28 199.67,74 199.67,166 120,212 40.33,166 40.33,74"></polygon>
-                        <line x1="120" y1="120" x2="120" y2="28"></line>
-                        <line x1="120" y1="120" x2="199.67" y2="74"></line>
-                        <line x1="120" y1="120" x2="199.67" y2="166"></line>
-                        <line x1="120" y1="120" x2="120" y2="212"></line>
-                        <line x1="120" y1="120" x2="40.33" y2="166"></line>
-                        <line x1="120" y1="120" x2="40.33" y2="74"></line>
-                    </g>
-
-                    <polygon class="aether-stat-chart__glow" points="{{ $statPoints }}" aria-hidden="true"></polygon>
-                    <polygon class="aether-stat-chart__area" points="{{ $statPoints }}" aria-hidden="true"></polygon>
-
-                    <g class="aether-stat-chart__nodes" aria-hidden="true">
-                        {{- range $statNodes -}}
-                            <circle cx="{{ printf "%.2f" .x }}" cy="{{ printf "%.2f" .y }}" r="3.2"></circle>
-                        {{- end -}}
-                    </g>
-
-                    <text
-                        class="aether-stat-chart__center"
-                        x="120"
-                        y="120"
-                        text-anchor="middle"
-                        aria-label="여섯 스탯의 평균 점수 {{ printf "%.1f" $statAverage }}">
-                        {{- printf "%.1f" $statAverage -}}
-                    </text>
-
-                    <g class="aether-stat-chart__labels">
-                        {{- range $index, $stat := $stats -}}
-                            {{- $position := index $statLabelPositions $index -}}
-                            <a
-                                class="aether-stat-chart__link"
-                                href="{{ $stat.url | relURL }}"
-                                aria-label="{{ $stat.detail | default (printf "%s %s" $stat.label $stat.value) }}">
-                                <title>{{ $stat.detail }} · 기준: {{ $stat.benchmark }}</title>
-                                <text x="{{ $position.x }}" y="{{ $position.y }}" text-anchor="{{ $position.anchor }}">
-                                    {{ $stat.label }}
-                                    <tspan class="aether-stat-chart__value" x="{{ $position.x }}" dy="9">
-                                        {{ $stat.value }} · {{ $stat.relative }}
-                                    </tspan>
-                                </text>
-                            </a>
-                        {{- end -}}
-                    </g>
-                </svg>
-                <figcaption>{{ $orbit.caption | default "SELF-ASSESSMENT / 2026" }}</figcaption>
-            </figure>
-        </div>
-    </section>
-
-    <header class="aether-section-heading aether-reveal">
-        <div>
-            <p>JOURNAL / LATEST</p>
-            <h2>최근 기록</h2>
-        </div>
-        <a href="{{ "/posts/" | relURL }}">전체 기록 <span aria-hidden="true">↗</span></a>
+    <header class="home-section-title">
+        <h2>최근 글</h2>
+        <a href="{{ "/posts/" | relURL }}">전체 보기 →</a>
     </header>
 
-    <section class="article-list aether-journal" aria-label="최근 글">
+    <section class="post-list" aria-label="최근 글">
         {{ range $paginator.Pages }}
             {{ partial "article-list/default" . }}
         {{ end }}

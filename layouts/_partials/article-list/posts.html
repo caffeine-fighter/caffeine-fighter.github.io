@@ -1,21 +1,27 @@
 {{- $page := .Page -}}
 {{- $categorySlugs := .CategorySlugs | default (slice) -}}
-{{- $image := partial "helper/image" (dict "Image" $page.Params.image "Resources" $page.Resources "Context" $page) -}}
 <article
-    class="aether-entry aether-reveal {{ if $image }}has-image{{ else }}without-image{{ end }}"
+    class="post-row"
     data-post-entry
     data-post-categories="{{ delimit $categorySlugs " " }}">
-    <span class="aether-entry__signal" aria-hidden="true">
-        <span>LOG / {{ $page.Date.Format "06.01.02" }}</span>
-        <i></i>
-    </span>
+    <time class="post-row__date" datetime="{{ $page.Date.Format "2006-01-02T15:04:05Z07:00" }}">
+        {{- $page.Date.Format "2006.01.02" -}}
+    </time>
 
-    {{ partial "article/components/header" (dict "Page" $page "IsList" true) }}
+    <div class="post-row__body">
+        <h3 class="post-row__title"><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h3>
 
-    <a
-        class="aether-entry__arrow"
-        href="{{ $page.RelPermalink }}"
-        aria-label="{{ printf "%s 글 읽기" $page.Title }}">
-        <span aria-hidden="true">↗</span>
-    </a>
+        {{ with $page.Params.description }}
+            <p class="post-row__summary">{{ . }}</p>
+        {{ end }}
+
+        <p class="post-row__meta">
+            {{ range first 1 ($page.GetTerms "categories") }}
+                <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            {{ end }}
+            {{ if $page.Params.readingTime | default $page.Site.Params.article.readingTime }}
+                <span>{{ T "article.readingTime" $page.ReadingTime }}</span>
+            {{ end }}
+        </p>
+    </div>
 </article>

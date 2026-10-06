@@ -7,17 +7,15 @@
         {{ now.Format "2006" }} {{ default .Site.Title .Site.Copyright }}
     </section>
 
-    <section class="powerby aether-footer-meta">
+    <section class="powerby">
         {{ with .Site.Params.footer.customText }}
             <span>{{ . | safeHTML }}</span>
-            <span class="aether-footer-meta__separator" aria-hidden="true">/</span>
+            <span aria-hidden="true">·</span>
         {{ end }}
 
         <span lang="en">
             Built with
             <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>
         </span>
-        <span class="aether-footer-meta__separator" aria-hidden="true">/</span>
-        <span>커스텀 테마 사용 중</span>
     </section>
 </footer>

@@ -1,21 +1,11 @@
 {{- with .Site.Params.comments.giscus -}}
-<section class="aether-comments" data-giscus-shell aria-labelledby="aether-comments-title" aria-busy="true">
-    <span class="aether-comments__rail" aria-hidden="true"></span>
-    <header class="aether-comments__header">
-        <div>
-            <p class="aether-comments__eyebrow">RESONANCE / DISCUSSION</p>
-            <h2 id="aether-comments-title">댓글과 반응</h2>
-        </div>
-        <span class="aether-comments__badge">GITHUB DISCUSSIONS</span>
+<section class="comments" data-giscus-shell aria-labelledby="comments-title" aria-busy="true">
+    <header class="comments__header">
+        <h2 id="comments-title">댓글</h2>
+        <p>GitHub 계정으로 남길 수 있고, GitHub Discussions에 저장됩니다.</p>
     </header>
-    <p class="aether-comments__description">
-        GitHub 계정으로 로그인해 의견을 남길 수 있습니다. 반응과 답글은 GitHub Discussions에 이어집니다.
-    </p>
-    <div class="aether-comments__frame">
-        <div class="aether-comments__loading" role="status">
-            <span aria-hidden="true"></span>
-            <span>DISCUSSION CHANNEL CONNECTING</span>
-        </div>
+    <div class="comments__frame">
+        <p class="comments__loading" role="status">댓글을 불러오는 중…</p>
         <script
             src="https://giscus.app/client.js"
             data-repo="{{- .repo -}}"
@@ -39,7 +29,7 @@
     (() => {
         const currentScript = document.currentScript;
         const shell = currentScript.previousElementSibling;
-        const frame = shell?.querySelector(".aether-comments__frame");
+        const frame = shell?.querySelector(".comments__frame");
         if (!shell || !frame) return;
 
         const theme = () =>
@@ -64,9 +54,9 @@
 
         const connectFrame = () => {
             const giscus = shell.querySelector("iframe.giscus-frame");
-            if (!giscus || giscus.dataset.aetherConnected) return;
+            if (!giscus || giscus.dataset.giscusConnected) return;
 
-            giscus.dataset.aetherConnected = "true";
+            giscus.dataset.giscusConnected = "true";
             giscus.addEventListener(
                 "load",
                 () => {

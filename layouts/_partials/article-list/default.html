@@ -1,16 +1,22 @@
-{{- $image := partial "helper/image" (dict "Image" .Params.image "Resources" .Resources "Context" .) -}}
-<article class="aether-entry aether-reveal {{ if $image }}has-image{{ else }}without-image{{ end }}">
-    <span class="aether-entry__signal" aria-hidden="true">
-        <span>LOG / {{ .Date.Format "06.01.02" }}</span>
-        <i></i>
-    </span>
+<article class="post-row">
+    <time class="post-row__date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+        {{- .Date.Format "2006.01.02" -}}
+    </time>
 
-    {{ partial "article/components/header" (dict "Page" . "IsList" true) }}
+    <div class="post-row__body">
+        <h2 class="post-row__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
 
-    <a
-        class="aether-entry__arrow"
-        href="{{ .RelPermalink }}"
-        aria-label="{{ printf "%s 글 읽기" .Title }}">
-        <span aria-hidden="true">↗</span>
-    </a>
+        {{ with .Params.description }}
+            <p class="post-row__summary">{{ . }}</p>
+        {{ end }}
+
+        <p class="post-row__meta">
+            {{ range first 1 (.GetTerms "categories") }}
+                <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            {{ end }}
+            {{ if .Params.readingTime | default .Site.Params.article.readingTime }}
+                <span>{{ T "article.readingTime" .ReadingTime }}</span>
+            {{ end }}
+        </p>
+    </div>
 </article>
