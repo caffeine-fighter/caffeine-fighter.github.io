@@ -49,6 +49,83 @@ SortBy              = "default"
             "극지 빅데이터·AI",
         ]
 
+[home.banner]
+    activities = "서울대학교 락 페스티벌 관악 앰프 업과 문화자치위원회 PILOT 공연장 조성·공연 사업을 공동 기획·운영했습니다."
+    kicker     = "CAFFEINE FIGHTER / LOGBOOK / 2026"
+    title      = "재밌어 보이기만 한다면"
+    accent     = "무엇이든 다 합니다."
+    description = "수학 문제를 풀고, 코드를 짜고, 곡을 만들고, 사람을 모아 일을 벌입니다. 잘된 일만 골라 두기보다 망한 이유와 다음에는 무엇을 바꿀지까지 적습니다."
+
+    [[home.banner.metrics]]
+        label = "BUILD"
+        value = "Grand Prize + Excellence"
+
+    [[home.banner.metrics]]
+        label = "OPERATE"
+        value = "1,000+ Community"
+
+    [[home.banner.metrics]]
+        label = "STUDY"
+        value = "3.86 Total / 4.18 Major"
+
+    [home.banner.orbit]
+        eyebrow = "CF / TRACK RECORD"
+        caption = "NORMALIZED SCALE / 100 · RAW VALUE + %"
+
+        [[home.banner.orbit.stats]]
+            label     = "PS"
+            value     = "2,415"
+            relative  = "81%"
+            score     = 80.5
+            detail    = "solved.ac AC Rating 2,415 · Master 3,000 기준 81% · pleiades1"
+            benchmark = "Master 3,000"
+            url       = "https://solved.ac/profile/pleiades1"
+
+        [[home.banner.orbit.stats]]
+            label     = "CP"
+            value     = "1,937"
+            relative  = "65%"
+            score     = 64.6
+            detail    = "Codeforces Rating 1,937 · Legendary Grandmaster 3,000 기준 65% · PastelRain"
+            benchmark = "Legendary Grandmaster 3,000"
+            url       = "https://codeforces.com/profile/PastelRain"
+
+        [[home.banner.orbit.stats]]
+            label     = "HACKATHON"
+            value     = "5 / 2"
+            relative  = "40%"
+            score     = 40
+            detail    = "해커톤 출전 5회 · 수상 2회 · 수상 5회 기준 40%"
+            benchmark = "수상 5회"
+            url       = "/profile/#대회와-수상"
+
+        [[home.banner.orbit.stats]]
+            label     = "ML"
+            value     = "4 / 1"
+            relative  = "20%"
+            score     = 20
+            detail    = "ML·AI 대회 출전 4회 · 수상 1회 · 수상 5회 기준 20%"
+            benchmark = "수상 5회"
+            url       = "/profile/#대회와-수상"
+
+        [[home.banner.orbit.stats]]
+            label     = "MUSIC"
+            value     = "8"
+            relative  = "27%"
+            score     = 26.7
+            detail    = "완성한 음악 작업물 8곡 · 30곡 기준 27%"
+            benchmark = "완성작 30곡"
+            url       = "/profile/"
+
+        [[home.banner.orbit.stats]]
+            label     = "GPA"
+            value     = "3.83 / 4.10"
+            relative  = "89%"
+            score     = 89.1
+            detail    = "전체 GPA 3.83 · 전공 GPA 4.10 / 4.30 · 그래프는 전체 GPA 기준 89%"
+            benchmark = "전체 GPA / 4.30"
+            url       = "/resume/"
+
 [article]
     headingAnchor = false
     math          = true
@@ -89,8 +166,8 @@ SortBy              = "default"
         reactionsEnabled = "1"
         emitMetadata = "0"
         inputPosition = "bottom"
-        lightTheme = "noborder_light"
-        darkTheme = "noborder_gray"
+        lightTheme = "https://caffeine-fighter.github.io/css/giscus-aether-light.css"
+        darkTheme = "https://caffeine-fighter.github.io/css/giscus-aether-dark.css"
         lang = "ko"
         loading = "lazy"
         crossorigin = "anonymous"

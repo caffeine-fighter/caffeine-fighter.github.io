@@ -25,9 +25,6 @@ enableRobotsTXT = true
   url = "/categories/"
   weight = 5
 
-  [menu.main.params]
-    icon = "categories"
-
 [[menu.main]]
   identifier = "portfolio"
   name = "Portfolio"

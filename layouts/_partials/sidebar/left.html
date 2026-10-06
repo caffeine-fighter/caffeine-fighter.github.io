@@ -12,6 +12,8 @@
     </button>
 
     <header>
+        <p class="site-kicker">CF / LOGBOOK</p>
+
         {{ with .Site.Params.sidebar.avatar }}
             {{- $avatar := partial "helper/image" (dict "Image" . "Resources" resources "Context" $) -}}
             <figure class="site-avatar">
@@ -24,6 +26,7 @@
                         loading="eager"
                         alt="{{ $.Site.Params.author.name }}">
                 </a>
+                <span class="avatar-orbit" aria-hidden="true"></span>
                 {{ with $.Site.Params.sidebar.emoji }}
                     <span class="emoji">{{ . }}</span>
                 {{ end }}
@@ -37,10 +40,20 @@
 
         {{- with .Site.Params.sidebar.status -}}
             {{- $ongoingNames := delimit .ongoing " · " -}}
-            <p class="site-status" title="{{ .updated }} 기준">
-                진행 중 {{ .ongoingCount }} · 참가 예정 {{ .upcomingCount }}
-                <small>{{ $ongoingNames }}</small>
-            </p>
+            {{- $upcomingNames := delimit .upcoming " · " -}}
+            <div
+                class="site-status"
+                title="진행 중: {{ $ongoingNames }} | 참가 예정: {{ $upcomingNames }} | {{ .updated }} 기준">
+                <span aria-hidden="true"></span>
+                <p>
+                    <strong>
+                        <span>ONGOING {{ .ongoingCount }}</span>
+                        <i aria-hidden="true">·</i>
+                        <span>UPCOMING {{ .upcomingCount }}</span>
+                    </strong>
+                    <small>{{ $ongoingNames }}</small>
+                </p>
+            </div>
         {{- end -}}
     </header>
 
@@ -71,10 +84,12 @@
                 <a
                     href="{{ $item.URL }}"
                     {{ if $item.Params.newTab }}target="_blank" rel="noopener noreferrer"{{ end }}>
+                    <span class="menu-index" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
                     {{ with $item.Params.Icon }}
                         {{ partial "helper/icon" . }}
                     {{ end }}
                     <span>{{- $item.Name -}}</span>
+                    <span class="menu-arrow" aria-hidden="true">↗</span>
                 </a>
             </li>
         {{ end }}
