@@ -50,11 +50,7 @@ SortBy              = "default"
         ]
 
 [home.banner]
-    activities = "서울대학교 락 페스티벌 관악 앰프 업과 문화자치위원회 PILOT 공연장 조성·공연 사업을 공동 기획·운영했습니다."
-    title      = "재밌어 보이기만 한다면"
-    accent     = "무엇이든 다 합니다."
-    description = "수학 문제를 풀고, 코드를 짜고, 곡을 만들고, 사람을 모아 일을 벌입니다. 잘된 일만 골라 두기보다 망한 이유와 다음에는 무엇을 바꿀지까지 적습니다."
-
+    title = "카페인파이터의 일기장"
 
     [home.banner.orbit]
         eyebrow = "트랙 레코드"
