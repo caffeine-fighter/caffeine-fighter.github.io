@@ -1572,17 +1572,6 @@ main.main {
     padding-top: clamp(34px, 5vw, 58px);
 }
 
-.main-article .article-header .article-details::before {
-    display: block;
-    margin-bottom: 4px;
-    color: var(--aether-violet);
-    content: "CF / FIELD NOTE";
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-}
-
 .main-article .article-title {
     font-family: var(--editorial-font-family);
     font-size: clamp(3rem, 4.5vw, 5.5rem);
@@ -1619,10 +1608,6 @@ main.main {
 /* Resume is a document, not a dated field note. */
 .resume-page .main-article .article-header .article-details {
     padding-top: clamp(28px, 4vw, 46px);
-}
-
-.resume-page .main-article .article-header .article-details::before {
-    content: "CF / RESUME";
 }
 
 .resume-page .main-article .article-meta,

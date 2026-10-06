@@ -12,8 +12,6 @@
     </button>
 
     <header>
-        <p class="site-kicker">CF / LOGBOOK</p>
-
         {{ with .Site.Params.sidebar.avatar }}
             {{- $avatar := partial "helper/image" (dict "Image" . "Resources" resources "Context" $) -}}
             <figure class="site-avatar">
@@ -47,9 +45,9 @@
                 <span aria-hidden="true"></span>
                 <p>
                     <strong>
-                        <span>ONGOING {{ .ongoingCount }}</span>
+                        <span>진행 중 {{ .ongoingCount }}</span>
                         <i aria-hidden="true">·</i>
-                        <span>UPCOMING {{ .upcomingCount }}</span>
+                        <span>참가 예정 {{ .upcomingCount }}</span>
                     </strong>
                     <small>{{ $ongoingNames }}</small>
                 </p>

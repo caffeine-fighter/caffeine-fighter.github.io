@@ -1,7 +1,7 @@
 {{- $image := partial "helper/image" (dict "Image" .Params.image "Resources" .Resources "Context" .) -}}
 <article class="aether-entry aether-reveal {{ if $image }}has-image{{ else }}without-image{{ end }}">
     <span class="aether-entry__signal" aria-hidden="true">
-        <span>LOG / {{ .Date.Format "06.01.02" }}</span>
+        <span>{{ .Date.Format "2006.01.02" }}</span>
         <i></i>
     </span>
 

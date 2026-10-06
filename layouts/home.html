@@ -40,11 +40,6 @@
 
     <section class="aether-hero aether-reveal" aria-labelledby="aether-hero-title">
         <div class="aether-hero__copy">
-            <p class="aether-kicker">
-                <span class="aether-kicker__pulse" aria-hidden="true"></span>
-                {{ $banner.kicker | default "CF / PERSONAL POSTS" }}
-            </p>
-
             <h1 id="aether-hero-title">
                 {{ $banner.title | default .Site.Title }}
                 {{ with $banner.accent }}<span>{{ . }}</span>{{ end }}
@@ -70,16 +65,6 @@
                 </a>
             </div>
 
-            {{ with $banner.metrics }}
-                <dl class="aether-hero__metrics">
-                    {{ range . }}
-                        <div>
-                            <dt>{{ .label }}</dt>
-                            <dd>{{ .value }}</dd>
-                        </div>
-                    {{ end }}
-                </dl>
-            {{ end }}
         </div>
 
         <div class="aether-orbit">
@@ -91,7 +76,7 @@
 
             <figure class="aether-stat-chart">
                 <svg viewBox="0 0 240 240" role="img" aria-labelledby="aether-stat-title aether-stat-description">
-                    <title id="aether-stat-title">{{ $orbit.eyebrow | default "CF / TRACK RECORD" }}</title>
+                    <title id="aether-stat-title">{{ $orbit.eyebrow | default "트랙 레코드" }}</title>
                     <desc id="aether-stat-description">
                         {{- range $index, $stat := $stats -}}
                             {{- if $index }}, {{ end -}}{{ $stat.detail | default (printf "%s %s" $stat.label $stat.value) }}
@@ -160,14 +145,13 @@
                         {{- end -}}
                     </g>
                 </svg>
-                <figcaption>{{ $orbit.caption | default "SELF-ASSESSMENT / 2026" }}</figcaption>
+                <figcaption>{{ $orbit.caption | default "자체 평가 · 2026" }}</figcaption>
             </figure>
         </div>
     </section>
 
     <header class="aether-section-heading aether-reveal">
         <div>
-            <p>JOURNAL / LATEST</p>
             <h2>최근 기록</h2>
         </div>
         <a href="{{ "/posts/" | relURL }}">전체 기록 <span aria-hidden="true">↗</span></a>
