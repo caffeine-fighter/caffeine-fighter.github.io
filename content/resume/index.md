@@ -38,7 +38,7 @@ ML 시스템, 모델 추론 최적화, 알고리즘.
 
 **K-HTML 해커톤 대상** (2025.08)
 
-**KT 디지털인재 장학금** (2026년 1학기)
+**2026 KT디지털인재장학생**
 
 **SNU AI Challenge 본선**, **양자정보경진대회 본선**, **CODEGATE 해커톤 본선** (2026)
 
@@ -46,7 +46,7 @@ ML 시스템, 모델 추론 최적화, 알고리즘.
 
 **수학사고력챌린지 우승·금상** (2023.07, 전 문항 최고점)
 
-**수학탐구토론대회 3위** (고교 재학 중, 개인 참가)
+**수학탐구토론대회 3위** (2022.05, 3인 팀 대회에 단독 참가. 나머지 수상팀은 모두 3인 팀)
 
 **세과영 지니어스 The Primes 우승** (고교 재학 중)
 
@@ -79,9 +79,9 @@ TCP/JSON API를 이용한 주문·취소·포지션 관리와 거래 전략 구�
 
 HDF5 데이터 로더와 PyTorch·VarNet 학습·추론 코드 구현. SSIM 평가, VESSL 실험·체크포인트 관리.
 
-### QuantumCylinder / QDiffRecover <span class="cv-date">(2026.06 - 현재)</span>
+### QuantumCylinder <span class="cv-date">(2026.06)</span>
 
-Python·NumPy·PyTorch를 이용한 양자상태 ensemble 복원 실험. 팀장으로 복원 알고리즘 구현 및 반복 실험 자동화. 본선 이후 QDiffRecover 단독 연구.  
+Python·NumPy·PyTorch를 이용한 양자상태 ensemble 복원 실험. 팀장으로 복원 알고리즘 구현 및 반복 실험 자동화.  
 [GitHub](https://github.com/chaejinlim235/QuantumCylinder)
 
 ### Stable Diffusion 1.5 개인 연구 <span class="cv-date">(2022.10 - 2023.07)</span>
@@ -96,9 +96,9 @@ React·Next.js·Node.js·PostgreSQL을 이용한 서울대학교 시간표 서�
 건물 번호와 호실 번호에 하이픈이 포함된 강의실 ID의 분리 규칙 수정. 마지막 하이픈 뒤가 두 자리 이하의 정수인 경우, 마지막에서 두 번째 하이픈을 기준으로 건물·호실 분리.  
 [Google Play](https://play.google.com/store/apps/details?id=com.ttuns)
 
-### KICE Arena · 개발 참여 <span class="cv-date">(2026)</span>
+### KICE Arena · Co-Founder <span class="cv-date">(2026)</span>
 
-개발 도중 합류해 레이팅 시스템과 프론트엔드·UI 제작 참여.  
+정식 출시 전 레이팅 시스템과 프론트엔드·UI 제작 참여.  
 [GitHub](https://github.com/yoonhero/kicearena/)
 
 ### 설스터디(SnuStudy) · 개발 <span class="cv-date">(2026.02)</span>
@@ -141,13 +141,11 @@ React·Next.js·Supabase를 이용한 멘티 플래너, 피드백 화면 및 멘
 서울대학교 락 페스티벌 관악 앰프 업 공동 기획·운영 (2024.10 - 2025.04).  
 문화자치위원회 PILOT 공연장 조성·공연 사업 공동 기획·운영 (2025.06 - 2025.10).  
 오리지널 밴드 음주가무 창설·리더, 기타·작곡·믹싱·마스터링 (2025.09 - 2026.02).  
-개인 앨범 soundream.zip 발매 (2025). Unity 게임 두근두근 애니뮤 메인 사운드 디렉터·개발 보조 (2025.08).
+동아리 컴필레이션 앨범 soundream.zip에 곡 수록 (2025). Unity 게임 두근두근 애니뮤 메인 사운드 디렉터·개발 보조 (2025.08).
 
 ## Publications
 
 ### 『공부의 디테일: 중등부터 시작하는 공부법의 모든 것』 공동 저자 <span class="cv-date">(2025)</span>
-
-‘4분의 3 공부법’과 ‘구조화 공부법’ 칼럼 집필.
 
 ## Technical Skills
 
