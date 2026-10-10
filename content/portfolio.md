@@ -9,7 +9,7 @@ url: "/portfolio/"
 slug: "portfolio"
 comments: false
 toc: false
-intro: "한지후 · 서울대학교 첨단융합학부. ML 대회와 웹 서비스에서 맡은 작업, 사용한 기술, 실험 결과."
+intro: "한지후(Christopher Han) · 서울대학교 첨단융합학부. ML 대회와 웹 서비스에서 맡은 작업, 사용한 기술, 실험 결과."
 ---
 
 <section class="document-section" id="products">
