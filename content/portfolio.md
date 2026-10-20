@@ -1,103 +1,87 @@
 ---
 title: "Portfolio"
-description: "직접 만든 서비스와 ML 대회, 개인 연구에서 한 일을 정리한 포트폴리오"
+description: "AI 에이전트 기반 ML 대회, 직접 만든 서비스와 개인 프로젝트에서 한 일을 정리한 포트폴리오"
 date: 2026-08-15T00:00:00+09:00
-lastmod: 2026-10-11T00:00:00+09:00
+lastmod: 2026-10-20T00:00:00+09:00
 draft: false
 layout: "portfolio"
 url: "/portfolio/"
 slug: "portfolio"
 comments: false
 toc: false
-intro: "한지후(Christopher Han) · 서울대학교 첨단융합학부. ML 대회와 웹 서비스에서 맡은 작업, 사용한 기술, 실험 결과."
+intro: "한지후(Christopher Han) · 서울대학교 첨단융합학부. 알고리즘을 기반으로 AI 코딩 에이전트를 활용해 ML 대회와 서비스를 만든 과정과 결과."
 ---
 
 <section class="document-section" id="products">
   <h2>서비스 개발</h2>
   <div class="entry">
     <div class="entry-heading"><h3><a href="https://play.google.com/store/apps/details?id=com.ttuns" target="_blank" rel="noopener noreferrer">TTUNS</a></h3><time>2025.10 - 현재</time></div>
-    <p>React·Next.js로 시간표, 교수·강의실 검색, 빈 강의실 조회 화면을 만들었다. Node.js REST API와 PostgreSQL 스키마를 작성하고 외부 강의 데이터를 정리했다.</p>
+    <p>서울대학교 시간표, 교수·강의실 검색, 빈 강의실 조회 서비스다. 외부 강의 데이터를 정리하고 DB 스키마 설계를 맡았다.</p>
     <ul>
       <li>건물 번호와 호실 번호 모두에 하이픈이 들어가는 강의실 ID를 처리했다. 마지막 하이픈 뒤가 두 자리 이하의 정수이면 마지막에서 두 번째 하이픈을 기준으로 건물과 호실을 나누도록 수정했다.</li>
       <li>출시 뒤 사용자 제보를 받아 교수명 검색, 시간표 저장과 강의실 데이터 오류를 수정</li>
     </ul>
-    <p class="entry-meta">TypeScript / React / Next.js / Node.js / PostgreSQL / REST API</p>
-  </div>
+      </div>
   <div class="entry">
     <div class="entry-heading"><h3><a href="https://github.com/yoonhero/kicearena/" target="_blank" rel="noopener noreferrer">KICE Arena · Co-Founder</a></h3><time>2026</time></div>
-    <p>Co-Founder로 정식 출시 전 레이팅 시스템과 프론트엔드·UI 제작에 참여했다.</p>
+    <p>정식 출시 전 Co-Founder로 합류했다. 개발에서는 레이팅 시스템 설계와 프론트엔드·UI 제작에 참여했고, 출시 준비 과정에서 마케팅과 커뮤니티 운영을 맡았다.</p>
+    <ul>
+      <li>홍보용 릴스 제작을 자동화하는 파이프라인을 구축했다.</li>
+      <li>사용자 디스코드 서버를 운영·관리했다.</li>
+    </ul>
   </div>
   <div class="entry">
     <div class="entry-heading"><h3><a href="https://github.com/Bus-tayo/SnuStudy" target="_blank" rel="noopener noreferrer">설스터디 (SnuStudy)</a></h3><time>2026.02</time></div>
-    <p>React·Next.js로 멘티 플래너, 과제·피드백 화면과 멘토 대시보드를 만들고 Supabase를 연결했다. PDF 보고서 기능을 제안해 팀에서 구현했고, 대회에서 서비스의 차별점으로 평가받았다.</p>
-    <ul>
-      <li>참가자 200명 이상인 Blaybus MVP 개발 해커톤에서 3위·우수상</li>
-      <li>모바일 화면에서 하단 메뉴가 겹치거나 스크롤이 막히던 문제를 대회 중 수정</li>
-    </ul>
-    <p class="entry-meta">JavaScript / React / Next.js / Tailwind CSS / Supabase</p>
-  </div>
+    <p>멘토링 플래너 서비스의 멘티 플래너와 멘토 대시보드를 만들고 PDF 보고서 기능을 제안했다. 참가자 200명 이상인 Blaybus MVP 개발 해커톤에서 3위·우수상을 받았다.</p>
+      </div>
   <div class="entry">
     <div class="entry-heading"><h3>지하철 게임</h3><time>현재</time></div>
-    <p>메인 개발자로 5개국 지하철 데이터를 사용하는 웹 게임을 만들었다. 한국어·영어·일본어 UI를 작성하고 Supabase Realtime과 PostgreSQL로 실시간 대전과 랭킹을 구현했다.</p>
+    <p>메인 개발자로 5개국 지하철 데이터를 사용하는 웹 게임을 만들었다. 데이터를 정리하고 한국어·영어·일본어 UI와 랭킹 기능을 구현했다.</p>
     <ul>
       <li>게임 소개 콘텐츠 누적 조회수 107만 회</li>
     </ul>
-    <p class="entry-meta">TypeScript / Next.js / Supabase Realtime / PostgreSQL</p>
-  </div>
+      </div>
 </section>
 
 <section class="document-section" id="ml">
-  <h2>ML과 연구</h2>
+  <h2>ML 대회와 실험</h2>
   <div class="entry">
-    <div class="entry-heading"><h3><a href="https://github.com/knowin-kyeong/furiosa-opt-gemma4-12B" target="_blank" rel="noopener noreferrer">FuriosaAI MOA 2026 NPU 대회</a></h3><time>2026.09 - 현재</time></div>
-    <p>팀원들과 Gemma 4 12B의 Rust 추론 서버와 RNGD NPU 커널을 수정했다. 프리필 요청을 묶어 처리하고 디코드 배치를 늘렸으며 KV 캐시 저장 형식을 바꿨다.</p>
+    <div class="entry-heading"><h3>AI 에이전트 기반 ML 대회 운영</h3><time>2026 - 현재</time></div>
+    <p>10개 이상의 ML 대회에 참가해 약 80%에서 본선에 진출했다. Codex 에이전트를 역할별로 나눠 병렬로 돌리고 방법론 탐색과 구현을 맡긴다. 역할 분담, 실험 설계, 결과 검증과 제출 판단은 직접 한다. 실험마다 버전 번호와 보고서를 남기고, 결과가 이상하면 먼저 되돌린 뒤 원인을 좁힌다.</p>
     <ul>
-      <li>첫 유효 제출 74.75 tokens/s → 이후 제출 290.10 tokens/s</li>
-      <li>동시 요청 수 7 → 32를 포함한 팀 전체 개선 결과. 2026.10.10 제출 기록 기준</li>
+      <li>첫 ML 대회인 fastMRI Challenge에서 운영 전반을 에이전트에 맡겼다가, 방법론 탐색에 쓸 시간을 한 방법론의 파인튜닝에 써 버렸다. 이후 대회부터는 에이전트에 방법론 탐색만 맡기고 전체 진행은 직접 관리한다.</li>
+      <li>검증 점수와 리더보드 점수의 차이가 일정하다는 에이전트의 가정을 의심했고, 학습 직전에 그 가정이 틀렸음을 확인했다.</li>
+      <li>에이전트의 판단은 팀원과의 논의, Codex와 Claude의 교차 검증으로 확인한다.</li>
     </ul>
-    <p class="entry-meta">Rust / Gemma 4 12B / RNGD NPU / KV cache / 추론 서버</p>
+    <p class="entry-meta">Codex / Claude / 병렬 실험 / 실험 버전 관리</p>
   </div>
   <div class="entry">
     <div class="entry-heading"><h3>SNU AI Challenge</h3><time>2026.08 / 본선</time></div>
-    <p>모델 학습과 추론 구현을 혼자 맡아 10일 만에 본선에 진출했다. 24GB GPU 한 장에서 4-bit QLoRA로 모델을 학습했다. 같은 문제를 네 가지 입력 순서로 추론하고, 출력을 원래 좌표로 되돌린 뒤 투표하도록 만들었다.</p>
+    <p>모델 학습과 추론 파이프라인을 혼자 맡아 10일 만에 본선에 진출했다. 24GB GPU 한 장에서 4-bit QLoRA로 모델을 학습했다. 같은 문제를 네 가지 입력 순서로 추론하고, 출력을 원래 좌표로 되돌린 뒤 투표하도록 만들었다.</p>
     <ul>
       <li>문제당 추론 횟수 24 → 4 (83.3% 감소)</li>
       <li>공개 점수 0.93193에서 0.93542로 개선</li>
     </ul>
-    <p class="entry-meta">Python / PyTorch / Transformers / PEFT / bitsandbytes / NF4 / BF16</p>
+    <p class="entry-meta">Python / PyTorch / Transformers / PEFT / QLoRA</p>
   </div>
   <div class="entry">
-    <div class="entry-heading"><h3>fastMRI Challenge</h3><time>2026 / 팀장</time></div>
-    <p>HDF5 데이터 로더와 PyTorch·VarNet 학습·추론 코드를 작성했다. 가속도별로 VarNet을 학습하고 SSIM으로 결과를 비교했다. 제출 파일 생성 코드를 만들고 VESSL에서 실험 설정과 checkpoint를 관리했다.</p>
-    <p class="entry-meta">Python / PyTorch / VarNet / NumPy / HDF5 / SSIM / VESSL</p>
-  </div>
-  <div class="entry">
-    <div class="entry-heading"><h3><a href="https://github.com/chaejinlim235/QuantumCylinder" target="_blank" rel="noopener noreferrer">QuantumCylinder</a></h3><time>2026.06</time></div>
-    <p>Python·NumPy·PyTorch로 양자상태 ensemble 복원 알고리즘과 반복 실험 코드를 작성했다. 조건별 결과 비교를 자동화했고, 팀장으로 양자정보경진대회 본선에 참가했다.</p>
-    <p class="entry-meta">Python / NumPy / PyTorch / 양자 상태 복원</p>
-  </div>
-  <div class="entry">
-    <div class="entry-heading"><h3>Stable Diffusion 1.5 개인 연구</h3><time>2022.10 - 2023.07</time></div>
+    <div class="entry-heading"><h3>Stable Diffusion 1.5 개인 프로젝트</h3><time>2022.10 - 2023.07</time></div>
     <p>Stable Diffusion 1.5 공개 코드로 학습 환경을 구성했다. 이미지 데이터의 중복과 태그를 정리하고 PyTorch로 checkpoint와 LoRA를 학습했다. 학습 설정별 생성 결과를 비교하고 사용 기록을 작성했다.</p>
     <p class="entry-meta">Python / PyTorch / Stable Diffusion 1.5 / LoRA</p>
   </div>
   <div class="entry">
     <div class="entry-heading"><h3>ML Systems Lab</h3><time>2025.06 - 2025.08 / 2026.02 - 2026.07</time></div>
-    <p>PyTorch·CUDA로 Diffusion과 LoRA 학습 실험을 진행했다. 모델 품질, 학습 시간, GPU 메모리 사용량을 비교하고 Attention과 병렬 처리를 프로파일링했다. OOM 발생 조건과 학습이 불안정했던 설정을 기록했다.</p>
-    <p class="entry-meta">PyTorch / CUDA / Diffusion / LoRA / Attention / GPU profiling</p>
+    <p>PyTorch로 Diffusion과 LoRA 학습 실험을 진행했다. 설정별 모델 품질, 학습 시간, GPU 메모리 사용량을 비교했다.</p>
+    <p class="entry-meta">PyTorch / Diffusion / LoRA</p>
   </div>
 </section>
 
 <section class="document-section" id="more-work">
   <h2>그 밖의 작업</h2>
   <ul class="compact-list">
-    <li><strong>Jane Street ETC Trading Bot</strong> (2026.05) — TCP/JSON API로 주문·취소·포지션 처리와 초기 거래 전략을 가장 빠르게 구현해 누적 수익을 벌렸다. 이후 거래 데이터를 분석하고 내부 arena를 만들어 추가 모델을 실험했다. 최종 우승.</li>
+    <li><strong>Jane Street ETC Trading Bot</strong> (2026.05) — 거래소 API로 주문·취소·포지션 처리와 초기 거래 전략을 가장 빠르게 구현해 누적 수익을 벌렸다. 이후 거래 데이터를 분석하고 내부 arena를 만들어 추가 모델을 실험했다. 최종 우승.</li>
     <li><strong>Dan:Celestial</strong> (2023.01 - 2024.10) — 문서 번역과 현지화, 디자인, 웹 개발을 약 1년 10개월 동안 함께했다.</li>
-    <li><strong>ContestEarnings</strong> (2026.07 - 현재) — 대회·회차·평가 단계·성과·보상 데이터를 분리해 저장하는 서비스를 만들었다. 로그인, 후기, 정정 제보 기능을 구현했다.</li>
-    <li><strong>FOMO Break</strong> (2026.06) — 공개 시세와 비슷한 과거 구간을 찾아 보여 주는 MVP다. 팀장으로 기획과 풀스택 개발을 맡았다.</li>
-    <li><strong>K-HTML 해커톤</strong> (2025.08) — AI 모델을 웹 화면에 연결하는 부분을 맡았고 대상을 받았다.</li>
     <li><strong>두근두근 애니뮤</strong> (2025.08) — Unity 서브 개발에 참여했고 전체 사운드 디렉션을 맡았다.</li>
-    <li><strong>아이리스 Discord Bot</strong> (2022) — Python·Discord API·웹 스크래핑으로 급식·시간표 조회와 음악 재생 기능을 만들었다.</li>
   </ul>
 </section>
 
@@ -116,10 +100,9 @@ intro: "한지후(Christopher Han) · 서울대학교 첨단융합학부. ML 대
 <section class="document-section" id="skills">
   <h2>자주 쓰는 기술</h2>
   <ul class="skill-list">
-    <li><strong>언어</strong><span>C++ / Python / TypeScript / JavaScript / SQL</span></li>
-    <li><strong>ML</strong><span>PyTorch / CUDA / Transformers / PEFT / Diffusion / LoRA / GPU profiling</span></li>
-    <li><strong>웹</strong><span>React / Next.js / Node.js / REST API / PostgreSQL / Supabase / Cloudflare</span></li>
-    <li><strong>환경</strong><span>Git / Linux / Docker / VESSL</span></li>
+    <li><strong>주력</strong><span>C++ / Python (알고리즘·PS)</span></li>
+    <li><strong>ML</strong><span>PyTorch / Transformers / PEFT / LoRA·QLoRA</span></li>
+    <li><strong>도구</strong><span>Git / AI 코딩 에이전트 (Codex, Claude)</span></li>
   </ul>
 </section>
 
@@ -139,7 +122,7 @@ intro: "한지후(Christopher Han) · 서울대학교 첨단융합학부. ML 대
     <li><time>고교 재학 중</time><span>CTF 3년 연속 입상 — 팀장으로 문제 풀이 단독 수행. 2·3년 차 개인 점수 1위</span></li>
   </ul>
   <div class="entry">
-    <p>fastMRI Challenge, AGENT:24, SKYSH MVP와 양자정보경진대회에서 팀장을 맡았다. SNU AI Challenge는 모델 학습과 추론 구현을 혼자 수행했다. 대학 동아리 8곳에서 임원으로 활동했다.</p>
+    <p>fastMRI Challenge, AGENT:24, SKYSH MVP와 양자정보경진대회에서 팀장을 맡았다. SNU AI Challenge는 모델 학습과 추론 파이프라인을 혼자 맡았다. 대학 동아리 8곳에서 임원으로 활동했다.</p>
     <ul class="compact-list">
       <li><strong>피치</strong> — 창설에 참여한 초대 부회장. 초기 운영 체계와 역할 분담을 마련했다.</li>
       <li><strong>TIMEOUT</strong> — 문화부장으로 장소 선정, 예약, 정산과 행사 운영을 맡았다.</li>

@@ -1,8 +1,8 @@
 ---
 title: "한지후"
-description: "한지후 | 학력, ML 연구, 개발 프로젝트, 수상 및 활동"
+description: "한지후 | 학력, 알고리즘, AI 에이전트 기반 ML 대회, 개발 프로젝트, 수상 및 활동"
 date: 2026-07-16T00:00:00+09:00
-lastmod: 2026-10-11T00:00:00+09:00
+lastmod: 2026-10-20T00:00:00+09:00
 url: "/resume/"
 slug: "resume"
 layout: "cv"
@@ -17,7 +17,8 @@ draft: false
 
 ## Areas of Interest
 
-ML 시스템, 모델 추론 최적화, 알고리즘.
+알고리즘, AI 에이전트를 활용한 ML 대회 자동화.  
+자료구조·알고리즘을 기반으로, 익숙하지 않은 도메인은 AI 코딩 에이전트로 빠르게 구현·탐색. 방법론 탐색은 에이전트에 맡기고 실험 설계·검증·제출 판단은 직접 수행.
 
 ## Education
 
@@ -29,6 +30,12 @@ ML 시스템, 모델 추론 최적화, 알고리즘.
 ### 세종과학예술영재학교 <span class="cv-date">(2021.03 - 2024.02)</span>
 
 7기 수석 입학. 졸업 GPA 4.07/4.30.
+
+## Algorithmic Programming
+
+[Codeforces Candidate Master — PastelRain](https://codeforces.com/profile/PastelRain)  
+[백준 Diamond III — pleiades1](https://www.acmicpc.net/user/pleiades1)  
+정보올림피아드 입상 (고교 재학 중). 중학생 프로그래밍 지도, 지도 학생 NYPC 12-15세 부문 수상.
 
 ## Awards and Scholarships
 
@@ -52,39 +59,32 @@ ML 시스템, 모델 추론 최적화, 알고리즘.
 
 **CTF 3년 연속 입상** (고교 재학 중, 팀장. 문제 풀이 단독 수행. 2·3년 차 개인 점수 1위)
 
-**정보올림피아드 입상**, **매 학기 독서우수상 금상** (고교 재학 중)
+**매 학기 독서우수상 금상** (고교 재학 중)
 
-## Research and Technical Experience
+## ML Competitions and Experiments
 
-### FuriosaAI MOA 2026 NPU 대회 <span class="cv-date">(2026.09 - 현재)</span>
+### AI 에이전트 기반 ML 대회 참가 <span class="cv-date">(2026 - 현재)</span>
 
-팀원들과 Gemma 4 12B의 Rust 추론 서버와 RNGD NPU 커널 수정. 프리필 요청 묶음 처리, 디코드 배치 확장, KV 캐시 저장 형식 변경.  
-첫 유효 제출 74.75 tokens/s → 이후 제출 290.10 tokens/s. 동시 요청 수 7 → 32를 포함한 팀 전체 개선 결과. 2026.10.10 제출 기록 기준.  
-[코드·실험 기록](https://github.com/knowin-kyeong/furiosa-opt-gemma4-12B)
-
-### ML Systems Lab, 서울대학교 <span class="cv-date">(2025.06 - 2025.08 / 2026.02 - 2026.07)</span>
-
-PyTorch·CUDA를 이용한 Diffusion·LoRA 학습 실험. 모델 품질·GPU 메모리·실행시간 비교, Attention·병렬 처리 프로파일링.
+10개 이상의 ML 대회 참가, 약 80% 본선 진출. Codex 에이전트를 병렬로 운영해 방법론 탐색과 구현을 맡기고, 역할 분담·실험 설계·검증·제출 판단은 직접 수행. 실험마다 버전 번호와 보고서를 남겨 관리.
 
 ### SNU AI Challenge · 팀장 <span class="cv-date">(2026.08)</span>
 
-모델 학습과 추론 구현을 혼자 맡아 10일 만에 본선 진출. 24GB GPU 한 장에서 4-bit QLoRA 학습.  
+모델 학습과 추론 파이프라인을 맡아 10일 만에 본선 진출. 24GB GPU 한 장에서 4-bit QLoRA 학습.  
 입력 순서를 바꾼 네 개 조합의 출력을 원래 좌표로 되돌려 투표하도록 구성. 문제당 추론 횟수 24 → 4, 공개 점수 0.93193 → 0.93542.
 
 ### Jane Street ETC @ Seoul <span class="cv-date">(2026.05)</span>
 
-TCP/JSON API를 이용한 주문·취소·포지션 관리와 거래 전략 구현. 초기 전략을 가장 빠르게 수립해 누적 수익 확보. 거래 데이터 분석 및 내부 arena 구축 후 추가 모델 실험. 최종 우승.
+거래소 API를 이용한 주문·취소·포지션 관리와 거래 전략 구현. 초기 전략을 가장 빠르게 수립해 누적 수익 확보. 거래 데이터 분석 및 내부 arena 구축 후 추가 모델 실험. 최종 우승.
 
-### fastMRI Challenge · 팀장 <span class="cv-date">(2026)</span>
+### ML Systems Lab, 서울대학교 <span class="cv-date">(2025.06 - 2025.08 / 2026.02 - 2026.07)</span>
 
-HDF5 데이터 로더와 PyTorch·VarNet 학습·추론 코드 구현. SSIM 평가, VESSL 실험·체크포인트 관리.
+PyTorch를 이용한 Diffusion·LoRA 학습 실험. 설정별 모델 품질·GPU 메모리·실행시간 비교.
 
-### QuantumCylinder <span class="cv-date">(2026.06)</span>
+### 그 밖의 참가 대회
 
-Python·NumPy·PyTorch를 이용한 양자상태 ensemble 복원 실험. 팀장으로 복원 알고리즘 구현 및 반복 실험 자동화.  
-[GitHub](https://github.com/chaejinlim235/QuantumCylinder)
+fastMRI Challenge (2026, 팀장), 양자정보경진대회 본선 (2026.06, 팀장).
 
-### Stable Diffusion 1.5 개인 연구 <span class="cv-date">(2022.10 - 2023.07)</span>
+### Stable Diffusion 1.5 개인 프로젝트 <span class="cv-date">(2022.10 - 2023.07)</span>
 
 학습 데이터 구성, PyTorch를 이용한 checkpoint·LoRA fine-tuning 및 생성 결과 비교.
 
@@ -92,39 +92,34 @@ Python·NumPy·PyTorch를 이용한 양자상태 ensemble 복원 실험. 팀장�
 
 ### TTUNS · 개발 <span class="cv-date">(2025.10 - 현재)</span>
 
-React·Next.js·Node.js·PostgreSQL을 이용한 서울대학교 시간표 서비스. 화면, REST API, DB 스키마 및 외부 강의 데이터 처리 담당.  
+서울대학교 시간표 서비스. 외부 강의 데이터 정리와 DB 스키마 설계 담당.  
 건물 번호와 호실 번호에 하이픈이 포함된 강의실 ID의 분리 규칙 수정. 마지막 하이픈 뒤가 두 자리 이하의 정수인 경우, 마지막에서 두 번째 하이픈을 기준으로 건물·호실 분리.  
 [Google Play](https://play.google.com/store/apps/details?id=com.ttuns)
 
 ### KICE Arena · Co-Founder <span class="cv-date">(2026)</span>
 
-정식 출시 전 레이팅 시스템과 프론트엔드·UI 제작 참여.  
+정식 출시 전 합류. 레이팅 시스템 설계와 프론트엔드·UI 제작 참여.  
+마케팅 담당. 홍보용 릴스 제작 자동화 파이프라인 구축, 사용자 디스코드 서버 운영·관리.  
 [GitHub](https://github.com/yoonhero/kicearena/)
 
 ### 설스터디(SnuStudy) · 개발 <span class="cv-date">(2026.02)</span>
 
-React·Next.js·Supabase를 이용한 멘티 플래너, 피드백 화면 및 멘토 대시보드 구현. PDF 보고서 기능 제안·팀 적용. Blaybus MVP 개발 해커톤 3위·우수상.  
+멘토링 플래너 서비스. 멘티 플래너·멘토 대시보드 구현, PDF 보고서 기능 제안. Blaybus MVP 개발 해커톤 3위·우수상.  
 [GitHub](https://github.com/Bus-tayo/SnuStudy)
 
 ### 지하철 게임 · 메인 개발
 
-5개국 데이터와 한국어·영어·일본어 UI 구현. Supabase Realtime·PostgreSQL을 이용한 실시간 대전 및 랭킹 기능 개발. 게임 소개 콘텐츠 누적 조회수 107만 회.
+5개국 지하철 데이터 정리와 한국어·영어·일본어 UI, 랭킹 기능 구현. 게임 소개 콘텐츠 누적 조회수 107만 회.
 
 ### Dan:Celestial <span class="cv-date">(2023.01 - 2024.10)</span>
 
 웹 개발, UI 디자인, 문서 번역 및 현지화.
 
-## Teaching and Algorithmic Programming
+## Teaching
 
 ### 서울대학교 교과목 튜터 <span class="cv-date">(2025 - 2026)</span>
 
 컴퓨팅: 2025년 1·2학기, 2026년 1학기. 프로그래밍 개발 방법론: 2026년 1학기. 학생 코드 리뷰·디버깅 지도. 기초물리학 1 튜터 활동.
-
-### 알고리즘 대회 및 지도
-
-[Codeforces Candidate Master — PastelRain](https://codeforces.com/profile/PastelRain)  
-[백준 Diamond III — pleiades1](https://www.acmicpc.net/user/pleiades1)  
-중학생 프로그래밍 지도. 지도 학생 NYPC 12-15세 부문 수상.
 
 ## Activities
 
@@ -149,7 +144,6 @@ React·Next.js·Supabase를 이용한 멘티 플래너, 피드백 화면 및 멘
 
 ## Technical Skills
 
-**언어:** C++, Python, TypeScript, JavaScript, SQL  
-**ML:** PyTorch, CUDA, Transformers, PEFT, LoRA·QLoRA, VarNet  
-**웹:** React, Next.js, Node.js, FastAPI, PostgreSQL, Supabase, Drizzle ORM  
-**도구:** Git, Linux, Docker, VESSL
+**주력:** C++, Python (알고리즘·PS)  
+**ML:** PyTorch, Transformers, PEFT (LoRA·QLoRA)  
+**도구:** Git, AI 코딩 에이전트 (Codex, Claude)
