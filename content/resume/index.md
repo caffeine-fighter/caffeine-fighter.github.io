@@ -2,7 +2,7 @@
 title: "한지후"
 description: "한지후 | 학력, 알고리즘, AI 에이전트 기반 ML 대회, 개발 프로젝트, 수상 및 활동"
 date: 2026-07-16T00:00:00+09:00
-lastmod: 2026-10-20T00:00:00+09:00
+lastmod: 2026-10-21T00:00:00+09:00
 url: "/resume/"
 slug: "resume"
 layout: "cv"
@@ -95,6 +95,10 @@ fastMRI Challenge (2026, 팀장), 양자정보경진대회 본선 (2026.06, 팀�
 서울대학교 시간표 서비스. 외부 강의 데이터 정리와 DB 스키마 설계 담당.  
 건물 번호와 호실 번호에 하이픈이 포함된 강의실 ID의 분리 규칙 수정. 마지막 하이픈 뒤가 두 자리 이하의 정수인 경우, 마지막에서 두 번째 하이픈을 기준으로 건물·호실 분리.  
 [Google Play](https://play.google.com/store/apps/details?id=com.ttuns)
+
+### SCSC 홈페이지 · 초기 개발·유지보수 <span class="cv-date">(2026.08 - 현재)</span>
+
+동아리 SCSC 홈페이지 초기 개발 및 운영 중 유지보수 담당.
 
 ### KICE Arena · Co-Founder <span class="cv-date">(2026)</span>
 
