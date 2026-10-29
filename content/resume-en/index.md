@@ -94,7 +94,7 @@ Built training datasets, fine-tuned checkpoints and LoRAs with PyTorch, and comp
 
 ### TTUNS · Developer <span class="cv-date">(Oct 2025 - Present)</span>
 
-Course timetable service for Seoul National University, with 100+ downloads on Google Play. Responsible for cleaning external course data and designing the database schema.  
+Course timetable service for Seoul National University, built with React, Next.js and Node.js, with 100+ downloads on Google Play. Responsible for cleaning external course data and designing the database schema.  
 Fixed the rule for splitting classroom IDs where both building and room numbers contain hyphens: when the part after the last hyphen is an integer of at most two digits, split building and room at the second-to-last hyphen.  
 [Google Play](https://play.google.com/store/apps/details?id=com.ttuns)
 
@@ -110,30 +110,17 @@ Led marketing: built an automated pipeline for producing promotional Reels, and 
 
 ### SnuStudy · Developer <span class="cv-date">(Feb 2026)</span>
 
-Mentoring planner service. Built the mentee planner and mentor dashboard, and proposed the PDF report feature. 3rd Place and Excellence Award at the Blaybus MVP Development Hackathon.  
+Mentoring planner service built with React, Next.js and Supabase. Built the mentee planner and mentor dashboard, and proposed the PDF report feature. 3rd Place and Excellence Award at the Blaybus MVP Development Hackathon.  
 [GitHub](https://github.com/Bus-tayo/SnuStudy)
 
 ### Subway Game · Lead Developer
 
-Prepared subway data for five countries, built the Korean, English and Japanese UI, and implemented rankings. Promotional content for the game has 1.07 million cumulative views.  
+Web game built with Next.js and Supabase. Prepared subway data for five countries, built the Korean, English and Japanese UI, and implemented rankings. Promotional content for the game has 1.07 million cumulative views.  
 [GitHub](https://github.com/Team-DreamState/SubwayGuessr)
-
-### ContestEarnings · Solo Developer <span class="cv-date">(Jul 2026 - Present)</span>
-
-Data service that links competition prize money to its official sources.  
-[GitHub](https://github.com/caffeine-fighter/ContestEarnings)
-
-### FOMO Break · Team Lead and PM <span class="cv-date">(Jun 2026)</span>
-
-MVP that helps users think before buying by showing public market prices alongside similar past periods.
 
 ### Dan:Celestial <span class="cv-date">(Jan 2023 - Oct 2024)</span>
 
 Web development and UI design. Handled English–Korean interpretation and translation in both directions, along with document localization.
-
-### Iris Discord Bot <span class="cv-date">(2022)</span>
-
-Discord bot for school meal and timetable lookups and music playback.
 
 ## Teaching
 
@@ -175,4 +162,5 @@ Wrote the columns on the "three-quarters" study method and the structured study 
 
 **Primary:** C++, Python (algorithms and competitive programming)  
 **ML:** PyTorch, Transformers, PEFT (LoRA, QLoRA)  
+**Web:** React, Next.js, Node.js, Supabase  
 **Tools:** Git, AI coding agents (Codex, Claude)

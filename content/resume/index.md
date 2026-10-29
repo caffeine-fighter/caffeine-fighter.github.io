@@ -93,7 +93,7 @@ fastMRI Challenge (2026, 팀장), 양자정보경진대회 본선 (2026.06, 팀�
 
 ### TTUNS · 개발 <span class="cv-date">(2025.10 - 현재)</span>
 
-서울대학교 시간표 서비스. Google Play 100회 이상 다운로드. 외부 강의 데이터 정리와 DB 스키마 설계 담당.  
+React·Next.js·Node.js 기반 서울대학교 시간표 서비스. Google Play 100회 이상 다운로드. 외부 강의 데이터 정리와 DB 스키마 설계 담당.  
 건물 번호와 호실 번호에 하이픈이 포함된 강의실 ID의 분리 규칙 수정. 마지막 하이픈 뒤가 두 자리 이하의 정수인 경우, 마지막에서 두 번째 하이픈을 기준으로 건물·호실 분리.  
 [Google Play](https://play.google.com/store/apps/details?id=com.ttuns)
 
@@ -109,30 +109,17 @@ fastMRI Challenge (2026, 팀장), 양자정보경진대회 본선 (2026.06, 팀�
 
 ### 설스터디(SnuStudy) · 개발 <span class="cv-date">(2026.02)</span>
 
-멘토링 플래너 서비스. 멘티 플래너·멘토 대시보드 구현, PDF 보고서 기능 제안. Blaybus MVP 개발 해커톤 3위·우수상.  
+React·Next.js·Supabase 기반 멘토링 플래너 서비스. 멘티 플래너·멘토 대시보드 구현, PDF 보고서 기능 제안. Blaybus MVP 개발 해커톤 3위·우수상.  
 [GitHub](https://github.com/Bus-tayo/SnuStudy)
 
 ### 지하철 게임 · 메인 개발
 
-5개국 지하철 데이터 정리와 한국어·영어·일본어 UI, 랭킹 기능 구현. 게임 소개 콘텐츠 누적 조회수 107만 회.  
+Next.js·Supabase 기반 웹 게임. 5개국 지하철 데이터 정리와 한국어·영어·일본어 UI, 랭킹 기능 구현. 게임 소개 콘텐츠 누적 조회수 107만 회.  
 [GitHub](https://github.com/Team-DreamState/SubwayGuessr)
-
-### ContestEarnings · 단독 개발 <span class="cv-date">(2026.07 - 현재)</span>
-
-대회 상금과 공식 출처를 연결해 정리하는 데이터 서비스.  
-[GitHub](https://github.com/caffeine-fighter/ContestEarnings)
-
-### FOMO Break · 팀장·PM <span class="cv-date">(2026.06)</span>
-
-공개 시세와 과거 유사 구간을 보여주는 매수 전 판단 보조 MVP.
 
 ### Dan:Celestial <span class="cv-date">(2023.01 - 2024.10)</span>
 
 웹 개발, UI 디자인, 문서 번역 및 현지화.
-
-### 아이리스 Discord Bot <span class="cv-date">(2022)</span>
-
-학교 급식·시간표 조회와 음악 재생 기능을 갖춘 Discord 봇.
 
 ## Teaching
 
@@ -174,4 +161,5 @@ Unity 게임 두근두근 애니뮤 메인 사운드 디렉터·개발 보조 (2
 
 **주력:** C++, Python (알고리즘·PS)  
 **ML:** PyTorch, Transformers, PEFT (LoRA·QLoRA)  
+**웹:** React, Next.js, Node.js, Supabase  
 **도구:** Git, AI 코딩 에이전트 (Codex, Claude)
