@@ -43,7 +43,7 @@
 <article class="cv-sheet">
   <header>
     <div class="cv-title">
-      <h1>{{ .Title }} <span lang="en">Christopher Han</span></h1>
+      {{ if eq .Params.cvLang "en" }}<h1>{{ .Title }}</h1>{{ else }}<h1>{{ .Title }} <span lang="en">Christopher Han</span></h1>{{ end }}
       <p class="cv-edition">Curriculum Vitae, {{ .Lastmod.Format "January 2, 2006" }}</p>
     </div>
     <dl class="cv-contact">
@@ -54,6 +54,10 @@
     </dl>
   </header>
   <div class="cv-content">{{ .Content }}</div>
-  <nav class="cv-nav" aria-label="관련 페이지"><a href="/">홈</a><a href="/portfolio/">포트폴리오</a><a href="/profile/">프로필</a></nav>
+  {{ if eq .Params.cvLang "en" }}
+  <nav class="cv-nav" aria-label="Related pages"><a href="/">Home</a><a href="/portfolio/">Portfolio (Korean)</a><a href="/resume/">한국어</a></nav>
+  {{ else }}
+  <nav class="cv-nav" aria-label="관련 페이지"><a href="/">홈</a><a href="/portfolio/">포트폴리오</a><a href="/profile/">프로필</a><a href="/resume/en/">English</a></nav>
+  {{ end }}
 </article>
 {{ end }}
