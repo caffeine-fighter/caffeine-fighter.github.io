@@ -130,7 +130,7 @@ Computing: Spring and Fall 2025, Spring 2026. Programming Development Methodolog
 
 ### Student Organizations
 
-Executive roles in eight student clubs, including founding vice president of Pitch, founding head of publicity for the Shanghai Alice Wind Orchestra, culture lead of TIMEOUT, treasurer of Komikoto and Seoldayeon, officer and sub-group manager of SCSC, facilities lead and sub-group head of Soundream, and organizing committee member of Hyurim.
+Executive roles in nine student clubs, including founding vice president of Pitch, founding head of publicity for Shanghai Alice Gwanakdan, culture lead of TIMEOUT, finance manager of Comicoto and Seoldayeon, officer and sub-group manager of SCSC, facilities lead and sub-group head of Soundream, head of multiple sub-groups in ANIMU, and organizing committee member of HURIM.
 
 ### Intercollegiate Society for Ultra-Precision Model Control (ISUPMC)
 
