@@ -30,7 +30,8 @@ Overall GPA 3.86/4.30; departmental major GPA 4.18/4.30. 85 credits over 5 semes
 
 ### Sejong Academy of Science and Arts <span class="cv-date">(Mar 2021 - Feb 2024)</span>
 
-Admitted first in the 7th entering class. Graduating GPA 4.07/4.30.
+Admitted first in the 7th entering class. Graduating GPA 4.07/4.30.  
+Subject Excellence Awards in Discrete Mathematics and Music & Technology. Gold Award, English Science Writing.
 
 ## Algorithmic Programming
 
@@ -44,11 +45,11 @@ Award at the Korea Olympiad in Informatics (high school). Taught programming to 
 
 **3rd Place and Excellence Award, Blaybus MVP Development Hackathon** (Feb 2026, 200+ participants)
 
-**Grand Prize, K-HTML Hackathon** (Aug 2025)
+**Grand Prize, K-HTML Hackathon** (Aug 2025, followed by an MOU and collaboration with a company)
 
 **KT Digital Talent Scholarship** (2026)
 
-**Finalist, SNU AI Challenge**, **Finalist, Quantum Information Competition**, **Finalist, CODEGATE Hackathon** (2026)
+**Finalist, SNU AI Challenge**, **Finalist, Quantum Information Competition**, **Finalist, SKYSH MVP Development Hackathon**, **Finalist, CODEGATE Hackathon** (2026)
 
 **Extracurricular Excellence Award, SNU Department of Transdisciplinary Innovations**
 
@@ -70,12 +71,12 @@ Entered 10+ ML competitions and reached the finals in about 80% of them. I run C
 
 ### SNU AI Challenge · Team Lead <span class="cv-date">(Aug 2026)</span>
 
-Owned the model training and inference pipeline and reached the finals in 10 days. Trained with 4-bit QLoRA on a single 24GB GPU.  
+Owned the model training and inference pipeline and reached the finals in 10 days. Trained Qwen3.6-27B with 4-bit QLoRA on a single 24GB GPU.  
 Ran inference on four input orderings, mapped each output back to the original coordinates and took a vote. Cut inference calls per problem from 24 to 4 and raised the public score from 0.93193 to 0.93542.
 
 ### Jane Street ETC @ Seoul <span class="cv-date">(May 2026)</span>
 
-Built order placement, cancellation and position management on the exchange API, along with trading strategies. Set up a profitable initial strategy faster than any other team and built a cumulative lead. Then analyzed trading data and built an internal arena to test further models. Won the event.
+Built order placement, cancellation and position management on the exchange API, along with market making, ADR pair trading and ETF basket arbitrage strategies. Set up a profitable initial strategy faster than any other team and built a cumulative lead. Then analyzed trading data and built an internal arena to test further models. Won the event.
 
 ### ML Systems Lab, Seoul National University <span class="cv-date">(Jun - Aug 2025 / Feb - Jul 2026)</span>
 
@@ -83,7 +84,7 @@ Ran Diffusion and LoRA training experiments in PyTorch, comparing model quality,
 
 ### Other Competitions
 
-fastMRI Challenge (2026, team lead); Quantum Information Competition finals (Jun 2026, team lead).
+fastMRI Challenge (2026, team lead); Quantum Information Competition finals (Jun 2026, team lead, [QuantumCylinder](https://github.com/chaejinlim235/QuantumCylinder)); SKYSH MVP Development Hackathon finals (Jun 2026, team lead); AGENT:24 (team lead).
 
 ### Stable Diffusion 1.5 Personal Project <span class="cv-date">(Oct 2022 - Jul 2023)</span>
 
@@ -93,7 +94,7 @@ Built training datasets, fine-tuned checkpoints and LoRAs with PyTorch, and comp
 
 ### TTUNS · Developer <span class="cv-date">(Oct 2025 - Present)</span>
 
-Course timetable service for Seoul National University. Responsible for cleaning external course data and designing the database schema.  
+Course timetable service for Seoul National University, with 100+ downloads on Google Play. Responsible for cleaning external course data and designing the database schema.  
 Fixed the rule for splitting classroom IDs where both building and room numbers contain hyphens: when the part after the last hyphen is an integer of at most two digits, split building and room at the second-to-last hyphen.  
 [Google Play](https://play.google.com/store/apps/details?id=com.ttuns)
 
@@ -114,11 +115,25 @@ Mentoring planner service. Built the mentee planner and mentor dashboard, and pr
 
 ### Subway Game · Lead Developer
 
-Prepared subway data for five countries, built the Korean, English and Japanese UI, and implemented rankings. Promotional content for the game has 1.07 million cumulative views.
+Prepared subway data for five countries, built the Korean, English and Japanese UI, and implemented rankings. Promotional content for the game has 1.07 million cumulative views.  
+[GitHub](https://github.com/Team-DreamState/SubwayGuessr)
+
+### ContestEarnings · Solo Developer <span class="cv-date">(Jul 2026 - Present)</span>
+
+Data service that links competition prize money to its official sources.  
+[GitHub](https://github.com/caffeine-fighter/ContestEarnings)
+
+### FOMO Break · Team Lead and PM <span class="cv-date">(Jun 2026)</span>
+
+MVP that helps users think before buying by showing public market prices alongside similar past periods.
 
 ### Dan:Celestial <span class="cv-date">(Jan 2023 - Oct 2024)</span>
 
 Web development and UI design. Handled English–Korean interpretation and translation in both directions, along with document localization.
+
+### Iris Discord Bot <span class="cv-date">(2022)</span>
+
+Discord bot for school meal and timetable lookups and music playback.
 
 ## Teaching
 
@@ -126,11 +141,16 @@ Web development and UI design. Handled English–Korean interpretation and trans
 
 Computing: Spring and Fall 2025, Spring 2026. Programming Development Methodology: Spring 2026. Reviewed and debugged student code. Also tutored Basic Physics 1.
 
+### Mentoring and Private Tutoring
+
+LnL mentor (2025).  
+Private tutoring: PS/CP; math and science for science-academy admissions and coursework; high school math and science; IB/SAT math and science; math essay and oral interview prep; geometry, combinatorics and discrete mathematics.
+
 ## Activities
 
 ### Student Organizations
 
-Executive roles in nine student clubs, including founding vice president of Pitch, founding head of publicity for Shanghai Alice Gwanakdan, culture lead of TIMEOUT, finance manager of Comicoto and Seoldayeon, officer and sub-group manager of SCSC, facilities lead and sub-group head of Soundream, head of multiple sub-groups in ANIMU, and organizing committee member of HURIM.
+Executive roles in nine student clubs, including founding vice president of Pitch, founding head of publicity for Shanghai Alice Gwanakdan, culture lead of TIMEOUT, finance manager of Comicoto and Seoldayeon, officer, sub-group manager and PIG sub-group head of SCSC, facilities lead and sub-group head of Soundream, head of multiple sub-groups in ANIMU, and organizing committee member of HURIM.
 
 ### Intercollegiate Society for Ultra-Precision Model Control (ISUPMC)
 
@@ -140,12 +160,16 @@ Society of students from 11 universities. Second-term vice president and third-t
 
 Co-planned and ran Gwanak Amp Up, the Seoul National University rock festival (Oct 2024 - Apr 2025).  
 Co-planned and ran the PILOT venue and performance project of the student Cultural Autonomy Committee (Jun - Oct 2025).  
-Founded and led the original band Alcoholic (음주가무) as guitarist, songwriter and mixing/mastering engineer (Sep 2025 - Feb 2026).  
-Contributed a track to the club compilation album soundream.zip (2025). Lead sound director and development assistant for the Unity game Doki-doki ANIMU (Aug 2025).
+Hosted a joint concert of three bands, overseeing planning, administration and on-site operations, and performed with a band (Aug 2025).  
+Founded and led the seven-member original band Alcoholic (음주가무) as guitarist, songwriter and mixing/mastering engineer (Sep 2025 - Feb 2026).  
+Took part in the club compilation albums soundream.zip (Aug 2025) and Hongbaek (Mar 2026). Joined AfterImage, an 11-artist multi-genre collaboration (Feb 2026).  
+Lead sound director and development assistant for the Unity game Doki-doki ANIMU (Aug 2025).
 
 ## Publications
 
 ### Co-author, *The Details of Studying: Everything About Study Methods, Starting in Middle School* (in Korean) <span class="cv-date">(2025)</span>
+
+Wrote the columns on the "three-quarters" study method and the structured study method.
 
 ## Technical Skills
 
