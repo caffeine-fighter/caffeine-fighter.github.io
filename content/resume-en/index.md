@@ -118,7 +118,7 @@ Prepared subway data for five countries, built the Korean, English and Japanese 
 
 ### Dan:Celestial <span class="cv-date">(Jan 2023 - Oct 2024)</span>
 
-Web development, UI design, and document translation and localization.
+Web development and UI design. Handled English–Korean interpretation and translation in both directions, along with document localization.
 
 ## Teaching
 
