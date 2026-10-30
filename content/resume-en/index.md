@@ -116,7 +116,7 @@ Mentoring planner service built with React, Next.js and Supabase. Built the ment
 ### Subway Game · Lead Developer
 
 Web game built with Next.js and Supabase. Prepared subway data for five countries, built the Korean, English and Japanese UI, and implemented rankings. Promotional content for the game has 1.07 million cumulative views.  
-[GitHub](https://github.com/Team-DreamState/SubwayGuessr)
+[GitHub](https://github.com/kkigon/subway/)
 
 ### Dan:Celestial <span class="cv-date">(Jan 2023 - Oct 2024)</span>
 
@@ -137,7 +137,7 @@ Private tutoring: PS/CP; math and science for science-academy admissions and cou
 
 ### Student Organizations
 
-Executive roles in nine student clubs, including founding vice president of Pitch, founding head of publicity for Shanghai Alice Gwanakdan, culture lead of TIMEOUT, finance manager of Comicoto and Seoldayeon, officer, sub-group manager and PIG sub-group head of SCSC, facilities lead and sub-group head of Soundream, head of multiple sub-groups in ANIMU, and organizing committee member of HURIM.
+Executive roles in nine student clubs, including founding vice president of Pitch, founding head of publicity for Shanghai Alice Gwanakdan, culture lead of TIMEOUT, finance manager of Comicoto and Seoldayeon, officer, sub-group manager and PIG sub-group head of SCSC, facilities lead and sub-group head of Soundream, head of multiple sub-groups in ANIMU, and staff member of HURIM.
 
 ### Intercollegiate Society for Ultra-Precision Model Control (ISUPMC)
 
