@@ -122,7 +122,7 @@ intro: "한지후(Christopher Han) · 서울대학교 첨단융합학부. 알고
     <li><time>고교 재학 중</time><span>CTF 3년 연속 입상 — 팀장으로 문제 풀이 단독 수행. 2·3년 차 개인 점수 1위</span></li>
   </ul>
   <div class="entry">
-    <p>fastMRI Challenge, AGENT:24, SKYSH MVP와 양자정보경진대회에서 팀장을 맡았다. SNU AI Challenge는 모델 학습과 추론 파이프라인을 혼자 맡았다. 대학 동아리 8곳에서 임원으로 활동했다.</p>
+    <p>fastMRI Challenge, AGENT:24, SKYSH MVP와 양자정보경진대회에서 팀장을 맡았다. SNU AI Challenge는 모델 학습과 추론 파이프라인을 혼자 맡았다. 대학 동아리 9곳에서 임원으로 활동했다.</p>
     <ul class="compact-list">
       <li><strong>피치</strong> — 창설에 참여한 초대 부회장. 초기 운영 체계와 역할 분담을 마련했다.</li>
       <li><strong>TIMEOUT</strong> — 문화부장으로 장소 선정, 예약, 정산과 행사 운영을 맡았다.</li>
@@ -131,6 +131,7 @@ intro: "한지후(Christopher Han) · 서울대학교 첨단융합학부. 알고
       <li><strong>설다연</strong> — 회계로 운영비의 흐름과 정산을 관리했다.</li>
       <li><strong>SCSC</strong> — 임원과 소모임 관리자를 맡았고, 음악 제작 프로젝트 PIG를 이끌었다.</li>
       <li><strong>사운드림</strong> — 미화부장과 소모임장으로 행사 기획, 설비, 예약과 행정 실무를 맡았다.</li>
+      <li><strong>애니뮤</strong> — 잠·TS·작곡·마작 소모임의 소모임장을 맡고 있다.</li>
       <li><strong>휴림</strong> — 운영진으로 활동하고 있다.</li>
     </ul>
     <p>11개교 학생이 참여하는 초정밀모델제어학회 (ISUPMC)에서 2대 부회장과 3대 회장을 맡았다.</p>
